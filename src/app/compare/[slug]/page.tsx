@@ -12,16 +12,17 @@ import { ExternalLink, Award, ThumbsUp, ThumbsDown } from 'lucide-react';
 export const revalidate = 600;
 
 interface ComparisonPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: ComparisonPageProps): Promise<Metadata> {
+  const { slug } = await params;
   const { data: comparison } = await supabase
     .from('comparisons')
     .select('*')
-    .eq('slug', params.slug)
+    .eq('slug', slug)
     .eq('status', 'published')
     .single();
 
@@ -44,10 +45,11 @@ export async function generateMetadata({ params }: ComparisonPageProps): Promise
 }
 
 export default async function ComparisonPage({ params }: ComparisonPageProps) {
+  const { slug } = await params;
   const { data: comparison } = await supabase
     .from('comparisons')
     .select('*')
-    .eq('slug', params.slug)
+    .eq('slug', slug)
     .eq('status', 'published')
     .single();
 

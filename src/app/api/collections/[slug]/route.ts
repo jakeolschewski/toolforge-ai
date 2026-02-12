@@ -10,13 +10,14 @@ export const dynamic = 'force-dynamic';
 // GET /api/collections/[slug] - Fetch single collection with tools data
 export async function GET(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
+    const { slug } = await params;
     const { data: collection, error: collError } = await supabase
       .from('collections')
       .select('*')
-      .eq('slug', params.slug)
+      .eq('slug', slug)
       .eq('status', 'published')
       .single();
 
@@ -42,10 +43,11 @@ export async function GET(
     if (toolsError) throw toolsError;
 
     // Increment view count
-    await supabaseAdmin
+    supabaseAdmin
       .from('collections')
       .update({ views: (collection.views || 0) + 1 })
-      .eq('id', collection.id);
+      .eq('id', collection.id)
+      .then(() => {}, console.error);
 
     return NextResponse.json<ApiResponse>(
       {
@@ -75,10 +77,11 @@ export async function GET(
 // PUT /api/collections/[slug] - Update collection (admin only)
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
     const body = await request.json();
+    const { slug } = await params;
 
     const updateData: Partial<Collection> = { ...body };
     delete updateData.id;
@@ -88,7 +91,7 @@ export async function PUT(
     const { data, error } = await supabaseAdmin
       .from('collections')
       .update(updateData)
-      .eq('slug', params.slug)
+      .eq('slug', slug)
       .select()
       .single();
 
@@ -113,13 +116,14 @@ export async function PUT(
 // DELETE /api/collections/[slug] - Delete collection (admin only)
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
+    const { slug } = await params;
     const { error } = await supabaseAdmin
       .from('collections')
       .delete()
-      .eq('slug', params.slug);
+      .eq('slug', slug);
 
     if (error) throw error;
 

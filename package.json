@@ -13,6 +13,7 @@
     "seed:reviews": "tsx scripts/seed-reviews.ts"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.74.0",
     "@auth/supabase-adapter": "^1.7.3",
     "@supabase/supabase-js": "^2.48.1",
     "@vercel/analytics": "^1.4.1",
@@ -29,6 +30,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hot-toast": "^2.4.1",
+    "recharts": "^3.7.0",
     "rss-parser": "^3.13.0",
     "stripe": "^17.5.0",
     "tailwind-merge": "^2.6.0",

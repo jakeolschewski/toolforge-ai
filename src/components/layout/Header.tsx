@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { Menu, X, Search, ChevronDown } from 'lucide-react';
+import AdvancedSearch from '@/components/search/AdvancedSearch';
+import SearchShortcut from '@/components/search/SearchShortcut';
 
 const categories = [
   { name: 'Writing', slug: 'writing' },
@@ -19,7 +21,7 @@ const categories = [
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isAdvancedSearchOpen, setIsAdvancedSearchOpen] = useState(false);
   const [isCategoriesOpen, setIsCategoriesOpen] = useState(false);
 
   return (
@@ -84,8 +86,20 @@ export default function Header() {
 
           <div className="flex items-center gap-4">
             <button
-              onClick={() => setIsSearchOpen(!isSearchOpen)}
-              className="p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
+              onClick={() => setIsAdvancedSearchOpen(true)}
+              className="hidden md:flex items-center gap-3 px-3 py-2 text-sm text-gray-600 hover:text-gray-900 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
+              aria-label="Search"
+            >
+              <Search className="h-4 w-4" />
+              <span className="text-gray-500">Search</span>
+              <kbd className="hidden lg:inline-block px-2 py-0.5 text-xs font-semibold text-gray-500 bg-white border border-gray-200 rounded">
+                ⌘K
+              </kbd>
+            </button>
+
+            <button
+              onClick={() => setIsAdvancedSearchOpen(true)}
+              className="md:hidden p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
               aria-label="Search"
             >
               <Search className="h-5 w-5" />
@@ -147,18 +161,16 @@ export default function Header() {
           </div>
         )}
 
-        {isSearchOpen && (
-          <div className="absolute left-0 right-0 top-full mt-1 bg-white border-b shadow-lg p-4">
-            <input
-              type="search"
-              placeholder="Search AI tools..."
-              className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              autoFocus
-              onBlur={() => setTimeout(() => setIsSearchOpen(false), 200)}
-            />
-          </div>
-        )}
       </nav>
+
+      {/* Advanced Search Modal */}
+      <AdvancedSearch
+        isOpen={isAdvancedSearchOpen}
+        onClose={() => setIsAdvancedSearchOpen(false)}
+      />
+
+      {/* Keyboard Shortcut (Cmd+K / Ctrl+K) */}
+      <SearchShortcut onOpen={() => setIsAdvancedSearchOpen(true)} />
     </header>
   );
 }

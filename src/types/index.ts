@@ -330,3 +330,89 @@ export interface Collection {
   created_at: string;
   updated_at: string;
 }
+
+// Analytics Dashboard Types
+export interface DashboardMetrics {
+  today_revenue: number;
+  today_revenue_change: number;
+  week_revenue: number;
+  week_revenue_change: number;
+  month_revenue: number;
+  month_revenue_change: number;
+  all_time_revenue: number;
+  today_clicks: number;
+  today_conversions: number;
+  week_clicks: number;
+  week_conversions: number;
+  month_clicks: number;
+  month_conversions: number;
+  avg_conversion_rate: number;
+  avg_order_value: number;
+  epc: number; // earnings per click
+}
+
+export interface RevenueByProgram {
+  program: string;
+  revenue: number;
+  conversions: number;
+  clicks: number;
+  percentage: number;
+}
+
+export interface ToolPerformanceMetrics {
+  tool_id: string;
+  tool_name: string;
+  views: number;
+  clicks: number;
+  conversions: number;
+  revenue: number;
+  ctr: number; // click-through rate
+  conversion_rate: number;
+  epc: number; // earnings per click
+  avg_order_value: number;
+}
+
+export interface TrafficSource {
+  source: string;
+  visits: number;
+  clicks: number;
+  conversions: number;
+  revenue: number;
+  percentage: number;
+}
+
+export interface ConversionFunnel {
+  stage: string;
+  count: number;
+  percentage: number;
+  drop_off?: number;
+}
+
+export interface GrowthTrend {
+  date: string;
+  revenue: number;
+  clicks: number;
+  conversions: number;
+  views: number;
+}
+
+export interface RevenueGoal {
+  id: string;
+  goal_name: string;
+  target_amount: number;
+  current_amount: number;
+  period: 'daily' | 'weekly' | 'monthly' | 'yearly';
+  deadline?: string;
+  is_active: boolean;
+}
+
+export interface Notification {
+  id: string;
+  type: 'goal_achieved' | 'viral_tool' | 'conversion_drop' | 'revenue_spike';
+  title: string;
+  message: string;
+  severity: 'info' | 'success' | 'warning' | 'error';
+  data?: any;
+  is_read: boolean;
+  created_at: string;
+}

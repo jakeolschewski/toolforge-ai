@@ -1,9 +1,11 @@
 // There's An AI For That Scraper
+// Respects robots.txt and implements proper rate limiting
 
 import axios from 'axios';
 import * as cheerio from 'cheerio';
 import type { ScraperResult } from '@/types';
 import { delay, retryWithBackoff, sanitizeText, RateLimiter } from '@/utils/helpers';
+import { checkRobotsTxt, getCrawlDelay } from '@/utils/robots';
 
 const rateLimiter = new RateLimiter(30); // 30 calls per minute
 
@@ -12,6 +14,21 @@ export async function scrapeThereIsAnAIForThat(): Promise<ScraperResult[]> {
 
   try {
     console.log('Starting There\'s An AI For That scrape...');
+
+    // Check robots.txt before scraping
+    const baseUrl = 'https://theresanaiforthat.com';
+    const canScrape = await checkRobotsTxt(baseUrl, 'ToolForgeBot');
+
+    if (!canScrape) {
+      console.warn('There\'s An AI For That robots.txt disallows scraping. Skipping.');
+      return results;
+    }
+
+    // Get recommended crawl delay
+    const crawlDelay = await getCrawlDelay(baseUrl, 'ToolForgeBot');
+    if (crawlDelay) {
+      console.log(`Using crawl delay of ${crawlDelay}ms for There's An AI For That`);
+    }
 
     // Try API first
     try {

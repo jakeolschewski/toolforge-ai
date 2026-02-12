@@ -10,13 +10,14 @@ export const dynamic = 'force-dynamic';
 // GET /api/compare/[slug] - Fetch single comparison with tools data
 export async function GET(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
+    const { slug } = await params;
     const { data: comparison, error: compError } = await supabase
       .from('comparisons')
       .select('*')
-      .eq('slug', params.slug)
+      .eq('slug', slug)
       .eq('status', 'published')
       .single();
 
@@ -41,10 +42,11 @@ export async function GET(
     if (toolsError) throw toolsError;
 
     // Increment view count
-    await supabaseAdmin
+    supabaseAdmin
       .from('comparisons')
       .update({ views: (comparison.views || 0) + 1 })
-      .eq('id', comparison.id);
+      .eq('id', comparison.id)
+      .then(() => {}, console.error);
 
     return NextResponse.json<ApiResponse>(
       {
@@ -74,10 +76,11 @@ export async function GET(
 // PUT /api/compare/[slug] - Update comparison (admin only)
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
     const body = await request.json();
+    const { slug } = await params;
 
     const updateData: Partial<Comparison> = { ...body };
     delete updateData.id;
@@ -87,7 +90,7 @@ export async function PUT(
     const { data, error } = await supabaseAdmin
       .from('comparisons')
       .update(updateData)
-      .eq('slug', params.slug)
+      .eq('slug', slug)
       .select()
       .single();
 
@@ -112,13 +115,14 @@ export async function PUT(
 // DELETE /api/compare/[slug] - Delete comparison (admin only)
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
+    const { slug } = await params;
     const { error } = await supabaseAdmin
       .from('comparisons')
       .delete()
-      .eq('slug', params.slug);
+      .eq('slug', slug);
 
     if (error) throw error;
 

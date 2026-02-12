@@ -1,20 +1,30 @@
 // Product Hunt AI Tools Scraper
+// Respects robots.txt and implements rate limiting
 
 import axios from 'axios';
 import * as cheerio from 'cheerio';
 import type { ScraperResult } from '@/types';
 import { delay, extractDomain, sanitizeText, isValidUrl } from '@/utils/helpers';
+import { checkRobotsTxt } from '@/utils/robots';
 
 const PRODUCT_HUNT_BASE = 'https://www.producthunt.com';
 
 /**
  * Scrape Product Hunt AI category
  * Product Hunt has different sections for AI tools
+ * Respects robots.txt before scraping
  */
 export async function scrapeProductHunt(): Promise<ScraperResult[]> {
   const results: ScraperResult[] = [];
 
   try {
+    // Check robots.txt first
+    const canScrape = await checkRobotsTxt(PRODUCT_HUNT_BASE, 'ToolForgeBot');
+    if (!canScrape) {
+      console.warn('Product Hunt robots.txt disallows scraping. Skipping.');
+      return results;
+    }
+
     // Try multiple AI-related sections
     const sections = [
       '/topics/artificial-intelligence',
@@ -26,7 +36,7 @@ export async function scrapeProductHunt(): Promise<ScraperResult[]> {
       try {
         const sectionResults = await scrapeProductHuntSection(section);
         results.push(...sectionResults);
-        await delay(2000); // Be respectful with rate limiting
+        await delay(3000); // Be respectful with rate limiting (increased to 3s)
       } catch (error) {
         console.error(`Failed to scrape Product Hunt section ${section}:`, error);
       }

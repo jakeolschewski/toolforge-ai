@@ -10,13 +10,14 @@ export const dynamic = 'force-dynamic';
 // GET /api/blog/[slug] - Fetch single blog post
 export async function GET(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
+    const { slug } = await params;
     const { data, error } = await supabase
       .from('blog_posts')
       .select('*')
-      .eq('slug', params.slug)
+      .eq('slug', slug)
       .eq('status', 'published')
       .single();
 
@@ -33,10 +34,11 @@ export async function GET(
     }
 
     // Increment view count
-    await supabaseAdmin
+    supabaseAdmin
       .from('blog_posts')
       .update({ views: (data.views || 0) + 1 })
-      .eq('id', data.id);
+      .eq('id', data.id)
+      .then(() => {}, console.error);
 
     return NextResponse.json<ApiResponse>(
       {
@@ -63,10 +65,11 @@ export async function GET(
 // PUT /api/blog/[slug] - Update blog post (admin only)
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
     const body = await request.json();
+    const { slug } = await params;
 
     // Calculate read time if content changed
     let readTime = body.read_time;
@@ -92,7 +95,7 @@ export async function PUT(
     const { data, error } = await supabaseAdmin
       .from('blog_posts')
       .update(updateData)
-      .eq('slug', params.slug)
+      .eq('slug', slug)
       .select()
       .single();
 
@@ -117,13 +120,14 @@ export async function PUT(
 // DELETE /api/blog/[slug] - Delete blog post (admin only)
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
+    const { slug } = await params;
     const { error } = await supabaseAdmin
       .from('blog_posts')
       .delete()
-      .eq('slug', params.slug);
+      .eq('slug', slug);
 
     if (error) throw error;
 

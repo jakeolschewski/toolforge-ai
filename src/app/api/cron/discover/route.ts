@@ -7,6 +7,7 @@ import { runAllScrapers, deduplicateResults } from '@/utils/scrapers';
 import { verifyCronSecret } from '@/utils/helpers';
 import { sendDiscoveryDigest, sendErrorNotification } from '@/lib/email';
 import { validateScraperResults } from '@/utils/validation';
+import { categorizeTools } from '@/utils/ai-categorizer';
 import type { ApiResponse } from '@/types';
 
 export const runtime = 'nodejs';
@@ -59,8 +60,12 @@ export async function GET(request: NextRequest) {
 
     console.log(`🔄 Deduplication: ${valid.length} -> ${uniqueTools.length} unique tools`);
 
+    // Auto-categorize tools using AI
+    const categorizedTools = categorizeTools(uniqueTools);
+    console.log(`🤖 AI categorization complete`);
+
     // Save to database as pending sources
-    for (const tool of uniqueTools) {
+    for (const tool of categorizedTools) {
       try {
         // Check if already exists (by name or URL)
         const { data: existingByName } = await supabaseAdmin

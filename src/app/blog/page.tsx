@@ -21,15 +21,16 @@ export const metadata: Metadata = {
 export const revalidate = 600; // Revalidate every 10 minutes
 
 interface BlogPageProps {
-  searchParams: {
+  searchParams: Promise<{
     category?: string;
     page?: string;
-  };
+  }>;
 }
 
 export default async function BlogPage({ searchParams }: BlogPageProps) {
-  const category = searchParams.category;
-  const page = parseInt(searchParams.page || '1');
+  const params = await searchParams;
+  const category = params.category;
+  const page = parseInt(params.page || '1');
   const limit = 12;
   const offset = (page - 1) * limit;
 

@@ -1,10 +1,12 @@
 // Futurepedia RSS/API Scraper
+// Respects robots.txt and implements proper rate limiting
 
 import axios from 'axios';
 import * as cheerio from 'cheerio';
 import Parser from 'rss-parser';
 import type { ScraperResult } from '@/types';
 import { delay, extractDomain, retryWithBackoff, sanitizeText } from '@/utils/helpers';
+import { checkRobotsTxt, getCrawlDelay } from '@/utils/robots';
 
 const rssParser = new Parser({
   timeout: 10000,
@@ -18,6 +20,21 @@ export async function scrapeFuturepedia(): Promise<ScraperResult[]> {
 
   try {
     console.log('Starting Futurepedia scrape...');
+
+    // Check robots.txt before scraping
+    const baseUrl = 'https://www.futurepedia.io';
+    const canScrape = await checkRobotsTxt(baseUrl, 'ToolForgeBot');
+
+    if (!canScrape) {
+      console.warn('Futurepedia robots.txt disallows scraping. Skipping.');
+      return results;
+    }
+
+    // Get recommended crawl delay
+    const crawlDelay = await getCrawlDelay(baseUrl, 'ToolForgeBot');
+    if (crawlDelay) {
+      console.log(`Using crawl delay of ${crawlDelay}ms for Futurepedia`);
+    }
 
     // Try RSS feed first
     try {
