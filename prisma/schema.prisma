@@ -1,0 +1,219 @@
+// This is your Prisma schema file for reference
+// For Supabase, we'll use direct SQL, but this documents the structure
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Tool {
+  id            String   @id @default(uuid())
+  slug          String   @unique
+  name          String
+  tagline       String?
+  description   String
+  longDescription String? @db.Text
+  category      String
+  subcategory   String?
+  websiteUrl    String
+  affiliateLink String?
+  logoUrl       String?
+  screenshotUrl String?
+  pricingModel  String   @default("freemium") // free, freemium, paid, subscription
+  startingPrice String?
+  features      String[] @default([])
+  tags          String[] @default([])
+  rating        Float?   @default(0)
+  reviewCount   Int      @default(0)
+  isSponsored   Boolean  @default(false)
+  isFeatured    Boolean  @default(false)
+  status        String   @default("published") // draft, published, archived
+  views         Int      @default(0)
+  clicks        Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  publishedAt   DateTime?
+
+  reviews       Review[]
+  clickLogs     ClickLog[]
+}
+
+model Review {
+  id          String   @id @default(uuid())
+  toolId      String
+  title       String
+  content     String   @db.Text
+  prosHtml    String?  @db.Text
+  consHtml    String?  @db.Text
+  verdict     String?  @db.Text
+  rating      Float?
+  author      String   @default("ToolForge Team")
+  status      String   @default("draft") // draft, published, archived
+  seoTitle    String?
+  seoDescription String?
+  keywords    String[] @default([])
+  readTime    Int?     // minutes
+  views       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  publishedAt DateTime?
+
+  tool        Tool     @relation(fields: [toolId], references: [id], onDelete: Cascade)
+
+  @@index([toolId])
+  @@index([status])
+}
+
+model Category {
+  id          String   @id @default(uuid())
+  slug        String   @unique
+  name        String
+  description String?
+  icon        String?
+  order       Int      @default(0)
+  toolCount   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model ClickLog {
+  id        String   @id @default(uuid())
+  toolId    String
+  ipHash    String?
+  userAgent String?
+  referrer  String?
+  createdAt DateTime @default(now())
+
+  tool      Tool     @relation(fields: [toolId], references: [id], onDelete: Cascade)
+
+  @@index([toolId])
+  @@index([createdAt])
+}
+
+model User {
+  id            String    @id @default(uuid())
+  email         String    @unique
+  passwordHash  String?
+  name          String?
+  role          String    @default("user") // user, admin
+  stripeCustomerId String?
+  subscriptionStatus String? // active, canceled, past_due
+  subscriptionPlan String? // free, pro, premium
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model ScrapedSource {
+  id          String   @id @default(uuid())
+  sourceUrl   String
+  toolName    String
+  toolUrl     String?
+  description String?
+  category    String?
+  rawData     String?  @db.Text
+  status      String   @default("pending") // pending, processed, ignored
+  processedAt DateTime?
+  createdAt   DateTime @default(now())
+
+  @@index([status])
+  @@index([createdAt])
+}
+
+model BlogPost {
+  id              String    @id @default(uuid())
+  slug            String    @unique
+  title           String
+  content         String    @db.Text
+  excerpt         String?
+  author          String    @default("ToolForge Team")
+  featuredImage   String?   @map("featured_image")
+  category        String
+  tags            String[]  @default([])
+  status          String    @default("draft") // draft, published, archived
+  seoTitle        String?   @map("seo_title")
+  seoDescription  String?   @map("seo_description")
+  keywords        String[]  @default([])
+  views           Int       @default(0)
+  readTime        Int?      @map("read_time") // minutes
+  publishedAt     DateTime? @map("published_at")
+  createdAt       DateTime  @default(now()) @map("created_at")
+  updatedAt       DateTime  @updatedAt @map("updated_at")
+
+  @@index([slug])
+  @@index([status])
+  @@index([category])
+  @@index([publishedAt])
+  @@index([createdAt])
+  @@index([views])
+  @@map("blog_posts")
+}
+
+model Comparison {
+  id              String    @id @default(uuid())
+  slug            String    @unique
+  title           String
+  description     String?
+  toolIds         String[]  @map("tool_ids")
+  comparisonData  Json      @default("{}") @map("comparison_data")
+  winnerToolId    String?   @map("winner_tool_id")
+  seoTitle        String?   @map("seo_title")
+  seoDescription  String?   @map("seo_description")
+  keywords        String[]  @default([])
+  views           Int       @default(0)
+  status          String    @default("published") // draft, published, archived
+  createdAt       DateTime  @default(now()) @map("created_at")
+  updatedAt       DateTime  @updatedAt @map("updated_at")
+
+  @@index([slug])
+  @@index([status])
+  @@index([createdAt])
+  @@index([views])
+  @@map("comparisons")
+}
+
+model Collection {
+  id              String    @id @default(uuid())
+  slug            String    @unique
+  name            String
+  description     String?
+  toolIds         String[]  @default([]) @map("tool_ids")
+  icon            String?
+  color           String?
+  featuredImage   String?   @map("featured_image")
+  seoTitle        String?   @map("seo_title")
+  seoDescription  String?   @map("seo_description")
+  keywords        String[]  @default([])
+  views           Int       @default(0)
+  orderIndex      Int       @default(0) @map("order_index")
+  status          String    @default("published") // draft, published, archived
+  createdAt       DateTime  @default(now()) @map("created_at")
+  updatedAt       DateTime  @updatedAt @map("updated_at")
+
+  @@index([slug])
+  @@index([status])
+  @@index([orderIndex])
+  @@index([createdAt])
+  @@index([views])
+  @@map("collections")
+}
+
+model BlogCategory {
+  id          String   @id @default(uuid())
+  slug        String   @unique
+  name        String
+  description String?
+  icon        String?
+  color       String?
+  orderIndex  Int      @default(0) @map("order_index")
+  postCount   Int      @default(0) @map("post_count")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@index([slug])
+  @@index([orderIndex])
+  @@map("blog_categories")
+}
