@@ -154,7 +154,7 @@ Privacy Policy: ${process.env.NEXT_PUBLIC_APP_URL}/privacy
 
   return sendEmail({
     to: email,
-    subject: 'Welcome to ToolForge AI - You're All Set! 🎉',
+    subject: "Welcome to ToolForge AI - You're All Set!",
     html,
     text,
   });
