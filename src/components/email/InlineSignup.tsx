@@ -239,7 +239,7 @@ export default function InlineSignup({
       <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-8 text-white shadow-xl">
         <div className="max-w-2xl mx-auto text-center">
           <h3 className="text-3xl font-bold mb-3">
-            {title || 'Don't Miss Out on AI Innovations'}
+            {title || 'Do not Miss Out on AI Innovations'}
           </h3>
           <p className="text-lg text-purple-100 mb-6">
             {description || 'Join 10,000+ professionals getting weekly AI tool roundups and exclusive deals.'}
