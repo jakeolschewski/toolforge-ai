@@ -3,6 +3,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { randomBytes } from 'crypto';
 import { supabaseAdmin } from '@/lib/supabase';
+import { isOwnerToken } from '@/lib/owner-auth';
 import type { ApiResponse } from '@/types';
 
 export const dynamic = 'force-dynamic';
@@ -18,13 +19,20 @@ export async function POST(request: NextRequest) {
     }
 
     const token = authHeader.substring(7);
-    const { data: { user }, error: authError } = await supabaseAdmin.auth.getUser(token);
+    const isOwner = isOwnerToken(token);
 
-    if (authError || !user) {
-      return NextResponse.json<ApiResponse>(
-        { success: false, error: 'Invalid authentication token' },
-        { status: 401 }
-      );
+    let userId = 'owner';
+
+    if (!isOwner) {
+      const { data: { user }, error: authError } = await supabaseAdmin.auth.getUser(token);
+
+      if (authError || !user) {
+        return NextResponse.json<ApiResponse>(
+          { success: false, error: 'Invalid authentication token' },
+          { status: 401 }
+        );
+      }
+      userId = user.id;
     }
 
     const body = await request.json();
@@ -52,45 +60,45 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Verify access
-    let hasAccess = false;
+    // Owner bypass — full access to everything
+    let hasAccess = isOwner;
 
-    if (workflow.pricing_type === 'free') {
-      hasAccess = true;
-    } else if (workflow.pricing_type === 'premium') {
-      const { data: purchase } = await supabaseAdmin
-        .from('vault_purchases')
-        .select('id')
-        .eq('user_id', user.id)
-        .eq('workflow_id', workflow_id)
-        .eq('payment_status', 'completed')
-        .eq('access_granted', true)
-        .single();
-
-      hasAccess = !!purchase;
-    } else if (workflow.pricing_type === 'members_only') {
-      // Check membership
-      const { data: membership } = await supabaseAdmin
-        .from('vault_memberships')
-        .select('id')
-        .eq('user_id', user.id)
-        .eq('status', 'active')
-        .single();
-
-      if (membership) {
+    if (!hasAccess) {
+      if (workflow.pricing_type === 'free') {
         hasAccess = true;
-      } else {
-        // Check for individual purchase
+      } else if (workflow.pricing_type === 'premium') {
         const { data: purchase } = await supabaseAdmin
           .from('vault_purchases')
           .select('id')
-          .eq('user_id', user.id)
+          .eq('user_id', userId)
           .eq('workflow_id', workflow_id)
           .eq('payment_status', 'completed')
           .eq('access_granted', true)
           .single();
 
         hasAccess = !!purchase;
+      } else if (workflow.pricing_type === 'members_only') {
+        const { data: membership } = await supabaseAdmin
+          .from('vault_memberships')
+          .select('id')
+          .eq('user_id', userId)
+          .eq('status', 'active')
+          .single();
+
+        if (membership) {
+          hasAccess = true;
+        } else {
+          const { data: purchase } = await supabaseAdmin
+            .from('vault_purchases')
+            .select('id')
+            .eq('user_id', userId)
+            .eq('workflow_id', workflow_id)
+            .eq('payment_status', 'completed')
+            .eq('access_granted', true)
+            .single();
+
+          hasAccess = !!purchase;
+        }
       }
     }
 
@@ -112,7 +120,7 @@ export async function POST(request: NextRequest) {
       .insert({
         token: downloadToken,
         workflow_id,
-        user_id: user.id,
+        user_id: userId,
         expires_at: expiresAt.toISOString(),
         downloads_remaining: 5, // Allow 5 downloads with this token
       });

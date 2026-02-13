@@ -1,6 +1,7 @@
 // Owner Authentication API
 
 import { NextRequest, NextResponse } from 'next/server';
+import { isValidOwnerPassword } from '@/lib/owner-auth';
 import type { ApiResponse } from '@/types';
 
 export const runtime = 'nodejs';
@@ -12,27 +13,16 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { password } = body;
 
-    const ownerPassword = process.env.OWNER_PASSWORD;
-
-    if (!ownerPassword) {
-      // If no owner password is set, deny access
-      return NextResponse.json<ApiResponse>(
-        { success: false, error: 'Owner password not configured' },
-        { status: 403 }
-      );
-    }
-
-    if (password === ownerPassword) {
-      // Log the authentication attempt
+    if (isValidOwnerPassword(password)) {
       console.log('[OWNER AUTH] Successful authentication at', new Date().toISOString());
 
       return NextResponse.json<ApiResponse>({
         success: true,
         message: 'Authentication successful',
+        data: { role: 'owner' },
       });
     }
 
-    // Log failed attempt
     console.warn('[OWNER AUTH] Failed authentication attempt at', new Date().toISOString());
 
     return NextResponse.json<ApiResponse>(

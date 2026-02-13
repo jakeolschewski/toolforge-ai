@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { Loader2, DollarSign, TrendingUp, Receipt, CreditCard, BarChart3, LogOut } from 'lucide-react';
+import { Loader2, DollarSign, TrendingUp, Receipt, BarChart3, LogOut, ArrowDownToLine, FileText, Settings, ExternalLink } from 'lucide-react';
 import { cn } from '@/utils/helpers';
 
 interface NavItem {
@@ -32,6 +32,21 @@ const navItems: NavItem[] = [
     title: 'Expenses',
     href: '/owner/expenses',
     icon: Receipt,
+  },
+  {
+    title: 'Withdrawals',
+    href: '/owner/withdrawals',
+    icon: ArrowDownToLine,
+  },
+  {
+    title: 'Reports & PDF',
+    href: '/owner/reports',
+    icon: FileText,
+  },
+  {
+    title: 'Site Controls',
+    href: '/owner/controls',
+    icon: Settings,
   },
 ];
 
@@ -187,6 +202,20 @@ export default function OwnerLayout({
             );
           })}
         </nav>
+
+        {/* Quick Links */}
+        <div className="px-3 py-3 border-t border-gray-700">
+          <p className="px-4 text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Quick Access</p>
+          <a href="/admin" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 px-4 py-2 rounded-lg text-xs text-gray-400 hover:bg-gray-800 hover:text-white transition-all">
+            <ExternalLink className="h-4 w-4" /> Admin Panel
+          </a>
+          <a href="/vault" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 px-4 py-2 rounded-lg text-xs text-gray-400 hover:bg-gray-800 hover:text-white transition-all">
+            <ExternalLink className="h-4 w-4" /> Vault Store
+          </a>
+          <a href="/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 px-4 py-2 rounded-lg text-xs text-gray-400 hover:bg-gray-800 hover:text-white transition-all">
+            <ExternalLink className="h-4 w-4" /> Live Site
+          </a>
+        </div>
 
         <div className="p-4 border-t border-gray-700">
           <button

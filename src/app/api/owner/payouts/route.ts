@@ -2,19 +2,11 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabase';
+import { verifyOwnerAuth } from '@/lib/owner-auth';
 import type { ApiResponse, Payout } from '@/types';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
-
-// Verify owner authentication
-function verifyOwnerAuth(request: NextRequest): boolean {
-  const authHeader = request.headers.get('authorization');
-  if (!authHeader) return false;
-
-  const token = authHeader.replace('Bearer ', '');
-  return token === process.env.OWNER_PASSWORD;
-}
 
 // Audit log function
 async function logAudit(action: string, recordId: string, oldData: any, newData: any, request: NextRequest) {

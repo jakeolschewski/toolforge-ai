@@ -2,19 +2,11 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabase';
+import { verifyOwnerAuth } from '@/lib/owner-auth';
 import type { ApiResponse, FinancialSummary, RevenueByTool, MonthlyRevenueTrend } from '@/types';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
-
-// Verify owner authentication
-function verifyOwnerAuth(request: NextRequest): boolean {
-  const authHeader = request.headers.get('authorization');
-  if (!authHeader) return false;
-
-  const token = authHeader.replace('Bearer ', '');
-  return token === process.env.OWNER_PASSWORD;
-}
 
 // GET - Get revenue data with various analytics
 export async function GET(request: NextRequest) {

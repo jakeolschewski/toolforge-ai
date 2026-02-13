@@ -2,6 +2,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabase';
+import { isOwnerToken } from '@/lib/owner-auth';
 import type { ApiResponse } from '@/types';
 
 export const dynamic = 'force-dynamic';
@@ -17,6 +18,21 @@ export async function POST(request: NextRequest) {
     }
 
     const token = authHeader.substring(7);
+
+    // Owner bypass — full access to everything for free
+    const body = await request.json();
+    const { workflow_id } = body;
+
+    if (isOwnerToken(token)) {
+      return NextResponse.json<ApiResponse>({
+        success: true,
+        data: {
+          has_access: true,
+          access_type: 'owner',
+        },
+      });
+    }
+
     const { data: { user }, error: authError } = await supabaseAdmin.auth.getUser(token);
 
     if (authError || !user) {
@@ -25,9 +41,6 @@ export async function POST(request: NextRequest) {
         { status: 401 }
       );
     }
-
-    const body = await request.json();
-    const { workflow_id } = body;
 
     if (!workflow_id) {
       return NextResponse.json<ApiResponse>(
