@@ -7,7 +7,7 @@
 CREATE TABLE IF NOT EXISTS payouts (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   network VARCHAR(100) NOT NULL, -- e.g., 'Impact', 'ShareASale', 'CJ', 'Direct'
-  tool_id UUID REFERENCES Tool(id) ON DELETE SET NULL,
+  tool_id UUID REFERENCES tools(id) ON DELETE SET NULL,
   tool_name VARCHAR(255),
   amount DECIMAL(10, 2) NOT NULL,
   currency VARCHAR(3) DEFAULT 'USD',
@@ -62,7 +62,7 @@ CREATE INDEX idx_expenses_recurring ON expenses(is_recurring);
 CREATE TABLE IF NOT EXISTS revenue_logs (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   source VARCHAR(100) NOT NULL, -- 'affiliate', 'membership', 'ads', 'sponsorship', 'other'
-  tool_id UUID REFERENCES Tool(id) ON DELETE SET NULL,
+  tool_id UUID REFERENCES tools(id) ON DELETE SET NULL,
   tool_name VARCHAR(255),
   network VARCHAR(100), -- affiliate network if applicable
   amount DECIMAL(10, 2) NOT NULL,
