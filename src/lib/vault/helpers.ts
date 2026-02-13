@@ -581,39 +581,6 @@ export function getTrendingWorkflows(
 }
 
 // ============================================================================
-// EXPORT ALL HELPERS
+// All functions are already exported via 'export function' declarations above
+// No need for additional export statements
 // ============================================================================
-
-export {
-  isWorkflowFree,
-  getWorkflowDisplayPrice,
-  getWorkflowSavings,
-  isWorkflowOnSale,
-  getWorkflowCategoryInfo,
-  hasWorkflowAccess,
-  formatEstimatedTime,
-  getDifficultyColor,
-  generateWorkflowSlug,
-  isWorkflowNew,
-  calculateConversionRate,
-  getWorkflowBadge,
-  sortWorkflows,
-  filterWorkflows,
-  isMembershipActive,
-  getMembershipDisplayName,
-  getMembershipPriceDisplay,
-  hasUnlimitedWorkflows,
-  getDaysUntilRenewal,
-  isInTrialPeriod,
-  calculateRevenuePerDownload,
-  calculateAverageOrderValue,
-  formatAnalyticsMetric,
-  getGrowthTrend,
-  calculateGrowthPercentage,
-  isValidWorkflowTitle,
-  isValidWorkflowPrice,
-  isValidSlug,
-  calculateWorkflowSimilarity,
-  getRecommendedWorkflows,
-  getTrendingWorkflows,
-};

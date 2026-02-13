@@ -1,0 +1,506 @@
+REDACTION GUIDE - PERSONAL AI TOOL STACK QUIZ & BUILDER
+========================================================
+
+PURPOSE
+-------
+This guide helps you remove sensitive, proprietary, or personally identifiable
+information (PII) when sharing your tool stack assessment with AI systems,
+collaborators, or for documentation purposes.
+
+=============================================================================
+SECTION 1: TYPES OF DATA TO REDACT
+=============================================================================
+
+CATEGORY A: PERSONALLY IDENTIFIABLE INFORMATION (PII)
+------------------------------------------------------
+✗ NEVER INCLUDE:
+  - Your full name, email address, phone number
+  - Home or business address
+  - Government ID numbers (SSN, passport, etc.)
+  - Financial account numbers
+  - Personal photos or identifying images
+
+✓ SAFE ALTERNATIVES:
+  - Use role/title instead: "Freelance Content Creator", "Marketing Manager"
+  - Use generic email: "user@example.com"
+  - Use region only: "Based in EU", "US West Coast"
+
+
+CATEGORY B: BUSINESS CONFIDENTIAL INFORMATION
+----------------------------------------------
+✗ NEVER INCLUDE:
+  - Client names, company names (real ones)
+  - Proprietary product names or internal codenames
+  - Specific revenue figures, pricing strategies
+  - Competitive intelligence or market strategies
+  - Unreleased product/feature information
+  - Internal-only metrics or KPIs
+
+✓ SAFE ALTERNATIVES:
+  - "Client A (healthcare)", "Client B (e-commerce)"
+  - "Enterprise SaaS client", "SMB retail customer"
+  - Revenue ranges: "$50K-100K ARR" instead of exact figures
+  - Generic descriptions: "productivity tool" vs. proprietary name
+  - Percentage growth instead of absolute numbers
+
+
+CATEGORY C: WORKFLOW-SPECIFIC DETAILS
+--------------------------------------
+✗ POTENTIALLY SENSITIVE:
+  - Exact publication schedules (reveals vulnerability windows)
+  - Specific domain names, social media handles
+  - Proprietary processes or methodologies
+  - Customer data handling procedures
+  - Security implementation details
+
+✓ SAFE ALTERNATIVES:
+  - "Publish 3-4x/week" instead of "Every Monday/Wednesday at 9am"
+  - "Educational blog" instead of actual blog URL
+  - "Custom attribution model" instead of detailed algorithm
+  - General practices: "GDPR-compliant storage" vs. specific vendors
+
+
+CATEGORY D: TECHNICAL INFRASTRUCTURE
+-------------------------------------
+✗ POTENTIALLY SENSITIVE:
+  - API keys, access tokens, passwords (OBVIOUSLY!)
+  - Specific server configurations, IP addresses
+  - Database schemas with proprietary data models
+  - Security tool names and configurations
+  - Exact technology stack (if competitive advantage)
+
+✓ SAFE ALTERNATIVES:
+  - "[API_KEY_REDACTED]" placeholders
+  - "Cloud-hosted database" vs. specific provider/region
+  - Generic: "Authentication via OAuth 2.0" vs. implementation details
+  - "Industry-standard security practices" for confidential setups
+
+
+CATEGORY E: FINANCIAL INFORMATION
+----------------------------------
+✗ BE CAUTIOUS WITH:
+  - Exact annual revenue or profit margins
+  - Specific client payment amounts
+  - Banking information, credit card details
+  - Negotiated rates or special pricing
+
+✓ SAFE ALTERNATIVES:
+  - Budget ranges: "$500-1000/month" instead of $847.32
+  - "Standard tier pricing" vs. negotiated enterprise discount
+  - Percentage allocation: "15% of revenue" vs. dollar amount
+  - "Competitive market rate" for pricing discussions
+
+=============================================================================
+SECTION 2: STEP-BY-STEP REDACTION PROCESS
+=============================================================================
+
+STEP 1: PREPARE YOUR DOCUMENT
+------------------------------
+1. Create a COPY of your original assessment (never redact the only version)
+2. Save copy with clear naming: "tool-stack-assessment-REDACTED-2026-02-12.md"
+3. Keep original in secure location (encrypted drive, password-protected)
+
+STEP 2: AUTOMATED FIND-AND-REPLACE
+-----------------------------------
+Before manual review, use find-and-replace for obvious items:
+
+Search for:                    Replace with:
+-----------                    -------------
+[Your Name]                    [User] or [Content Creator]
+[Your Company]                 [Company] or [Organization]
+[Client Name 1]                [Client A - Industry]
+[Client Name 2]                [Client B - Industry]
+[Your Email]                   user@example.com
+[Your Website]                 example.com
+[City, State]                  [Region] or [EU/US]
+$[Exact Amount]                $[Rounded Range]
+
+STEP 3: MANUAL CONTEXTUAL REVIEW
+---------------------------------
+Read through document line by line:
+
+[ ] Check every proper noun - is it identifying?
+[ ] Review all numbers - do they reveal sensitive metrics?
+[ ] Examine workflow descriptions - any proprietary processes?
+[ ] Scan for inadvertent details (e.g., "our patented X method")
+[ ] Look for unique combinations (even generic info can identify when combined)
+
+STEP 4: CATEGORY-SPECIFIC PASSES
+---------------------------------
+Make dedicated passes for each category:
+
+Pass 1 - PII Sweep:
+  Focus exclusively on personal information
+  Use "Find" for: your name variations, email patterns, phone numbers
+
+Pass 2 - Client/Business Sweep:
+  Replace all client names with generic labels
+  Verify no identifying project details remain
+
+Pass 3 - Financial Sweep:
+  Round all exact dollar amounts
+  Convert to ranges where possible
+  Remove account/transaction specifics
+
+Pass 4 - Technical Sweep:
+  Remove or genericize infrastructure details
+  Redact any credentials, keys, or tokens
+  Replace specific tools with categories if competitively sensitive
+
+STEP 5: PATTERN RECOGNITION CHECK
+----------------------------------
+Look for identifying patterns:
+
+✗ RISKY PATTERNS:
+  "Our team of 7 engineers in Austin building AI for healthcare compliance"
+  → Too specific, possibly identifying even without company name
+
+✓ SAFER VERSION:
+  "Small engineering team (5-10) in US building healthcare compliance tools"
+  → Generic enough to maintain privacy
+
+✗ RISKY NUMBERS:
+  "47.3% YoY growth, 1,247 customers, $847K ARR"
+  → Highly specific, possibly matchable to public data
+
+✓ SAFER VERSION:
+  "40-50% YoY growth, 1K-1.5K customers, $750K-1M ARR"
+  → Ranges prevent exact matching
+
+STEP 6: THIRD-PARTY TOOL CHECK
+-------------------------------
+If using AI tools for assistance with your assessment:
+
+1. Verify AI tool's privacy policy BEFORE pasting any content
+2. Use tools with opt-out of training (e.g., Claude, ChatGPT with data controls off)
+3. Even with privacy features, still redact per this guide (defense in depth)
+4. Never paste:
+   - Unredacted client information
+   - Proprietary methodologies
+   - Confidential financial data
+   - Any regulated data (PHI, PCI, etc.)
+
+STEP 7: PEER REVIEW (OPTIONAL BUT RECOMMENDED)
+-----------------------------------------------
+If possible, have colleague review:
+
+1. Someone unfamiliar with your business
+2. Ask: "Can you identify me or my clients from this?"
+3. Ask: "What additional details would you redact?"
+4. Incorporate feedback before sharing with AI or documenting
+
+STEP 8: FINAL VALIDATION CHECKLIST
+-----------------------------------
+[ ] No full names (yours or others)
+[ ] No real client/company names
+[ ] No contact information (email, phone, address)
+[ ] No exact financial figures (use ranges)
+[ ] No proprietary process details
+[ ] No API keys, passwords, or credentials
+[ ] No URLs to non-public resources
+[ ] No unreleased product information
+[ ] No identifying combination of generic facts
+[ ] Document clearly marked "REDACTED VERSION - NOT FOR PUBLIC DISTRIBUTION"
+
+=============================================================================
+SECTION 3: PRIVACY BEST PRACTICES
+=============================================================================
+
+PRINCIPLE 1: MINIMAL DISCLOSURE
+--------------------------------
+Share only what's necessary for the task:
+
+- Getting AI tool recommendations? → Share workflow types, not client details
+- Building implementation plan? → Share constraints, not business strategy
+- Privacy evaluation? → Share requirements, not actual data you'll process
+
+Ask yourself: "Does the AI need THIS specific detail to help me?"
+If no, redact it.
+
+
+PRINCIPLE 2: DEFENSE IN DEPTH
+------------------------------
+Multiple layers of protection:
+
+Layer 1: Use privacy-respecting AI tools (opt-out of training)
+Layer 2: Redact sensitive information per this guide
+Layer 3: Use generic examples instead of real data
+Layer 4: Keep truly confidential work offline entirely
+
+Don't rely on just one layer.
+
+
+PRINCIPLE 3: TIME-BASED SENSITIVITY
+------------------------------------
+Information sensitivity changes over time:
+
+HIGH SENSITIVITY (Redact heavily):
+  - Unreleased products/features
+  - Active negotiations or partnerships
+  - Current competitive strategies
+  - Real-time operational data
+
+MODERATE SENSITIVITY (Use judgment):
+  - Released products (public but maybe not widely known)
+  - Historical performance data (6+ months old)
+  - General workflow approaches
+
+LOW SENSITIVITY (Minimal redaction):
+  - Public information (already on your website)
+  - Industry-standard practices
+  - Publicly announced partnerships
+
+
+PRINCIPLE 4: CONTEXT MATTERS
+-----------------------------
+Same information, different sensitivity based on context:
+
+"I manage 5 clients" → Low sensitivity (generic capability)
+
+"I manage 5 healthcare clients in California requiring HIPAA compliance,
+each paying $5K/month, with contracts renewing in Q2"
+→ HIGH sensitivity (specific, combinable, competitive intel)
+
+
+PRINCIPLE 5: REGULATORY COMPLIANCE
+-----------------------------------
+If you operate in regulated industries:
+
+GDPR (EU):
+  - Redact all personal data of EU residents
+  - Document lawful basis for any processing
+  - Honor data minimization principle
+
+HIPAA (US Healthcare):
+  - Never include Protected Health Information (PHI)
+  - Redact anything that could identify patients
+  - Use only de-identified data sets
+
+PCI DSS (Payment Cards):
+  - Never include full credit card numbers
+  - Redact CVV, expiration dates, cardholder names
+  - Use tokenized references only
+
+CCPA (California):
+  - Redact California resident personal information
+  - Document opt-out mechanisms
+  - Minimize data collection in assessments
+
+=============================================================================
+SECTION 4: REDACTION EXAMPLES
+=============================================================================
+
+EXAMPLE 1: CLIENT DESCRIPTION
+------------------------------
+❌ BEFORE (Too Specific):
+"I create content for TechStartup Inc, a series B SaaS company in San Francisco
+with 50 employees, focusing on AI-powered customer support. They pay me $8,500/month
+for 12 blog posts and 40 social media posts."
+
+✅ AFTER (Properly Redacted):
+"I create content for a mid-stage SaaS client in the customer support technology
+space. Monthly retainer in the $7.5K-10K range for 10-15 blog posts and 30-50
+social media posts."
+
+
+EXAMPLE 2: WORKFLOW DESCRIPTION
+--------------------------------
+❌ BEFORE (Reveals Proprietary Process):
+"Our proprietary Content Velocity Framework uses a 3-tier classification system:
+Tier 1 content gets the Premium Research Package (6-8 hours, $1,200 value),
+Tier 2 gets Standard Package (3-4 hours, $600 value), Tier 3 gets templates only."
+
+✅ AFTER (Generic Description):
+"We use a tiered content classification system that allocates research and
+development resources based on content strategic value. Higher-tier content
+receives more intensive research and polish."
+
+
+EXAMPLE 3: TECHNICAL SETUP
+---------------------------
+❌ BEFORE (Too Much Infrastructure Detail):
+"We host on AWS us-east-1, using RDS PostgreSQL 14.2 with multi-AZ deployment.
+API keys stored in AWS Secrets Manager. Authentication via Auth0 with custom
+domain auth.ourcompany.com. Backup to S3 bucket 'companyname-backups-prod'."
+
+✅ AFTER (Appropriate Generalization):
+"Cloud-hosted infrastructure with managed database services. Credentials managed
+via cloud-native secrets management. Third-party authentication service with
+SSO capabilities. Automated backups to cloud storage."
+
+
+EXAMPLE 4: FINANCIAL INFORMATION
+---------------------------------
+❌ BEFORE (Exact Figures):
+"Current MRR: $47,332. Annual run rate: $567,984. Tool costs: $2,847/month.
+Net margin: 83.2%. Client A pays $8,500, Client B pays $12,000, Client C pays $6,200."
+
+✅ AFTER (Ranges and Percentages):
+"Current MRR: $45-50K. Annual run rate: $550-600K. Tool costs: ~$3K/month.
+Net margin: 80-85%. Client retainers range from $5-15K/month with median around $8-10K."
+
+
+EXAMPLE 5: PRIVACY REQUIREMENTS
+--------------------------------
+❌ BEFORE (Identifies Specific Clients):
+"Hospital System X requires HIPAA compliance. Legal firm Y requires attorney-client
+privilege protections. Government contractor Z requires FedRAMP moderate."
+
+✅ AFTER (Generic Requirements):
+"Work with healthcare clients requiring HIPAA compliance, legal industry clients
+with attorney-client privilege requirements, and government contractors with
+federal compliance standards."
+
+=============================================================================
+SECTION 5: COMMON REDACTION MISTAKES
+=============================================================================
+
+MISTAKE 1: Incomplete Find-and-Replace
+---------------------------------------
+Issue: Replacing "TechCorp" but missing "TechCorp's" and "TechCorp.com"
+Fix: Use wildcards or multiple search variations
+
+MISTAKE 2: Metadata Leakage
+----------------------------
+Issue: Document properties still contain author name, company
+Fix: Check File → Properties/Info and clear metadata before sharing
+
+MISTAKE 3: Forgetting Screenshots/Images
+-----------------------------------------
+Issue: Redacting text but leaving identifying screenshots
+Fix: Review all embedded images, redact or remove
+
+MISTAKE 4: Overly Specific "Generic" Examples
+----------------------------------------------
+Issue: "A healthcare company with 200 beds in Nashville" is still too specific
+Fix: "A mid-sized healthcare provider in the Southeast US"
+
+MISTAKE 5: Relative References
+-------------------------------
+Issue: "Our main competitor just raised $50M Series C"
+Fix: Even without naming them, this might identify your company
+     Better: "Competitors in space are well-funded (Series B-C stage)"
+
+MISTAKE 6: Unique Combinations
+-------------------------------
+Issue: Each fact alone is generic, but combination identifies you
+       "AI tool, healthcare, California, 5-10 employees, founded 2022"
+Fix: Further genericize at least one dimension to break unique fingerprint
+
+MISTAKE 7: Timeline Details
+----------------------------
+Issue: "We launched this feature on July 15, 2025 and saw 47% uptick"
+Fix: "We launched this feature in Q3 2025 and saw 40-50% uptick"
+     (Removing exact date makes correlation harder)
+
+=============================================================================
+SECTION 6: GDPR & COMPLIANCE NOTES
+=============================================================================
+
+GDPR COMPLIANCE CHECKLIST
+--------------------------
+When sharing assessment data with AI tools, ensure:
+
+[ ] No personal data of EU residents included (name, email, IP, etc.)
+[ ] Lawful basis documented for any processing (legitimate interest, consent)
+[ ] Data minimization applied (only necessary info shared)
+[ ] Purpose limitation respected (only for tool assessment, not other uses)
+[ ] Records of processing activities maintained
+[ ] Data subject rights can be honored (access, deletion, portability)
+[ ] Third-party processors (AI tools) have DPAs in place
+[ ] International transfers comply with adequacy decisions or SCCs
+
+SPECIAL CATEGORIES (Extra Protection Required):
+- Health data
+- Racial or ethnic origin
+- Political opinions
+- Religious or philosophical beliefs
+- Trade union membership
+- Genetic or biometric data
+- Sexual orientation
+
+→ These should NEVER appear in tool stack assessments
+
+
+HIPAA COMPLIANCE (US HEALTHCARE)
+---------------------------------
+If working with Protected Health Information (PHI):
+
+[ ] Never include patient names, even redacted (use generic labels only)
+[ ] No medical record numbers or identifiers
+[ ] No dates of service or admission
+[ ] No geographic subdivisions smaller than state
+[ ] No ages over 89 (use "90+" if needed)
+[ ] No photos, even with faces blurred (unique features can identify)
+[ ] Ensure AI tool is HIPAA-compliant if assessing healthcare workflows
+[ ] Have Business Associate Agreement (BAA) with any AI vendor processing PHI
+
+
+OTHER REGULATORY CONSIDERATIONS
+--------------------------------
+PCI DSS: Never include cardholder data in any form
+SOX: Don't share financial data if publicly traded
+FERPA: No student education records
+ITAR: No export-controlled technical data
+SEC: No material non-public information if publicly traded
+
+When in doubt, consult your legal/compliance team BEFORE sharing.
+
+=============================================================================
+SECTION 7: REDACTION TOOLS & TECHNIQUES
+=============================================================================
+
+MANUAL REDACTION (Most Secure)
+-------------------------------
+Tools: Text editor, word processor
+Method: Copy content, find-and-replace sensitive terms
+Pros: Full control, no third-party exposure
+Cons: Time-consuming, risk of human error
+
+
+AUTOMATED REDACTION TOOLS
+--------------------------
+1. Document Redaction Software
+   - Adobe Acrobat Pro (PDF redaction)
+   - Microsoft Word (built-in redaction features)
+   - Pros: Permanent removal, metadata cleaning
+   - Cons: Primarily for PDFs, cost
+
+2. PII Detection Tools
+   - Microsoft Presidio (open source)
+   - AWS Comprehend (detects PII)
+   - Google Cloud DLP API
+   - Pros: Catches patterns you might miss
+   - Cons: Requires technical setup, cloud processing
+
+3. Regex Find-and-Replace
+   - Email pattern: \b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b
+   - Phone: \b\d{3}[-.]?\d{3}[-.]?\d{4}\b
+   - SSN: \b\d{3}-\d{2}-\d{4}\b
+   - Pros: Fast, consistent
+   - Cons: Can't catch contextual sensitivity
+
+
+VERIFICATION TOOLS
+------------------
+After redaction, verify with:
+1. PII scanners (run redacted doc through detector)
+2. Diff tools (compare original vs. redacted to confirm changes)
+3. Peer review (have colleague attempt to identify you)
+
+=============================================================================
+SUPPORT & QUESTIONS
+=============================================================================
+
+If you're unsure whether to redact something: REDACT IT.
+Better to be overly cautious than expose sensitive information.
+
+For regulatory compliance questions, always consult:
+- Your organization's legal team
+- Privacy officer or DPO (Data Protection Officer)
+- Compliance department
+- Industry-specific regulatory advisors
+
+This guide is for educational purposes and does not constitute legal advice.
+
+=============================================================================

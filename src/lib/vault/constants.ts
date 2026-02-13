@@ -678,26 +678,6 @@ export const PAGINATION_DEFAULTS = {
 } as const;
 
 // ============================================================================
-// EXPORTS
-// ============================================================================
-
-export {
-  WEDGE_CATEGORIES,
-  BUSINESS_SYSTEMS,
-  PRICING_TIERS,
-  MEMBERSHIP_TIERS,
-  FILE_TYPES,
-  DIFFICULTY_LEVELS,
-  UPDATE_FREQUENCIES,
-  CURRENCY,
-  RATING_CONFIG,
-  REVIEW_LIMITS,
-  DOWNLOAD_CONFIG,
-  SEO_CONFIG,
-  PAGINATION_DEFAULTS,
-};
-
-// ============================================================================
 // LOOKUP MAPS (for quick access)
 // ============================================================================
 

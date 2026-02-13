@@ -1048,32 +1048,6 @@ export interface DownloadPackage {
 }
 
 // ============================================================================
-// EXPORT ALL TYPES
+// NOTE: All types are already exported via interface/type declarations above
+// No need for additional export statements - TypeScript auto-exports them
 // ============================================================================
-
-export type {
-  Workflow,
-  WorkflowCategory,
-  WorkflowPurchase,
-  WorkflowDownload,
-  Membership,
-  MembershipPlan,
-  WorkflowReview,
-  ReviewVote,
-  WorkflowUpdate,
-  WorkflowBundle,
-  WorkflowAnalytics,
-  UserEngagementAnalytics,
-  RevenueAnalytics,
-  VaultApiResponse,
-  PaginatedVaultResponse,
-  WorkflowFilters,
-  WorkflowInput,
-  WorkflowWithRelations,
-  UserWorkflowLibrary,
-  WorkflowStats,
-  DownloadPackage,
-  WorkflowChangelogEntry,
-  WorkflowFAQEntry,
-  WorkflowTestimonial,
-};

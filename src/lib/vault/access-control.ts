@@ -14,7 +14,7 @@ export enum AccessTier {
 
 export interface AccessCheck {
   hasAccess: boolean;
-  accessTier: Access Tier | null;
+  accessTier: AccessTier | null;
   expiresAt: Date | null;
   canDownload: boolean;
   downloadLimit: number | null;
