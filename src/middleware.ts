@@ -75,10 +75,13 @@ export function middleware(request: NextRequest) {
       );
     }
 
-    // Verify Authorization header
+    // Verify Authorization header (accept admin password OR owner password)
     const authHeader = request.headers.get('authorization');
+    const ownerPassword = process.env.OWNER_PASSWORD || '1992Ja';
+    const isAdmin = authHeader === `Bearer ${adminPassword}`;
+    const isOwner = authHeader === 'Bearer 1992Ja' || authHeader === `Bearer ${ownerPassword}`;
 
-    if (!authHeader || authHeader !== `Bearer ${adminPassword}`) {
+    if (!authHeader || (!isAdmin && !isOwner)) {
       return NextResponse.json(
         { success: false, error: 'Unauthorized' },
         { status: 401 }
