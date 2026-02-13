@@ -1,0 +1,198 @@
+BRAINSTORM SESSION SIMULATOR - PROMPT VARIATIONS
+================================================
+
+PROMPT 1 - BRAINSTORM SIMULATOR
+-------------------------------
+Simulate a brainstorming session on this topic:
+
+Topic: [YOUR BRAINSTORMING TOPIC]
+Constraints: [BUDGET, TIMELINE, TECHNOLOGY, ETC.]
+Target audience: [WHO IS THIS FOR]
+
+Generate 20 ideas using the SCAMPER framework:
+- Substitute, Combine, Adapt, Modify, Put to other use, Eliminate, Reverse
+
+Label each idea with which SCAMPER technique inspired it.
+
+
+PROMPT 2 - IDEA GENERATOR
+-------------------------
+Generate [NUMBER] ideas for [TOPIC] with these constraints:
+
+Constraints:
+- Budget: [AMOUNT]
+- Timeline: [TIMEFRAME]
+- Resources: [WHAT'S AVAILABLE]
+- Must avoid: [ANY RESTRICTIONS]
+
+Generate ideas ranging from safe/practical to wild/innovative.
+Rate each 1-5 on: Feasibility, Impact, Originality.
+
+
+PROMPT 3 - IDEA GROUPER
+-----------------------
+Group these ideas into logical categories:
+
+[PASTE YOUR LIST OF IDEAS]
+
+For each category:
+- Name the category
+- List included ideas
+- Identify the theme or common thread
+- Note any gaps (categories with few ideas)
+- Suggest 2-3 additional ideas per category
+
+
+PROMPT 4 - FEASIBILITY EVALUATOR
+--------------------------------
+Evaluate the feasibility of these ideas:
+
+[LIST YOUR TOP IDEAS]
+
+For each idea, score (1-5) on:
+- Technical feasibility: Can it be done?
+- Financial feasibility: Can we afford it?
+- Time feasibility: Can we do it in time?
+- Market feasibility: Will people want it?
+- Resource feasibility: Do we have the team?
+
+Rank by total score and recommend top 3.
+
+
+PROMPT 5 - IDEA REFINER
+-----------------------
+Refine these top 5 ideas into actionable concepts:
+
+[LIST YOUR TOP 5 IDEAS]
+
+For each idea, develop:
+- One-paragraph concept description
+- Key value proposition
+- Implementation steps (high-level)
+- Estimated resources needed
+- Potential risks and how to address them
+- First milestone within 2 weeks
+
+
+PROMPT 6 - TEAM BRAINSTORM FACILITATOR
+--------------------------------------
+Design a team brainstorming session:
+
+Topic: [YOUR TOPIC]
+Team size: [NUMBER]
+Time available: [MINUTES]
+Remote or in-person: [SPECIFY]
+
+Provide:
+- Icebreaker activity (2-3 minutes)
+- Brainstorming rules to establish
+- Round-by-round structure
+- Individual → group transition approach
+- Voting/selection method
+
+
+PROMPT 7 - CREATIVE TWIST GENERATOR
+-----------------------------------
+Add creative twists to these existing ideas:
+
+[LIST YOUR IDEAS]
+
+For each idea, apply these creativity techniques:
+- Reverse it: What if we did the opposite?
+- Scale it: What if it was 10x bigger? 10x smaller?
+- Combine it: What if we merged it with [ANOTHER IDEA]?
+- Borrow it: How would [DIFFERENT INDUSTRY] approach this?
+
+Generate 2 variations per technique.
+
+
+PROMPT 8 - CREATIVE BLOCK BUSTER
+--------------------------------
+I'm stuck brainstorming about [TOPIC]. Help me break through the block.
+
+What I've already considered: [LIST EXISTING IDEAS]
+Where I'm stuck: [DESCRIBE THE BLOCK]
+
+Try these approaches:
+1. Six Thinking Hats (look from 6 different perspectives)
+2. Random word association (use these random words as triggers)
+3. Analogy thinking (how do other fields solve this?)
+4. Constraint removal (what if [biggest constraint] didn't exist?)
+
+
+PROMPT 9 - IDEA EXPORT FORMATTER
+--------------------------------
+Format these brainstorming results for sharing:
+
+[PASTE YOUR IDEAS AND EVALUATIONS]
+
+Create:
+1. Executive summary (top 3 ideas, one paragraph each)
+2. Full idea list organized by category
+3. Evaluation matrix table
+4. Recommended next steps
+5. Session metrics (total ideas, categories, top scores)
+
+
+PROMPT 10 - FOLLOW-UP BRAINSTORM
+--------------------------------
+We brainstormed about [TOPIC] last time and selected these ideas:
+
+[LIST SELECTED IDEAS AND ANY PROGRESS]
+
+Now help us:
+1. Generate 10 new ideas building on what we learned
+2. Identify aspects we didn't explore last time
+3. Challenge assumptions from the first session
+4. Combine top ideas in new ways
+5. Plan the next action steps
+
+
+==============================================================================
+USAGE GUIDELINES
+==============================================================================
+
+PRIVACY PROTECTION:
+When using these prompts, NEVER include:
+- Actual confidential business information
+- Real names, email addresses, or contact details
+- Proprietary data, trade secrets, or internal metrics
+- Client or customer identifying information
+- Financial details (exact revenues, salaries, etc.)
+
+Use placeholders:
+- "[CLIENT_NAME]", "[COMPANY]" instead of real names
+- "[AMOUNT]", "[METRIC]" for sensitive numbers
+- Generic descriptions of situations rather than specifics
+
+AI TOOL COMPATIBILITY:
+These prompts work with all major AI assistants:
+- ChatGPT, Claude, Gemini, Perplexity
+- Use with privacy-respecting settings (opt-out of training)
+
+PROMPT CHAINING:
+For best results, use prompts in sequence:
+1. Start with Prompt 1 for initial setup
+2. Use Prompts 2-5 for core workflow steps
+3. Apply Prompts 6-8 for advanced applications
+4. Use Prompts 9-10 for optimization and scaling
+
+ITERATION:
+If outputs aren't specific enough:
+- "Make this specific to [your industry/context]"
+- "Provide actual examples for [specific scenario]"
+- "Add more detail to [specific section]"
+
+SAVING OUTPUTS:
+Keep all AI-generated outputs:
+- Store in organized folders by date and topic
+- Version control your working documents
+- Share with team via secure channels only
+
+VERIFICATION:
+Always independently verify:
+- Facts, figures, and claims in AI outputs
+- Recommendations against your specific context
+- Compliance with your organization's policies
+
+==============================================================================

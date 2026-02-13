@@ -1,0 +1,66 @@
+PROFESSIONAL BIO & PROFILE WRITER - PROMPT VARIANTS
+=====================================================
+
+PROMPT 1: LinkedIn Profile Summary Generator
+Description: Creates an optimized LinkedIn summary section that balances professional credibility with approachability. Incorporates relevant keywords for search visibility and ends with a clear call to action.
+Prompt: "Write a LinkedIn profile summary for a [JOB TITLE] at [COMPANY/INDUSTRY] with [X] years of experience. Key achievements include [ACHIEVEMENT 1], [ACHIEVEMENT 2], and [ACHIEVEMENT 3]. The tone should be [FORMAL/CONVERSATIONAL/AUTHORITATIVE]. Include relevant keywords for [TARGET AUDIENCE/INDUSTRY] and end with a call to action to [DESIRED ACTION — e.g., connect, message, visit website]."
+
+PROMPT 2: Conference Speaker Bio
+Description: Produces a concise, credibility-focused bio suitable for conference programs, webinar introductions, and event marketing materials. Emphasizes subject-matter expertise and speaking credentials.
+Prompt: "Write a [50/150/300]-word speaker bio for [FULL NAME], who will be presenting on [TOPIC] at [EVENT NAME]. Their relevant credentials include [CREDENTIAL 1], [CREDENTIAL 2], and [CREDENTIAL 3]. They have previously spoken at [PAST EVENTS]. Write in third person, [FORMAL/CONVERSATIONAL] tone, and emphasize their expertise in [SUBJECT AREA]."
+
+PROMPT 3: Executive Bio for Company Website
+Description: Creates a polished executive biography for the leadership or team page of a corporate website. Balances professional gravitas with organizational brand voice.
+Prompt: "Write an executive bio for [FULL NAME], [TITLE] at [COMPANY]. They joined the company in [YEAR] and have led initiatives including [INITIATIVE 1], [INITIATIVE 2], and [INITIATIVE 3]. Prior experience includes [PREVIOUS ROLES/COMPANIES]. Educational background: [DEGREES/INSTITUTIONS]. The company brand voice is [BRAND VOICE DESCRIPTION]. Include a brief personal detail about [HOBBY/INTEREST/VALUE]."
+
+PROMPT 4: Multi-Length Bio Set
+Description: Generates a complete set of bio variants from a single input — micro (50 words), short (150 words), standard (300 words), and extended (500+ words) — ensuring consistency across all versions.
+Prompt: "Using the following career information, create four bio versions — 50-word, 150-word, 300-word, and 500-word — for [FULL NAME]. Current role: [TITLE] at [COMPANY]. Top achievements: [LIST 3-5 ACHIEVEMENTS WITH METRICS]. Education: [DEGREES]. Affiliations: [ORGANIZATIONS]. Personal note: [PERSONAL DETAIL]. Tone: [TONE]. Ensure each version stands alone and the core message is consistent across all lengths."
+
+PROMPT 5: Personal Brand Statement
+Description: Distills a professional identity into a single powerful statement (1-2 sentences) that can serve as a tagline, email signature, or social media bio.
+Prompt: "Create a personal brand statement for a [JOB TITLE/FIELD] professional whose unique value proposition is [UNIQUE VALUE]. They serve [TARGET AUDIENCE] by [HOW THEY HELP]. Their differentiator compared to peers is [DIFFERENTIATOR]. Generate 5 variations: one formal, one conversational, one bold/provocative, one question-based, and one metric-driven."
+
+PROMPT 6: Resume Summary / Professional Summary
+Description: Writes the professional summary section at the top of a resume, optimized for ATS (Applicant Tracking Systems) and human readers.
+Prompt: "Write a professional summary for a resume targeting [TARGET ROLE] positions in [INDUSTRY]. The candidate has [X] years of experience in [FIELD], with expertise in [SKILL 1], [SKILL 2], and [SKILL 3]. Key accomplishments include [ACCOMPLISHMENT 1 WITH METRIC] and [ACCOMPLISHMENT 2 WITH METRIC]. Include keywords from this job description: [PASTE KEY REQUIREMENTS]. Keep it under 4 sentences."
+
+PROMPT 7: Social Media Bio (Twitter/X, Instagram)
+Description: Creates ultra-concise bios optimized for character-limited social platforms, capturing professional identity with personality.
+Prompt: "Write a [PLATFORM] bio for [FULL NAME] in under [CHARACTER LIMIT] characters. They are a [ROLE/TITLE] who specializes in [SPECIALTY]. Key credential: [TOP CREDENTIAL]. Personality trait to convey: [TRAIT]. Include a call to action pointing to [LINK/ACTION]. Generate 3 variations with different tones: professional, witty, and bold."
+
+PROMPT 8: Internal Company Directory Bio
+Description: Produces a brief, standardized bio for internal directories, intranets, or team introduction pages that helps colleagues understand a person's role and expertise.
+Prompt: "Write an internal company bio for [FULL NAME], [TITLE] in the [DEPARTMENT] team at [COMPANY]. They are responsible for [KEY RESPONSIBILITIES]. They have been with the company for [X] years and previously worked in [PREVIOUS INTERNAL ROLES OR EXTERNAL EXPERIENCE]. Team members can reach out to them for help with [AREAS OF EXPERTISE]. Include a fun fact: [FUN FACT]. Keep it under 100 words."
+
+PROMPT 9: Bio Update / Refresh
+Description: Takes an existing bio and updates it with new achievements, role changes, or tone adjustments while maintaining the original structure.
+Prompt: "Here is my current bio: [PASTE EXISTING BIO]. Please update it with the following changes: new title is [NEW TITLE], recent achievement is [NEW ACHIEVEMENT WITH METRIC], and I have also [ADDITIONAL UPDATE]. Maintain the same [TONE/LENGTH/STRUCTURE] but make it feel fresh. Flag any information in the existing bio that may now be outdated or inconsistent with the updates."
+
+PROMPT 10: Comparative Bio Benchmarking
+Description: Analyzes peer or competitor bios and generates an improved version that positions the subject favorably within their professional context.
+Prompt: "Here are 3 bios from professionals in my field: [BIO 1], [BIO 2], [BIO 3]. Using these as benchmarks, write a bio for me that positions me distinctively. My credentials: [LIST CREDENTIALS]. My unique angle: [DIFFERENTIATOR]. Match the general quality level of these examples but ensure mine stands out through [STRATEGY — e.g., stronger metrics, unique storytelling, clearer expertise claim]. Length: [WORD COUNT]."
+
+
+USAGE GUIDELINES
+================
+
+1. Always complete the Career Information Intake (SOP Step 1) before using any prompt. The quality of AI-generated bios is directly proportional to the specificity of inputs.
+
+2. Replace ALL bracketed fields with real information. Leaving placeholders produces generic, unusable output.
+
+3. For best results, provide actual metrics and numbers in achievement fields. "Increased revenue by 40% over 18 months" will always produce better bio content than "grew revenue significantly."
+
+4. Run the output through the QC Checklist before publishing. AI-generated bios should always be fact-checked and tone-verified.
+
+5. Use Prompt 4 (Multi-Length Bio Set) as your starting point for new subjects. Individual prompts work best for updates or platform-specific needs.
+
+6. When using Prompt 9 (Bio Update), always paste the complete existing bio. Partial inputs lead to inconsistent updates.
+
+7. Review the Redaction Guide before inputting any personal information. Remove sensitive details (home address, personal phone, private affiliations) before pasting into any AI tool.
+
+8. Iterate at least twice. Use the first output as a draft, then refine with specific feedback about tone, emphasis, or missing elements.
+
+9. Store final approved versions in a master document for future reference and consistency maintenance.
+
+10. Revisit bios quarterly using Prompt 9 to ensure they reflect current roles, achievements, and strategic positioning.

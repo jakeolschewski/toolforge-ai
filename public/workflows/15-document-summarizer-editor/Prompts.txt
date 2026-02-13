@@ -1,0 +1,199 @@
+DOCUMENT SUMMARIZER & EDITOR - PROMPT VARIATIONS
+================================================
+
+PROMPT 1 - DOCUMENT SUMMARIZER
+------------------------------
+Summarize this document:
+
+[PASTE DOCUMENT TEXT OR DESCRIBE ITS CONTENTS]
+
+Summary type: [EXECUTIVE/KEY_POINTS/ACTION_ITEMS/COMPREHENSIVE]
+Target length: [WORD_COUNT OR PERCENTAGE]
+Audience: [WHO WILL READ THE SUMMARY]
+
+Include: Main thesis, key findings, conclusions, and recommended actions.
+
+
+PROMPT 2 - CLARITY EDITOR
+-------------------------
+Edit this section for clarity:
+
+[PASTE THE SECTION TO EDIT]
+
+Editing goals:
+- Simplify complex sentences
+- Remove jargon (or define it)
+- Improve logical flow
+- Maintain original meaning
+
+Show tracked changes and explain major edits.
+
+
+PROMPT 3 - LENGTH CONDENSER
+---------------------------
+Condense this document to [TARGET_LENGTH]:
+
+[PASTE DOCUMENT]
+
+Prioritize keeping:
+- [LIST WHAT'S MOST IMPORTANT]
+
+OK to cut or reduce:
+- [LIST WHAT CAN BE SHORTENED]
+
+Provide condensed version and a list of what was removed.
+
+
+PROMPT 4 - KEY TAKEAWAY EXTRACTOR
+---------------------------------
+Extract the key takeaways from this document:
+
+[PASTE DOCUMENT OR SUMMARIZE CONTENTS]
+
+Format as:
+1. Top 5 key findings
+2. Important data points or statistics
+3. Action items or recommendations
+4. Questions raised or gaps identified
+5. One-line "bottom line" summary
+
+
+PROMPT 5 - DOCUMENT RESTRUCTURER
+--------------------------------
+Restructure this document for better flow:
+
+[PASTE DOCUMENT]
+
+Current issues: [DESCRIBE FLOW PROBLEMS]
+Target audience: [WHO READS THIS]
+Desired structure: [CHRONOLOGICAL/PROBLEM-SOLUTION/INVERTED PYRAMID/OTHER]
+
+Provide restructured outline and then the full restructured document.
+
+
+PROMPT 6 - TEAM DOCUMENT EDITOR
+-------------------------------
+Edit this document for team collaboration:
+
+[PASTE DOCUMENT]
+
+Team roles contributing: [LIST CONTRIBUTORS]
+Areas needing consistency: [TONE/TERMINOLOGY/FORMAT]
+Deadline: [DATE]
+
+Provide:
+- Unified version with consistent style
+- List of changes by section
+- Style guide for future sections
+
+
+PROMPT 7 - EXECUTIVE SUMMARY CREATOR
+------------------------------------
+Add an executive summary to this document:
+
+[PASTE DOCUMENT OR DESCRIBE CONTENTS]
+
+Executive audience: [C-SUITE/BOARD/INVESTORS/CLIENTS]
+Key decision they need to make: [DESCRIBE]
+Target length: [250/500/750 WORDS]
+
+Create an executive summary that enables decision-making without reading the full document.
+
+
+PROMPT 8 - INCONSISTENCY CHECKER
+--------------------------------
+Check this document for inconsistencies:
+
+[PASTE DOCUMENT]
+
+Check for:
+- Contradictory statements
+- Inconsistent terminology
+- Formatting inconsistencies
+- Data that doesn't align
+- Tone shifts
+- Missing cross-references
+
+List each inconsistency with location and suggested fix.
+
+
+PROMPT 9 - FEEDBACK INTEGRATOR
+------------------------------
+Integrate this feedback into the document:
+
+Original document: [PASTE OR DESCRIBE]
+Feedback received:
+1. [FEEDBACK ITEM 1]
+2. [FEEDBACK ITEM 2]
+3. [FEEDBACK ITEM 3]
+
+For each feedback item:
+- Show the change made
+- Explain how it addresses the feedback
+- Flag any conflicting feedback
+
+
+PROMPT 10 - VERSION CONTROL EDITOR
+----------------------------------
+Create version control notes for this document edit:
+
+Original version: [VERSION NUMBER]
+Changes made:
+[DESCRIBE ALL CHANGES]
+
+Generate:
+- Version changelog
+- Summary of material changes
+- List of sections affected
+- Review status for each change
+- Ready-to-publish checklist
+
+
+==============================================================================
+USAGE GUIDELINES
+==============================================================================
+
+PRIVACY PROTECTION:
+When using these prompts, NEVER include:
+- Actual confidential business information
+- Real names, email addresses, or contact details
+- Proprietary data, trade secrets, or internal metrics
+- Client or customer identifying information
+- Financial details (exact revenues, salaries, etc.)
+
+Use placeholders:
+- "[CLIENT_NAME]", "[COMPANY]" instead of real names
+- "[AMOUNT]", "[METRIC]" for sensitive numbers
+- Generic descriptions of situations rather than specifics
+
+AI TOOL COMPATIBILITY:
+These prompts work with all major AI assistants:
+- ChatGPT, Claude, Gemini, Perplexity
+- Use with privacy-respecting settings (opt-out of training)
+
+PROMPT CHAINING:
+For best results, use prompts in sequence:
+1. Start with Prompt 1 for initial setup
+2. Use Prompts 2-5 for core workflow steps
+3. Apply Prompts 6-8 for advanced applications
+4. Use Prompts 9-10 for optimization and scaling
+
+ITERATION:
+If outputs aren't specific enough:
+- "Make this specific to [your industry/context]"
+- "Provide actual examples for [specific scenario]"
+- "Add more detail to [specific section]"
+
+SAVING OUTPUTS:
+Keep all AI-generated outputs:
+- Store in organized folders by date and topic
+- Version control your working documents
+- Share with team via secure channels only
+
+VERIFICATION:
+Always independently verify:
+- Facts, figures, and claims in AI outputs
+- Recommendations against your specific context
+- Compliance with your organization's policies
+
+==============================================================================

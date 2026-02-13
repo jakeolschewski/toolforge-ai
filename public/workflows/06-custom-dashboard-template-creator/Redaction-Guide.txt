@@ -1,0 +1,438 @@
+REDACTION GUIDE - CUSTOM DASHBOARD TEMPLATE CREATOR
+====================================================
+
+PURPOSE
+-------
+This guide helps you safely create, share, and distribute dashboard templates
+without exposing actual business data, personal information, or proprietary
+metrics. It covers redaction practices for sample data, exported templates,
+and shared documentation.
+
+=============================================================================
+SECTION 1: TYPES OF DATA TO REDACT
+=============================================================================
+
+CATEGORY A: FINANCIAL AND BUSINESS DATA (NEVER SHARE)
+------------------------------------------------------
+x ABSOLUTELY NEVER INCLUDE:
+  - Real revenue, profit, or cost figures
+  - Actual budget allocations or spending amounts
+  - Customer acquisition costs or lifetime values
+  - Pricing information or discount structures
+  - Salary or compensation data
+  - Investment or funding details
+  - Proprietary margin calculations
+  - Real sales pipeline values
+
+v SAFE ALTERNATIVES:
+  - Round to ranges: "$50K-75K" instead of "$63,247"
+  - Use percentages: "Revenue up 12%" instead of actual figures
+  - Generic labels: "[MONTHLY_REVENUE]", "[Q1_TARGET]"
+  - Clearly fictional values: "$100,000" with "[SAMPLE]" label
+  - Normalized data: Index to 100 baseline instead of real values
+
+CATEGORY B: PERSONAL AND EMPLOYEE DATA
+---------------------------------------
+x POTENTIALLY SENSITIVE:
+  - Employee names and performance scores
+  - Individual productivity metrics
+  - Team member assignments or workloads
+  - Personal email addresses or contact info
+  - Attendance or time tracking records
+  - Performance review data
+  - Compensation or bonus information
+
+v SAFE ALTERNATIVES:
+  - Roles: "Team Lead", "Analyst 1", "Developer 2"
+  - Generic teams: "Team Alpha", "Team Beta"
+  - Fictional names: "Alex Smith", "Jordan Lee" (clearly fake)
+  - Aggregate data: "Team average: 87%" instead of individual scores
+  - Role-based labels: "[MANAGER_NAME]", "[IC_1]"
+
+CATEGORY C: CLIENT AND CUSTOMER DATA
+-------------------------------------
+x POTENTIALLY SENSITIVE:
+  - Client company names
+  - Customer account IDs or identifiers
+  - Deal sizes or contract values
+  - Customer contact information
+  - Project names tied to real clients
+  - Customer usage or behavior data
+  - Churn or retention details for specific accounts
+
+v SAFE ALTERNATIVES:
+  - Fictional companies: "Acme Corp", "Globex Industries", "Initech"
+  - Industry labels: "Client A (Healthcare)", "Client B (Finance)"
+  - Generic projects: "Project Alpha", "Project Lighthouse"
+  - Aggregated metrics: "Average client value" vs. specific account
+  - Account codes: "ACCT-001", "ACCT-002"
+
+CATEGORY D: PROPRIETARY METRICS AND FORMULAS
+---------------------------------------------
+x BE CAUTIOUS WITH:
+  - Custom KPI calculation formulas
+  - Proprietary scoring algorithms
+  - Competitive intelligence metrics
+  - Internal benchmark thresholds
+  - Business logic encoded in formulas
+  - Trade-secret processes reflected in dashboard structure
+
+v SAFE ALTERNATIVES:
+  - Generic descriptions: "Calculated from weighted average of 3 inputs"
+  - Standard formulas: Use publicly known calculation methods
+  - Placeholder formulas: "=SUM([RANGE])" instead of specific cell references
+  - Simplified versions: Show concept without proprietary detail
+  - Notes: "Custom formula - replace with your organization's calculation"
+
+CATEGORY E: INFRASTRUCTURE AND SYSTEM DETAILS
+----------------------------------------------
+x POTENTIALLY SENSITIVE:
+  - Internal system URLs or API endpoints
+  - Database connection strings or server names
+  - Data warehouse table names or schema details
+  - Authentication tokens embedded in data connections
+  - Internal tool configurations or settings
+  - Network architecture reflected in data flow
+
+v SAFE ALTERNATIVES:
+  - Generic: "Data Source: CRM System" instead of specific URL
+  - Placeholders: "[DATABASE_ENDPOINT]", "[API_URL]"
+  - Category labels: "Sales database", "Marketing analytics platform"
+  - Architecture notes: "Cloud-hosted data warehouse" vs. specific service
+
+=============================================================================
+SECTION 2: STEP-BY-STEP REDACTION PROCESS
+=============================================================================
+
+STEP 1: PRE-REDACTION SCAN
+---------------------------
+Before sharing any dashboard template:
+
+[ ] Search for real company names (yours and clients')
+[ ] Search for employee or team member names
+[ ] Search for dollar amounts that match real figures
+[ ] Search for email addresses and phone numbers
+[ ] Search for dates tied to real events or milestones
+[ ] Search for internal project codenames
+[ ] Search for URLs, API keys, or connection strings
+[ ] Search for account numbers or customer IDs
+[ ] Review all formulas for hardcoded sensitive values
+[ ] Check conditional formatting thresholds against real targets
+
+STEP 2: FINANCIAL DATA MASKING
+-------------------------------
+For each financial metric in the dashboard:
+
+Real Revenue Data:
+x BEFORE: Q1 Revenue: $2,347,891 | Q2 Revenue: $2,891,234
+v AFTER:  Q1 Revenue: [SAMPLE] $2,500,000 | Q2 Revenue: [SAMPLE] $2,800,000
+    OR:  Q1 Revenue: [YOUR_Q1_REVENUE] | Q2 Revenue: [YOUR_Q2_REVENUE]
+
+Budget Allocations:
+x BEFORE: Marketing: $425,000 | Engineering: $1,200,000 | Sales: $680,000
+v AFTER:  Marketing: [SAMPLE] $400,000 | Engineering: [SAMPLE] $1,000,000
+    OR:  [DEPT_1]: [BUDGET_1] | [DEPT_2]: [BUDGET_2]
+
+Cost Metrics:
+x BEFORE: CAC: $127.43 | LTV: $4,891 | CAC:LTV Ratio: 1:38.4
+v AFTER:  CAC: [SAMPLE] $125 | LTV: [SAMPLE] $5,000 | Ratio: [SAMPLE] 1:40
+    OR:  CAC: [YOUR_CAC] | LTV: [YOUR_LTV] | Ratio: [CALCULATED]
+
+STEP 3: PERSONNEL DATA ANONYMIZATION
+-------------------------------------
+Replace all personal identifiers:
+
+Team Performance Table:
+x BEFORE:
+| Name           | Role      | Tasks Done | Score |
+| Sarah Chen     | Lead      | 47         | 94%   |
+| Mike Rodriguez | Dev       | 38         | 87%   |
+| Emily Park     | Designer  | 29         | 91%   |
+
+v AFTER:
+| Name           | Role      | Tasks Done | Score |
+| [Team Lead]    | Lead      | [SAMPLE] 45| 92%   |
+| [Developer 1]  | Dev       | [SAMPLE] 38| 87%   |
+| [Designer 1]   | Designer  | [SAMPLE] 30| 90%   |
+
+OR (with fictional names):
+| Name           | Role      | Tasks Done | Score |
+| Alex Smith     | Lead      | [SAMPLE] 45| 92%   |
+| Jordan Lee     | Dev       | [SAMPLE] 38| 87%   |
+| Taylor Kim     | Designer  | [SAMPLE] 30| 90%   |
+
+STEP 4: CLIENT AND PROJECT ANONYMIZATION
+-----------------------------------------
+Replace real client and project references:
+
+Client Pipeline:
+x BEFORE:
+| Client              | Deal Size   | Stage      | Close Date |
+| Walmart Corp        | $2.4M       | Negotiation| 2026-03-15 |
+| JP Morgan Chase     | $890K       | Proposal   | 2026-04-01 |
+
+v AFTER:
+| Client              | Deal Size   | Stage      | Close Date |
+| [SAMPLE] Acme Corp  | $2.5M       | Negotiation| [DATE]     |
+| [SAMPLE] Globex Inc | $900K       | Proposal   | [DATE]     |
+
+Project Tracker:
+x BEFORE: "Project Phoenix - Nike Rebrand Q2 2026"
+v AFTER:  "[SAMPLE] Project Alpha - Brand Refresh Initiative"
+
+STEP 5: FORMULA AND LOGIC REDACTION
+------------------------------------
+When sharing templates with formulas:
+
+Proprietary Calculations:
+x BEFORE:
+=((B2*0.73+C2*0.15+D2*0.12)*VLOOKUP(A2,SecretWeights!A:B,2,0))/E2
+v AFTER:
+=((B2*[WEIGHT_1]+C2*[WEIGHT_2]+D2*[WEIGHT_3])*[ADJUSTMENT_FACTOR])/E2
+    OR:
+=[YOUR_CUSTOM_FORMULA_HERE]
+    WITH NOTE: "Replace with your organization's scoring calculation"
+
+Data Source References:
+x BEFORE: =IMPORTDATA("https://api.internal.acmecorp.com/metrics/revenue")
+v AFTER:  =IMPORTDATA("[YOUR_DATA_SOURCE_URL]")
+    OR:   =[Manual data entry - connect to your data source]
+
+Conditional Formatting:
+x BEFORE: Green if > $127,500 (real target); Red if < $85,000
+v AFTER:  Green if > [YOUR_TARGET]; Yellow if > [YOUR_WARNING]; Red if < [YOUR_MINIMUM]
+    WITH NOTE: "Adjust thresholds to match your organization's targets"
+
+STEP 6: METADATA AND HIDDEN DATA CLEANUP
+-----------------------------------------
+Remove non-visible sensitive information:
+
+Google Sheets:
+[ ] File > Check revision history for sensitive data in earlier versions
+[ ] Check for hidden sheets with raw data
+[ ] Review named ranges for sensitive references
+[ ] Clear data validation lists that reference real data
+[ ] Remove comments containing sensitive information
+[ ] Check "File > Details" for authorship information
+[ ] Remove any Apps Script containing credentials or URLs
+
+Notion:
+[ ] Check page history for real data in earlier edits
+[ ] Review linked databases for exposed fields
+[ ] Remove comments and discussion threads with sensitive info
+[ ] Check relation properties that link to private databases
+[ ] Verify shared page doesn't inherit parent page permissions
+
+Airtable:
+[ ] Check revision history on records
+[ ] Review linked records pointing to private bases
+[ ] Remove automations containing real endpoints or emails
+[ ] Clear form submissions containing real data
+[ ] Remove comments on records with sensitive information
+
+PDF/Wireframe:
+[ ] Strip document properties (author, company, creation date)
+[ ] Remove embedded fonts that reveal organizational info
+[ ] Check for hidden layers or annotations
+[ ] Flatten form fields to prevent extraction
+
+STEP 7: SCREENSHOT AND IMAGE REDACTION
+---------------------------------------
+When sharing dashboard screenshots:
+
+x BEFORE: Full screenshot showing real data, URLs, and user identity
+v AFTER:  Screenshot with:
+  - All numerical values replaced or blurred
+  - Browser URL bar cropped out
+  - User avatar and profile info removed or blurred
+  - Any notification badges or sidebar content cropped
+  - Watermark added: "[SAMPLE DASHBOARD - Not Real Data]"
+
+Tools for screenshot redaction:
+- macOS Preview: Use rectangle annotation tool with solid fill
+- Pixelmator / Photoshop: Blur or solid-color overlay
+- Notion: Crop before pasting
+- Markup tools: Use platform-native markup/redaction
+
+=============================================================================
+SECTION 3: SCENARIO-SPECIFIC REDACTION
+=============================================================================
+
+SCENARIO 1: SHARING TEMPLATE WITH TEAM
+---------------------------------------
+Safe to include:
+v Layout structure and section arrangement
+v Visualization type recommendations
+v Generic metric names and categories
+v Formula structures with placeholder references
+v Conditional formatting logic (with generic thresholds)
+
+Must redact:
+x Real financial data or targets
+x Individual performance data
+x Client or customer names
+x Proprietary calculation formulas
+x Internal system URLs or credentials
+
+SCENARIO 2: PUBLISHING TEMPLATE FOR PUBLIC USE
+-----------------------------------------------
+Safe to include:
+v Complete template structure
+v Sample data with fictional entities
+v Generic formulas and formatting
+v Platform-specific setup instructions
+v Design principles and best practices
+
+Must redact:
+x ALL real data (replace with clearly labeled samples)
+x Organization-specific terminology or jargon
+x Internal process details
+x Proprietary metric definitions
+x Any data that could identify the source organization
+x Screenshots of real dashboards (use mockups instead)
+
+SCENARIO 3: CLIENT-FACING DASHBOARD DELIVERY
+---------------------------------------------
+Safe to include:
+v Client's own data (with their permission)
+v Agreed-upon metrics and visualizations
+v Standard industry benchmarks
+
+Must redact:
+x Other clients' data or benchmarks
+x Internal cost or margin information
+x Proprietary methodology details
+x Backend system or infrastructure details
+x Team member personal information
+
+SCENARIO 4: PORTFOLIO OR CASE STUDY USE
+----------------------------------------
+Safe to include:
+v Dashboard design and layout (visual)
+v Anonymized metrics and sample data
+v Process and methodology description
+v General outcomes (percentages, not absolutes)
+
+Must redact:
+x Client name (unless written permission obtained)
+x Exact financial figures
+x Proprietary formulas or algorithms
+x Any data that could identify the client through inference
+x Internal stakeholder names or roles
+
+=============================================================================
+SECTION 4: AUTOMATED REDACTION TOOLS
+=============================================================================
+
+COMMAND-LINE TOOLS
+------------------
+1. Spreadsheet Data Masking (Python):
+   # Replace real names with fictional ones
+   import pandas as pd
+   import faker
+
+   fake = faker.Faker()
+   df = pd.read_csv('dashboard_data.csv')
+   df['client_name'] = [fake.company() for _ in range(len(df))]
+   df['employee_name'] = [fake.name() for _ in range(len(df))]
+   df.to_csv('dashboard_data_redacted.csv', index=False)
+
+2. Financial Data Rounding (Excel/Sheets):
+   # Round to nearest $1,000 and add [SAMPLE] prefix
+   =TEXT(ROUND(A2, -3), "$#,##0")
+   # Or replace with placeholder
+   ="[SAMPLE] "&TEXT(ROUND(A2*RANDBETWEEN(90,110)/100, -3), "$#,##0")
+
+3. Metadata Stripping (command line):
+   # PDF metadata removal
+   exiftool -all= dashboard_export.pdf
+
+   # Office document metadata
+   exiftool -all= dashboard_template.xlsx
+
+MANUAL VERIFICATION
+-------------------
+Automated tools miss context-specific sensitivity:
+- Metric combinations that reveal strategy (growth rates + market share)
+- Temporal patterns that identify real events
+- Relative proportions that expose business model
+- Section titles that reference internal initiatives
+- Color coding that matches known brand guidelines
+
+Always manually review after automated redaction.
+
+=============================================================================
+SECTION 5: VERIFICATION CHECKLIST
+=============================================================================
+
+Before sharing any dashboard template:
+
+[ ] All financial figures replaced with samples or placeholders
+[ ] All personal names replaced with roles or fictional names
+[ ] All client/customer names anonymized
+[ ] All proprietary formulas genericized or replaced
+[ ] All internal URLs and system references removed
+[ ] All conditional formatting thresholds genericized
+[ ] File metadata stripped (author, company, dates)
+[ ] Hidden sheets/tabs checked and cleared
+[ ] Revision history reviewed for sensitive data
+[ ] Comments and notes cleared of sensitive information
+[ ] Screenshots blurred/cropped to remove real data
+[ ] Sample data clearly labeled as "[SAMPLE]" throughout
+[ ] Data validation lists contain only generic options
+[ ] Linked databases or external references disconnected
+[ ] Export tested in target format (no data leakage in conversion)
+
+PEER REVIEW:
+[ ] Second person reviewed template for missed redactions
+[ ] Reviewer was unfamiliar with the real data (fresh perspective)
+
+=============================================================================
+SECTION 6: SPECIAL CONSIDERATIONS
+=============================================================================
+
+INDUSTRY-SPECIFIC REQUIREMENTS
+------------------------------
+Financial Services: Redact all trade data, portfolio compositions, and
+  compliance metrics. Even sample data should not resemble real positions.
+Healthcare: Never include any PHI, even as sample data. Use completely
+  fictional patient or facility identifiers.
+Government: Redact classification markings, internal program names,
+  and budget line items even in template form.
+Education: Remove student identifiers, grades, and FERPA-protected data.
+
+TEMPLATE LIBRARIES AND MARKETPLACES
+------------------------------------
+If publishing templates to a marketplace or library:
+- Assume global audience with varying data privacy regulations
+- Use internationally neutral sample data (no country-specific formats)
+- Avoid industry jargon that could identify the source
+- Include explicit licensing terms for template reuse
+- State that sample data is fictional in multiple locations
+
+DATA RESIDENCY CONSIDERATIONS
+------------------------------
+When exporting to cloud platforms:
+- Notion: Data stored in US (AWS)
+- Google Sheets: Regional settings based on Google Workspace config
+- Airtable: Data stored in US
+- If GDPR or other residency requirements apply, document where
+  the dashboard data will reside after export
+
+=============================================================================
+SUPPORT & QUESTIONS
+=============================================================================
+
+When in doubt: USE FAKE DATA.
+Over-redaction is safer than under-redaction for templates.
+
+For sensitive situations, consult:
+- Legal team before sharing dashboards with financial data
+- Compliance team before sharing dashboards with regulated metrics
+- Security team before connecting dashboards to live data sources
+- HR team before sharing dashboards with employee performance data
+
+This guide is for educational purposes. Adapt to your organization's
+specific data classification policies and regulatory requirements.
+
+=============================================================================

@@ -1,0 +1,323 @@
+WORKSPACE PRIVACY AUDIT & SETUP - PROMPT VARIATIONS
+=====================================================
+
+PROMPT 1 - COMPREHENSIVE WORKSPACE PRIVACY AUDIT
+-------------------------------------------------
+Audit my AI workspace privacy. Here are the tools and services I currently use:
+
+Tools: [LIST YOUR TOOLS - e.g., ChatGPT, Claude, Notion, Slack, Zapier, Google Drive, VS Code with Copilot, etc.]
+
+For each tool, analyze and report:
+1. Data collection practices (what data does the tool collect?)
+2. Training data usage (does it use my inputs for model training?)
+3. Data retention period (how long is my data stored?)
+4. Third-party data sharing (who else gets access to my data?)
+5. Opt-out availability (can I opt out of data collection/training?)
+6. Encryption status (data at rest and in transit)
+7. Privacy risk score (1-10, where 10 is highest risk)
+8. Recommended actions to reduce risk
+
+Format the results as a table I can copy to a spreadsheet, followed by a prioritized list of the top 5 actions I should take immediately.
+
+
+PROMPT 2 - TOOL-SPECIFIC PRIVACY CONTROLS SETUP
+-------------------------------------------------
+Set up privacy controls for [TOOL NAME]. I use this tool for [DESCRIBE YOUR USE CASE].
+
+My requirements:
+- Data sensitivity level: [Low / Medium / High / Critical]
+- Regulatory requirements: [None / GDPR / HIPAA / CCPA / SOC 2 / Other]
+- Team size using this tool: [Solo / 2-5 / 5-20 / 20+]
+- Account type: [Free / Paid / Enterprise]
+
+Provide a step-by-step setup guide covering:
+1. Privacy settings to enable/disable (with exact navigation paths)
+2. Training opt-out procedure (if applicable)
+3. Data retention configuration
+4. Access control settings
+5. Integration permissions to review
+6. Export and deletion procedures
+7. Monitoring and logging options
+8. Browser/client-side privacy settings
+
+For each setting, explain:
+- What it does
+- Why it matters for privacy
+- The recommended configuration
+- How to verify it is working
+
+
+PROMPT 3 - PRIVACY AUDIT CHECKLIST GENERATOR
+---------------------------------------------
+Generate a comprehensive privacy audit checklist for my AI workspace. I need a structured, repeatable checklist that I can use for monthly and quarterly privacy reviews.
+
+My workspace details:
+- Number of AI tools: [e.g., 5-10]
+- Team size: [Solo, small team, large team]
+- Data types handled: [General text, code, PII, financial, health, etc.]
+- Regulatory environment: [None, GDPR, HIPAA, CCPA, etc.]
+- Current privacy maturity: [Just starting / Somewhat organized / Well-established]
+
+Generate a checklist organized by category:
+1. Tool Inventory Review (verify all tools documented)
+2. Privacy Policy Updates (check for vendor policy changes)
+3. Data Flow Verification (confirm data paths are as expected)
+4. Control Validation (test that privacy controls are active)
+5. Access Review (verify appropriate access levels)
+6. Incident Review (check for privacy events since last audit)
+7. Compliance Check (regulatory alignment)
+8. Documentation Update (keep records current)
+
+Include time estimates for each section and a scoring rubric for overall privacy health.
+
+
+PROMPT 4 - WORKFLOW RISK IDENTIFICATION
+----------------------------------------
+Identify privacy risks in the following workflow:
+
+Workflow description:
+[DESCRIBE YOUR WORKFLOW - e.g., "I copy customer support emails into ChatGPT to draft responses, then paste the responses into our CRM. I also use Zapier to automatically send new support tickets to a Slack channel for triage."]
+
+For this workflow, analyze:
+1. Every point where data is exposed to a third party
+2. Data types at risk (PII, credentials, business-sensitive, etc.)
+3. Unencrypted or weakly protected data transfers
+4. Potential for data leakage or unauthorized retention
+5. Compliance risks (if applicable regulations mentioned)
+6. Risk severity for each finding (Critical / High / Medium / Low)
+
+Provide:
+- A numbered list of all risks found
+- A risk matrix (likelihood vs. impact)
+- Specific mitigation steps for each risk
+- An alternative workflow design that reduces risk
+- A "quick wins" section for changes implementable in under 30 minutes
+
+
+PROMPT 5 - VPN AND ENCRYPTION RECOMMENDATIONS
+----------------------------------------------
+Recommend VPN and encryption solutions for my AI tool usage.
+
+My situation:
+- Operating system: [macOS / Windows / Linux / Multiple]
+- Primary AI tools: [List your AI tools]
+- Team or individual use: [Solo / Team of X]
+- Budget: [$0 (free only) / $5-15/month / $15-50/month / Enterprise]
+- Technical comfort: [Beginner / Intermediate / Advanced]
+- Priority: [Speed / Privacy / Both balanced]
+- Specific needs: [Streaming, torrenting, specific country access, etc.]
+
+Provide recommendations for:
+1. VPN service (compare 3-5 options with pros, cons, pricing)
+2. DNS encryption (DNS-over-HTTPS or DNS-over-TLS setup)
+3. Local storage encryption (full disk and file-level)
+4. Communication encryption (messaging, email, file sharing)
+5. Browser privacy configuration (extensions, settings)
+
+For each recommendation:
+- Why it matters for AI workspace privacy
+- Setup difficulty (1-10)
+- Performance impact
+- Cost
+- Your top pick and why
+
+Do NOT endorse specific products as universally best; present trade-offs.
+
+
+PROMPT 6 - PRIVACY BREACH RESPONSE SIMULATION
+----------------------------------------------
+Simulate a privacy breach response for my AI workspace. Help me practice responding to this scenario:
+
+Scenario: [CHOOSE OR DESCRIBE ONE]
+- Option A: "I discovered that an AI tool I use has been training on my inputs despite my opt-out setting."
+- Option B: "A team member accidentally pasted customer PII into a public AI chat."
+- Option C: "A browser extension I use was found to be exfiltrating conversation data."
+- Option D: [DESCRIBE YOUR OWN SCENARIO]
+
+For the simulation, provide:
+
+PHASE 1 - IMMEDIATE RESPONSE (0-15 minutes):
+- [ ] Critical containment actions
+- [ ] Who to notify
+
+PHASE 2 - INVESTIGATION (15-60 minutes):
+- [ ] Data scope assessment
+- [ ] Root cause identification
+
+PHASE 3 - REMEDIATION (1-24 hours):
+- [ ] Technical fixes
+- [ ] Communication to affected parties
+
+PHASE 4 - POST-INCIDENT (1-7 days):
+- [ ] Documentation
+- [ ] Prevention measures
+- [ ] Policy updates
+
+Include decision trees for escalation and templates for incident communication.
+
+
+PROMPT 7 - SECURE WORKSPACE CONFIGURATION BUILDER
+--------------------------------------------------
+Build a secure workspace configuration for my AI tool setup.
+
+My current setup:
+- Computer/OS: [e.g., macOS Sonoma, Windows 11, Ubuntu 24.04]
+- AI tools I use daily: [List tools]
+- Browser: [Chrome, Firefox, Safari, Edge, Arc, etc.]
+- Communication tools: [Slack, Teams, Discord, etc.]
+- Cloud storage: [Google Drive, Dropbox, OneDrive, iCloud, etc.]
+- Code editor: [VS Code, Cursor, JetBrains, etc.]
+
+Generate a complete secure configuration guide:
+1. Operating system privacy settings
+2. Browser privacy configuration (specific settings and extensions)
+3. AI tool privacy settings (for each tool listed)
+4. Communication tool hardening
+5. Cloud storage encryption and sharing settings
+6. Code editor privacy (telemetry, AI features)
+7. Network configuration (DNS, VPN, firewall)
+8. Backup encryption settings
+
+Format as an actionable checklist I can follow step-by-step on a fresh setup.
+
+
+PROMPT 8 - PRIVACY FEATURE COMPARISON
+--------------------------------------
+Compare the privacy features of these tools:
+
+Tools to compare: [LIST 2-5 TOOLS - e.g., "ChatGPT vs. Claude vs. Gemini" or "Notion vs. Obsidian vs. Confluence"]
+
+Compare on these dimensions:
+1. Data collection scope (what data is collected)
+2. Training data usage (are inputs used for training)
+3. Opt-out availability and ease
+4. Data retention periods
+5. Data deletion process
+6. Encryption (at rest and in transit)
+7. Third-party data sharing
+8. Compliance certifications (SOC 2, GDPR, HIPAA, etc.)
+9. Data residency options (where data is stored)
+10. Privacy policy transparency and readability
+11. Incident response history (past breaches or issues)
+12. User control over data (export, portability)
+
+Present results as:
+- Side-by-side comparison table
+- Privacy score for each tool (1-10)
+- Best choice for privacy-conscious users
+- Trade-offs to consider (privacy vs. features)
+
+Do NOT present one tool as universally superior; highlight context-dependent trade-offs.
+
+
+PROMPT 9 - MONTHLY PRIVACY AUDIT INTEGRATION
+---------------------------------------------
+Help me integrate a privacy audit into my monthly routine. I want a lightweight, repeatable process that takes no more than 30 minutes per month.
+
+My current routine:
+- [Describe your existing monthly review activities, if any]
+
+My workspace:
+- Number of AI tools: [X]
+- Data sensitivity: [Low / Medium / High]
+- Team size: [Solo / Small team / Large team]
+- Current audit process: [None / Ad hoc / Somewhat structured]
+
+Generate:
+1. A 30-minute monthly audit template with specific tasks and time allocations
+2. A quarterly deep-dive template (60-90 minutes)
+3. Trigger events that should prompt an immediate audit (outside of schedule)
+4. Automation opportunities (what can be checked automatically)
+5. A simple scoring system to track privacy health over time
+6. A one-page "privacy dashboard" template I can update monthly
+7. Integration points with existing productivity tools (calendar, task manager)
+
+Make it simple enough that I will actually follow through every month.
+
+
+PROMPT 10 - TEAM PRIVACY SETUP GUIDELINES
+------------------------------------------
+Create team privacy setup guidelines for our AI workspace.
+
+Team details:
+- Team size: [e.g., 5 people]
+- Roles: [e.g., developers, designers, managers, etc.]
+- AI tools used: [List shared tools]
+- Data types handled: [e.g., customer data, code, internal docs]
+- Regulatory requirements: [None / GDPR / HIPAA / SOC 2 / Other]
+- Current privacy training: [None / Basic awareness / Formal training]
+
+Generate comprehensive guidelines including:
+
+1. Team Privacy Policy (rules everyone must follow)
+2. Approved Tools List (with required privacy settings for each)
+3. Data Classification Guide (what can and cannot be shared with AI tools)
+4. New Member Onboarding Checklist (privacy-specific setup steps)
+5. Offboarding Checklist (revoking access, rotating credentials)
+6. Incident Reporting Procedure (what to do if privacy is compromised)
+7. Monthly Team Audit Procedure (who does what)
+8. Privacy Champion Role (rotating or assigned responsibility)
+9. Exception Request Process (when someone needs to deviate from policy)
+10. Training Materials Outline (quarterly privacy refresher content)
+
+Format as a team handbook section that can be copied directly into documentation.
+
+
+==============================================================================
+USAGE GUIDELINES
+==============================================================================
+
+PRIVACY PROTECTION:
+When using these prompts, NEVER include:
+- Actual customer or user data (names, emails, account numbers)
+- Real API keys, tokens, or credentials
+- Specific internal system URLs or IP addresses
+- Confidential business processes or trade secrets
+- Employee names (use roles instead)
+- Specific vendor contract details
+
+Use placeholders:
+- "Tool A", "Tool B" instead of real tool names if discussing sensitive setups
+- "[CUSTOMER_DATA]" instead of actual customer information
+- Generic workflow descriptions rather than proprietary processes
+- "Team Member 1", "Developer A" instead of real names
+
+AI TOOL COMPATIBILITY:
+These prompts work with all major AI assistants:
+- ChatGPT, Claude, Gemini, Perplexity
+- Use with privacy-respecting settings (opt-out of training where possible)
+- Avoid pasting real sensitive data even when testing privacy tools
+
+PROMPT CHAINING:
+Recommended sequence for complete privacy audit and setup:
+1. Start with Prompt 1 (Comprehensive Audit) for baseline assessment
+2. Then Prompt 4 (Risk Identification) for specific workflows
+3. Follow with Prompt 3 (Checklist Generator) for ongoing process
+4. Use Prompt 5 (VPN and Encryption) for technical controls
+5. Implement Prompt 7 (Secure Configuration) for setup hardening
+6. Prepare with Prompt 6 (Breach Response) for incident readiness
+7. Scale with Prompt 10 (Team Guidelines) if working with others
+8. Maintain with Prompt 9 (Monthly Audit Integration) for ongoing health
+
+ITERATION:
+If outputs are not specific enough:
+- "Make this specific to [your operating system / tool / industry]"
+- "Provide exact navigation paths for [specific tool] settings"
+- "Add regulatory-specific requirements for [GDPR / HIPAA / etc.]"
+- "Include automation scripts for checks in steps 3-5"
+
+SAVING OUTPUTS:
+Keep all AI-generated audit results:
+- Store in encrypted storage (not plain text on desktop)
+- Version control your privacy policies (track changes over time)
+- Share audit results via secure channels only
+- Archive previous audits for trend analysis
+
+VERIFICATION:
+Always independently verify:
+- Privacy policy details (check official tool documentation)
+- Regulatory requirements (consult legal or compliance professionals)
+- Technical controls (test them; do not assume they work)
+- VPN and encryption claims (verify with independent testing tools)
+
+==============================================================================

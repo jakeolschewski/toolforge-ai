@@ -1,0 +1,481 @@
+REDACTION GUIDE - WORKSPACE PRIVACY AUDIT & SETUP
+===================================================
+
+PURPOSE
+-------
+This guide helps you safely share privacy audit documentation, risk assessments,
+workspace configurations, and team guidelines without exposing actual user data,
+tool-specific logs, infrastructure details, or organizational information. When
+sharing audit results, always use aggregates and anonymized summaries.
+
+=============================================================================
+SECTION 1: TYPES OF DATA TO REDACT
+=============================================================================
+
+CATEGORY A: USER AND PERSONAL DATA (NEVER SHARE)
+-------------------------------------------------
+x ABSOLUTELY NEVER INCLUDE:
+  - Employee names, emails, or usernames
+  - Customer or client names and contact information
+  - Personal browsing history or tool usage logs
+  - Individual usage patterns or activity timestamps
+  - IP addresses tied to specific users
+  - Location data or geographic information about individuals
+  - Personal device identifiers (MAC addresses, serial numbers)
+  - Biometric data or authentication tokens
+
+SAFE ALTERNATIVES:
+  - Roles: "Developer A", "Team Lead", "Security Champion"
+  - Aggregates: "3 of 5 team members completed privacy setup"
+  - Ranges: "Team members accessed between 4-8 AI tools each"
+  - Generic labels: "[USER_EMAIL]", "[TEAM_MEMBER]"
+
+
+CATEGORY B: TOOL-SPECIFIC LOGS AND CONFIGURATIONS
+--------------------------------------------------
+x POTENTIALLY SENSITIVE:
+  - Exact tool settings and configuration values
+  - API endpoint URLs with organization identifiers
+  - Tool-specific account IDs or workspace identifiers
+  - Audit log entries with user-specific actions
+  - Error messages revealing internal tool architecture
+  - Integration tokens or webhook URLs
+  - Tool-specific data export contents
+
+SAFE ALTERNATIVES:
+  - Generic descriptions: "AI assistant configured with training opt-out enabled"
+  - Aggregated findings: "4 of 7 tools had adequate privacy settings"
+  - Category labels: "LLM Tool A", "Productivity Tool B"
+  - Status only: "Opt-out: Enabled" without showing exact setting path
+  - Summary metrics: "Average privacy score: 3.4 / 5"
+
+
+CATEGORY C: INFRASTRUCTURE AND NETWORK DETAILS
+-----------------------------------------------
+x POTENTIALLY SENSITIVE:
+  - VPN provider and configuration details
+  - DNS server addresses
+  - Firewall rules and network topology
+  - Internal domain names and server addresses
+  - Wi-Fi network names and passwords
+  - Cloud service account identifiers
+  - Specific encryption key identifiers
+
+SAFE ALTERNATIVES:
+  - General descriptions: "VPN configured for all AI tool traffic"
+  - Categories: "Commercial VPN service (no-log policy verified)"
+  - Status statements: "DNS encryption enabled" vs. specific DNS server
+  - "Cloud storage encrypted at rest" vs. specific provider config
+  - "Network segmented for AI tool traffic" vs. actual firewall rules
+
+
+CATEGORY D: PRIVACY AUDIT FINDINGS
+-----------------------------------
+x BE CAUTIOUS WITH:
+  - Specific vulnerability details before remediation
+  - Exact privacy scores for named tools (could be seen as endorsement/criticism)
+  - Detailed data flow diagrams showing internal architecture
+  - Specific regulatory gaps (could create legal liability)
+  - Incident details that could identify affected individuals
+  - Exact data volumes processed through each tool
+
+SAFE ALTERNATIVES:
+  - Aggregated risk scores: "Average workspace privacy score: 7/10"
+  - Category summaries: "2 critical, 3 high, 5 medium risks identified"
+  - Anonymized findings: "One tool was found to retain data beyond stated policy"
+  - Trend data: "Privacy posture improved 15% since last quarter"
+  - Generic examples: "Tool X: Shares data externally; Mitigated with opt-out"
+
+
+CATEGORY E: ORGANIZATIONAL INFORMATION
+---------------------------------------
+x POTENTIALLY SENSITIVE:
+  - Team structure and reporting lines
+  - Number of employees or contractors
+  - Budget allocations for privacy tools
+  - Specific regulatory compliance status
+  - Internal policy documents verbatim
+  - Project codenames or client identifiers
+  - Vendor contract terms or pricing
+
+SAFE ALTERNATIVES:
+  - Size ranges: "Small team (2-10 members)"
+  - Budget ranges: "$50-200/month for privacy tools"
+  - Generic structure: "Team includes developers, designers, and management"
+  - "Subject to data protection regulations" vs. naming specific obligations
+  - "Organization privacy policy requires..." vs. quoting internal documents
+
+=============================================================================
+SECTION 2: STEP-BY-STEP REDACTION PROCESS
+=============================================================================
+
+STEP 1: PRE-REDACTION SCAN
+---------------------------
+Before sharing any privacy audit documentation:
+
+[ ] Search for employee names and email addresses
+[ ] Search for customer or client names
+[ ] Search for organization name and project codenames
+[ ] Search for IP addresses (regex: \b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b)
+[ ] Search for domain names (internal domains, not example.com)
+[ ] Search for API keys, tokens, and credentials (sk-, api_, token, secret)
+[ ] Search for account identifiers (org-*, workspace-*, acct-*)
+[ ] Search for specific dollar amounts or user counts
+[ ] Search for dates tied to specific incidents
+
+STEP 2: USER DATA ANONYMIZATION
+---------------------------------
+Replace all user-identifying information with role-based labels:
+
+Audit Logs:
+BEFORE: 2026-02-12 09:15:23 | user: alice.smith@acme-corp.com | tool: ChatGPT | action: PROMPT_SUBMITTED | data_type: customer_email
+AFTER:  2026-02-12 09:15:23 | user: [TEAM_MEMBER_A] | tool: [AI_TOOL_1] | action: PROMPT_SUBMITTED | data_type: [SENSITIVE_DATA_TYPE]
+
+OR (aggregated):
+AFTER: "On audit date, team members submitted prompts containing sensitive data to AI tools on [NUMBER] occasions."
+
+Activity Reports:
+BEFORE: "Alice submitted 47 prompts to ChatGPT, 12 contained customer PII."
+AFTER:  "One team member submitted ~45-50 prompts to an AI tool, approximately 25% contained sensitive data."
+
+STEP 3: TOOL-SPECIFIC LOG MASKING
+-----------------------------------
+When sharing tool audit results, mask identifiable details:
+
+Privacy Assessment:
+BEFORE:
+Tool: ChatGPT (OpenAI) - Team Plus Plan
+Organization ID: org-Abc123XyzWorkspace
+API Usage: 1,247 calls/day, avg cost $127.43/day
+Privacy Score: 3/5
+Training Opt-Out: Enabled via Settings > Data Controls > Improve model
+Data Retention: 30 days (verified via support ticket #12345)
+
+AFTER:
+Tool: [AI_ASSISTANT_A] - Paid Team Plan
+Organization ID: [ORG_ID_REDACTED]
+API Usage: ~1,000-1,500 calls/day, cost ~$100-150/day
+Privacy Score: 3/5
+Training Opt-Out: Enabled via tool settings
+Data Retention: 30 days (verified with vendor)
+
+OR (fully aggregated):
+Tool Category: AI Assistant
+Privacy Score: 3/5 (below target of 4/5)
+Key Finding: Training opt-out enabled, but data retention exceeds preference
+
+STEP 4: RISK REGISTER SANITIZATION
+------------------------------------
+When sharing risk findings externally:
+
+BEFORE:
+Risk #7: ChatGPT retains all prompts for 30 days even with training opt-out.
+Affected data: Customer support emails containing PII (names, emails, order numbers).
+Impact: GDPR Article 17 non-compliance. 1,247 prompts/day affected.
+Mitigation: Switch to Claude API with zero-retention policy. Cost: $200/month increase.
+
+AFTER:
+Risk #7: AI assistant retains prompt data beyond organizational preference.
+Affected data: Sensitive business communications.
+Impact: Potential regulatory non-compliance. High volume affected.
+Mitigation: Evaluate alternative providers with shorter retention. Moderate cost increase.
+
+STEP 5: CONFIGURATION REDACTION
+---------------------------------
+When sharing workspace configuration guides:
+
+VPN Configuration:
+BEFORE:
+Provider: NordVPN Business
+Account: admin@acme-corp.com
+Server: us-east-1.nordvpn.com
+Protocol: WireGuard
+Config file: /etc/wireguard/wg0.conf
+
+AFTER:
+Provider: [VPN_PROVIDER] (commercial, no-log policy)
+Account: [ADMIN_EMAIL]
+Server: [REGION_APPROPRIATE_SERVER]
+Protocol: WireGuard (recommended for speed and security)
+Config file: [VPN_CONFIG_PATH]
+
+Browser Configuration:
+BEFORE:
+Extensions installed:
+- uBlock Origin v1.57.2 (all filter lists enabled)
+- Privacy Badger v2024.2.6
+- Cookie AutoDelete v3.8.2
+Chrome flags: chrome://flags/#dns-over-https (enabled, Cloudflare 1.1.1.1)
+
+AFTER:
+Extensions installed:
+- Ad/tracker blocker (comprehensive filter lists enabled)
+- Privacy-focused cookie manager
+- Automatic cookie deletion
+DNS-over-HTTPS: Enabled with privacy-focused DNS provider
+
+STEP 6: INCIDENT REPORT SANITIZATION
+--------------------------------------
+When documenting privacy incidents for sharing:
+
+BEFORE:
+"On 2026-01-22 at 14:37 UTC, junior developer Bob Chen pasted a customer database
+export containing 3,847 customer records (names, emails, phone numbers, order history)
+into ChatGPT while debugging a data migration script. The prompt was retained for
+30 days per OpenAI's data retention policy. Customer 'Jane Doe' (jane.doe@gmail.com)
+later reported receiving targeted phishing emails. Incident discovered by team lead
+Sarah Kim during monthly audit on 2026-02-01. Total exposure: 3,847 records."
+
+AFTER:
+"During the audit period, a team member inadvertently submitted a data export
+containing customer PII to an AI assistant. The data was subject to the tool's
+standard retention period. The incident was discovered during a routine monthly
+audit. Scope: thousands of records with contact information. Remediation included
+immediate data deletion request, credential rotation, and updated data handling
+guidelines. Enhanced pre-submission checks were implemented to prevent recurrence."
+
+STEP 7: METRIC AND SCORE ANONYMIZATION
+----------------------------------------
+When sharing privacy metrics and scores:
+
+Tool Comparison:
+BEFORE:
+Tool          | Privacy Score | Training Opt-Out | Data Retained | Cost/Month
+ChatGPT       | 3/5           | Yes              | 30 days       | $200
+Claude        | 4/5           | Yes              | 0 days (API)  | $350
+Gemini        | 2/5           | Partial          | 18 months     | $0 (free)
+Copilot       | 3/5           | Enterprise only  | 90 days       | $19/user
+
+AFTER:
+Tool Category  | Privacy Score | Training Opt-Out | Data Retained | Cost Range
+AI Assistant A | 3/5           | Yes              | Short-term    | $$
+AI Assistant B | 4/5           | Yes              | Minimal       | $$$
+AI Assistant C | 2/5           | Partial          | Long-term     | Free
+Code Assistant | 3/5           | Tier-dependent   | Medium-term   | $/user
+
+Overall Workspace Metrics:
+BEFORE: "7 tools audited, average score 3.1/5, total monthly cost $1,247"
+AFTER:  "Multiple tools audited, average score ~3/5, monthly cost in mid-four-figure range"
+
+=============================================================================
+SECTION 3: SCENARIO-SPECIFIC REDACTION
+=============================================================================
+
+SCENARIO 1: SHARING AUDIT RESULTS WITH TEAM
+--------------------------------------------
+Safe to include:
+  - Aggregated privacy scores and trends
+  - General risk categories and severity counts
+  - Recommended actions (without tool-specific account details)
+  - Policy updates and guideline changes
+  - Training materials and best practices
+
+Must redact:
+  - Individual team member activity or compliance status
+  - Specific tool account identifiers or configuration details
+  - Exact data volumes or cost figures
+  - Specific incident details that could identify individuals
+  - Vendor-specific pricing or contract terms
+
+
+SCENARIO 2: SHARING WITH EXTERNAL AUDITORS
+-------------------------------------------
+Safe to include:
+  - Privacy policy assessment methodology
+  - Risk classification criteria and process
+  - Control implementation status (pass/fail)
+  - Compliance evidence (anonymized)
+  - Remediation timelines and status
+
+Must redact:
+  - All user-identifying information
+  - Specific tool names (if auditor does not need them)
+  - Internal architecture and network details
+  - Unpatched vulnerabilities or open risks (share under NDA only)
+  - Financial details beyond what auditor requires
+
+
+SCENARIO 3: PUBLISHING CASE STUDIES OR BLOG POSTS
+--------------------------------------------------
+Safe to include:
+  - General methodology and approach
+  - Anonymized findings and lessons learned
+  - Best practices and recommendations
+  - Aggregate improvement metrics (percentages)
+  - Generic tool categories (not specific products)
+
+Must redact:
+  - ALL identifying information (organization, team, individuals)
+  - Specific tools unless discussing general public features
+  - Exact metrics, costs, or team sizes
+  - Regulatory status or compliance details
+  - Any information that could identify the organization
+
+
+SCENARIO 4: CREATING TRAINING MATERIALS
+----------------------------------------
+Safe to include:
+  - Privacy concepts and definitions
+  - Generic examples with synthetic data
+  - Step-by-step procedures using placeholder values
+  - Policy templates with customizable fields
+  - Best practices applicable across organizations
+
+Must redact:
+  - Real audit findings or incident details
+  - Actual tool configurations from production workspace
+  - Team member names or roles tied to real people
+  - Real data samples (even if "anonymized")
+
+Always use synthetic examples:
+  - "user@example.com" (clearly fictitious)
+  - "Tool A", "AI Assistant B" for tool names
+  - "192.0.2.x" for IP addresses (reserved for documentation)
+  - "Example Corp" for organization names
+
+=============================================================================
+SECTION 4: AGGREGATION TECHNIQUES
+=============================================================================
+
+Instead of sharing individual tool audit logs, use aggregated summaries:
+
+INDIVIDUAL LOG (DO NOT SHARE):
+- ChatGPT: 47 prompts with PII, 3 incidents, score 3/5
+- Claude: 12 prompts with PII, 0 incidents, score 4/5
+- Gemini: 8 prompts with PII, 1 incident, score 2/5
+
+AGGREGATED SUMMARY (SAFE TO SHARE):
+- Total AI tools audited: 3
+- Prompts containing sensitive data: 67 (across all tools)
+- Privacy incidents in audit period: 4
+- Average privacy score: 3.0 / 5
+- Tools meeting privacy threshold (4/5): 1 of 3 (33%)
+- Trend: Improved from 2.5/5 average in previous quarter
+
+AGGREGATION RULES:
+1. Minimum aggregation group size: 3 items (never report on fewer)
+2. Use ranges instead of exact numbers when possible
+3. Report percentages rather than absolute counts for sensitive metrics
+4. Round figures to avoid identification through unique values
+5. When in doubt, aggregate further or omit
+
+=============================================================================
+SECTION 5: AUTOMATED REDACTION TOOLS
+=============================================================================
+
+COMMAND-LINE TOOLS
+------------------
+1. Regular Expression Replacement (sed):
+   # Mask email addresses
+   sed -E 's/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}/[EMAIL_REDACTED]/g' audit.txt
+
+   # Mask IP addresses
+   sed -E 's/\b([0-9]{1,3}\.){3}[0-9]{1,3}\b/[IP_REDACTED]/g' audit.txt
+
+   # Mask organization identifiers (org-*, workspace-*)
+   sed -E 's/(org|workspace|acct)-[A-Za-z0-9]+/[\U\1_ID_REDACTED]/g' audit.txt
+
+   # Mask API keys
+   sed -E 's/sk-[A-Za-z0-9_-]{20,}/[API_KEY_REDACTED]/g' audit.txt
+
+2. Python Script for Bulk Redaction:
+   import re
+
+   PATTERNS = {
+       'email': (r'[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}', '[EMAIL_REDACTED]'),
+       'ip': (r'\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b', '[IP_REDACTED]'),
+       'api_key': (r'sk-[A-Za-z0-9_-]{20,}', '[API_KEY_REDACTED]'),
+       'org_id': (r'(org|workspace|acct)-[A-Za-z0-9]+', '[ORG_ID_REDACTED]'),
+   }
+
+   def redact(text):
+       for name, (pattern, replacement) in PATTERNS.items():
+           text = re.sub(pattern, replacement, text)
+       return text
+
+3. Credential Scanner (gitleaks):
+   # Scan audit document for accidentally included credentials
+   gitleaks detect --source /path/to/audit-docs --verbose
+
+
+MANUAL VERIFICATION
+-------------------
+Automated tools miss context-specific sensitivity:
+- Business logic or process details that reveal competitive information
+- Combinations of generic data points that become identifying
+- Domain-specific sensitive terms (medical, legal, financial)
+- Implicit identification through unique workflow descriptions
+
+Always manually review after automated redaction.
+
+=============================================================================
+SECTION 6: VERIFICATION CHECKLIST
+=============================================================================
+
+Before sharing any privacy audit documentation:
+
+[ ] All user names replaced with roles or generic labels
+[ ] All email addresses redacted or replaced with examples
+[ ] All IP addresses masked or removed
+[ ] All tool-specific account IDs and workspace IDs redacted
+[ ] All API keys, tokens, and credentials removed
+[ ] Organization name replaced with generic label
+[ ] Customer and client names removed entirely
+[ ] Specific dollar amounts converted to ranges
+[ ] Individual tool audit logs aggregated into summaries
+[ ] Incident details anonymized (no identifying information)
+[ ] Configuration files use placeholder values only
+[ ] Screenshots blur or redact visible sensitive information
+[ ] Vulnerability details removed if not yet remediated
+[ ] File metadata scrubbed (author, company, edit history)
+[ ] Data volumes and counts converted to ranges or percentages
+
+PEER REVIEW:
+[ ] Second person reviewed document for missed redactions
+[ ] Reviewer unfamiliar with specific workspace (fresh eyes)
+
+=============================================================================
+SECTION 7: SPECIAL CONSIDERATIONS
+=============================================================================
+
+REGULATORY COMPLIANCE
+---------------------
+GDPR: Redact all personal data; IP addresses are personal data under GDPR
+HIPAA: Never include any PHI, even in anonymized examples
+CCPA: Consumer data must be fully anonymized before sharing
+SOC 2: Control descriptions may be shared; implementation details require caution
+PCI DSS: Never include cardholder data in any form
+
+CROSS-BORDER SHARING
+--------------------
+When sharing audit results across jurisdictions:
+- Verify data transfer is lawful under applicable regulations
+- Use aggregated summaries rather than individual records
+- Ensure receiving party has adequate data protection measures
+- Document the legal basis for data transfer
+
+VENDOR COMMUNICATIONS
+---------------------
+When sharing findings with tool vendors:
+- Share only findings relevant to their specific tool
+- Do not reveal findings about competitor tools
+- Redact organizational details beyond what vendor needs
+- Use vendor's secure communication channels
+
+=============================================================================
+SUPPORT & QUESTIONS
+=============================================================================
+
+When in doubt: REDACT IT. Use aggregates over individual data points.
+Over-redaction is safer than under-redaction.
+
+For sensitive situations, consult:
+- Legal team before sharing audit findings externally
+- Compliance team before sharing regulatory-related documentation
+- Security team before sharing infrastructure or network details
+- Privacy officer before sharing any data involving individuals
+
+This guide is for educational purposes. Adapt to your organization's
+specific privacy policies, regulatory requirements, and risk tolerance.
+
+=============================================================================

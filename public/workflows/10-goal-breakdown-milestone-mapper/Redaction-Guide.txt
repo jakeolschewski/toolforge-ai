@@ -1,0 +1,390 @@
+REDACTION GUIDE - GOAL BREAKDOWN & MILESTONE MAPPER
+====================================================
+
+PURPOSE
+-------
+This guide helps you safely share goal breakdowns, milestone roadmaps, and progress
+reports with AI assistants or external parties without exposing confidential business
+strategies, personnel details, or proprietary plans.
+
+=============================================================================
+SECTION 1: TYPES OF DATA TO REDACT
+=============================================================================
+
+CATEGORY A: STRATEGIC GOALS AND PLANS (USE PLACEHOLDERS)
+---------------------------------------------------------
+x POTENTIALLY SENSITIVE:
+  - Specific product launch plans or unreleased features
+  - Acquisition or merger objectives
+  - Competitive positioning strategies
+  - Revenue targets or financial projections
+  - Market expansion plans with specific geographies
+  - Patent or IP development timelines
+  - Partnership negotiations or deal terms
+  - Pricing strategies or margin targets
+
+v SAFE ALTERNATIVES:
+  - "Launch Product X by Q3" instead of specific product name
+  - "Enter new market segment" instead of specific country/region
+  - "Achieve revenue target" instead of "$2.5M ARR"
+  - "Strategic partnership initiative" instead of naming the partner
+  - "Competitive differentiation project" instead of specific strategy
+  - Generic industry framing: "B2B SaaS product launch" vs. specifics
+
+CATEGORY B: PERSONNEL AND ORGANIZATIONAL DETAILS
+-------------------------------------------------
+x POTENTIALLY SENSITIVE:
+  - Employee names, titles, or contact information
+  - Team structures revealing organizational strategy
+  - Hiring plans or headcount targets
+  - Performance issues or personnel conflicts
+  - Salary, compensation, or bonus information
+  - Contractor names or consulting firm identities
+  - Board member or investor names (if private)
+
+v SAFE ALTERNATIVES:
+  - Roles: "Backend Developer," "Marketing Lead," "Project Manager"
+  - Generic team size: "Team of 5 engineers" not individual names
+  - "Team Member A," "Stakeholder B" for placeholder references
+  - "Resource constraint: need 2 additional designers" vs. naming people
+  - "Reporting to senior leadership" vs. specific executive names
+
+CATEGORY C: FINANCIAL AND BUDGET DETAILS
+-----------------------------------------
+x POTENTIALLY SENSITIVE:
+  - Exact budget figures for confidential projects
+  - Vendor costs or contract terms
+  - Profit margins or unit economics
+  - Funding runway or cash reserves
+  - Investment amounts or valuation details
+  - Client contract values
+
+v SAFE ALTERNATIVES:
+  - Ranges: "$50K-100K budget" instead of "$73,500"
+  - Relative: "20% of annual budget" instead of dollar amount
+  - Categorical: "Low/Medium/High budget" for AI-assisted planning
+  - "Within approved budget constraints" for status reports
+  - "Cost-effective solution required" for resource planning prompts
+
+CATEGORY D: CLIENT AND CUSTOMER INFORMATION
+--------------------------------------------
+x POTENTIALLY SENSITIVE:
+  - Client or customer names
+  - Contract details or SLAs
+  - Customer-specific requirements or configurations
+  - Sales pipeline or deal stage information
+  - Customer data, metrics, or usage patterns
+  - NDA-covered information
+
+v SAFE ALTERNATIVES:
+  - "Enterprise Client A (healthcare vertical)"
+  - "Customer segment: mid-market SaaS companies"
+  - "Client requirement: HIPAA compliance" (generic compliance need)
+  - "Key account" or "strategic partner" instead of names
+  - "External stakeholder" for client-related milestones
+
+CATEGORY E: TECHNICAL AND PROPRIETARY DETAILS
+----------------------------------------------
+x POTENTIALLY SENSITIVE:
+  - Proprietary algorithms or methodologies
+  - System architecture revealing security posture
+  - Internal tool names or custom platform details
+  - API endpoints, credentials, or infrastructure specifics
+  - Source code or technical specifications
+  - Vulnerability details or security assessments
+
+v SAFE ALTERNATIVES:
+  - "Custom internal platform" instead of specific tool name
+  - "Cloud infrastructure" instead of specific provider/config
+  - "Proprietary methodology" instead of the methodology itself
+  - "Technical integration milestone" instead of architecture details
+  - Generic descriptions: "database migration" vs. specific schema
+
+=============================================================================
+SECTION 2: STEP-BY-STEP REDACTION PROCESS
+=============================================================================
+
+STEP 1: PRE-REDACTION REVIEW
+------------------------------
+Before sharing any goal breakdown documentation with AI or externally:
+
+[ ] Read through the entire document once for sensitive content
+[ ] Search for company name and all brand names
+[ ] Search for employee names and email addresses
+[ ] Search for specific dollar amounts or financial figures
+[ ] Search for client or customer names
+[ ] Search for product codenames or unreleased feature names
+[ ] Search for dates tied to confidential timelines (launch dates, deal closes)
+
+STEP 2: GOAL AND SUB-GOAL ANONYMIZATION
+-----------------------------------------
+Replace specific goals with generic equivalents:
+
+x BEFORE: "Launch WidgetPro 3.0 in the European market by June 2026,
+           targeting 500 enterprise accounts at $50K ACV"
+v AFTER:  "Launch Product X in new market by [TARGET DATE],
+           targeting [NUMBER] enterprise accounts at [PRICE POINT]"
+
+x BEFORE: "Acquire CompetitorCo's customer base through integration partnership"
+v AFTER:  "Expand customer base through strategic partnership initiative"
+
+x BEFORE: "Reduce churn from 8.2% to 4% by implementing ML-based prediction model"
+v AFTER:  "Reduce churn metric to target level using predictive analytics"
+
+STEP 3: MILESTONE DATE SANITIZATION
+-------------------------------------
+When dates reveal confidential timelines:
+
+x BEFORE: "Milestone: Submit FDA approval application by March 15, 2026"
+v AFTER:  "Milestone: Submit regulatory approval application by [TARGET DATE]"
+
+For general planning advice, relative dates are acceptable:
+v SAFE:   "Milestone 1: Week 2 - Research phase complete"
+v SAFE:   "Milestone 2: End of Month 1 - Prototype ready"
+v SAFE:   "Q2 target: Beta launch"
+
+STEP 4: RESOURCE AND TEAM ANONYMIZATION
+-----------------------------------------
+Replace team specifics with generic roles:
+
+x BEFORE: "Assign Sarah Chen (Senior DevOps) and Mike Johnson (Backend Lead)
+           to infrastructure milestone. Sarah: 30hrs/week, Mike: 20hrs/week.
+           Budget: $15,000 for AWS infrastructure."
+v AFTER:  "Assign Senior DevOps Engineer and Backend Lead to infrastructure
+           milestone. DevOps: 30hrs/week, Backend: 20hrs/week.
+           Budget: $10K-20K range for cloud infrastructure."
+
+STEP 5: PROGRESS AND METRIC ANONYMIZATION
+-------------------------------------------
+Sanitize progress reports and KPIs:
+
+x BEFORE: "Revenue milestone: $1.2M MRR achieved (target: $1.5M).
+           Customer count: 347 (target: 400). NPS: 62."
+v AFTER:  "Revenue milestone: 80% of target achieved.
+           Customer count: ~85% of target. NPS: above benchmark."
+
+Use percentages, ranges, or relative indicators instead of absolute figures.
+
+STEP 6: VISUAL ROADMAP SANITIZATION
+-------------------------------------
+When sharing screenshots or exports of roadmap visuals:
+
+[ ] Blur or redact milestone names if they reveal confidential plans
+[ ] Replace specific dates with relative timeframes if needed
+[ ] Remove assignee names (show roles only)
+[ ] Redact budget figures from resource views
+[ ] Remove comments or notes that may contain sensitive context
+[ ] Check for metadata in exported files (author name, organization)
+
+STEP 7: FINAL VERIFICATION PASS
+---------------------------------
+After redaction, review the entire document one more time:
+
+[ ] Read as if you are an outsider -- does anything reveal confidential info?
+[ ] Check that placeholder naming is consistent throughout (same client = same placeholder)
+[ ] Verify no sensitive data leaked into examples, footnotes, or comments
+[ ] Confirm the document is still useful for its intended purpose after redaction
+[ ] Have a second person review if the document will be shared externally
+
+=============================================================================
+SECTION 3: SCENARIO-SPECIFIC REDACTION
+=============================================================================
+
+SCENARIO 1: SHARING GOAL BREAKDOWN WITH AI ASSISTANT
+-----------------------------------------------------
+Safe to include:
+v Generic goal description (industry context, goal type)
+v Number of sub-goals and their general nature
+v Timeline structure (weeks, months, quarters)
+v Generic resource descriptions (team size, skill types)
+v General obstacle categories and risk types
+v Methodology questions (how to break down, track, visualize)
+
+Must redact:
+x Specific product or project names (if confidential)
+x Employee names or organizational structures
+x Exact financial figures or revenue targets
+x Client names or contract details
+x Proprietary technical details or IP
+
+SCENARIO 2: SHARING ROADMAP WITH EXTERNAL STAKEHOLDERS
+-------------------------------------------------------
+Safe to include:
+v High-level milestone names (if non-confidential)
+v General timeline and phases
+v Progress status (on track, delayed, complete)
+v Generic deliverable descriptions
+v Overall completion percentage
+
+Must redact:
+x Internal resource details (who is working on what)
+x Budget breakdowns and cost allocations
+x Internal team conflicts or blockers
+x Detailed technical specifications
+x Contingency plans (may reveal vulnerabilities)
+
+SCENARIO 3: SHARING PROGRESS REPORT WITH LEADERSHIP
+----------------------------------------------------
+Safe to include:
+v Milestone status with RAG indicators
+v Key metrics against targets (may use actuals internally)
+v Risk summary with mitigation status
+v Resource utilization overview
+v Timeline adherence assessment
+
+Must redact (if report may be forwarded externally):
+x Individual performance issues
+x Sensitive client-specific details
+x Competitive intelligence embedded in goals
+x Unconfirmed plans or speculative timelines
+
+SCENARIO 4: USING GOAL BREAKDOWN AS TRAINING MATERIAL
+------------------------------------------------------
+Safe to include:
+v Anonymized goal examples from completed projects
+v Generic methodology and process steps
+v Template structures and frameworks
+v Best practices and lessons learned (anonymized)
+
+Must redact:
+x Real project names, dates, and outcomes
+x Employee names in examples
+x Actual budget figures or financial results
+x Client or customer references
+x Any information covered by NDAs
+
+=============================================================================
+SECTION 4: AUTOMATED REDACTION TOOLS
+=============================================================================
+
+COMMAND-LINE TOOLS
+------------------
+1. Regular Expression Replacement (sed):
+   # Replace dollar amounts with ranges
+   sed -E 's/\$[0-9,]+(\.[0-9]{2})?/[AMOUNT_REDACTED]/g' roadmap.txt
+
+   # Replace email addresses
+   sed -E 's/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}/[EMAIL_REDACTED]/g' report.txt
+
+   # Replace specific dates (YYYY-MM-DD format)
+   sed -E 's/20[0-9]{2}-[0-9]{2}-[0-9]{2}/[DATE]/g' timeline.txt
+
+   # Replace names (requires custom name list)
+   sed 's/Sarah Chen/[TEAM_MEMBER_A]/g; s/Mike Johnson/[TEAM_MEMBER_B]/g' plan.txt
+
+2. Find and Replace in Bulk (Python):
+   import re
+
+   def redact_document(text, company_name, employee_names):
+       # Replace company name
+       text = text.replace(company_name, "[COMPANY]")
+
+       # Replace employee names
+       for i, name in enumerate(employee_names):
+           text = text.replace(name, f"[TEAM_MEMBER_{chr(65+i)}]")
+
+       # Replace dollar amounts
+       text = re.sub(r'\$[\d,]+(\.\d{2})?', '[AMOUNT]', text)
+
+       # Replace email addresses
+       text = re.sub(r'[\w.+-]+@[\w-]+\.[\w.]+', '[EMAIL]', text)
+
+       return text
+
+3. Document Metadata Removal:
+   # Remove metadata from PDF exports
+   exiftool -all= roadmap.pdf
+
+   # Remove metadata from Office documents
+   # Use File > Info > Check for Issues > Inspect Document in MS Office
+
+MANUAL VERIFICATION
+-------------------
+Automated tools cannot catch:
+- Goals that implicitly reveal strategy (e.g., "enter the Japanese market")
+- Team structures that reveal organizational priorities
+- Timeline patterns that reveal product launch windows
+- Milestone names that are codenames for confidential initiatives
+
+Always manually review after automated redaction.
+
+=============================================================================
+SECTION 5: VERIFICATION CHECKLIST
+=============================================================================
+
+Before sharing any goal breakdown documentation:
+
+[ ] All employee names replaced with roles or placeholders
+[ ] Company name and brand names genericized
+[ ] Client and customer names removed or anonymized
+[ ] Financial figures converted to ranges or percentages
+[ ] Product names and codenames replaced with generic labels
+[ ] Specific dates replaced with relative timeframes (if needed)
+[ ] Technical details abstracted to generic descriptions
+[ ] Progress metrics shown as percentages, not absolute numbers
+[ ] Visual roadmap screenshots scrubbed of sensitive labels
+[ ] File metadata removed (author, organization, comments)
+[ ] Contingency plans do not reveal exploitable vulnerabilities
+[ ] Examples use fictional scenarios, not real projects
+[ ] Placeholder naming is consistent throughout the document
+[ ] Document reviewed by a second person before sharing
+
+PEER REVIEW:
+[ ] Second person reviewed document for missed sensitive content
+[ ] Reviewer is not deeply familiar with the project (fresh perspective)
+
+=============================================================================
+SECTION 6: SPECIAL CONSIDERATIONS
+=============================================================================
+
+AI ASSISTANT INTERACTIONS
+-------------------------
+When using AI tools to help with goal breakdown:
+- Provide enough context for useful output without revealing secrets
+- Use industry-generic framing: "a B2B SaaS startup" vs. your company name
+- Test with a small, non-sensitive goal first to calibrate redaction needs
+- Remember that AI conversation logs may be retained by providers
+- Use privacy-respecting modes when available (e.g., opt-out of training)
+
+MULTI-STAKEHOLDER ENVIRONMENTS
+-------------------------------
+When sharing goal breakdowns across organizational boundaries:
+- Create separate versions with different redaction levels per audience
+- Internal team version: minimal redaction (names, roles visible)
+- Leadership version: moderate redaction (aggregate metrics, no individual details)
+- External version: maximum redaction (generic descriptions only)
+- Label each version clearly to prevent accidental sharing of wrong version
+
+COMPLIANCE CONSIDERATIONS
+-------------------------
+GDPR: Redact all personal data (names, emails) in any externally shared document
+HIPAA: Never include PHI in goal breakdowns, even as examples
+SOX: Financial projections and targets may require restricted distribution
+SEC: Material non-public information must not appear in shared documents
+NDA: Cross-reference any NDAs before sharing goal details with third parties
+
+ARCHIVAL AND VERSION CONTROL
+-----------------------------
+- Keep unredacted originals in secure, access-controlled storage
+- Maintain a redaction log: what was changed, when, and for which audience
+- When updating roadmaps, re-apply redaction to any newly added content
+- Destroyed or archived redacted versions when no longer needed
+- Treat redacted documents as still sensitive (redaction reduces but does not eliminate risk)
+
+=============================================================================
+SUPPORT & QUESTIONS
+=============================================================================
+
+When in doubt: REDACT IT.
+Over-redaction is always safer than under-redaction.
+
+For sensitive situations, consult:
+- Legal team before sharing strategy documents externally
+- HR before sharing documents containing personnel information
+- Finance before sharing budget or revenue details
+- Security team before sharing technical architecture or infrastructure
+
+This guide is for educational purposes. Adapt to your organization's
+specific security policies, NDAs, and regulatory requirements.
+
+=============================================================================

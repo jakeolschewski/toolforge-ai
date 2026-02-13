@@ -1,0 +1,203 @@
+RISK ASSESSMENT & MITIGATION PLANNER - PROMPT VARIATIONS
+========================================================
+
+PROMPT 1 - RISK IDENTIFIER
+--------------------------
+Assess risks in this plan:
+
+[DESCRIBE YOUR PROJECT OR PLAN]
+
+Identify risks across these categories:
+- Technical risks
+- Schedule risks
+- Budget risks
+- Resource risks
+- External/market risks
+- Compliance/legal risks
+
+For each risk, provide: Description, potential trigger, early warning signs.
+
+
+PROMPT 2 - RISK SCORER
+----------------------
+Score these risks on Likelihood (1-5) and Impact (1-5):
+
+[LIST YOUR IDENTIFIED RISKS]
+
+For each risk provide:
+- Likelihood score with justification
+- Impact score with justification
+- Combined risk score (L × I)
+- Priority ranking
+- Recommended response: Avoid, Reduce, Transfer, or Accept
+
+
+PROMPT 3 - MITIGATION GENERATOR
+-------------------------------
+Generate mitigation strategies for this risk:
+
+Risk: [DESCRIBE THE RISK]
+Likelihood: [1-5]
+Impact: [1-5]
+Current controls: [ANY EXISTING MITIGATIONS]
+
+Provide 3 mitigation options:
+- Option A: Avoid the risk entirely
+- Option B: Reduce the probability or impact
+- Option C: Transfer the risk
+
+For each: Actions, cost estimate, residual risk after mitigation.
+
+
+PROMPT 4 - RISK PLANNER TABLE
+-----------------------------
+Build a complete risk planner table for this project:
+
+[DESCRIBE YOUR PROJECT]
+
+Create a table with columns:
+- Risk ID | Description | Category | Likelihood (1-5) | Impact (1-5) | Score | Priority | Mitigation Strategy | Owner | Status | Review Date
+
+Populate with 8-10 relevant risks.
+
+
+PROMPT 5 - RISK PRIORITIZER
+---------------------------
+Prioritize these risks and create an action plan:
+
+[LIST YOUR SCORED RISKS WITH SCORES]
+
+Group into:
+- Critical (score 15-25): Immediate action required
+- High (score 10-14): Action plan within 1 week
+- Medium (score 5-9): Monitor and plan
+- Low (score 1-4): Accept and monitor
+
+For Critical and High risks, provide specific next steps.
+
+
+PROMPT 6 - TEAM RISK WORKSHOP
+-----------------------------
+Design a team risk assessment workshop:
+
+Project: [DESCRIBE]
+Team size: [NUMBER]
+Time available: [MINUTES]
+Team familiarity with risk assessment: [LOW/MEDIUM/HIGH]
+
+Provide:
+- Agenda with time allocations
+- Facilitation instructions
+- Risk brainstorming exercises
+- Scoring methodology to use
+- Output templates
+
+
+PROMPT 7 - RISK REGISTER UPDATER
+--------------------------------
+Update my risk register with this new information:
+
+Current risk register: [PASTE OR DESCRIBE]
+New developments: [WHAT HAS CHANGED]
+Date of last review: [DATE]
+
+Identify:
+- Risks that need score updates
+- New risks to add
+- Risks to close
+- Mitigation status updates
+
+
+PROMPT 8 - WORST CASE SIMULATOR
+-------------------------------
+Simulate worst-case scenarios for my project:
+
+Project: [DESCRIBE]
+Top risks: [LIST YOUR TOP 3-5 RISKS]
+
+For each risk, simulate:
+- What happens if this risk materializes fully
+- Cascade effects on other project areas
+- Recovery timeline estimate
+- Emergency response actions
+- Cost of impact vs. cost of prevention
+
+
+PROMPT 9 - RISK-DECISION INTEGRATOR
+-----------------------------------
+Integrate risk assessment into this decision:
+
+Decision: [DESCRIBE THE DECISION]
+Options: [LIST OPTIONS BEING CONSIDERED]
+
+For each option, assess:
+- Top 3 risks introduced by this option
+- Risk scores for each
+- Net risk comparison across options
+- Risk-adjusted recommendation
+
+
+PROMPT 10 - LONG-TERM RISK TRACKER
+----------------------------------
+Create a long-term risk tracking system for my project:
+
+Project duration: [MONTHS/YEARS]
+Review frequency: [WEEKLY/MONTHLY/QUARTERLY]
+Team size: [NUMBER]
+
+Design:
+- Risk register template
+- Review meeting agenda
+- Trend tracking dashboard
+- Escalation criteria
+- Reporting format for stakeholders
+
+
+==============================================================================
+USAGE GUIDELINES
+==============================================================================
+
+PRIVACY PROTECTION:
+When using these prompts, NEVER include:
+- Actual confidential business information
+- Real names, email addresses, or contact details
+- Proprietary data, trade secrets, or internal metrics
+- Client or customer identifying information
+- Financial details (exact revenues, salaries, etc.)
+
+Use placeholders:
+- "[CLIENT_NAME]", "[COMPANY]" instead of real names
+- "[AMOUNT]", "[METRIC]" for sensitive numbers
+- Generic descriptions of situations rather than specifics
+
+AI TOOL COMPATIBILITY:
+These prompts work with all major AI assistants:
+- ChatGPT, Claude, Gemini, Perplexity
+- Use with privacy-respecting settings (opt-out of training)
+
+PROMPT CHAINING:
+For best results, use prompts in sequence:
+1. Start with Prompt 1 for initial setup
+2. Use Prompts 2-5 for core workflow steps
+3. Apply Prompts 6-8 for advanced applications
+4. Use Prompts 9-10 for optimization and scaling
+
+ITERATION:
+If outputs aren't specific enough:
+- "Make this specific to [your industry/context]"
+- "Provide actual examples for [specific scenario]"
+- "Add more detail to [specific section]"
+
+SAVING OUTPUTS:
+Keep all AI-generated outputs:
+- Store in organized folders by date and topic
+- Version control your working documents
+- Share with team via secure channels only
+
+VERIFICATION:
+Always independently verify:
+- Facts, figures, and claims in AI outputs
+- Recommendations against your specific context
+- Compliance with your organization's policies
+
+==============================================================================

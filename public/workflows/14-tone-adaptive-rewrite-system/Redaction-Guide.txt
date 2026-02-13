@@ -1,0 +1,433 @@
+REDACTION GUIDE - TONE-ADAPTIVE REWRITE SYSTEM
+================================================
+
+PURPOSE
+-------
+This guide ensures that all text submitted for AI-assisted tone rewriting has been
+properly redacted of sensitive, confidential, and personally identifiable information.
+Tone transformation does not require real names, figures, or proprietary details --
+placeholders work equally well and protect your data.
+
+=============================================================================
+SECTION 1: TYPES OF DATA TO REDACT
+=============================================================================
+
+CATEGORY A: PERSONAL IDENTIFIERS (NEVER INCLUDE)
+-------------------------------------------------
+x ABSOLUTELY NEVER INCLUDE:
+  - Full names of employees, clients, customers, or partners
+  - Email addresses or phone numbers
+  - Physical addresses or location details
+  - Social Security numbers, national IDs, or passport numbers
+  - Employee IDs, badge numbers, or internal usernames
+  - Photographs or physical descriptions of identifiable individuals
+  - Birthdates or age-specific references tied to named individuals
+
+v SAFE ALTERNATIVES:
+  - "[EMPLOYEE_NAME]" or "[CLIENT_NAME]" instead of real names
+  - "[CONTACT_EMAIL]" instead of actual email addresses
+  - "a team member" or "the project lead" instead of named individuals
+  - "[CITY]" or "[REGION]" instead of specific locations
+  - "Employee in [DEPARTMENT]" instead of identifying details
+
+
+CATEGORY B: FINANCIAL AND BUSINESS DATA
+----------------------------------------
+x POTENTIALLY SENSITIVE:
+  - Revenue figures, profit margins, or budget amounts
+  - Contract values, pricing structures, or discount rates
+  - Salary information or compensation details
+  - Client billing rates or project costs
+  - Investor details or funding amounts
+  - Quarterly or annual financial performance data
+  - Vendor pricing or negotiated rates
+
+v SAFE ALTERNATIVES:
+  - "[REVENUE_FIGURE]" or "[BUDGET_AMOUNT]" for specific numbers
+  - "significant growth" instead of "43% year-over-year increase"
+  - "[CONTRACT_VALUE]" instead of actual dollar amounts
+  - "competitive compensation" instead of specific salary figures
+  - Ranges: "mid-six-figure contract" instead of "$450,000"
+
+
+CATEGORY C: PROPRIETARY AND STRATEGIC INFORMATION
+--------------------------------------------------
+x BE CAUTIOUS WITH:
+  - Product names before public announcement
+  - Strategic plans or roadmaps not yet disclosed
+  - Patent applications or trade secrets
+  - Competitive intelligence or market analysis
+  - Internal process documentation with unique methodologies
+  - Partnership or acquisition discussions
+  - Customer lists or segmentation strategies
+
+v SAFE ALTERNATIVES:
+  - "[PRODUCT_NAME]" or "upcoming product" instead of real names
+  - "strategic initiative" instead of specific plan details
+  - "[PROPRIETARY_PROCESS]" for unique methodologies
+  - Generic descriptions: "our main competitor" instead of naming them
+  - "market expansion plan" instead of specific geographic targets
+
+
+CATEGORY D: COMMUNICATION CONTEXT
+-----------------------------------
+x POTENTIALLY REVEALING:
+  - Internal email thread contents with identifying details
+  - Meeting transcripts with participant names
+  - Chat logs from internal messaging platforms
+  - Performance review language tied to specific individuals
+  - Customer complaint specifics that could identify the customer
+  - Legal correspondence or dispute details
+  - HR-related communications (disciplinary, accommodation, etc.)
+
+v SAFE ALTERNATIVES:
+  - Paraphrase the message content without identifying details
+  - "[MEETING_PARTICIPANT]" instead of attendee names
+  - "A customer reported [GENERAL_ISSUE]" instead of verbatim complaints
+  - Remove thread context; provide only the text needing tone adaptation
+  - "Internal feedback" instead of specific performance language
+  - "[LEGAL_MATTER]" for any legal references
+
+
+CATEGORY E: ORGANIZATIONAL STRUCTURE
+-------------------------------------
+x POTENTIALLY SENSITIVE:
+  - Specific department names if they reveal strategy (e.g., "M&A Team")
+  - Reporting structures that could identify individuals
+  - Internal project codenames
+  - Office locations with small headcounts (identifying by elimination)
+  - Org chart details
+  - Contractor or vendor company names (if relationship is confidential)
+
+v SAFE ALTERNATIVES:
+  - "the marketing team" instead of "the Digital Transformation Unit"
+  - "[DEPARTMENT]" for sensitive team names
+  - "[PROJECT_CODENAME]" instead of actual internal names
+  - "our [CITY] office" or simply "a regional office"
+  - Generic roles: "senior leadership" instead of specific titles that identify
+
+=============================================================================
+SECTION 2: STEP-BY-STEP REDACTION PROCESS
+=============================================================================
+
+STEP 1: PRE-REDACTION REVIEW
+-----------------------------
+Before submitting any text for tone rewriting:
+
+[ ] Read the entire text and identify all categories of sensitive data present
+[ ] Determine the minimum context needed for accurate tone adaptation
+[ ] Note which details are essential for tone (e.g., "apology" context matters)
+    vs. which are incidental (e.g., exact dollar amounts do not affect tone)
+[ ] Identify any sections that should NOT be rewritten at all
+    (legal disclaimers, regulatory language, direct quotes with attribution)
+
+STEP 2: NAME AND IDENTITY REPLACEMENT
+---------------------------------------
+Replace all personal identifiers systematically:
+
+Names:
+  x BEFORE: "Please inform Sarah Chen in the Portland office that the Johnson
+             contract needs revision."
+  v AFTER:  "Please inform [EMPLOYEE_NAME] in the [CITY] office that the
+             [CLIENT_NAME] contract needs revision."
+
+Titles (if identifying):
+  x BEFORE: "The VP of Engineering reviewed the proposal."
+  v AFTER:  "A senior leader reviewed the proposal."
+            OR: "[TITLE] reviewed the proposal."
+
+Contact Information:
+  x BEFORE: "Reach out to support@acmecorp.com or call 555-0142."
+  v AFTER:  "Reach out to [SUPPORT_EMAIL] or call [PHONE_NUMBER]."
+
+STEP 3: FINANCIAL DATA SANITIZATION
+-------------------------------------
+Replace specific figures with placeholders or ranges:
+
+Revenue/Cost:
+  x BEFORE: "Q3 revenue reached $4.2M, up 23% from Q2."
+  v AFTER:  "Q3 revenue reached [REVENUE_FIGURE], up [PERCENTAGE] from Q2."
+       OR:  "Quarterly revenue showed significant growth over the prior quarter."
+
+Pricing:
+  x BEFORE: "The premium tier costs $299/month with a 15% annual discount."
+  v AFTER:  "The premium tier costs [PRICE]/month with a [DISCOUNT]% annual discount."
+
+Salary/Compensation:
+  x BEFORE: "The offer includes a $125K base salary plus $20K signing bonus."
+  v AFTER:  "The offer includes a [SALARY] base salary plus [BONUS] signing bonus."
+
+STEP 4: CONTEXT PRESERVATION WITHOUT EXPOSURE
+-----------------------------------------------
+Maintain enough context for accurate tone adaptation while removing specifics:
+
+Business Context:
+  x BEFORE: "Following our acquisition of DataStream Analytics last quarter, we need
+             to communicate the integration timeline to their 47 employees in Austin."
+  v AFTER:  "Following a recent business transition, we need to communicate the
+             integration timeline to [NUMBER] employees in [LOCATION]."
+       OR:  "Following [BUSINESS_EVENT], we need to communicate the integration
+             timeline to affected team members."
+
+Customer Situation:
+  x BEFORE: "Mrs. Patricia Williams (account #4829301) has filed three complaints
+             about delivery delays to her Scottsdale residence this month."
+  v AFTER:  "A long-term customer has filed multiple complaints about delivery
+             delays this month."
+
+STEP 5: STRUCTURAL REDACTION FOR LONG DOCUMENTS
+-------------------------------------------------
+For multi-page documents requiring tone adaptation:
+
+[ ] Redact each section independently (do not assume prior sections provide context)
+[ ] Add inline context notes where redaction removes important background:
+    "[Note: This paragraph refers to a delayed product launch]"
+[ ] Mark sections that should be skipped: "[DO NOT REWRITE - Legal Disclaimer]"
+[ ] Number all paragraphs for easy reference during comparison
+[ ] If document structure itself is sensitive (e.g., M&A due diligence format),
+    restructure before submitting
+
+STEP 6: METADATA AND FILE PROPERTY SCRUBBING
+----------------------------------------------
+Before uploading files to any AI tool:
+
+[ ] Check document properties (author name, organization, creation date)
+[ ] Remove tracked changes and comments that contain sensitive information
+[ ] Strip hidden metadata from PDFs (creator, keywords, subject fields)
+[ ] Remove embedded objects (images, charts) that may contain identifying data
+[ ] Check headers and footers for confidential markings or project names
+[ ] Verify file name does not contain sensitive identifiers
+    x "AcmeCorp-Layoff-Communication-Draft.docx"
+    v "tone-rewrite-internal-announcement-draft.docx"
+
+STEP 7: FINAL REDACTION VERIFICATION
+--------------------------------------
+Before submitting the redacted text to any AI tool:
+
+[ ] Search for all personal names mentioned in the original (Ctrl+F each one)
+[ ] Search for "@" to catch any remaining email addresses
+[ ] Search for "$" and number patterns to catch remaining financial data
+[ ] Search for phone number patterns (###-####, (###) ###-####)
+[ ] Search for your organization's domain name
+[ ] Read the redacted version as if you were an outsider -- does it reveal anything?
+[ ] Have a second person review if the content is highly sensitive
+[ ] Confirm that the redacted version still provides enough context for tone adaptation
+
+=============================================================================
+SECTION 3: SCENARIO-SPECIFIC REDACTION
+=============================================================================
+
+SCENARIO 1: REWRITING CUSTOMER-FACING COMMUNICATIONS
+-----------------------------------------------------
+Safe to include:
+v General situation description ("a delayed shipment," "a billing inquiry")
+v The type of communication (email, letter, chat response)
+v Desired tone parameters and audience description
+v Generic product or service references
+
+Must redact:
+x Customer names, account numbers, order IDs
+x Specific dates tied to incidents (use "recently" or "[DATE]")
+x Internal case numbers or ticket IDs
+x Exact compensation offers or refund amounts
+x Customer's personal details (address, payment method)
+
+
+SCENARIO 2: REWRITING INTERNAL EXECUTIVE COMMUNICATIONS
+--------------------------------------------------------
+Safe to include:
+v General business context ("company growth," "organizational change")
+v Tone target and audience description ("all-hands meeting," "leadership update")
+v Communication format (memo, email, presentation script)
+v General outcomes or direction ("positive results," "new initiative")
+
+Must redact:
+x Specific financial results or projections
+x Employee names, especially in performance or restructuring contexts
+x Acquisition targets, partnership details, or strategic plans
+x Board-level decisions before public disclosure
+x Legal or regulatory matters under confidentiality
+
+
+SCENARIO 3: REWRITING MARKETING AND SALES CONTENT
+--------------------------------------------------
+Safe to include:
+v Product category and general features (if publicly known)
+v Target market description
+v General value propositions
+v Tone and brand voice requirements
+
+Must redact:
+x Unreleased product names, features, or pricing
+x Customer testimonials with identifying details (unless permission granted)
+x Internal conversion rates or sales figures
+x Competitive positioning with named competitors (if confidential)
+x Promotional pricing before public announcement
+
+
+SCENARIO 4: REWRITING HR AND PEOPLE-RELATED COMMUNICATIONS
+-----------------------------------------------------------
+Safe to include:
+v General type of communication (offer letter, policy update, benefits summary)
+v Tone requirements and intended audience
+v Generic role descriptions
+v General policy language
+
+Must redact:
+x ALL employee names -- no exceptions in HR contexts
+x Specific salary, compensation, or benefits figures
+x Performance ratings, disciplinary details, or termination reasons
+x Medical or accommodation information (HIPAA, ADA considerations)
+x Investigation details or grievance specifics
+x Specific dates that could identify individuals in small teams
+
+=============================================================================
+SECTION 4: AUTOMATED REDACTION TOOLS
+=============================================================================
+
+FIND-AND-REPLACE APPROACH (MANUAL)
+-----------------------------------
+For quick redaction in any word processor:
+
+1. Create a list of all names, numbers, and identifiers in the original
+2. Use Find & Replace to swap each one:
+   - Find: "Sarah Chen"  -->  Replace: "[EMPLOYEE_NAME_1]"
+   - Find: "$4.2M"      -->  Replace: "[REVENUE_FIGURE]"
+   - Find: "Portland"   -->  Replace: "[CITY]"
+3. Do a final search for any remaining instances
+
+REGEX PATTERNS (FOR TECHNICAL USERS)
+-------------------------------------
+Common patterns to search and replace:
+
+Email addresses:
+  sed -E 's/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}/[EMAIL_REDACTED]/g' file.txt
+
+Phone numbers (US):
+  sed -E 's/(\+?1[-.]?)?\(?[0-9]{3}\)?[-. ]?[0-9]{3}[-. ]?[0-9]{4}/[PHONE_REDACTED]/g' file.txt
+
+Dollar amounts:
+  sed -E 's/\$[0-9,]+(\.[0-9]{2})?/[AMOUNT_REDACTED]/g' file.txt
+
+Dates (MM/DD/YYYY):
+  sed -E 's/[0-9]{1,2}\/[0-9]{1,2}\/[0-9]{2,4}/[DATE_REDACTED]/g' file.txt
+
+PII DETECTION TOOLS
+---------------------
+For more thorough automated redaction:
+
+1. Microsoft Presidio (open source, Python):
+   - Detects names, emails, phone numbers, credit cards, and more
+   - Customizable entity recognition
+   - Integrates with Python scripts for batch processing
+
+2. Google Cloud DLP (Data Loss Prevention):
+   - API-based PII detection and redaction
+   - Supports custom info types
+   - Enterprise-grade but requires Google Cloud account
+
+3. AWS Comprehend (PII Detection):
+   - Identifies PII entities in text
+   - Can auto-redact before processing
+   - Pay-per-use pricing
+
+MANUAL VERIFICATION REQUIRED
+------------------------------
+Automated tools miss context-dependent sensitivity:
+- Industry jargon that reveals trade secrets
+- Combinations of generic details that identify someone
+- Strategic information embedded in casual language
+- Tone-specific phrases that hint at confidential situations
+
+Always manually review after any automated redaction pass.
+
+=============================================================================
+SECTION 5: VERIFICATION CHECKLIST
+=============================================================================
+
+Before submitting any text for AI-assisted tone rewriting:
+
+[ ] All personal names replaced with role-based or numbered placeholders
+[ ] All email addresses, phone numbers, and physical addresses removed
+[ ] All financial figures replaced with placeholders or generic descriptions
+[ ] Proprietary product names, project codenames, and strategy details removed
+[ ] Customer-identifying information fully anonymized
+[ ] Internal reference numbers (case IDs, ticket numbers, account numbers) removed
+[ ] Organization name and domain removed (unless public and non-sensitive)
+[ ] Document metadata scrubbed (author, organization, comments, tracked changes)
+[ ] File name does not contain sensitive identifiers
+[ ] Redacted version still provides sufficient context for accurate tone adaptation
+[ ] Sections not requiring rewriting clearly marked as excluded
+[ ] Second person has reviewed the redacted version (for high-sensitivity content)
+
+PEER REVIEW:
+[ ] Reviewer confirmed no personally identifiable information remains
+[ ] Reviewer confirmed no financial data or business metrics remain
+[ ] Reviewer confirmed context is sufficient for the AI to perform tone adaptation
+
+=============================================================================
+SECTION 6: SPECIAL CONSIDERATIONS
+=============================================================================
+
+TONE-SPECIFIC REDACTION CHALLENGES
+------------------------------------
+Tone adaptation sometimes requires emotional or situational context that
+overlaps with sensitive information. Handle these carefully:
+
+Empathetic Rewrites:
+- The AI needs to know the emotional context (bad news, apology, sympathy)
+- Provide the type of situation without specifics:
+  v "This is an apology for a significant service failure"
+  x "This apologizes to John Martinez for the 3-day outage on his account"
+
+Formal/Legal Rewrites:
+- Legal terminology may need to remain unchanged
+- Mark legal phrases as "[DO NOT REWRITE]" within the text
+- Consult legal counsel if adapting legally binding language
+
+Persuasive Rewrites:
+- Sales figures and case studies add persuasive power
+- Use anonymized versions: "a Fortune 500 client" instead of the actual name
+- Replace specific ROI figures with ranges or categories
+
+REGULATORY COMPLIANCE
+-----------------------
+GDPR: All personal data of EU residents must be redacted before AI processing.
+       This includes names, locations, and any data that could identify an individual.
+HIPAA: Never include any protected health information, even in paraphrased form.
+       Medical contexts should use only generic descriptions.
+FERPA: Student records and educational information must be fully anonymized.
+CCPA: California consumer personal information requires redaction.
+SOX: Financial data subject to Sarbanes-Oxley should not be processed externally.
+
+WHEN IN DOUBT
+--------------
+When in doubt about whether something needs redaction: REDACT IT.
+Over-redaction is always safer than under-redaction.
+You can always restore real details in the final version after tone adaptation
+is complete and the AI-generated content is safely on your local system.
+
+POST-REWRITE RESTORATION
+--------------------------
+After the AI returns the rewritten text:
+1. Review the output for quality and tone accuracy
+2. Replace placeholders with actual values ONLY in your local copy
+3. Never send the restored (un-redacted) version back to the AI
+4. Store the final un-redacted version in a secure location
+5. Delete any AI chat history that contained even redacted versions
+   of sensitive communications (if organizational policy requires)
+
+=============================================================================
+SUPPORT & QUESTIONS
+=============================================================================
+
+For sensitive situations, consult:
+- Legal team before rewriting contractual or regulatory language
+- HR team before rewriting employee-related communications
+- Compliance team before processing data from regulated industries
+- Information security before using new AI tools for tone adaptation
+
+This guide is for educational purposes. Adapt redaction practices to your
+organization's specific security policies and regulatory requirements.
+
+=============================================================================

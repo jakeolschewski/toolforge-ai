@@ -1,0 +1,455 @@
+REDACTION GUIDE - FEEDBACK LOOP ANALYZER
+==========================================
+
+PURPOSE
+-------
+This guide helps you safely share feedback analysis reports, action plans,
+and trend summaries without exposing the identities of individual feedback
+providers, internal business metrics, or sensitive organizational details.
+Proper redaction protects respondent privacy, maintains trust, and ensures
+compliance with data handling policies.
+
+=============================================================================
+SECTION 1: TYPES OF DATA TO REDACT
+=============================================================================
+
+CATEGORY A: PERSONAL IDENTIFIERS (NEVER SHARE)
+------------------------------------------------
+x ABSOLUTELY NEVER INCLUDE:
+  - Full names of feedback providers (customers, employees, partners)
+  - Email addresses or phone numbers
+  - Account IDs, user IDs, or customer numbers
+  - Physical addresses or specific locations
+  - Social media handles or profile URLs
+  - Job titles combined with department (if team is small enough to identify)
+  - Demographic details that narrow identification (age + role + location)
+  - Handwriting samples or voice recordings without consent
+
+v SAFE ALTERNATIVES:
+  - Anonymous labels: "Customer A", "Respondent 12", "Employee #7"
+  - Role-based: "Enterprise customer", "New user (< 30 days)", "Team lead"
+  - Aggregated: "15 customers mentioned..." instead of naming individuals
+  - Segment-based: "Users in the healthcare vertical", "EMEA region respondents"
+
+
+CATEGORY B: FEEDBACK CONTENT WITH IDENTIFYING DETAILS
+------------------------------------------------------
+x POTENTIALLY IDENTIFYING:
+  - Specific project or feature names mentioned by a single respondent
+  - Detailed scenarios that only one person could have experienced
+  - Dates and times of specific interactions (support calls, meetings)
+  - References to named employees ("My account manager, Sarah, was...")
+  - Company-specific jargon or internal code names
+  - Screenshots or attachments included in feedback
+
+v SAFE ALTERNATIVES:
+  - Paraphrase: "The respondent described difficulty with the onboarding process"
+  - Generalize: "Multiple users reported issues during initial setup"
+  - Remove names: "My account manager [REDACTED] was helpful"
+  - Abstract dates: "In early Q1 2026" instead of "On January 14, 2026"
+  - Describe, don't quote: "Feedback mentioned a billing discrepancy" vs. exact details
+
+
+CATEGORY C: INTERNAL BUSINESS METRICS
+---------------------------------------
+x BE CAUTIOUS WITH:
+  - Exact customer counts or revenue figures
+  - Churn rates or retention percentages (competitive intelligence)
+  - Support ticket volumes with exact numbers
+  - Conversion rates or sales figures
+  - Internal NPS or CSAT scores (if not publicly shared)
+  - Cost-per-acquisition or lifetime value figures
+  - Headcount or team size details
+
+v SAFE ALTERNATIVES:
+  - Ranges: "50-100 feedback entries" instead of "73 entries"
+  - Relative changes: "Complaints decreased by ~30%" instead of "from 47 to 33"
+  - Directional: "NPS improved significantly" vs. "NPS went from 32 to 48"
+  - Indexed: "Score improved from baseline 100 to 135" (normalized)
+  - Categories: "High volume of feedback" vs. "2,347 entries"
+
+
+CATEGORY D: ORGANIZATIONAL STRUCTURE AND STRATEGY
+---------------------------------------------------
+x POTENTIALLY SENSITIVE:
+  - Internal team names and org chart details
+  - Unreleased product or feature roadmap details
+  - Strategic priorities or OKRs not publicly shared
+  - Internal tool names or system architecture
+  - Partnership or vendor details
+  - Competitive analysis findings embedded in feedback
+
+v SAFE ALTERNATIVES:
+  - Generic roles: "The product team", "Customer support", "Leadership"
+  - Abstract references: "An upcoming initiative" vs. specific project name
+  - Category-level: "Our collaboration tools" vs. specific tool names
+  - Role-based: "A third-party partner" vs. naming the vendor
+
+
+CATEGORY E: SENSITIVE FEEDBACK CONTENT
+----------------------------------------
+x HANDLE WITH EXTRA CARE:
+  - Harassment or discrimination reports embedded in feedback
+  - Legal threats or compliance complaints
+  - Feedback referencing specific legal proceedings
+  - Whistleblower information
+  - Health or safety concerns from employees
+  - Feedback about specific executives or leaders by name
+
+v SAFE ALTERNATIVES:
+  - Escalate to appropriate channels (HR, Legal) before including in analysis
+  - Categorize without quoting: "1 entry flagged for HR review"
+  - Aggregate: "X% of feedback mentioned workplace concerns"
+  - Omit entirely from shared reports; track in restricted-access documents
+  - Consult legal/compliance before sharing any such content
+
+=============================================================================
+SECTION 2: STEP-BY-STEP REDACTION PROCESS
+=============================================================================
+
+STEP 1: PRE-REDACTION SCAN
+----------------------------
+Before sharing any feedback analysis documentation:
+
+[ ] Search for proper names (first names, last names, company names)
+[ ] Search for email addresses (regex: [A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+)
+[ ] Search for phone numbers (regex: \b\d{3}[-.]?\d{3}[-.]?\d{4}\b)
+[ ] Search for account or user IDs
+[ ] Search for specific dates that could identify interactions
+[ ] Search for dollar amounts or exact metric values
+[ ] Search for internal project or code names
+[ ] Search for department names or team identifiers (if small organization)
+
+STEP 2: RESPONDENT ANONYMIZATION
+----------------------------------
+Replace all respondent-identifying information:
+
+Names in feedback quotes:
+x BEFORE: "Sarah from Acme Corp said our onboarding was confusing"
+v AFTER:  "An enterprise customer described the onboarding process as confusing"
+   OR:    "Respondent 14 (Enterprise, Healthcare vertical) reported onboarding confusion"
+
+Names in analysis text:
+x BEFORE: "John Smith's support ticket #4521 describes a billing error"
+v AFTER:  "A support ticket from a long-term customer describes a billing error"
+   OR:    "Support ticket [REDACTED] describes a billing error"
+
+Internal team members:
+x BEFORE: "Mike in Engineering said the deployment process is too slow"
+v AFTER:  "An engineering team member reported the deployment process is slow"
+
+Customer companies:
+x BEFORE: "Three contacts at Globex Corporation all mentioned integration issues"
+v AFTER:  "Multiple contacts at a single enterprise account mentioned integration issues"
+   OR:    "Client A (enterprise, manufacturing sector) reported integration issues"
+
+STEP 3: METRIC ANONYMIZATION
+------------------------------
+Convert specific numbers to ranges or relative values:
+
+Feedback volume:
+x BEFORE: "We received 247 feedback entries in January 2026"
+v AFTER:  "We received approximately 200-300 feedback entries in January 2026"
+   OR:    "Feedback volume was moderate for the period"
+
+Scores and ratings:
+x BEFORE: "NPS dropped from 47 to 31 in Q4"
+v AFTER:  "NPS declined by approximately 15 points in Q4"
+   OR:    "NPS showed a significant decline in Q4"
+
+Percentages:
+x BEFORE: "63.4% of feedback was negative"
+v AFTER:  "Approximately 60-65% of feedback was negative"
+   OR:    "The majority of feedback was negative"
+
+Revenue impact:
+x BEFORE: "Estimated $127,000 in lost revenue due to churn from this issue"
+v AFTER:  "Significant revenue impact estimated from churn related to this issue"
+   OR:    "Six-figure revenue impact estimated"
+
+STEP 4: QUOTE SANITIZATION
+----------------------------
+When including direct feedback quotes in reports:
+
+x BEFORE:
+"I've been a customer since 2019 and I pay $499/month for your Enterprise plan.
+Last Tuesday, I called your support line at 3pm and spoke with Jennifer who
+couldn't resolve my billing issue. My company, DataFlow Systems, relies on
+your API for our main product."
+
+v AFTER:
+"I've been a long-term customer on [a premium plan]. Recently, I contacted
+support and the representative couldn't resolve my billing issue. My company
+relies on [the product] for a critical workflow."
+
+OR (further anonymized):
+"A long-term premium customer reported an unresolved billing issue after
+contacting support, noting that their business depends on the product for
+a critical workflow."
+
+STEP 5: REPORT ANONYMIZATION
+------------------------------
+When preparing feedback analysis reports for broader distribution:
+
+x BEFORE:
+"Analysis of 247 support tickets from Q4 2025 reveals that 34% mention slow
+response times (up from 22% in Q3). The top complainant, Globex Corp account
+manager Alex Chen (alex.chen@globex.com), filed 12 tickets alone. Engineering
+team lead Sarah Park confirmed the root cause is the new microservices
+migration (Project Phoenix) that began in October."
+
+v AFTER:
+"Analysis of Q4 2025 support tickets reveals that approximately one-third
+mention slow response times, an increase of roughly 10 percentage points
+from Q3. The issue is concentrated among enterprise accounts. Engineering
+has confirmed the root cause is related to a recent infrastructure migration."
+
+STEP 6: VISUAL AND ATTACHMENT REDACTION
+-----------------------------------------
+When sharing charts, screenshots, or attachments:
+
+Charts and graphs:
+- Remove axis labels showing exact values (use ranges or indices)
+- Remove data point labels with customer names
+- Blur or remove legend entries that identify specific accounts
+- Use aggregated data points instead of individual customer data
+
+Screenshots:
+- Blur or black out names, email addresses, account details
+- Remove browser tabs showing internal URLs
+- Crop to show only relevant content
+- Remove metadata from image files
+
+Attachments:
+- Do not forward original feedback attachments (may contain PII)
+- Describe attachment content in text instead
+- If attachment must be shared, redact all identifying information first
+- Remove file metadata (author, organization, timestamps)
+
+STEP 7: FINAL REVIEW AND DISTRIBUTION
+---------------------------------------
+Before sending redacted documents:
+
+[ ] Read the entire document as if you were the feedback provider - could they identify themselves?
+[ ] Read as if you were a competitor - does it reveal sensitive business information?
+[ ] Check that redacted versions still convey meaningful insights
+[ ] Verify all placeholders are consistent (same person = same placeholder throughout)
+[ ] Confirm the distribution list is appropriate for the level of redaction applied
+[ ] Store unredacted original in a restricted-access location
+[ ] Log who received which version of the report
+
+=============================================================================
+SECTION 3: SCENARIO-SPECIFIC REDACTION
+=============================================================================
+
+SCENARIO 1: SHARING ANALYSIS WITH EXECUTIVE LEADERSHIP
+--------------------------------------------------------
+Safe to include:
+v Aggregated trends and pattern summaries
+v Category breakdowns with approximate percentages
+v Prioritized action plans with owners (by role, not individual name)
+v ROI projections for improvements (ranges acceptable)
+v Sentiment trend direction (improving, declining, stable)
+
+Must redact:
+x Individual feedback quotes with identifying details
+x Specific customer names or account details
+x Exact metric values (unless already publicly reported)
+x Individual employee performance references
+x Vendor or partner names in feedback
+
+
+SCENARIO 2: SHARING ANALYSIS WITH AI TOOLS FOR FURTHER PROCESSING
+-------------------------------------------------------------------
+Safe to include:
+v Anonymized feedback text (names replaced with labels)
+v Category and sentiment tags
+v General context about the product or service
+v Aggregated statistics
+
+Must redact:
+x All personal identifiers (names, emails, IDs)
+x Specific company names (use "Company A", "Company B")
+x Internal system names, URLs, or architecture details
+x Exact financial figures
+x Any data subject to regulatory protection (HIPAA, GDPR, etc.)
+
+
+SCENARIO 3: PUBLISHING CASE STUDY FROM FEEDBACK ANALYSIS
+----------------------------------------------------------
+Safe to include:
+v Methodology description
+v Generalized pattern descriptions
+v Outcome metrics as percentage improvements
+v Process improvements implemented (generic description)
+v Timeline and cycle cadence
+
+Must redact:
+x All respondent information (no exceptions for public case studies)
+x Specific product features or roadmap details
+x Internal team structure or staffing details
+x Exact business metrics or revenue figures
+x Any information that could identify the organization (if publishing anonymously)
+
+
+SCENARIO 4: CROSS-TEAM FEEDBACK SHARING (INTERNAL)
+----------------------------------------------------
+Safe to include:
+v Pattern summaries with supporting (anonymized) quotes
+v Action plans relevant to the receiving team
+v Trend data comparing periods
+v Priority rankings and scoring rationale
+v Process improvement recommendations
+
+Must redact:
+x Names of specific feedback providers
+x Feedback that could embarrass or target specific individuals
+x Sensitive HR-related feedback (route through proper channels)
+x Other teams' performance metrics not relevant to the receiving team
+x Executive-only strategic context
+
+=============================================================================
+SECTION 4: AUTOMATED REDACTION TOOLS
+=============================================================================
+
+COMMAND-LINE TOOLS
+------------------
+1. Regular Expression Replacement (sed):
+   # Remove email addresses
+   sed -E 's/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}/[EMAIL_REDACTED]/g' report.txt
+
+   # Remove phone numbers (US format)
+   sed -E 's/\b[0-9]{3}[-. ]?[0-9]{3}[-. ]?[0-9]{4}\b/[PHONE_REDACTED]/g' report.txt
+
+   # Remove names from "Name said" or "Name reported" patterns
+   sed -E 's/[A-Z][a-z]+ [A-Z][a-z]+ (said|reported|mentioned|noted)/[RESPONDENT] \1/g' report.txt
+
+   # Replace dollar amounts with ranges
+   sed -E 's/\$[0-9,]+(\.[0-9]{2})?/[AMOUNT_REDACTED]/g' report.txt
+
+2. Python PII Detection (Microsoft Presidio):
+   from presidio_analyzer import AnalyzerEngine
+   from presidio_anonymizer import AnonymizerEngine
+
+   analyzer = AnalyzerEngine()
+   anonymizer = AnonymizerEngine()
+
+   text = "Sarah from Acme Corp said the product was great"
+   results = analyzer.analyze(text=text, language='en')
+   anonymized = anonymizer.anonymize(text=text, analyzer_results=results)
+
+3. Spreadsheet Find-and-Replace:
+   - Export feedback to CSV
+   - Use find-and-replace to swap names with labels
+   - Create a mapping file (stored securely) for reference
+   - Delete mapping file after analysis if not needed
+
+MANUAL VERIFICATION
+-------------------
+Automated tools may miss:
+- Context-specific identifiers (e.g., "the person who joined last month")
+- Combination attacks (role + department + tenure = identifiable)
+- Industry-specific jargon that reveals identity
+- Temporal identifiers ("the customer who called on Tuesday at 3pm")
+- Indirect identifiers in feedback text (detailed scenarios only one person experienced)
+
+Always manually review after automated redaction.
+
+=============================================================================
+SECTION 5: VERIFICATION CHECKLIST
+=============================================================================
+
+Before sharing any feedback analysis documentation:
+
+[ ] All respondent names replaced with anonymous labels
+[ ] All email addresses, phone numbers, and account IDs removed
+[ ] Company names of respondents anonymized or aggregated
+[ ] Internal employee names removed from feedback content
+[ ] Specific dates of interactions generalized
+[ ] Exact metric values converted to ranges or relative changes
+[ ] Direct quotes sanitized of identifying details
+[ ] Screenshots and visuals scrubbed of PII
+[ ] File metadata removed (author, organization tags)
+[ ] Internal system names and URLs genericized
+[ ] Sensitive feedback (HR, legal, safety) routed to proper channels
+[ ] Financial figures redacted or converted to ranges
+[ ] Distribution list appropriate for the redaction level applied
+[ ] Document readable and still useful after redaction
+
+PEER REVIEW:
+[ ] Second person reviewed document for missed identifying information
+[ ] Reviewer attempted to identify specific respondents from the content
+[ ] Reviewer confirmed the analysis is still meaningful after redaction
+
+=============================================================================
+SECTION 6: SPECIAL CONSIDERATIONS
+=============================================================================
+
+SMALL SAMPLE SIZES
+------------------
+When feedback comes from a small group (fewer than 10 people):
+- Even anonymized data may be identifying (process of elimination)
+- Consider sharing only aggregate summaries, not individual entries
+- Avoid direct quotes entirely; paraphrase themes instead
+- Do not break down data by demographics or role (too identifying)
+- Be especially cautious with internal team feedback in small teams
+
+REGULATORY COMPLIANCE
+---------------------
+GDPR: Feedback from EU residents is personal data; anonymize thoroughly
+  - Right to erasure applies; be able to delete specific entries on request
+  - Lawful basis for processing feedback must be documented
+  - Data protection impact assessment may be required for large-scale analysis
+
+CCPA: California residents have rights regarding their feedback data
+  - Right to know what data is collected
+  - Right to deletion
+  - Right to opt out of sale of data
+
+HIPAA: If feedback involves healthcare data or patient experiences
+  - All PHI must be removed, not just names
+  - 18 HIPAA identifiers must be addressed
+  - Consider expert determination method for de-identification
+
+CROSS-BORDER FEEDBACK
+---------------------
+When analyzing feedback from multiple countries:
+- Different privacy standards may apply (strictest standard applies)
+- Language-specific PII patterns (name formats vary by culture)
+- Some countries require explicit consent for feedback analysis
+- Data residency requirements may restrict where analysis is performed
+
+LONGITUDINAL DATA
+-----------------
+When tracking feedback over time:
+- Consistent anonymization labels across cycles (same person = same label)
+- Historical data may need re-anonymization as people become more identifiable
+- Consider time-boxing data retention (delete raw feedback after 12 months)
+- Trend reports should use only aggregated data
+
+FEEDBACK ABOUT SPECIFIC INDIVIDUALS
+-------------------------------------
+When feedback names a specific person (employee, partner, etc.):
+- Never include the named individual's identity in shared analysis
+- Route performance-related feedback to appropriate management channels
+- Harassment or discrimination feedback must go to HR/Legal immediately
+- Do not aggregate "feedback about Bob" into general analysis without anonymization
+- Consider whether the pattern is about a person or a process
+
+=============================================================================
+SUPPORT & QUESTIONS
+=============================================================================
+
+When in doubt: REDACT IT.
+Over-redaction preserves trust; under-redaction destroys it.
+
+For sensitive situations, consult:
+- Legal team before sharing feedback involving complaints or legal threats
+- HR team before sharing employee or team feedback analysis
+- Compliance team before analyzing or sharing feedback subject to regulation
+- Data protection officer before processing large volumes of personal feedback
+
+This guide is for educational purposes. Adapt to your organization's
+specific privacy policies, regulatory obligations, and data handling standards.
+
+=============================================================================

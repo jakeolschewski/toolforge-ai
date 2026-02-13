@@ -1,0 +1,180 @@
+EMAIL RESPONSE OPTIMIZER - PROMPT VARIATIONS
+============================================
+
+PROMPT 1 - EMAIL RESPONSE OPTIMIZER
+-----------------------------------
+Optimize my response to this email:
+
+Email summary (redacted): [SUMMARIZE THE EMAIL WITHOUT SENSITIVE DETAILS]
+Sender relationship: [COLLEAGUE/CLIENT/VENDOR/STRANGER]
+Desired tone: [PROFESSIONAL/FRIENDLY/FORMAL/EMPATHETIC]
+Key points to address: [LIST THEM]
+Desired outcome: [WHAT I WANT TO HAPPEN NEXT]
+
+Draft a concise response under 150 words with a clear call-to-action.
+
+
+PROMPT 2 - TONE MATCHER
+-----------------------
+Match the professional tone for this context:
+
+Context: [DESCRIBE THE SITUATION]
+Recipient: [THEIR ROLE AND RELATIONSHIP]
+Current draft: [PASTE YOUR DRAFT]
+Desired tone: [PROFESSIONAL/WARM/DIRECT/EMPATHETIC]
+
+Rewrite maintaining all key points but adjusting tone. Explain what you changed and why.
+
+
+PROMPT 3 - EMAIL SHORTENER
+--------------------------
+Shorten this email while keeping all key points:
+
+Original email: [PASTE YOUR DRAFT]
+Target length: [WORD COUNT OR "HALF"]
+Must keep: [NON-NEGOTIABLE POINTS]
+Can cut: [OPTIONAL DETAILS]
+
+Provide shortened version and highlight what was removed.
+
+
+PROMPT 4 - CTA OPTIMIZER
+------------------------
+Add an effective call-to-action to this email:
+
+Email context: [WHAT THE EMAIL IS ABOUT]
+Current draft: [PASTE DRAFT]
+Desired next step: [WHAT I WANT THE RECIPIENT TO DO]
+Urgency level: [LOW/MEDIUM/HIGH]
+
+Suggest 3 CTA options ranging from soft to direct. Recommend which to use and why.
+
+
+PROMPT 5 - OBJECTION HANDLER
+----------------------------
+Help me respond to this objection in an email:
+
+Their objection: [SUMMARIZE WHAT THEY PUSHED BACK ON]
+My position: [WHAT I WANT TO MAINTAIN]
+Relationship importance: [HIGH/MEDIUM/LOW]
+Willingness to compromise: [YES/PARTIAL/NO]
+
+Draft a response that acknowledges their concern while advancing my position professionally.
+
+
+PROMPT 6 - TEAM EMAIL STANDARDIZER
+----------------------------------
+Create email response standards for our team:
+
+Team type: [CUSTOMER SERVICE/SALES/SUPPORT/OTHER]
+Common email types we receive: [LIST 5-7 TYPES]
+Our brand voice: [DESCRIBE TONE AND STYLE]
+Response time target: [HOURS]
+
+Generate:
+- Response templates for each email type
+- Tone guidelines
+- Required elements checklist
+- Do's and don'ts
+
+
+PROMPT 7 - EMAIL PERSONALIZER
+-----------------------------
+Personalize this email response:
+
+Template response: [PASTE YOUR TEMPLATE]
+Recipient details: [NAME, ROLE, PREVIOUS INTERACTION, ETC.]
+Specific context: [WHAT MAKES THIS SITUATION UNIQUE]
+
+Adjust the template to feel personal and relevant while maintaining professionalism.
+
+
+PROMPT 8 - EMAIL ERROR CHECKER
+------------------------------
+Check this email for errors and improvements:
+
+[PASTE YOUR EMAIL DRAFT]
+
+Check for:
+- Grammar and spelling errors
+- Tone consistency
+- Clarity of message
+- Missing information
+- Potentially offensive or ambiguous phrasing
+- Professional formatting
+
+Provide corrected version and explain changes.
+
+
+PROMPT 9 - CLARITY REWRITER
+---------------------------
+Rephrase this email for maximum clarity:
+
+Original: [PASTE YOUR EMAIL]
+Audience: [TECHNICAL/NON-TECHNICAL/EXECUTIVE/GENERAL]
+Key message: [THE ONE THING THEY MUST UNDERSTAND]
+
+Rewrite to be crystal clear. Use simple language, short sentences, and logical structure.
+
+
+PROMPT 10 - BATCH EMAIL PROCESSOR
+---------------------------------
+Help me batch-process these emails efficiently:
+
+Emails to respond to:
+1. [BRIEF SUMMARY]
+2. [BRIEF SUMMARY]
+3. [BRIEF SUMMARY]
+[ADD MORE AS NEEDED]
+
+For each, generate a draft response. Group similar emails and use consistent templates where appropriate. Flag any that need special attention.
+
+
+==============================================================================
+USAGE GUIDELINES
+==============================================================================
+
+PRIVACY PROTECTION:
+When using these prompts, NEVER include:
+- Actual confidential business information
+- Real names, email addresses, or contact details
+- Proprietary data, trade secrets, or internal metrics
+- Client or customer identifying information
+- Financial details (exact revenues, salaries, etc.)
+
+Use placeholders:
+- "[CLIENT_NAME]", "[COMPANY]" instead of real names
+- "[AMOUNT]", "[METRIC]" for sensitive numbers
+- Generic descriptions of situations rather than specifics
+
+AI TOOL COMPATIBILITY:
+These prompts work with all major AI assistants:
+- ChatGPT, Claude, Gemini, Perplexity
+- Use with privacy-respecting settings (opt-out of training)
+
+PROMPT CHAINING:
+For best results, use prompts in sequence:
+1. Start with Prompt 1 for initial setup
+2. Use Prompts 2-5 for core workflow steps
+3. Apply Prompts 6-8 for advanced applications
+4. Use Prompts 9-10 for optimization and scaling
+
+ITERATION:
+If outputs aren't specific enough:
+- "Make this specific to [your industry/context]"
+- "Provide actual examples for [specific scenario]"
+- "Add more detail to [specific section]"
+
+SAVING OUTPUTS:
+Keep all AI-generated outputs:
+- Store in organized folders by date and topic
+- Version control your working documents
+- Share with team via secure channels only
+
+VERIFICATION:
+Always independently verify:
+- Facts, figures, and claims in AI outputs
+- Recommendations against your specific context
+- Compliance with your organization's policies
+
+==============================================================================

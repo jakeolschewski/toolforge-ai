@@ -1,0 +1,291 @@
+CUSTOM DASHBOARD TEMPLATE CREATOR - PROMPT VARIATIONS
+======================================================
+
+PROMPT 1 - CUSTOM DASHBOARD TEMPLATE GENERATOR
+-----------------------------------------------
+Create a custom dashboard template for tracking [METRICS/KPIs]. The dashboard should be designed for a [ROLE - e.g., project manager, marketing lead, executive] who needs to monitor [SPECIFIC GOALS OR OUTCOMES].
+
+Include the following sections:
+- KPI summary row with [NUMBER] key metrics
+- Primary visualization for [MAIN DATA TYPE - e.g., revenue trends, task completion, pipeline status]
+- Secondary views for [SUPPORTING DATA - e.g., team performance, budget tracking]
+- Action items or alerts section
+- Filters for [DATE RANGE, DEPARTMENT, CATEGORY, etc.]
+
+Platform: [Notion, Google Sheets, Airtable, or platform-agnostic]
+Update frequency: [Real-time, daily, weekly, monthly]
+Audience skill level: [Beginner, intermediate, advanced]
+
+For each metric, provide:
+1. Metric name and definition
+2. Recommended visualization type
+3. Target value and red/yellow/green thresholds
+4. Data source or formula
+5. Update frequency
+
+
+PROMPT 2 - DASHBOARD LAYOUT IDEAS
+----------------------------------
+Generate layout ideas for a [PLATFORM - e.g., Notion, Google Sheets, Airtable] dashboard that tracks [USE CASE - e.g., content marketing performance, sales pipeline, project milestones].
+
+Requirements:
+- Target audience: [ROLE]
+- Number of metrics to display: [NUMBER]
+- Primary device: [Desktop, tablet, mobile, all]
+- Design style: [Minimal, data-dense, visual-heavy, executive summary]
+
+For each layout option, provide:
+1. Section arrangement (top-to-bottom, left-to-right)
+2. Visualization types for each section
+3. Interactive elements (filters, toggles, drill-downs)
+4. Color scheme suggestion
+5. Pros and cons of the layout
+6. Mobile adaptation notes
+
+Provide 3 distinct layout options ranked by complexity (simple, moderate, advanced).
+
+
+PROMPT 3 - SAMPLE DATA POPULATION
+----------------------------------
+Populate a dashboard template with sample [DATA TYPE - e.g., sales data, project metrics, marketing analytics] that demonstrates realistic usage patterns.
+
+Dashboard sections to populate:
+[LIST YOUR DASHBOARD SECTIONS]
+
+Requirements for sample data:
+- Time period: [NUMBER] weeks/months of data
+- Include realistic variation (trends, seasonal patterns, outliers)
+- Use clearly fictional entity names (e.g., "Acme Corp", "Project Alpha")
+- Include edge cases: [Zero values, missing data, exceeded targets]
+- Mark all data with "[SAMPLE]" labels
+
+Data characteristics:
+- Industry context: [YOUR INDUSTRY]
+- Team size: [NUMBER]
+- Typical ranges: [DESCRIBE EXPECTED VALUE RANGES]
+
+Provide the sample data in a format ready to paste into [TARGET PLATFORM].
+
+
+PROMPT 4 - ROLE-SPECIFIC CUSTOMIZATION
+---------------------------------------
+Customize a dashboard template for a [ROLE - e.g., manager, executive, individual contributor, client stakeholder].
+
+Current template includes these sections:
+[DESCRIBE YOUR EXISTING TEMPLATE SECTIONS]
+
+For this role, help me:
+1. Which sections to show vs. hide (and why)
+2. Appropriate metric granularity (daily, weekly, monthly)
+3. Language and terminology adjustments
+4. Default filter settings
+5. Access control recommendations (view-only, edit, admin)
+6. Information hierarchy (what appears first/most prominently)
+7. Action items or decision points specific to this role
+8. Comparison benchmarks relevant to this role
+
+Provide the customized layout as a section-by-section specification I can implement.
+
+
+PROMPT 5 - INTERACTIVE ELEMENTS DESIGNER
+-----------------------------------------
+Add interactive elements to a [PLATFORM] dashboard for [USE CASE]:
+
+Current dashboard structure:
+[DESCRIBE YOUR DASHBOARD LAYOUT]
+
+Interactive features I want to add:
+- Filters: [Date range, category, department, status, etc.]
+- Toggles: [Switch between views, time periods, data sets]
+- Drill-downs: [Click metric to see detail]
+- Conditional formatting: [Color coding based on thresholds]
+- Dynamic calculations: [Formulas that update based on filter selections]
+
+For each interactive element, provide:
+1. Implementation instructions for [PLATFORM]
+2. User experience description (what happens when user interacts)
+3. Data dependencies (what needs to be connected)
+4. Fallback behavior (what shows when no selection is made)
+5. Mobile compatibility notes
+6. Step-by-step setup guide with screenshots description
+
+
+PROMPT 6 - MOBILE OPTIMIZATION GUIDE
+-------------------------------------
+Optimize a [PLATFORM] dashboard for mobile viewing:
+
+Current desktop layout:
+[DESCRIBE YOUR DASHBOARD SECTIONS AND ARRANGEMENT]
+
+Target devices: [Phone, tablet, or both]
+Primary mobile use case: [Quick check, data entry, presentation, monitoring]
+
+Help me:
+1. Reorganize sections for vertical scrolling
+2. Identify sections to collapse or hide on mobile
+3. Suggest font size and touch target adjustments
+4. Simplify visualizations for small screens
+5. Create a mobile-specific summary view
+6. Test checklist for mobile responsiveness
+7. Prioritize above-the-fold content for mobile
+8. Handle horizontal data tables on narrow screens
+
+
+PROMPT 7 - EXPORT AND SHARING OPTIONS
+--------------------------------------
+Create an export and sharing plan for a dashboard template:
+
+Dashboard platform: [PLATFORM]
+Target export formats: [Notion duplicate, Google Sheets, PDF, Airtable, etc.]
+
+For each export format, provide:
+1. Step-by-step export instructions
+2. What's preserved vs. lost in export
+3. File naming convention
+4. Metadata to strip before sharing (privacy/security)
+5. Access permission recommendations
+6. Version tracking approach
+7. Re-import instructions (if needed)
+
+Sharing scenarios to address:
+- Share with [TEAM SIZE] team members with [ACCESS LEVEL]
+- Share with external [CLIENTS/STAKEHOLDERS] with [RESTRICTIONS]
+- Publish as a reusable template for [AUDIENCE]
+
+Include security checklist for each sharing scenario.
+
+
+PROMPT 8 - DASHBOARD USABILITY AUDIT
+-------------------------------------
+Audit a dashboard for usability and effectiveness:
+
+Dashboard URL or description:
+[DESCRIBE OR PASTE YOUR DASHBOARD STRUCTURE]
+
+Evaluate against these criteria:
+1. Can a user answer the core question in under 10 seconds?
+2. Is the visual hierarchy clear (most important info stands out)?
+3. Are all metrics labeled with units, time periods, and data sources?
+4. Does conditional formatting convey status without requiring analysis?
+5. Are interactive elements discoverable and intuitive?
+6. Does the mobile experience maintain usability?
+7. Is the color scheme accessible (colorblind-friendly)?
+8. Are there any misleading visualizations (truncated axes, distorted proportions)?
+9. Is the data freshness clearly indicated?
+10. Are action items or next steps surfaced from the data?
+
+For each criterion, rate 1-10 and provide specific improvement recommendations.
+Provide an overall usability score and prioritized action plan.
+
+
+PROMPT 9 - AI-POWERED DASHBOARD UPDATES
+----------------------------------------
+Design an AI-powered update system for a [PLATFORM] dashboard:
+
+Current manual update process:
+[DESCRIBE HOW YOU CURRENTLY UPDATE THE DASHBOARD]
+
+I want to integrate AI to help with:
+1. Automated data ingestion from [SOURCES - e.g., email reports, CSV exports, API feeds]
+2. Anomaly detection and alerting for [METRICS]
+3. Natural language summaries of dashboard changes
+4. Predictive trends for [METRICS]
+5. Suggested actions based on metric changes
+
+For each AI integration, provide:
+- Tool or service recommendation
+- Implementation complexity (low, medium, high)
+- Estimated setup time
+- Ongoing maintenance requirements
+- Cost estimate
+- Privacy considerations (what data leaves your system)
+- Step-by-step setup instructions for [PLATFORM]
+
+
+PROMPT 10 - TEAM COLLABORATION FEATURES
+----------------------------------------
+Add team collaboration features to a dashboard template:
+
+Dashboard platform: [PLATFORM]
+Team size: [NUMBER]
+Team structure: [DESCRIBE ROLES - e.g., 1 manager, 3 ICs, 2 stakeholders]
+
+Collaboration features needed:
+1. Comment and annotation capabilities for [SECTIONS]
+2. Task assignment from dashboard items
+3. Real-time co-editing vs. async updates
+4. Change tracking and version history
+5. Notification system for metric changes or threshold breaches
+6. Role-based views (what each role sees)
+7. Shared filters vs. personal filter presets
+8. Meeting mode or presentation view
+9. Data entry forms for team input
+10. Activity log for accountability
+
+For each feature, provide:
+- Implementation steps for [PLATFORM]
+- Alternative approaches if platform doesn't natively support
+- Best practices for team adoption
+- Governance rules (who can modify structure vs. data)
+
+Include a team onboarding checklist for the dashboard.
+
+
+==============================================================================
+USAGE GUIDELINES
+==============================================================================
+
+PRIVACY PROTECTION:
+When using these prompts, NEVER include:
+- Real company financial data or revenue figures
+- Actual employee names or performance data
+- Customer or client names and contact information
+- Proprietary KPI formulas or business logic
+- Internal URLs, database names, or system credentials
+- Confidential project details or unreleased product information
+
+Use placeholders:
+- "Company A", "Team B" instead of real organization names
+- "[REVENUE_FIGURE]" instead of actual financial data
+- Generic role descriptions instead of individual names
+- Approximate ranges instead of exact figures
+
+AI TOOL COMPATIBILITY:
+These prompts work with all major AI assistants:
+- ChatGPT, Claude, Gemini, Perplexity
+- Use with privacy-respecting settings (opt-out of training)
+
+PROMPT CHAINING:
+Recommended sequence for complete dashboard creation:
+1. Start with Prompt 1 (Template Generator) for the core structure
+2. Then Prompt 2 (Layout Ideas) for visual design
+3. Follow with Prompt 5 (Interactive Elements) for functionality
+4. Use Prompt 3 (Sample Data) to populate and test
+5. Customize with Prompt 4 (Role-Specific) for each audience
+6. Optimize with Prompt 6 (Mobile) for device compatibility
+7. Audit with Prompt 8 (Usability) for quality assurance
+8. Export with Prompt 7 (Export Options) for distribution
+9. Enhance with Prompt 9 (AI Updates) for automation
+10. Collaborate with Prompt 10 (Team Features) for team adoption
+
+ITERATION:
+If outputs aren't specific enough:
+- "Make this specific to [your platform/industry]"
+- "Provide actual formulas for [Google Sheets/Notion/Airtable]"
+- "Add more detail to the [section name]"
+- "Simplify for a non-technical audience"
+
+SAVING OUTPUTS:
+Keep all AI-generated dashboard designs:
+- Store templates in your organization's template library
+- Version control your dashboard specifications
+- Share with team via approved collaboration channels
+
+VERIFICATION:
+Always independently verify:
+- Platform-specific feature availability (check official docs)
+- Formula accuracy (test with known values before deploying)
+- Data privacy compliance (consult legal/compliance for sensitive dashboards)
+- Accessibility standards (test with screen readers and colorblind simulators)
+
+==============================================================================

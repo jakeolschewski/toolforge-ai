@@ -1,0 +1,307 @@
+DECISION MATRIX FOR PROJECT PRIORITIZATION - PROMPT VARIATIONS
+===============================================================
+
+PROMPT 1 - DECISION MATRIX BUILDER
+-----------------------------------
+Build a decision matrix for prioritizing the following projects. For each project, I need to evaluate it against weighted criteria and produce a ranked priority list.
+
+Projects to evaluate:
+[LIST YOUR PROJECTS - e.g., "Website redesign, Mobile app launch, CRM migration, Employee training program, Data warehouse build"]
+
+Context:
+- Decision type: [SELECTION / SEQUENCING / RESOURCE ALLOCATION - e.g., "Select top 3 to fund this quarter"]
+- Constraint: [BUDGET / TIME / HEADCOUNT - e.g., "$200K budget for Q3"]
+- Time horizon: [THIS QUARTER / THIS YEAR / NEXT 3 YEARS]
+- Number of projects to select: [NUMBER or "rank all"]
+
+For each project, generate:
+1. A brief description (1-2 sentences)
+2. Suggested evaluation criteria (4-6 criteria appropriate for these projects)
+3. Recommended weights for each criterion (totaling 100%)
+4. A blank scoring matrix I can fill in
+5. Instructions for interpreting results
+
+
+PROMPT 2 - CRITERIA SCORING ASSISTANT
+--------------------------------------
+Help me score projects against specific criteria. For each project-criterion pair, suggest a score and explain why.
+
+Criteria and weights:
+- [CRITERION 1]: [WEIGHT] - [DEFINITION - e.g., "Impact (30%) - Expected revenue or strategic value generated"]
+- [CRITERION 2]: [WEIGHT] - [DEFINITION - e.g., "Effort (20%) - Resources required in person-months and dollars"]
+- [CRITERION 3]: [WEIGHT] - [DEFINITION]
+- [CRITERION 4]: [WEIGHT] - [DEFINITION]
+- [CRITERION 5]: [WEIGHT] - [DEFINITION]
+
+Scoring scale: [1-5 / 1-10]
+
+Project to score:
+- Name: [PROJECT NAME]
+- Description: [BRIEF DESCRIPTION]
+- Available data: [ANY METRICS, ESTIMATES, OR CONTEXT - e.g., "Estimated 15% revenue increase, 6-month timeline, requires 3 FTEs"]
+
+For each criterion, provide:
+1. Suggested score with reasoning
+2. Confidence level (High/Medium/Low)
+3. What additional data would improve the score
+4. Comparison notes (how this compares to typical projects)
+
+
+PROMPT 3 - CUSTOM CRITERIA PRIORITIZER
+---------------------------------------
+Help me prioritize projects based on custom criteria specific to my situation.
+
+My situation:
+- Industry: [YOUR INDUSTRY - e.g., "SaaS startup, healthcare, education"]
+- Stage: [EARLY-STAGE / GROWTH / MATURE / TURNAROUND]
+- Primary goal: [GROWTH / PROFITABILITY / EFFICIENCY / COMPLIANCE / INNOVATION]
+- Key constraint: [BUDGET / TIME / TALENT / TECHNOLOGY / REGULATORY]
+- Team size: [NUMBER OF PEOPLE AVAILABLE]
+
+Projects:
+[LIST YOUR PROJECTS WITH BRIEF DESCRIPTIONS]
+
+Based on my context:
+1. Recommend 4-6 criteria tailored to my industry and stage
+2. Suggest appropriate weights reflecting my primary goal and constraints
+3. Define scoring anchors for each criterion (what does 1 vs. 5 mean?)
+4. Score each project and explain the reasoning
+5. Identify which criteria are most differentiating for my specific projects
+6. Flag any criteria I should consider but may have overlooked
+
+
+PROMPT 4 - MATRIX VISUALIZATION AND TABLE BUILDER
+--------------------------------------------------
+Create a visual decision matrix table for the following scored projects. I need this formatted for easy comprehension and presentation.
+
+Projects and scores:
+[PASTE YOUR PROJECT NAMES AND RAW SCORES - e.g.:
+"Project A: Impact 8, Effort 3, Alignment 7, Risk 4, Urgency 6
+Project B: Impact 5, Effort 7, Alignment 9, Risk 2, Urgency 8
+Project C: Impact 9, Effort 2, Alignment 6, Risk 6, Urgency 3"]
+
+Criteria weights:
+[LIST WEIGHTS - e.g., "Impact 30%, Effort 20%, Alignment 20%, Risk 15%, Urgency 15%"]
+
+Please generate:
+1. A formatted table with raw scores, weighted scores, and totals
+2. A ranked list with tier assignments (High / Medium / Low priority)
+3. A text-based 2x2 matrix (Impact vs. Effort quadrant view)
+4. Key insights from the scoring (strongest project, closest race, biggest surprise)
+5. A summary suitable for copying into a presentation slide
+
+
+PROMPT 5 - RISK-ADJUSTED PRIORITIZER
+--------------------------------------
+Adjust my project priority matrix to account for risk factors. I have an existing priority ranking and need to stress-test it against potential risks.
+
+Current priority ranking:
+[LIST YOUR RANKED PROJECTS - e.g.:
+"1. Project A (Score: 85)
+2. Project B (Score: 78)
+3. Project C (Score: 72)
+4. Project D (Score: 65)"]
+
+Risk factors to consider:
+- [RISK 1 - e.g., "Key developer might leave in Q2"]
+- [RISK 2 - e.g., "Vendor dependency on a single supplier"]
+- [RISK 3 - e.g., "Regulatory changes expected in 6 months"]
+- [RISK 4 - e.g., "Market competitor launching similar product"]
+
+For each project, provide:
+1. Risk exposure assessment (which risks affect this project and how severely)
+2. Risk-adjusted score (original score modified by risk factors)
+3. Recommended mitigations for top risks
+4. Revised ranking after risk adjustment
+5. Sensitivity analysis: which risks, if they materialized, would change the top pick?
+
+
+PROMPT 6 - TEAM DECISION MATRIX FACILITATOR
+--------------------------------------------
+Help me design and facilitate a team decision matrix exercise. I need a structured process that multiple team members can participate in fairly.
+
+Team details:
+- Number of participants: [NUMBER - e.g., "5 team members"]
+- Roles represented: [LIST ROLES - e.g., "Engineering lead, Product manager, Designer, Marketing, Finance"]
+- Decision-making style: [CONSENSUS / MAJORITY VOTE / ADVISORY (one person decides)]
+- Known dynamics: [ANY RELEVANT CONTEXT - e.g., "Engineering and Product often disagree on priorities"]
+
+Projects to evaluate: [NUMBER - e.g., "8 projects"]
+Time available: [TOTAL TIME - e.g., "90-minute meeting"]
+
+Generate:
+1. Meeting agenda with time allocations for each step
+2. Facilitation script (what to say at each stage)
+3. Rules of engagement to prevent bias and groupthink
+4. Individual scoring template for each participant
+5. Aggregation method for combining individual scores
+6. Discussion guide for resolving scoring discrepancies
+7. Decision documentation template
+8. Follow-up action items template
+
+
+PROMPT 7 - MATRIX EXPORT AND SHEET BUILDER
+--------------------------------------------
+Help me create a professional decision matrix spreadsheet that I can use and share. Generate the complete structure and formulas.
+
+Requirements:
+- Number of projects: [NUMBER - e.g., "10"]
+- Number of criteria: [NUMBER - e.g., "6"]
+- Scoring scale: [SCALE - e.g., "1-5"]
+- Number of raters: [NUMBER - e.g., "1 (solo)" or "4 (team)"]
+- Export format: [GOOGLE SHEETS / EXCEL / NOTION / CSV]
+
+Generate:
+1. Complete sheet layout with headers, rows, and columns
+2. All formulas needed (weighted scores, totals, ranks, averages)
+3. Conditional formatting rules (color-code by score range)
+4. Data validation rules (restrict inputs to valid score ranges)
+5. Summary dashboard section with key metrics
+6. Chart recommendations (which charts to create and how)
+7. Instructions tab for new users
+8. Print-friendly formatting specifications
+
+
+PROMPT 8 - RETROSPECTIVE DECISION REVIEWER
+--------------------------------------------
+Help me review a past prioritization decision to learn from it and improve future decision-making.
+
+Original decision:
+- Date of decision: [WHEN - e.g., "Q1 2025"]
+- Projects selected: [WHICH PROJECTS WERE CHOSEN]
+- Projects deferred: [WHICH WERE NOT CHOSEN]
+- Criteria used: [WHAT CRITERIA WERE EVALUATED]
+- Decision method: [HOW WAS THE DECISION MADE - e.g., "Decision matrix", "Executive judgment", "Team vote"]
+
+Actual outcomes:
+- Selected projects: [WHAT HAPPENED - e.g., "Project A delivered on time, 12% revenue lift. Project B was cancelled at 60% completion."]
+- Deferred projects: [WHAT HAPPENED - e.g., "Project C was picked up by a competitor. Project D is still waiting."]
+- Surprises: [ANYTHING UNEXPECTED - e.g., "Project B's technology didn't work as expected"]
+
+Analyze:
+1. How accurate were the original priority scores vs. actual outcomes?
+2. Which criteria best predicted success? Which were misleading?
+3. Were there warning signs that were missed?
+4. What criteria should be added or removed for next time?
+5. How should weights be adjusted based on this experience?
+6. Specific recommendations for the next prioritization cycle
+
+
+PROMPT 9 - LARGE-SCALE PRIORITIZATION FRAMEWORK
+-------------------------------------------------
+Help me scale a decision matrix approach for a large number of projects. I need a phased approach that remains manageable.
+
+Scale:
+- Total projects to evaluate: [NUMBER - e.g., "50+ project proposals"]
+- Decision-makers: [NUMBER - e.g., "12 people across 4 departments"]
+- Budget to allocate: [AMOUNT - e.g., "$2M annual project budget"]
+- Desired output: [WHAT YOU NEED - e.g., "Funded project portfolio for fiscal year"]
+
+Challenges:
+- [CHALLENGE 1 - e.g., "Too many projects for a single scoring session"]
+- [CHALLENGE 2 - e.g., "Cross-department projects are hard to compare"]
+- [CHALLENGE 3 - e.g., "Some projects are mandatory (compliance) vs. discretionary"]
+
+Generate:
+1. A phased approach (pre-filter, category scoring, cross-category ranking)
+2. Category definitions for grouping similar projects
+3. Mandatory vs. discretionary project handling rules
+4. Cross-department calibration process
+5. Governance structure (who decides what at each phase)
+6. Timeline for the full prioritization cycle
+7. Communication plan for announcing results
+8. Tools and templates needed at each phase
+
+
+PROMPT 10 - GOAL-ALIGNED PRIORITIZATION
+-----------------------------------------
+Help me align my project prioritization with specific strategic goals, OKRs, or organizational objectives.
+
+Strategic goals:
+- [GOAL 1 - e.g., "Increase ARR by 40% (OKR)"]
+- [GOAL 2 - e.g., "Reduce customer churn below 5% (OKR)"]
+- [GOAL 3 - e.g., "Launch in 2 new markets (strategic initiative)"]
+- [GOAL 4 - e.g., "Achieve SOC 2 compliance (mandatory)"]
+
+Projects:
+[LIST YOUR PROJECTS WITH BRIEF DESCRIPTIONS]
+
+Generate:
+1. A goal-project alignment matrix (which projects support which goals)
+2. Goal coverage analysis (are any goals under-served by current projects?)
+3. Recommended criteria and weights derived from these specific goals
+4. Scored matrix with goal-alignment as the primary lens
+5. Gap analysis: what projects are missing to fully achieve each goal?
+6. Recommendation: optimal project portfolio to maximize goal achievement
+7. Trade-off analysis: what goals are sacrificed if budget is constrained?
+8. Suggested KPIs for each selected project linked to the relevant goal
+
+
+==============================================================================
+USAGE GUIDELINES
+==============================================================================
+
+PRIVACY PROTECTION:
+When using these prompts, NEVER include:
+- Confidential project codenames or internal initiative names
+- Specific budget figures if proprietary
+- Employee names in scoring or rationale
+- Client or customer names
+- Proprietary business metrics or revenue figures
+- Competitive intelligence or market-sensitive plans
+
+Use placeholders:
+- "Project A", "Project B" instead of real project names if sensitive
+- "Initiative Alpha", "Initiative Beta" for codenames
+- Relative figures ("$X", "2x current budget") instead of exact amounts
+- "Team Lead", "Stakeholder 1" instead of names
+
+AI TOOL COMPATIBILITY:
+These prompts work with all major AI assistants:
+- ChatGPT, Claude, Gemini, Perplexity
+- Use with privacy-respecting settings (opt-out of training)
+
+PROMPT CHAINING:
+Recommended sequence for complete prioritization:
+1. Start with Prompt 1 (Matrix Builder) or Prompt 3 (Custom Criteria)
+2. Use Prompt 2 (Scoring Assistant) for each project
+3. Follow with Prompt 4 (Visualization) to format results
+4. Apply Prompt 5 (Risk Adjustment) for stress testing
+5. Use Prompt 10 (Goal Alignment) to verify strategic fit
+6. Finish with Prompt 7 (Export) to create shareable deliverables
+7. Later, use Prompt 8 (Retrospective) to improve future cycles
+
+FOR TEAM EXERCISES:
+1. Start with Prompt 6 (Team Facilitator) to design the session
+2. Use Prompt 1 or Prompt 3 to establish criteria collaboratively
+3. Have individuals use Prompt 2 independently for scoring
+4. Aggregate with Prompt 4 and discuss
+
+FOR LARGE ORGANIZATIONS:
+1. Begin with Prompt 9 (Large-Scale Framework) for the overall process
+2. Use Prompt 10 (Goal Alignment) to set strategic context
+3. Apply Prompt 3 per department or category
+4. Consolidate with Prompt 4 and Prompt 7
+
+ITERATION:
+If outputs aren't specific enough:
+- "Make the criteria more specific to [your industry]"
+- "Provide more granular scoring anchors for [specific criterion]"
+- "Add quantitative benchmarks for scoring"
+- "Adjust weights to reflect [specific constraint or priority]"
+
+SAVING OUTPUTS:
+Keep all AI-generated matrices and rationale:
+- Store in version-controlled shared drive
+- Archive each scoring session with date and participants
+- Maintain a library of criteria sets for different decision types
+- Track decisions and outcomes for retrospective analysis
+
+VERIFICATION:
+Always independently verify:
+- That criteria are appropriate for your specific context
+- That weights reflect actual organizational priorities (not just what sounds balanced)
+- That scores are supported by evidence, not just AI suggestions
+- That the final ranking passes a common-sense check
+
+==============================================================================

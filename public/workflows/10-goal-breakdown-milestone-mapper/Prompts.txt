@@ -1,0 +1,280 @@
+GOAL BREAKDOWN & MILESTONE MAPPER - PROMPT VARIATIONS
+======================================================
+
+PROMPT 1 - GOAL DECOMPOSITION
+------------------------------
+Break down the following big goal into structured sub-goals with clear deliverables:
+
+Big Goal: [DESCRIBE YOUR GOAL - e.g., "Launch a new SaaS product by Q3 2026"]
+Timeline: [OVERALL DEADLINE OR TIMEFRAME]
+Context: [RELEVANT BACKGROUND - e.g., team size, industry, current state]
+Constraints: [KNOWN LIMITATIONS - e.g., budget cap, team availability, technology stack]
+
+For each sub-goal, provide:
+1. Sub-goal name and one-sentence description
+2. Measurable success criterion (how do I know it's done?)
+3. Estimated duration (optimistic, realistic, pessimistic)
+4. Dependencies on other sub-goals
+5. Key risks or assumptions
+6. Priority level (critical path vs. parallel work)
+
+Organize sub-goals in recommended execution order. Aim for 4-7 sub-goals that are mutually exclusive and collectively exhaustive.
+
+
+PROMPT 2 - MILESTONE TIMELINE MAPPER
+-------------------------------------
+Map milestones with specific dates for the following goal and timeline:
+
+Goal: [YOUR GOAL]
+Sub-Goals: [LIST YOUR SUB-GOALS or say "use the breakdown from our previous conversation"]
+Start Date: [WHEN YOU BEGIN]
+End Date: [TARGET COMPLETION DATE]
+Work Capacity: [e.g., "Full-time solo," "Team of 4, each 20 hrs/week," etc.]
+
+For each sub-goal, generate 2-3 milestones including:
+1. Milestone name and deliverable description
+2. Target completion date
+3. Dependencies (which milestones must complete first?)
+4. Owner or responsible role
+5. Early warning indicator (how to detect if milestone is slipping)
+6. Buffer time recommendation
+
+Present as a timeline view, ordered chronologically. Identify the critical path (the longest sequence of dependent milestones that determines the minimum project duration).
+
+
+PROMPT 3 - RESOURCE ALLOCATION ADVISOR
+---------------------------------------
+Help me assign resources to the following sub-goals for my goal:
+
+Goal: [YOUR GOAL]
+Sub-Goals and Milestones: [LIST THEM or reference previous conversation]
+Available Resources:
+- Team: [LIST TEAM MEMBERS AND THEIR ROLES/SKILLS]
+- Budget: [TOTAL AVAILABLE BUDGET]
+- Tools: [TOOLS AND PLATFORMS AVAILABLE]
+- Time: [HOURS PER WEEK AVAILABLE PER PERSON]
+
+For each sub-goal, recommend:
+1. Personnel assignment (who should work on this and why)
+2. Time allocation (estimated hours per week)
+3. Budget allocation (if applicable)
+4. Tools or platforms to use
+5. Skills gaps (what's missing and how to address it)
+
+Generate a resource allocation matrix table. Flag any over-allocated team members or budget conflicts. Suggest rebalancing options if resources are constrained.
+
+
+PROMPT 4 - ROADMAP VISUALIZATION GUIDE
+---------------------------------------
+Help me create a visual roadmap for the following goal breakdown:
+
+Goal: [YOUR GOAL]
+Sub-Goals and Milestones: [LIST THEM or reference previous conversation]
+Audience: [WHO WILL VIEW THIS - e.g., "executive team," "project team," "personal use"]
+Preferred Format: [e.g., "Gantt chart," "timeline," "kanban board," "mind map"]
+Tool: [TOOL YOU WANT TO USE - e.g., "Notion," "Google Sheets," "Miro," "Asana," "PowerPoint"]
+
+Provide:
+1. Recommended layout structure for my chosen tool
+2. Color-coding scheme (by sub-goal, priority, or status)
+3. What information to include on each milestone card/bar
+4. How to show dependencies visually
+5. Suggested legend or key for the visual
+6. Step-by-step setup instructions for my chosen tool
+7. How to keep it updated as progress changes
+
+If I haven't chosen a tool, recommend the best option for my audience and use case.
+
+
+PROMPT 5 - OBSTACLE AND CONTINGENCY PLANNER
+--------------------------------------------
+Help me prepare for obstacles that could derail my goal:
+
+Goal: [YOUR GOAL]
+Sub-Goals and Milestones: [LIST THEM or reference previous conversation]
+Known Risks: [ANY RISKS YOU ALREADY ANTICIPATE]
+Risk Tolerance: [LOW - can't afford delays / MEDIUM - some flexibility / HIGH - exploratory goal]
+
+For each sub-goal, identify:
+1. Top 3 potential obstacles (with probability: low/medium/high)
+2. Impact assessment (what happens if this obstacle materializes?)
+3. Early warning signs (how will you detect this before it becomes critical?)
+4. Mitigation strategy (how to prevent or reduce the obstacle)
+5. Contingency plan (if mitigation fails, what is Plan B?)
+
+Also provide:
+- "Minimum Viable Goal" definition (reduced scope that still delivers core value)
+- Decision criteria for when to escalate, pivot, descope, or pause
+- Schedule buffer recommendations for critical path milestones
+- A risk register template I can maintain throughout the project
+
+
+PROMPT 6 - TEAM GOAL BREAKDOWN
+-------------------------------
+Adapt the following goal breakdown for team collaboration:
+
+Goal: [YOUR GOAL]
+Sub-Goals: [LIST THEM or reference previous conversation]
+Team Structure: [DESCRIBE YOUR TEAM - roles, reporting lines, locations, time zones]
+Collaboration Tools: [TOOLS YOUR TEAM USES - e.g., Slack, Asana, Notion, Google Workspace]
+Meeting Cadence: [CURRENT MEETING SCHEDULE]
+
+Generate:
+1. RACI matrix for each milestone (Responsible, Accountable, Consulted, Informed)
+2. Recommended meeting structure (standups, reviews, retrospectives)
+3. Communication plan (what to share, with whom, how often, via what channel)
+4. Handoff protocols between team members or phases
+5. Escalation path for blockers or conflicts
+6. Onboarding checklist for new team members joining mid-project
+
+Format as a team operating document that can be shared in our collaboration tool.
+
+
+PROMPT 7 - PROGRESS METRICS TRACKER
+------------------------------------
+Design a progress tracking system for my goal:
+
+Goal: [YOUR GOAL]
+Sub-Goals and Milestones: [LIST THEM or reference previous conversation]
+Tracking Tool: [TOOL YOU WANT TO USE - e.g., "Google Sheets," "Notion," "Asana," "manual"]
+Reporting Audience: [WHO NEEDS UPDATES - e.g., "just me," "team," "stakeholders," "leadership"]
+Update Frequency: [HOW OFTEN - e.g., "daily," "weekly," "biweekly"]
+
+Create:
+1. KPI definitions for each sub-goal (2-3 leading indicators, 1-2 lagging indicators)
+2. Scoring methodology (percentage complete, RAG status, velocity metrics)
+3. Status report template (for weekly/biweekly updates)
+4. Dashboard layout recommendation for my chosen tool
+5. Automated reminder schedule for milestone deadlines
+6. Health check questions to ask at each review (5-7 diagnostic questions)
+7. Trend indicators (how to spot goals going off-track before it's too late)
+
+Make the tracking system simple enough to maintain in under 15 minutes per week.
+
+
+PROMPT 8 - ANNUAL GOAL SCALING
+-------------------------------
+Scale the goal breakdown methodology for annual (12-month) planning:
+
+Annual Goals: [LIST 3-5 ANNUAL GOALS YOU WANT TO ACHIEVE]
+Available Resources: [TEAM SIZE, BUDGET, TIME COMMITMENT]
+Review Cadence: [HOW OFTEN YOU WANT TO REVIEW - quarterly recommended]
+
+For each annual goal, provide:
+1. Quarterly sub-goal breakdown (Q1, Q2, Q3, Q4)
+2. Key milestones per quarter (2-3 per goal per quarter)
+3. Resource allocation across quarters (front-loaded, even, back-loaded)
+4. Inter-goal dependencies (how do these goals support or compete with each other?)
+5. Quarterly review criteria (what should be true by end of each quarter?)
+6. Annual success metrics and how to measure them
+
+Also provide:
+- Portfolio view: How to manage multiple goals simultaneously without overload
+- Prioritization framework: When goals compete for resources, how to decide
+- Year-end retrospective template: What to evaluate and how to feed into next year's planning
+
+
+PROMPT 9 - DAILY PLAN INTEGRATION
+----------------------------------
+Help me connect my strategic goal roadmap to daily and weekly execution:
+
+Goal: [YOUR GOAL]
+Current Active Milestones: [MILESTONES DUE IN THE NEXT 2-4 WEEKS]
+Available Hours Per Week: [HOURS YOU CAN DEDICATE TO THIS GOAL]
+Other Commitments: [OTHER MAJOR PRIORITIES COMPETING FOR YOUR TIME]
+Planning Tool: [WHERE YOU PLAN YOUR DAYS - e.g., "Google Calendar," "Todoist," "paper planner"]
+
+Generate:
+1. Weekly sprint plan template (what to plan each Monday)
+2. Daily task breakdown from active milestones (sized to 30-min to 2-hour blocks)
+3. Time-blocking recommendations for my available hours
+4. Priority decision framework (when two milestone tasks compete, how to choose)
+5. End-of-day review checklist (3-5 questions to close each day)
+6. End-of-week review checklist (5-7 questions to close each week)
+7. "Catch-up" protocol for when I fall behind on milestone tasks
+
+Make this practical for someone who has 60 seconds to plan their day and 10 minutes to plan their week.
+
+
+PROMPT 10 - MILESTONE REVIEW AND REALIGNMENT
+---------------------------------------------
+Help me review and realign my milestones based on current progress:
+
+Goal: [YOUR GOAL]
+Original Milestones and Dates: [LIST ORIGINAL MILESTONES WITH TARGET DATES]
+Current Status: [FOR EACH MILESTONE: completed/on-track/at-risk/delayed/blocked]
+Obstacles Encountered: [DESCRIBE ANY OBSTACLES OR SURPRISES]
+Remaining Timeline: [TIME LEFT UNTIL GOAL DEADLINE]
+Changed Circumstances: [ANYTHING THAT HAS CHANGED SINCE ORIGINAL PLANNING]
+
+Provide:
+1. Gap analysis: Where are we vs. where we should be?
+2. Root cause assessment: Why are delayed milestones behind?
+3. Revised timeline: Updated milestone dates based on current reality
+4. Scope adjustment recommendations: What to keep, cut, or defer
+5. Resource reallocation: Should any resources shift between sub-goals?
+6. Recovery plan: Specific actions to get back on track
+7. Lessons learned: What should we do differently going forward?
+8. Stakeholder communication: How to communicate the revised plan
+
+Format as a review report that I can share with my team or stakeholders.
+
+
+==============================================================================
+USAGE GUIDELINES
+==============================================================================
+
+PRIVACY PROTECTION:
+When using these prompts, NEVER include:
+- Real employee names or personal details
+- Confidential company strategies or unreleased product plans
+- Financial figures that are not public
+- Client or customer names
+- Internal system names or proprietary technology details
+- Specific revenue targets or investor information
+
+Use placeholders:
+- "Team Member A (Backend Developer)" instead of real names
+- "Product X" or "Project Alpha" instead of confidential names
+- "Budget range: $50K-100K" instead of exact approved figures
+- Generic descriptions of goals when the goal itself is confidential
+
+AI TOOL COMPATIBILITY:
+These prompts work with all major AI assistants:
+- ChatGPT, Claude, Gemini, Perplexity
+- Use with privacy-respecting settings (opt-out of training where available)
+
+PROMPT CHAINING:
+Recommended sequence for complete goal breakdown:
+1. Start with Prompt 1 (Goal Decomposition)
+2. Then Prompt 2 (Milestone Timeline Mapper)
+3. Follow with Prompt 3 (Resource Allocation)
+4. Use Prompt 4 (Roadmap Visualization) to create visual output
+5. Complete Prompt 5 (Obstacle Planning) for risk preparation
+6. For teams, add Prompt 6 (Team Goal Breakdown)
+7. Set up tracking with Prompt 7 (Progress Metrics)
+8. Maintain with Prompt 10 (Review and Realignment) at each review cycle
+
+ITERATION:
+If outputs are not specific enough:
+- "Make this specific to [your industry or domain]"
+- "Add more detail to sub-goal #3"
+- "Adjust the timeline for a more aggressive/conservative schedule"
+- "Reformat as a table I can paste into [specific tool]"
+
+SAVING OUTPUTS:
+Keep all AI-generated plans:
+- Store roadmaps in your project management tool
+- Version control your milestone plans (track changes over time)
+- Share with team via secure, access-controlled channels
+- Archive completed goal breakdowns for future reference
+
+VERIFICATION:
+Always independently verify:
+- Timeline feasibility (check against real calendar and availability)
+- Resource capacity (confirm with actual team members)
+- Budget accuracy (validate with finance or procurement)
+- Dependency logic (confirm technical and organizational dependencies)
+- Milestone definitions (ensure deliverables are truly measurable)
+
+==============================================================================

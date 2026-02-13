@@ -1,0 +1,173 @@
+REDACTION GUIDE - COMMUNITY FEEDBACK INTEGRATOR
+===============================================
+
+PURPOSE
+-------
+This guide helps you safely use AI tools for community feedback integrator without
+exposing sensitive personal, business, or client information. Follow these
+steps before every AI interaction to maintain privacy and compliance.
+
+==============================================================================
+SECTION 1: TYPES OF DATA TO REDACT
+==============================================================================
+
+CATEGORY A: PERSONAL IDENTIFIERS (ALWAYS REDACT)
+-------------------------------------------------
+x NEVER INCLUDE:
+  - Full names of real people
+  - Email addresses
+  - Phone numbers
+  - Physical addresses
+  - Social media handles/profiles
+  - ID numbers (SSN, employee ID, etc.)
+  - Photos or images of identifiable people
+
+v SAFE ALTERNATIVES:
+  - "[PERSON_NAME]", "[TEAM_MEMBER]", "[CLIENT]"
+  - "[EMAIL_ADDRESS]", "[PHONE]"
+  - Role descriptions: "the project manager", "our client"
+  - Generic identifiers: "Person A", "Company X"
+
+
+CATEGORY B: BUSINESS INFORMATION (REDACT WHEN SENSITIVE)
+--------------------------------------------------------
+x POTENTIALLY SENSITIVE:
+  - Company names (if confidential context)
+  - Revenue figures, pricing details
+  - Strategic plans and roadmaps
+  - Client lists and relationships
+  - Internal processes and trade secrets
+  - Unreleased product details
+  - Competitive intelligence
+
+v SAFE ALTERNATIVES:
+  - "[COMPANY]", "[CLIENT_ORG]"
+  - Ranges instead of exact figures: "$100K-200K" vs "$147,523"
+  - Generic descriptions: "a mid-size tech company"
+  - Abstract scenarios: "a B2B SaaS product" vs. specific product name
+
+
+CATEGORY C: TECHNICAL AND OPERATIONAL DETAILS
+---------------------------------------------
+x BE CAUTIOUS WITH:
+  - API keys, passwords, credentials
+  - Server names, IP addresses, URLs
+  - Database schemas, system architecture
+  - Security configurations
+  - Proprietary algorithms or formulas
+  - Internal tool configurations
+
+v SAFE ALTERNATIVES:
+  - "[API_KEY]", "[SERVER]", "[URL]"
+  - Generic architecture: "cloud-hosted database"
+  - Process descriptions without implementation details
+  - Tool categories instead of specific tool names (if sensitive)
+
+
+==============================================================================
+SECTION 2: STEP-BY-STEP REDACTION PROCESS
+==============================================================================
+
+STEP 1: SCAN BEFORE PASTING
+----------------------------
+Before putting any content into an AI tool:
+[ ] Read through the entire text you plan to share
+[ ] Highlight or mark any items from Categories A, B, C above
+[ ] Count the number of items needing redaction
+
+STEP 2: APPLY REDACTION
+------------------------
+For each identified item:
+[ ] Replace with appropriate placeholder from the guide above
+[ ] Ensure placeholders are consistent (same person = same placeholder)
+[ ] Verify the redacted version still makes sense contextually
+
+STEP 3: VERIFY COMPLETENESS
+----------------------------
+After redaction:
+[ ] Re-read the entire redacted text
+[ ] Search for common patterns: @, .com, $, specific names
+[ ] Check for indirect identifiers (job titles + departments that identify someone)
+[ ] Confirm no sensitive context can be inferred from remaining details
+
+STEP 4: PROCESS WITH AI
+------------------------
+[ ] Submit redacted text to AI tool
+[ ] Review AI output for any sensitive details that may have leaked through
+[ ] Customize output with real details ONLY in your local document
+
+STEP 5: POST-PROCESSING
+------------------------
+[ ] Review final output for any unredacted sensitive information
+[ ] Replace any placeholders with real data only in secure storage
+[ ] Do not share the un-redacted version through insecure channels
+
+
+==============================================================================
+SECTION 3: SCENARIO-SPECIFIC REDACTION
+==============================================================================
+
+SCENARIO 1: WORKING WITH CLIENT DATA
+-------------------------------------
+Safe to include:
+v Industry vertical (e.g., "healthcare company")
+v General challenge description
+v Anonymized metrics and outcomes
+v Process steps and frameworks
+
+Must redact:
+x Client name and identifying details
+x Specific contract terms or financials
+x Proprietary client information
+x Names of client team members
+
+
+SCENARIO 2: SHARING OUTPUTS WITH TEAM
+--------------------------------------
+Safe to include:
+v Process documentation and templates
+v Generic examples and frameworks
+v AI-generated content (after review)
+v Best practices and guidelines
+
+Must redact:
+x Information shared by team members in confidence
+x Performance data tied to individuals
+x Client-specific details in shared templates
+x Any content marked as confidential
+
+
+==============================================================================
+SECTION 4: VERIFICATION CHECKLIST
+==============================================================================
+
+Before sharing any output from this workflow:
+
+[ ] All personal names replaced with placeholders or roles
+[ ] All email addresses and phone numbers removed
+[ ] Company names anonymized (unless public/non-sensitive context)
+[ ] Financial figures generalized to ranges
+[ ] Technical details (keys, URLs, IPs) removed
+[ ] No combination of remaining details could identify someone
+[ ] Screenshots scrubbed of visible sensitive information
+[ ] File metadata cleaned (author name, organization)
+[ ] Peer review completed (if sharing externally)
+
+
+==============================================================================
+SUPPORT & REMINDERS
+==============================================================================
+
+WHEN IN DOUBT: REDACT IT.
+Over-redaction is always safer than under-redaction.
+
+Remember:
+- AI tools may retain or learn from your inputs
+- Use privacy-respecting AI settings when available
+- Review your AI tool's privacy policy periodically
+- Different jurisdictions have different privacy requirements (GDPR, CCPA, etc.)
+
+This guide is for educational purposes. Adapt to your organization's
+specific security policies and regulatory requirements.
+
+==============================================================================

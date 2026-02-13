@@ -1,0 +1,312 @@
+TONE-ADAPTIVE REWRITE SYSTEM - PROMPT VARIATIONS
+===================================================
+
+PROMPT 1 - TONE REWRITE (CORE)
+-------------------------------
+Rewrite the following text in a [TARGET TONE] tone. Preserve the original meaning, all factual claims, and key messages exactly. Do not add new information or remove existing points.
+
+Original text:
+[PASTE ORIGINAL TEXT HERE]
+
+Target tone: [e.g., formal, casual, professional, empathetic, authoritative, conversational]
+Target audience: [e.g., C-suite executives, college students, general public, technical engineers]
+Constraints:
+- Word count: [APPROXIMATE TARGET, e.g., "similar to original" or "under 200 words"]
+- Preserve these terms exactly: [LIST ANY TERMS THAT MUST NOT CHANGE]
+- Format: [Maintain original structure / Restructure as needed]
+
+After the rewrite, provide a brief note (2-3 sentences) explaining the specific tone choices you made and why.
+
+
+PROMPT 2 - AUDIENCE-ADAPTIVE REWRITE
+-------------------------------------
+Adapt the tone of the following text specifically for [TARGET AUDIENCE]. Consider their:
+- Professional background and expertise level
+- Communication preferences and expectations
+- Cultural context and formality norms
+- Relationship to the writer (peer, superior, customer, stranger)
+
+Original text:
+[PASTE ORIGINAL TEXT HERE]
+
+Target audience: [DESCRIBE IN DETAIL - e.g., "Non-technical small business owners in the US, ages 35-55, who are evaluating software for the first time"]
+
+Specific instructions:
+- Replace jargon with: [accessible language / industry-standard terms / simplified explanations]
+- Reading level target: [e.g., 8th grade, college-level, graduate-level]
+- Formality level: [1-10 scale, where 1 = text message casual, 10 = legal document formal]
+
+Provide the rewrite followed by a "Translation Notes" section explaining what you changed and why for this audience.
+
+
+PROMPT 3 - ITERATIVE REFINEMENT
+--------------------------------
+Here is Version [N] of a tone rewrite. I need Version [N+1] that is more [ADJECTIVE/QUALITY].
+
+Current version (Version [N]):
+[PASTE CURRENT VERSION HERE]
+
+Target adjustment: Make it more [e.g., empathetic, concise, authoritative, warm, direct, nuanced]
+
+Specific areas to improve:
+1. [e.g., "The opening paragraph feels too stiff"]
+2. [e.g., "Paragraph 3 lost the original meaning about delivery timelines"]
+3. [e.g., "The closing needs to be more action-oriented"]
+
+Constraints:
+- Do NOT change: [LIST SECTIONS OR PHRASES TO KEEP AS-IS]
+- Maintain overall word count within [+/- X%] of current version
+- Keep the same structural format
+
+Provide the updated version and a changelog listing every sentence you modified with a brief reason for each change.
+
+
+PROMPT 4 - SIDE-BY-SIDE TONE COMPARISON
+-----------------------------------------
+I have [NUMBER] versions of the same text written in different tones. Analyze them side-by-side and provide a structured comparison.
+
+Version A - [TONE LABEL, e.g., "Formal"]:
+[PASTE VERSION A]
+
+Version B - [TONE LABEL, e.g., "Conversational"]:
+[PASTE VERSION B]
+
+Version C - [TONE LABEL, e.g., "Empathetic"] (optional):
+[PASTE VERSION C]
+
+Compare these versions across the following dimensions:
+1. Tone accuracy: How well does each achieve its intended tone? (1-10)
+2. Meaning preservation: Does each version retain the original message? (1-10)
+3. Readability: How clear and easy to follow is each version? (1-10)
+4. Audience fit: How appropriate is each for its intended audience? (1-10)
+5. Natural language: Does each sound like a human wrote it? (1-10)
+6. Persuasiveness: Which is most compelling? (rank order)
+
+Provide:
+- A comparison table with scores
+- Specific examples of what each version does well and poorly
+- A recommendation for which version to use (or how to combine the best elements)
+
+
+PROMPT 5 - TONE BLENDING
+--------------------------
+Rewrite the following text using a blended tone that combines [TONE 1] and [TONE 2]. The blend should be approximately [X]% [TONE 1] and [Y]% [TONE 2].
+
+Original text:
+[PASTE ORIGINAL TEXT HERE]
+
+Tone blend:
+- Primary tone: [TONE 1, e.g., "professional"] - [X]%
+- Secondary tone: [TONE 2, e.g., "friendly"] - [Y]%
+
+Context for this blend: [e.g., "A company email that needs to be taken seriously but also feel approachable and human"]
+
+Examples of the desired blended tone (for reference):
+- [PROVIDE 1-2 EXAMPLE SENTENCES IN YOUR TARGET BLEND]
+
+Preserve all original meaning and facts. After the rewrite, explain how you balanced the two tones throughout the text and identify any sentences where the blend was particularly challenging.
+
+
+PROMPT 6 - TEAM REWRITE SYSTEM SETUP
+--------------------------------------
+Help me create a team tone guide and rewrite system for [NUMBER] writers who need to produce content in a consistent [TARGET TONE] voice.
+
+Context:
+- Team size: [NUMBER OF WRITERS]
+- Content types: [e.g., blog posts, emails, reports, social media]
+- Brand/organization: [DESCRIBE BRIEFLY - or use placeholder if sensitive]
+- Current challenge: [e.g., "Inconsistent tone across writers," "Transitioning from formal to conversational"]
+
+Generate a comprehensive team tone guide that includes:
+
+1. **Tone Definition:**
+   - 3-sentence description of the target tone
+   - 5 "this, not that" examples (correct tone vs. incorrect tone)
+   - Vocabulary preferences (words to use, words to avoid)
+
+2. **Rewrite Checklist (for each team member to follow):**
+   - Step-by-step process for tone adaptation
+   - Self-review questions before submitting
+
+3. **Calibration Exercises:**
+   - 3 sample paragraphs for team members to rewrite
+   - Model answers showing the correct tone
+   - Common mistakes and how to fix them
+
+4. **Quality Control Process:**
+   - Peer review guidelines
+   - Tone consistency scoring rubric
+   - Escalation process for uncertain cases
+
+Format this as a ready-to-distribute team document.
+
+
+PROMPT 7 - SHORTEN WHILE ADAPTING TONE
+---------------------------------------
+Rewrite the following text to be significantly shorter while simultaneously adapting the tone to [TARGET TONE]. The shortened version should be approximately [TARGET LENGTH, e.g., "50% of original," "under 100 words," "3 sentences"].
+
+Original text ([CURRENT WORD COUNT] words):
+[PASTE ORIGINAL TEXT HERE]
+
+Target tone: [e.g., formal, casual, direct, warm]
+Target length: [SPECIFY - e.g., "Under 150 words," "Half the original length," "A single paragraph"]
+
+Prioritize preserving:
+1. [MOST IMPORTANT MESSAGE/POINT]
+2. [SECOND MOST IMPORTANT]
+3. [THIRD MOST IMPORTANT]
+
+May be cut or condensed:
+- [DETAILS THAT CAN BE REMOVED]
+- [EXAMPLES THAT ARE OPTIONAL]
+- [CONTEXT THAT THE AUDIENCE ALREADY KNOWS]
+
+Provide the shortened rewrite, followed by:
+- A list of what was removed and why
+- Confirmation that priority messages are preserved
+- The final word count
+
+
+PROMPT 8 - EXPAND WITH DETAIL IN TONE
+---------------------------------------
+Expand the following text with additional detail and depth while maintaining a consistent [TARGET TONE] throughout. The expanded version should be approximately [TARGET LENGTH, e.g., "twice the original," "500 words," "3 paragraphs"].
+
+Original text ([CURRENT WORD COUNT] words):
+[PASTE ORIGINAL TEXT HERE]
+
+Target tone: [e.g., formal, conversational, academic, persuasive]
+Target length: [SPECIFY]
+
+Areas to expand:
+1. [e.g., "Add supporting examples for the main argument"]
+2. [e.g., "Elaborate on the process described in paragraph 2"]
+3. [e.g., "Include transitional context between sections"]
+
+Do NOT:
+- Add factual claims not supported by or implied by the original
+- Change the meaning or emphasis of existing points
+- Introduce new arguments or positions not present in the original
+
+Provide the expanded rewrite, followed by a summary of what was added and how you maintained tone consistency across the new material.
+
+
+PROMPT 9 - CULTURAL SENSITIVITY CHECK
+---------------------------------------
+Review the following rewritten text for cultural sensitivity and appropriateness. The text has been adapted to a [TONE] tone for [TARGET AUDIENCE].
+
+Text to review:
+[PASTE REWRITTEN TEXT HERE]
+
+Original tone: [ORIGINAL TONE]
+Adapted tone: [NEW TONE]
+Target audience: [DESCRIBE AUDIENCE, including cultural/regional context]
+Distribution context: [e.g., "Internal company email to global team," "Public-facing website for US market," "Customer support response for EU clients"]
+
+Evaluate for:
+1. **Idioms and metaphors:** Are any culturally specific or potentially confusing?
+2. **Assumptions:** Does the text assume shared cultural knowledge that the audience may not have?
+3. **Formality norms:** Is the level of formality appropriate for the audience's cultural expectations?
+4. **Humor:** Is any humor present? Is it appropriate and unlikely to offend?
+5. **Inclusive language:** Is the text gender-neutral and inclusive where appropriate?
+6. **Power dynamics:** Does the tone inadvertently convey condescension, superiority, or exclusion?
+7. **Regional language:** Are there spelling, terminology, or date format differences to consider (US vs. UK English, etc.)?
+
+Provide:
+- A sensitivity score (1-10, where 10 = fully appropriate)
+- Specific flagged items with explanations
+- Suggested alternatives for any problematic language
+- An overall assessment of cultural readiness
+
+
+PROMPT 10 - BATCH REWRITE SET
+-------------------------------
+I need to rewrite a batch of [NUMBER] texts using the same tone parameters. Help me set up an efficient batch rewriting process and then rewrite each text.
+
+Shared parameters for all texts:
+- Target tone: [TONE]
+- Target audience: [AUDIENCE]
+- Constraints: [WORD COUNT, FORMAT, PRESERVED TERMS]
+- Quality threshold: [e.g., "Tone accuracy 8/10+, meaning preservation 9/10+"]
+
+Text 1 - [LABEL/TITLE]:
+[PASTE TEXT 1]
+
+Text 2 - [LABEL/TITLE]:
+[PASTE TEXT 2]
+
+Text 3 - [LABEL/TITLE]:
+[PASTE TEXT 3]
+
+[ADD MORE AS NEEDED]
+
+For each text, provide:
+1. The rewrite
+2. A tone accuracy self-score (1-10)
+3. A meaning preservation self-score (1-10)
+4. One sentence noting the most significant change made
+
+After all rewrites, provide:
+- A consistency check: Do all rewrites sound like they came from the same voice?
+- Any texts that were particularly challenging and why
+- Recommendations for maintaining consistency across larger batches
+
+
+==============================================================================
+USAGE GUIDELINES
+==============================================================================
+
+PRIVACY PROTECTION:
+When using these prompts, NEVER include:
+- Real client names, employee names, or organizational identifiers
+- Confidential business data, revenue figures, or contract terms
+- Personal information (emails, phone numbers, addresses)
+- Proprietary strategies, trade secrets, or unreleased product details
+- Medical, legal, or financial records
+- Internal communications that reference specific individuals
+
+Use placeholders:
+- "[CLIENT_NAME]" instead of real client identifiers
+- "[COMPANY]" instead of real organization names
+- "[REVENUE_FIGURE]" instead of actual financial data
+- Generic descriptions of situations rather than verbatim confidential text
+- See Redaction-Guide.txt for comprehensive redaction instructions
+
+AI TOOL COMPATIBILITY:
+These prompts work with all major AI assistants:
+- ChatGPT, Claude, Gemini, Perplexity
+- Use with privacy-respecting settings (opt-out of training where available)
+- For sensitive content, prefer tools with strong data privacy policies
+
+PROMPT CHAINING:
+Recommended sequence for a complete tone rewrite:
+1. Start with Prompt 1 (Core Rewrite) to generate Version 1
+2. Use Prompt 3 (Iterative Refinement) for Versions 2-3
+3. Generate alternatives with Prompt 2 (Audience-Adaptive) or Prompt 5 (Tone Blending)
+4. Compare all versions with Prompt 4 (Side-by-Side Comparison)
+5. Run final version through Prompt 9 (Cultural Sensitivity Check)
+6. For team projects, set up with Prompt 6 (Team Rewrite System)
+7. For batch work, use Prompt 10 (Batch Rewrite Set)
+
+ITERATION:
+If outputs are not specific enough:
+- "Make this more [specific adjective] in paragraphs 2-4"
+- "The tone is close but needs to be warmer in the opening"
+- "Provide 3 alternative versions of the second paragraph only"
+- "Explain why you chose [specific word] over [alternative]"
+
+SAVING OUTPUTS:
+Keep all AI-generated rewrites organized:
+- Save every version with clear labels (V1, V2, V3, etc.)
+- Store comparison matrices for future reference
+- Build a library of successful tone examples
+- Document prompts that produced the best results
+
+VERIFICATION:
+Always independently verify:
+- Factual accuracy against the original text
+- Tone appropriateness with a representative reader from the target audience
+- Cultural sensitivity with team members from diverse backgrounds
+- Grammar and spelling with a dedicated proofreading tool
+- Compliance with any brand voice guidelines or style guides
+
+==============================================================================

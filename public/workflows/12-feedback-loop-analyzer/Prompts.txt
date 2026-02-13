@@ -1,0 +1,336 @@
+FEEDBACK LOOP ANALYZER - PROMPT VARIATIONS
+============================================
+
+PROMPT 1 - FEEDBACK DATA ANALYZER
+-----------------------------------
+Analyze the following feedback samples and identify key themes, sentiment, and actionable insights. For each piece of feedback, provide:
+
+- Category (e.g., Product Quality, Customer Service, Pricing, Usability, Performance)
+- Sentiment (Positive, Neutral, Negative, Mixed)
+- Key issue or praise (one sentence summary)
+- Urgency level (Critical, High, Medium, Low)
+- Suggested action (if applicable)
+
+Feedback samples:
+[PASTE YOUR FEEDBACK DATA HERE - include 10-50 entries for best results]
+
+Context about the product/service:
+[BRIEFLY DESCRIBE YOUR PRODUCT, SERVICE, OR TEAM BEING EVALUATED]
+
+Time period these samples cover:
+[e.g., January 2026, Last 30 days, Q4 2025]
+
+Format the output as a table I can paste into a spreadsheet, followed by a summary of top 3-5 themes.
+
+
+PROMPT 2 - PATTERN IDENTIFIER
+------------------------------
+I have categorized feedback data with the following distribution. Identify patterns, correlations, and root causes from this data:
+
+Feedback categories and counts:
+[PASTE YOUR CATEGORY BREAKDOWN - e.g., "Usability: 34 entries (22 negative, 8 neutral, 4 positive)"]
+
+Top keywords/phrases appearing:
+[LIST RECURRING WORDS OR PHRASES YOU HAVE NOTICED]
+
+Source breakdown:
+[e.g., "Support tickets: 45%, Surveys: 30%, Reviews: 15%, Social: 10%"]
+
+Time trend:
+[e.g., "Usability complaints increased 40% over last quarter"]
+
+For each pattern identified, provide:
+1. Pattern name and description
+2. Supporting evidence (which data points confirm this)
+3. Confidence level (Strong, Moderate, Weak)
+4. Likely root cause
+5. Potential impact if unaddressed
+6. Relationship to other patterns (if any)
+
+Rank patterns by frequency multiplied by impact.
+
+
+PROMPT 3 - IMPROVEMENT SUGGESTION ENGINE
+-----------------------------------------
+Based on the following feedback patterns, suggest specific, practical improvements for each. Consider feasibility, cost, and expected impact.
+
+Patterns identified:
+[LIST YOUR TOP 3-7 PATTERNS WITH BRIEF DESCRIPTIONS AND FREQUENCY DATA]
+
+Constraints:
+- Team size: [e.g., 5 people, solo, 20-person department]
+- Budget: [e.g., $0 (no budget), $1K-5K, $5K-20K, unlimited within reason]
+- Timeline: [e.g., need results in 2 weeks, next quarter, 6 months]
+- Technical limitations: [ANY RELEVANT CONSTRAINTS]
+
+For each pattern, provide:
+1. Two or three improvement options (ranging from quick fix to comprehensive solution)
+2. Expected effort for each option (hours, days, weeks)
+3. Expected impact (percentage improvement or qualitative description)
+4. Prerequisites or dependencies
+5. Risk assessment (what could go wrong)
+6. How to measure if the improvement worked
+
+Prioritize suggestions using a Quick Wins / Strategic Investments / Long-Term framework.
+
+
+PROMPT 4 - ACTION PLAN BUILDER
+--------------------------------
+Build a detailed action plan for implementing the following improvements based on our feedback analysis:
+
+Improvements to implement:
+[LIST 3-5 PRIORITIZED IMPROVEMENTS WITH BRIEF DESCRIPTIONS]
+
+Team structure:
+[DESCRIBE YOUR TEAM - roles, availability, skills]
+
+Available resources:
+[TOOLS, BUDGET, TIMELINE CONSTRAINTS]
+
+Current workload context:
+[OTHER MAJOR INITIATIVES OR COMMITMENTS]
+
+For each improvement, generate:
+1. Clear objective statement (what success looks like)
+2. Step-by-step implementation tasks (5-10 tasks each)
+3. Owner assignment recommendation (based on team structure)
+4. Timeline with milestones (weekly or biweekly checkpoints)
+5. Success metric with target number
+6. Risk mitigation plan
+7. Communication plan (who needs to know what, when)
+8. Dependencies on other improvements
+
+Conclude with a consolidated timeline showing all improvements on a single Gantt-style text chart.
+
+
+PROMPT 5 - LOOP CLOSURE SIMULATOR
+-----------------------------------
+Simulate the feedback loop closure for the following scenario. Model what we should expect to see after implementing changes, and design the re-collection strategy.
+
+Changes implemented:
+[DESCRIBE WHAT YOU CHANGED, WHEN, AND HOW]
+
+Original feedback pattern:
+[DESCRIBE THE PATTERN THAT PROMPTED THE CHANGE, INCLUDING BASELINE METRICS]
+
+Target audience:
+[WHO WILL BE AFFECTED BY THE CHANGE]
+
+Help me:
+1. Predict expected feedback changes (what should improve, what might get worse)
+2. Design a post-implementation survey or feedback collection plan
+3. Define the minimum wait time before re-collecting (for changes to take effect)
+4. Create a before/after comparison framework
+5. Identify leading indicators to watch before full results come in
+6. Plan for the scenario where feedback does NOT improve
+7. Design the communication to close the loop with respondents ("You said X, we did Y")
+
+Include a timeline for the re-collection process.
+
+
+PROMPT 6 - TEAM FEEDBACK ANALYZER
+-----------------------------------
+Analyze internal team feedback for organizational health and improvement opportunities. This is internal feedback from employees, not external customer feedback.
+
+Team feedback data:
+[PASTE ANONYMIZED TEAM FEEDBACK - e.g., retrospective notes, engagement survey results, 1:1 themes, exit interview summaries]
+
+Team context:
+- Team size: [NUMBER]
+- Department/function: [e.g., Engineering, Marketing, Sales, Support]
+- Recent changes: [e.g., new manager, reorg, tool migration, growth]
+- Known challenges: [ANYTHING YOU ALREADY KNOW ABOUT]
+
+Analyze for:
+1. Morale and engagement indicators
+2. Process and workflow pain points
+3. Leadership and communication themes
+4. Growth and development needs
+5. Collaboration and cross-team dynamics
+6. Tool and resource gaps
+
+For each theme found:
+- Evidence summary (anonymized quotes)
+- Severity assessment
+- Recommended intervention
+- Expected timeline for improvement
+- How to measure if intervention worked
+
+Flag any themes that suggest urgent attention (burnout, attrition risk, safety concerns).
+
+
+PROMPT 7 - SENTIMENT QUANTIFIER
+---------------------------------
+Quantify the sentiment in the following feedback data using a structured scoring system. I need numerical scores I can track over time and compare across periods.
+
+Feedback data:
+[PASTE YOUR FEEDBACK ENTRIES - raw text from any source]
+
+Scoring system to apply:
+- Overall sentiment: -5 (extremely negative) to +5 (extremely positive)
+- Emotional intensity: 1 (mild) to 5 (intense)
+- Actionability: 1 (vague/no action possible) to 5 (specific and actionable)
+- Specificity: 1 (general complaint/praise) to 5 (detailed with examples)
+
+For each entry, provide:
+1. Sentiment score (-5 to +5)
+2. Emotional intensity (1-5)
+3. Actionability score (1-5)
+4. Specificity score (1-5)
+5. Key phrase driving the score
+6. Category tag
+
+Then provide aggregate statistics:
+- Average sentiment score
+- Sentiment distribution (% in each score range)
+- Most actionable entries (top 5)
+- Highest emotional intensity entries (top 5)
+- Composite score formula recommendation for ongoing tracking
+
+Format as a CSV-compatible table.
+
+
+PROMPT 8 - NEGATIVE FEEDBACK HANDLER
+--------------------------------------
+Help me develop appropriate responses and action plans for the following negative feedback. The goal is to acknowledge concerns, show empathy, and outline concrete steps for improvement.
+
+Negative feedback entries:
+[PASTE 3-10 NEGATIVE FEEDBACK SAMPLES]
+
+Context:
+- Source of feedback: [e.g., customer survey, public review, support escalation]
+- Visibility: [Private (only we see it) or Public (others can see it)]
+- Respondent relationship: [e.g., long-term customer, new user, enterprise client, churned user]
+- Current status of the issues raised: [Known issue being fixed, new discovery, disputed, etc.]
+
+For each entry, provide:
+1. Root cause analysis (why is this person frustrated?)
+2. Empathetic acknowledgment statement (2-3 sentences)
+3. Concrete action response (what we will do, with timeline)
+4. Internal escalation recommendation (if needed)
+5. Follow-up plan (when and how to check back)
+6. Systemic fix recommendation (beyond addressing this one instance)
+
+Also provide:
+- General response template for similar negative feedback
+- Phrases to use and phrases to avoid
+- Escalation criteria (when should this go to a manager/executive?)
+
+
+PROMPT 9 - FEEDBACK-GOAL INTEGRATOR
+-------------------------------------
+Help me connect our feedback analysis findings to our strategic goals and OKRs. Show how addressing feedback patterns contributes to business objectives.
+
+Our strategic goals/OKRs:
+[LIST YOUR 3-5 KEY GOALS OR OKRS - e.g., "Increase NPS from 42 to 55", "Reduce churn by 15%", "Launch 3 new features by Q3"]
+
+Feedback patterns identified:
+[LIST YOUR TOP 5-8 FEEDBACK PATTERNS WITH FREQUENCY AND SENTIMENT DATA]
+
+Current metrics:
+[SHARE RELEVANT METRICS - e.g., NPS score, churn rate, CSAT, support ticket volume, response time]
+
+For each feedback pattern, analyze:
+1. Which strategic goal(s) it impacts (and how)
+2. Estimated contribution to goal if addressed (quantified where possible)
+3. Risk to goal if not addressed
+4. Resource investment required vs. goal impact (ROI framing)
+5. Timeline alignment (does fixing this fit within the goal's timeline?)
+
+Produce:
+- A feedback-to-goals mapping matrix
+- Prioritization recommendation based on goal alignment
+- Executive summary connecting feedback insights to business outcomes (3-5 sentences)
+- Dashboard metrics to track feedback impact on goals
+
+
+PROMPT 10 - LONG-TERM TREND ANALYZER
+--------------------------------------
+Analyze long-term feedback trends across multiple analysis cycles. I need to understand how feedback patterns are evolving over time and whether our interventions are working.
+
+Historical feedback data:
+[PROVIDE DATA FROM MULTIPLE PERIODS - e.g., "Q1: Top issue was onboarding (35% of complaints). Q2: Onboarding dropped to 20% after tutorial redesign. Q3: Onboarding at 15%, but pricing complaints rose to 25%."]
+
+Interventions taken:
+[LIST CHANGES MADE AND WHEN - e.g., "March: Redesigned onboarding tutorial. June: Updated pricing page. August: Launched live chat support."]
+
+Metrics over time:
+[SHARE TREND DATA - e.g., NPS by quarter, CSAT by month, support ticket volume, etc.]
+
+Analyze:
+1. Which patterns are improving, stable, or worsening?
+2. Correlation between interventions and pattern changes
+3. New emerging patterns (things that were not issues before but are now)
+4. Seasonal or cyclical patterns in feedback
+5. Leading indicators (early warning signs of emerging issues)
+6. Effectiveness rating for each intervention (high/medium/low impact)
+
+Produce:
+- Trend summary narrative (2-3 paragraphs)
+- Trend visualization data (table format suitable for charting)
+- Forecast for next period (what patterns to expect)
+- Recommended focus areas for the next analysis cycle
+- Early warning list (patterns to watch before they become problems)
+
+
+==============================================================================
+USAGE GUIDELINES
+==============================================================================
+
+PRIVACY PROTECTION:
+When using these prompts, NEVER include:
+- Names of individual feedback providers (customers, employees, etc.)
+- Email addresses, phone numbers, or account IDs
+- Personally identifiable information (age, location if identifying, etc.)
+- Company names of individual respondents (if B2B feedback)
+- Internal employee names in team feedback
+- Confidential business metrics (unless the AI tool is trusted and private)
+
+Use placeholders:
+- "Customer A", "Respondent 12" instead of real names
+- "[COMPANY_NAME]" instead of specific business names
+- Aggregated data ranges instead of exact figures when sensitive
+- Anonymized quotes with identifying details removed
+
+AI TOOL COMPATIBILITY:
+These prompts work with all major AI assistants:
+- ChatGPT, Claude, Gemini, Perplexity
+- Use with privacy-respecting settings (opt-out of training data where available)
+- For sensitive internal feedback, prefer tools with enterprise privacy agreements
+
+PROMPT CHAINING:
+Recommended sequence for a complete feedback analysis cycle:
+1. Start with Prompt 1 (Analyze raw feedback)
+2. Then Prompt 7 (Quantify sentiment for baseline metrics)
+3. Follow with Prompt 2 (Identify patterns from categorized data)
+4. Use Prompt 3 (Generate improvement suggestions)
+5. Apply Prompt 9 (Connect findings to strategic goals)
+6. Build with Prompt 4 (Create action plans)
+7. Handle urgency with Prompt 8 (Address negative feedback)
+8. Close with Prompt 5 (Simulate loop closure)
+9. Over time, use Prompt 10 (Analyze long-term trends)
+10. For internal teams, use Prompt 6 (Team feedback analysis)
+
+ITERATION:
+If outputs are not specific enough:
+- "Focus specifically on [category] feedback only"
+- "Give me more granular subcategories for the top 3 patterns"
+- "Provide specific metrics and numbers rather than qualitative descriptions"
+- "Make the action plan more detailed with daily tasks for the first week"
+
+SAVING OUTPUTS:
+Keep all AI-generated analyses:
+- Store in your feedback analysis archive (spreadsheet, Notion, or shared drive)
+- Version outputs by date for trend tracking (e.g., "Analysis-2026-02-12.md")
+- Share sanitized versions with stakeholders via secure channels
+- Build a library of effective prompts and their outputs for your specific context
+
+VERIFICATION:
+Always independently verify:
+- AI-identified patterns against your own reading of raw data
+- Suggested priorities against business context AI may not have
+- Sentiment scores against your domain expertise
+- Recommended actions against feasibility and resource constraints
+- Statistical claims about trends (verify sample sizes are adequate)
+
+==============================================================================

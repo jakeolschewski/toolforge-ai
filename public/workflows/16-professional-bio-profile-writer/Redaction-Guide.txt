@@ -1,0 +1,125 @@
+PROFESSIONAL BIO & PROFILE WRITER - REDACTION GUIDE
+=====================================================
+
+PURPOSE
+This guide outlines the data types that must be redacted or handled with care when
+creating professional biographies and profile content. Bios often contain a high
+density of personal information, making redaction discipline critical.
+
+DATA TYPES TO REDACT
+=====================
+
+ALWAYS REDACT (Never include in AI prompts or drafts):
+- Home address or personal mailing address
+- Personal phone number (use business number only)
+- Social Security Number or government ID numbers
+- Personal email address (use professional/business email)
+- Financial information (salary, net worth, investment details)
+- Medical or health information
+- Family member names, ages, or details (unless explicitly authorized)
+- Passwords, login credentials, or access tokens
+- Private legal matters (lawsuits, settlements, disputes)
+
+REDACT UNLESS EXPLICITLY AUTHORIZED BY SUBJECT:
+- Age or date of birth
+- Religious or political affiliations
+- Marital or relationship status
+- Ethnic or racial identity
+- Disability status
+- Home neighborhood or city of residence
+- Names of minor children
+- Details about personal hardships or challenges
+- Membership in private organizations
+- Volunteer work at sensitive organizations (shelters, crisis centers)
+
+HANDLE WITH CARE (Include only when professionally relevant):
+- Previous employer names (check for NDA restrictions)
+- Revenue or financial metrics from previous roles (verify disclosure permissions)
+- Client names (check confidentiality agreements)
+- Project details from previous employment
+- Patent or IP information
+- Board memberships or advisory roles
+
+STEP-BY-STEP REDACTION PROCESS
+==============================
+
+Step 1: Pre-Input Review
+Before entering any information into the workflow or AI tool:
+- Review the source document (resume, CV, intake form) line by line
+- Highlight any items from the "Always Redact" list
+- Flag any items from the "Redact Unless Authorized" list
+- Confirm with the subject which flagged items are approved for inclusion
+
+Step 2: Create a Sanitized Input Document
+- Copy the source document
+- Replace all "Always Redact" items with generic placeholders:
+  * [PHONE REDACTED]
+  * [ADDRESS REDACTED]
+  * [PERSONAL EMAIL REDACTED]
+- Remove or replace "Redact Unless Authorized" items per subject instructions
+- Use this sanitized version as your workflow input
+
+Step 3: During Drafting
+- Work only from the sanitized input document
+- Do not reference the original unsanitized document during AI interactions
+- If the AI tool requests additional personal information, provide only
+  what has been pre-approved
+- Do not paste full resumes with contact headers into AI tools
+
+Step 4: Output Review
+- Before sharing any draft, scan for accidentally included PII
+- Check that no redacted information "leaked" through AI inference
+  (e.g., AI guessing a location from company name)
+- Verify that hyperlinks do not expose personal pages or profiles
+  not intended for public association
+
+Step 5: Final Sanitization
+- Run a final check on all bio versions before delivery
+- Confirm that only approved personal information appears
+- Ensure no metadata in exported files contains hidden PII
+
+SCENARIO 1: Executive Bio for Public Website
+=============================================
+A VP of Engineering provides their resume for a company website bio. The resume
+includes their home address, personal cell phone, a reference to a medical leave,
+and their children's school names in a volunteer section.
+
+Redaction Actions:
+- Remove home address entirely (not relevant to bio)
+- Replace personal cell with company contact or "Contact via [COMPANY]"
+- Remove medical leave reference completely
+- Remove children's school names; if volunteer work is relevant, generalize to
+  "volunteers with local educational organizations"
+- Confirm with the VP whether to include specific revenue metrics from their
+  previous company (potential NDA concern)
+
+SCENARIO 2: Speaker Bio for Industry Conference
+================================================
+A consultant submits a bio for a conference. The bio draft includes their age,
+a reference to their divorce inspiring their career change, a client list that
+includes Fortune 500 companies, and their home city.
+
+Redaction Actions:
+- Remove age (not relevant; can introduce bias)
+- Remove divorce reference unless the consultant explicitly wants it included
+  as part of their professional narrative
+- Review client list against NDAs; replace specific names with "Fortune 500
+  clients in the technology and healthcare sectors" if not authorized
+- Home city: include only if professionally relevant (e.g., "based in Austin, TX"
+  for a regional consultant); otherwise omit
+
+VERIFICATION CHECKLIST
+======================
+Before finalizing any bio, verify:
+- [ ] No home address appears in any version
+- [ ] No personal phone number appears in any version
+- [ ] No government ID numbers are present
+- [ ] No financial information beyond approved professional metrics
+- [ ] No unauthorized family or relationship details
+- [ ] No health or medical information
+- [ ] All client names are approved for public disclosure
+- [ ] Revenue/financial metrics from previous roles are approved for sharing
+- [ ] Subject has reviewed and approved all personal details included
+- [ ] Exported files do not contain PII in metadata or hidden fields
+- [ ] AI conversation history containing personal data is cleared after use
+- [ ] Sanitized input document (not original) was used for all AI interactions

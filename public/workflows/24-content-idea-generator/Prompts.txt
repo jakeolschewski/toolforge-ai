@@ -1,0 +1,204 @@
+CONTENT IDEA GENERATOR - PROMPT VARIATIONS
+=============================================
+
+PROMPT 1 - AUDIENCE-DRIVEN IDEA GENERATION
+-------------------------------------------
+I need content ideas for my [FILL_IN_INDUSTRY/NICHE] audience. Here is what I know about them:
+
+- Primary audience segment: [FILL_IN_AUDIENCE_DESCRIPTION]
+- Their biggest pain points: [FILL_IN_PAIN_POINTS]
+- Content pillars we focus on: [FILL_IN_CONTENT_PILLARS]
+- Content formats that perform best: [FILL_IN_FORMATS]
+
+Generate 20 content ideas that directly address audience needs. For each idea, include:
+1. Working title
+2. Target audience segment
+3. Content format (blog, video, infographic, etc.)
+4. Primary pain point addressed
+5. Suggested angle or hook
+
+Prioritize ideas that fill gaps in our current content library.
+
+
+PROMPT 2 - TREND-BASED IDEA EXPANSION
+--------------------------------------
+I've identified the following trending topics in my industry:
+
+- Trend 1: [FILL_IN_TREND]
+- Trend 2: [FILL_IN_TREND]
+- Trend 3: [FILL_IN_TREND]
+
+My brand focuses on [FILL_IN_BRAND_FOCUS] and our audience cares about [FILL_IN_AUDIENCE_INTERESTS].
+
+For each trend, generate 5 content ideas that connect the trend to our brand's expertise. Include:
+1. Content title
+2. Angle that differentiates from obvious coverage
+3. Why this is timely
+4. Evergreen potential (can it be updated later?)
+5. Suggested call-to-action
+
+
+PROMPT 3 - COMPETITIVE GAP ANALYSIS
+------------------------------------
+I've reviewed competitor content in my niche. Here are topics they cover heavily:
+
+- [FILL_IN_COMPETITOR_TOPICS]
+
+And here are areas they seem to neglect:
+
+- [FILL_IN_NEGLECTED_AREAS]
+
+My unique expertise is in [FILL_IN_UNIQUE_EXPERTISE]. Generate 15 content ideas that target the gaps my competitors are missing. For each idea, explain:
+1. Why competitors likely skip this topic
+2. Why our audience would value it
+3. How our unique expertise makes us credible on this topic
+4. Suggested content format and length
+
+
+PROMPT 4 - CONTENT PILLAR BRAINSTORM
+-------------------------------------
+My content strategy is built around these pillars:
+
+1. [FILL_IN_PILLAR_1]
+2. [FILL_IN_PILLAR_2]
+3. [FILL_IN_PILLAR_3]
+4. [FILL_IN_PILLAR_4]
+
+For each pillar, generate a "hub and spoke" content plan:
+- 1 comprehensive hub piece (pillar page or ultimate guide)
+- 5 spoke pieces that link back to the hub
+- 2 frequently asked questions that could become standalone pieces
+
+Total output should be at least 32 content ideas across all pillars.
+
+
+PROMPT 5 - QUESTION-STACKING IDEATION
+--------------------------------------
+My audience frequently asks about [FILL_IN_BROAD_TOPIC]. Using the question-stacking technique, generate content ideas by exploring these angles:
+
+- HOW questions (tutorials, processes)
+- WHY questions (reasoning, benefits, motivations)
+- WHAT questions (definitions, comparisons, explanations)
+- WHEN questions (timing, scheduling, seasonal)
+- WHO questions (personas, case studies, interviews)
+
+Generate at least 4 content ideas per question type (20 total). Format each as a working headline with a one-sentence description of the angle.
+
+
+PROMPT 6 - SEASONAL AND EVENT-DRIVEN IDEAS
+-------------------------------------------
+I need content ideas tied to upcoming events and seasonal moments:
+
+- Upcoming dates/events: [FILL_IN_DATES_AND_EVENTS]
+- Industry conferences or launches: [FILL_IN_INDUSTRY_EVENTS]
+- Seasonal patterns in our business: [FILL_IN_SEASONAL_PATTERNS]
+- My niche: [FILL_IN_NICHE]
+
+Generate 15 time-sensitive content ideas with:
+1. Title
+2. Target publish date (relative to event)
+3. Why this timing matters
+4. How to make the piece semi-evergreen after the event passes
+5. Promotion strategy for maximum timeliness impact
+
+
+PROMPT 7 - REPURPOSING-READY IDEA GENERATION
+---------------------------------------------
+I want content ideas that are specifically designed to be repurposed across multiple formats. My available channels are:
+
+- [FILL_IN_CHANNELS, e.g., blog, YouTube, LinkedIn, newsletter, podcast]
+
+Generate 10 "anchor content" ideas in my niche of [FILL_IN_NICHE] where each idea includes:
+1. Original format and title
+2. 3-4 repurposed formats with adapted titles
+3. Key message that stays consistent across formats
+4. Unique angle for each format (not just copy-paste)
+5. Estimated production effort for each version
+
+
+PROMPT 8 - DATA-DRIVEN IDEA VALIDATION
+---------------------------------------
+I have the following content performance data from the past [FILL_IN_TIME_PERIOD]:
+
+- Top-performing topics: [FILL_IN_TOP_TOPICS]
+- Underperforming topics: [FILL_IN_UNDERPERFORMING_TOPICS]
+- Highest engagement formats: [FILL_IN_FORMATS]
+- Audience growth sources: [FILL_IN_SOURCES]
+
+Based on this data, generate 15 content ideas that:
+1. Double down on proven topic areas with fresh angles
+2. Avoid patterns from underperforming content
+3. Use the formats that drive the most engagement
+4. Include 3 experimental ideas that test new territory
+
+For each idea, explain the data-driven rationale behind it.
+
+
+PROMPT 9 - BUYER JOURNEY CONTENT MAPPING
+-----------------------------------------
+I sell [FILL_IN_PRODUCT_OR_SERVICE] to [FILL_IN_TARGET_AUDIENCE]. Map content ideas to each stage of the buyer journey:
+
+**Awareness Stage** (prospect realizes they have a problem):
+- Generate 5 educational content ideas
+
+**Consideration Stage** (prospect evaluates solutions):
+- Generate 5 comparison/evaluation content ideas
+
+**Decision Stage** (prospect is ready to buy):
+- Generate 5 conversion-focused content ideas
+
+**Retention Stage** (customer needs ongoing value):
+- Generate 5 retention and loyalty content ideas
+
+For each idea, include the title, format, and one key metric to track success.
+
+
+PROMPT 10 - CONTRARIAN AND COUNTERINTUITIVE IDEAS
+--------------------------------------------------
+In my industry of [FILL_IN_INDUSTRY], the conventional wisdom says:
+
+1. [FILL_IN_CONVENTIONAL_WISDOM_1]
+2. [FILL_IN_CONVENTIONAL_WISDOM_2]
+3. [FILL_IN_CONVENTIONAL_WISDOM_3]
+
+Generate 10 contrarian content ideas that challenge these assumptions with evidence-based arguments. For each idea:
+1. State the conventional wisdom being challenged
+2. Provide a compelling counter-argument headline
+3. Outline 3 supporting points or data sources to research
+4. Explain why this contrarian take serves the audience (not just clickbait)
+5. Rate the controversy level (mild, moderate, bold) and potential risk
+
+
+=============================================================================
+USAGE GUIDELINES
+=============================================================================
+
+PRIVACY PROTECTION
+- Replace all specific brand names, client names, and proprietary data with generic placeholders before submitting prompts
+- Do not include real analytics data, revenue figures, or competitive intelligence
+- Use the Redaction Guide to sanitize any sensitive information
+
+AI TOOL COMPATIBILITY
+- These prompts work with any major AI assistant (ChatGPT, Claude, Gemini, etc.)
+- Adjust prompt length based on the tool's context window
+- For best results, provide detailed inputs in the [FILL_IN] fields
+
+PROMPT CHAINING
+- Start with Prompt 1 or 5 for broad ideation, then refine with Prompt 3 or 8
+- Use Prompt 4 for strategic pillar planning, then Prompt 9 for journey mapping
+- Chain Prompt 7 with the Repurpose Engine workflow (Workflow 26) for full multi-format planning
+
+ITERATION
+- Run each prompt 2-3 times with varied inputs to maximize idea diversity
+- Combine outputs from multiple prompts into a single master idea list before scoring
+- Revisit prompts quarterly with updated audience data and performance metrics
+
+SAVING OUTPUTS
+- Export all generated ideas to your editorial calendar or project management tool
+- Use the Export Templates provided in this workflow for structured formatting
+- Tag ideas by pillar, format, and buyer journey stage for easy filtering
+
+VERIFICATION
+- Cross-check AI-generated ideas against your existing content to avoid duplication
+- Validate trending topic suggestions with real-time data (Google Trends, social listening)
+- Have a subject matter expert review contrarian or bold ideas before production

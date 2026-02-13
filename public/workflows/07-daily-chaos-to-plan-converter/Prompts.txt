@@ -1,0 +1,191 @@
+DAILY CHAOS-TO-PLAN CONVERTER - PROMPT VARIATIONS
+=================================================
+
+PROMPT 1 - CHAOS LIST CONVERTER
+-------------------------------
+Convert my chaos list into a structured daily plan:
+
+[PASTE YOUR BRAIN DUMP LIST HERE]
+
+Consider:
+- My work hours: [START_TIME] to [END_TIME]
+- My peak energy time: [MORNING/AFTERNOON/EVENING]
+- Hard deadlines today: [LIST ANY]
+- Meetings already scheduled: [LIST ANY]
+
+Output: Time-blocked plan with top 3 priorities highlighted.
+
+
+PROMPT 2 - TASK PRIORITIZER
+---------------------------
+Prioritize these tasks using the Eisenhower Matrix (Urgent/Important):
+
+[LIST YOUR TASKS]
+
+For each task, categorize as:
+- Do First (urgent + important)
+- Schedule (important, not urgent)
+- Delegate (urgent, not important)
+- Eliminate (neither)
+
+Then create a recommended order of execution.
+
+
+PROMPT 3 - IDEA CATEGORIZER
+---------------------------
+Categorize these mixed items into actionable buckets:
+
+[PASTE YOUR BRAIN DUMP - tasks, ideas, reminders, etc.]
+
+Sort into:
+- Tasks (actionable items with clear next steps)
+- Ideas (explore later, not actionable today)
+- Waiting On (blocked, need input from others)
+- Reference (information to file, not act on)
+- Habits (recurring items to build into routine)
+
+
+PROMPT 4 - TIME BLOCK PLANNER
+-----------------------------
+Add time estimates and create a time-blocked schedule:
+
+Tasks for today:
+[LIST YOUR PRIORITIZED TASKS]
+
+Available hours: [START] to [END]
+Meetings: [LIST FIXED COMMITMENTS]
+Energy pattern: [HIGH/MED/LOW for morning, afternoon, evening]
+
+Include 15-minute buffers between blocks and at least one 30-minute break.
+
+
+PROMPT 5 - DAY SIMULATOR
+------------------------
+Simulate a productive day plan from this overwhelming list:
+
+[PASTE YOUR MASSIVE TASK LIST]
+
+Constraints:
+- Maximum [NUMBER] hours of focused work
+- Must include [SPECIFIC COMMITMENTS]
+- Energy crashes after [TIME]
+
+Show me: Realistic plan, what gets deferred, and why.
+
+
+PROMPT 6 - CONSTRAINT OPTIMIZER
+-------------------------------
+Optimize my plan for these time constraints:
+
+Must complete today: [LIST NON-NEGOTIABLES]
+Would like to complete: [LIST NICE-TO-HAVES]
+Available time: [HOURS]
+Interruption likelihood: [LOW/MEDIUM/HIGH]
+
+Create a plan that guarantees the must-dos and maximizes nice-to-haves.
+
+
+PROMPT 7 - BREAK INTEGRATOR
+---------------------------
+Add strategic breaks and transitions to my work plan:
+
+Current plan:
+[PASTE YOUR TIME-BLOCKED PLAN]
+
+Include:
+- Transition time between different types of work
+- Pomodoro-style breaks for focus sessions
+- Lunch break
+- Brief movement or stretch breaks
+- End-of-day wind-down
+
+
+PROMPT 8 - TEAM CHAOS CONVERTER
+-------------------------------
+Convert our team's collective chaos into a coordinated plan:
+
+Team members and their dumps:
+[PERSON_1]: [THEIR TASKS]
+[PERSON_2]: [THEIR TASKS]
+
+Shared deadlines: [LIST]
+Dependencies: [WHO NEEDS WHAT FROM WHOM]
+
+Create individual plans that account for handoffs and shared goals.
+
+
+PROMPT 9 - PLAN REVIEWER
+------------------------
+Review and adjust yesterday's plan based on what actually happened:
+
+Yesterday's plan: [PASTE PLAN]
+What I actually completed: [LIST]
+What got deferred: [LIST]
+New items that came up: [LIST]
+
+Analyze patterns and create an improved plan for today.
+
+
+PROMPT 10 - QUARTERLY CHAOS CONVERTER
+-------------------------------------
+Convert my long-term chaos into a quarterly plan:
+
+[PASTE ALL YOUR PROJECTS, IDEAS, AND GOALS]
+
+Organize into:
+- This month's priorities (top 3-5)
+- Next month's pipeline
+- Month 3 horizon items
+- Backlog (someday/maybe)
+
+Include weekly milestones for this month's priorities.
+
+
+==============================================================================
+USAGE GUIDELINES
+==============================================================================
+
+PRIVACY PROTECTION:
+When using these prompts, NEVER include:
+- Actual confidential business information
+- Real names, email addresses, or contact details
+- Proprietary data, trade secrets, or internal metrics
+- Client or customer identifying information
+- Financial details (exact revenues, salaries, etc.)
+
+Use placeholders:
+- "[CLIENT_NAME]", "[COMPANY]" instead of real names
+- "[AMOUNT]", "[METRIC]" for sensitive numbers
+- Generic descriptions of situations rather than specifics
+
+AI TOOL COMPATIBILITY:
+These prompts work with all major AI assistants:
+- ChatGPT, Claude, Gemini, Perplexity
+- Use with privacy-respecting settings (opt-out of training)
+
+PROMPT CHAINING:
+For best results, use prompts in sequence:
+1. Start with Prompt 1 for initial setup
+2. Use Prompts 2-5 for core workflow steps
+3. Apply Prompts 6-8 for advanced applications
+4. Use Prompts 9-10 for optimization and scaling
+
+ITERATION:
+If outputs aren't specific enough:
+- "Make this specific to [your industry/context]"
+- "Provide actual examples for [specific scenario]"
+- "Add more detail to [specific section]"
+
+SAVING OUTPUTS:
+Keep all AI-generated outputs:
+- Store in organized folders by date and topic
+- Version control your working documents
+- Share with team via secure channels only
+
+VERIFICATION:
+Always independently verify:
+- Facts, figures, and claims in AI outputs
+- Recommendations against your specific context
+- Compliance with your organization's policies
+
+==============================================================================

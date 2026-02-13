@@ -1,0 +1,306 @@
+DATA REDACTION BASICS - PROMPT VARIATIONS
+==========================================
+
+PROMPT 1 - DATA REDACTION BASICS TUTORIAL
+------------------------------------------
+Teach me the basics of data redaction for privacy protection. Cover the following with clear examples:
+
+1. What data redaction is and why it matters
+2. Common types of sensitive data (PII, financial, health)
+3. How to redact emails: replacing "john.doe@company.com" with [EMAIL]
+4. How to redact names in documents: replacing "Jane Smith" with [NAME]
+5. How to redact phone numbers, addresses, and ID numbers
+6. Best practices for redacting in different formats (text, spreadsheets, PDFs)
+
+Provide before/after examples for each data type. Keep examples generic and use only fictional data. Format as a beginner-friendly guide I can reference daily.
+
+
+PROMPT 2 - SAMPLE TEXT REDACTION PRACTICE
+-----------------------------------------
+Redact the following sample text by replacing all sensitive data with appropriate tokens. Use these replacement conventions:
+- Names → [NAME]
+- Email addresses → [EMAIL]
+- Phone numbers → [PHONE]
+- Physical addresses → [ADDRESS]
+- Dates of birth → [DOB]
+- Account/ID numbers → [ACCOUNT_ID]
+- Financial amounts → [AMOUNT]
+
+Sample text to redact:
+[PASTE YOUR NON-SENSITIVE SAMPLE TEXT HERE]
+
+After redacting, provide:
+1. The fully redacted version
+2. A summary table listing each redaction made (original type, token used, count)
+3. Any indirect identifiers that could still allow re-identification
+4. Suggestions for improving the redaction
+
+
+PROMPT 3 - REDACTION CHECKLIST GENERATOR
+-----------------------------------------
+Create a comprehensive redaction checklist for this specific data type:
+
+Data type: [SPECIFY - e.g., customer support emails, medical intake forms, financial reports, HR records, survey responses, etc.]
+
+For this data type, generate:
+1. Complete list of PII fields likely present
+2. Priority ranking (critical, high, medium, low risk)
+3. Recommended redaction token for each field
+4. Regex patterns for automated detection (where applicable)
+5. Common locations where this data hides (headers, footers, metadata, embedded objects)
+6. Special considerations for this data type
+7. Verification steps specific to this data type
+8. A copy-paste-ready checklist I can use for every document of this type
+
+Format as a printable checklist with checkboxes.
+
+
+PROMPT 4 - AUTOMATED REDACTION TOOLS OVERVIEW
+----------------------------------------------
+Explain the available tools for automated data redaction. I need a vendor-neutral comparison covering:
+
+My situation:
+- Team size: [Solo, 2-5, 5-20, 20+]
+- Technical comfort: [Beginner, intermediate, advanced]
+- Budget: [$0 (free only), $10-50/month, $50-200/month, enterprise]
+- Document types: [Text files, PDFs, spreadsheets, images, databases, all]
+- Compliance requirements: [None, GDPR, HIPAA, PCI DSS, CCPA, etc.]
+
+Compare tools across these categories:
+1. Open-source / free tools (Microsoft Presidio, SpaCy NER, regex scripts)
+2. Cloud-based services (AWS Comprehend, Google DLP, Azure PII Detection)
+3. Desktop applications (Adobe Acrobat Pro, dedicated redaction software)
+4. No-code / low-code options (built-in features in Google Docs, Word, etc.)
+
+For each tool provide:
+- Best suited for (use case)
+- PII types it can detect
+- Ease of setup (1-10)
+- Accuracy/reliability
+- Cost
+- Pros and cons
+- Integration capabilities
+
+Conclude with your recommendation for my situation.
+
+
+PROMPT 5 - DATASET REDACTION SIMULATION
+----------------------------------------
+Simulate the process of redacting a dataset for privacy compliance. Walk me through a complete end-to-end redaction exercise:
+
+Dataset description: [DESCRIBE YOUR DATASET TYPE - e.g., customer database export, survey results, transaction log, employee directory, etc.]
+Number of records: [APPROXIMATE COUNT]
+Columns/fields: [LIST THE FIELD NAMES]
+
+For this simulation:
+1. Classify each field as: Direct identifier, Quasi-identifier, Sensitive attribute, or Non-sensitive
+2. Recommend redaction method for each field:
+   - Full removal
+   - Token replacement (e.g., [NAME])
+   - Generalization (e.g., exact age → age range)
+   - Pseudonymization (consistent fake replacement)
+   - K-anonymity grouping
+3. Create a sample of 5 synthetic records showing before and after redaction
+4. Identify re-identification risks even after redaction
+5. Provide a SQL or Python script template for batch redaction
+6. Recommend verification steps to confirm dataset is safe to share
+
+Use only synthetic/fictional data in all examples.
+
+
+PROMPT 6 - CUSTOM REDACTION RULES BUILDER
+------------------------------------------
+Help me build a set of custom redaction rules for removing specific information from my documents:
+
+Information to redact: [SPECIFY - e.g., employee names, patient IDs, client company names, internal project codes, salary figures, etc.]
+
+Document context: [DESCRIBE - e.g., meeting notes, customer reports, legal contracts, email exports, etc.]
+
+For each type of information, create:
+1. Detection rule (how to find it):
+   - Keyword patterns
+   - Regex expressions
+   - Contextual clues (e.g., "Dear [first name]", "Patient: [name]")
+2. Replacement rule (what to substitute):
+   - Standard token
+   - Numbered token (for multi-instance tracking)
+   - Contextual replacement (preserving readability)
+3. Edge cases to watch for:
+   - Variations in format
+   - Partial matches
+   - Data in unusual locations (footers, watermarks, comments)
+4. Validation rule (how to confirm it worked):
+   - Post-redaction search patterns
+   - Negative test (confirm no real data remains)
+
+Format as a rules reference card I can use during redaction work.
+
+
+PROMPT 7 - REDACTION EFFECTIVENESS AUDIT
+-----------------------------------------
+Audit the effectiveness of redaction applied to this document or dataset:
+
+[PASTE YOUR ALREADY-REDACTED SAMPLE HERE]
+
+Analyze the redacted content for:
+1. Completeness: Are all PII types properly redacted?
+2. Consistency: Are the same tokens used throughout?
+3. Indirect identifiers: Can any combination of remaining data re-identify individuals?
+4. Context leakage: Does surrounding text reveal what was redacted?
+5. Metadata exposure: Are there references to file properties, author names, or timestamps that could identify someone?
+6. Token quality: Are replacement tokens clear and standardized?
+7. Readability: Is the document still usable after redaction?
+
+Provide:
+- Risk score (1-10, where 10 is highest risk of re-identification)
+- List of specific issues found
+- Recommended fixes for each issue
+- An improved redacted version (if issues found)
+- Pass/fail assessment with justification
+
+
+PROMPT 8 - AI WORKFLOW REDACTION INTEGRATION
+---------------------------------------------
+Help me integrate data redaction into my AI-powered workflows. I need a practical plan for:
+
+My AI workflow:
+- AI tools used: [LIST - e.g., ChatGPT, Claude, Gemini, Copilot, etc.]
+- Data I send to AI: [DESCRIBE - e.g., customer emails, code with comments, meeting transcripts, etc.]
+- Data AI generates: [DESCRIBE - e.g., summaries, reports, draft responses, analysis, etc.]
+- Frequency: [Daily, weekly, per-project]
+- Team size: [Solo, small team, department]
+
+Create a redaction integration plan covering:
+1. Pre-input redaction checklist (what to sanitize before sending to AI)
+2. Prompt templates with built-in redaction placeholders
+3. Post-output scanning process (what to check in AI responses)
+4. Workflow diagram showing where redaction steps occur
+5. Quick-reference card for daily use
+6. Training guide for team members
+7. Exception handling (when redaction is not possible or practical)
+8. Metrics to track redaction compliance in AI workflows
+
+Make this actionable and easy to follow for someone new to redaction.
+
+
+PROMPT 9 - COMMON REDACTION MISTAKES AND FIXES
+------------------------------------------------
+Identify common mistakes people make when redacting data, and provide fixes for each:
+
+Cover these categories:
+1. Document redaction mistakes (PDFs, Word docs, spreadsheets)
+2. AI input/output mistakes (sending PII to AI tools, not reviewing outputs)
+3. Technical mistakes (visual-only redaction, metadata leaks, encoding issues)
+4. Process mistakes (no verification, inconsistent methods, no audit trail)
+5. Team/collaboration mistakes (shared drives with unredacted originals, no training)
+
+For each mistake:
+- Describe the mistake clearly
+- Explain why it's dangerous (what could go wrong)
+- Provide a real-world example scenario (using fictional data)
+- Give a step-by-step fix
+- Suggest a preventive measure to avoid it in the future
+
+Include a "Top 10 Redaction Fails" list ranked by severity and frequency.
+Format as a reference guide for training purposes.
+
+
+PROMPT 10 - ADVANCED TEAM REDACTION PROGRAM
+--------------------------------------------
+Help me build a comprehensive data redaction program for my team:
+
+Team details:
+- Team size: [NUMBER]
+- Roles: [DESCRIBE - e.g., analysts, writers, developers, customer support, etc.]
+- Data handled: [TYPES - e.g., customer records, financial reports, health data, etc.]
+- Current redaction practices: [DESCRIBE - e.g., ad hoc, some guidelines, none, etc.]
+- Compliance requirements: [GDPR, HIPAA, PCI DSS, CCPA, SOC 2, none specific]
+- Budget for tools: [AMOUNT]
+
+Build a complete program including:
+
+GOVERNANCE:
+1. Redaction policy document (roles, responsibilities, requirements)
+2. Data classification framework (what must be redacted, what is optional)
+3. Escalation procedures (when to involve legal/compliance)
+4. Exception handling process
+
+OPERATIONS:
+5. Standard operating procedures for each document type
+6. Tool selection and configuration guide
+7. Quality control checklists
+8. Incident response for accidental PII exposure
+
+TRAINING:
+9. Onboarding training outline (new team members)
+10. Quarterly refresher training topics
+11. Self-assessment quiz for team members
+12. Reference materials and quick-start guides
+
+MEASUREMENT:
+13. KPIs for redaction program effectiveness
+14. Audit schedule and procedures
+15. Reporting templates for leadership
+16. Continuous improvement framework
+
+Format as an implementation plan with timeline and milestones.
+
+
+==============================================================================
+USAGE GUIDELINES
+==============================================================================
+
+PRIVACY PROTECTION:
+When using these prompts, NEVER include:
+- Real names of individuals (use [NAME] or fictional names)
+- Actual email addresses (use [EMAIL] or example@example.com)
+- Real phone numbers, addresses, or ID numbers
+- Actual customer or client data
+- Real financial figures or account numbers
+- Protected health information (PHI)
+- Any data from production systems
+
+Use placeholders:
+- "[NAME]", "[EMAIL]", "[PHONE]" instead of real data
+- "Customer A", "Client B" instead of real identities
+- Synthetic sample data created specifically for testing
+- example.com, example.org domains for email examples
+
+AI TOOL COMPATIBILITY:
+These prompts work with all major AI assistants:
+- ChatGPT, Claude, Gemini, Perplexity
+- Use with privacy-respecting settings (opt-out of training where available)
+
+PROMPT CHAINING:
+Recommended sequence for complete redaction setup:
+1. Start with Prompt 1 (Basics Tutorial)
+2. Practice with Prompt 2 (Sample Redaction)
+3. Build checklists with Prompt 3 (Checklist Generator)
+4. Evaluate tools with Prompt 4 (Tools Overview)
+5. Integrate with Prompt 8 (AI Workflow Integration)
+6. Build rules with Prompt 6 (Custom Rules)
+7. Audit with Prompt 7 (Effectiveness Audit)
+8. Scale with Prompt 10 (Team Program)
+
+ITERATION:
+If outputs are not specific enough:
+- "Make this specific to [your document type]"
+- "Add regex patterns for [specific data format]"
+- "Provide examples for [specific industry]"
+- "Expand the checklist for [specific compliance framework]"
+
+SAVING OUTPUTS:
+Keep all AI-generated redaction procedures:
+- Store in secure, access-controlled documentation
+- Version control your redaction policies
+- Share with team via approved secure channels
+- Review and update quarterly
+
+VERIFICATION:
+Always independently verify:
+- Redaction completeness (run your own checks on every document)
+- Tool accuracy (test with known PII samples before relying on automation)
+- Compliance requirements (consult legal/privacy team for regulated data)
+- No single tool or process guarantees 100% redaction accuracy
+
+==============================================================================

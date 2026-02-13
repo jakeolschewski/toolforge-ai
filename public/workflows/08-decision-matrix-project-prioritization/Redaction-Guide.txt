@@ -1,0 +1,443 @@
+REDACTION GUIDE - DECISION MATRIX FOR PROJECT PRIORITIZATION
+=============================================================
+
+PURPOSE
+-------
+This guide helps you safely share decision matrices, priority rankings, and
+project evaluation documentation without exposing confidential business
+information, strategic plans, or competitive intelligence.
+
+=============================================================================
+SECTION 1: TYPES OF DATA TO REDACT
+=============================================================================
+
+CATEGORY A: PROJECT IDENTIFIERS (ANONYMIZE BEFORE SHARING)
+-----------------------------------------------------------
+x POTENTIALLY SENSITIVE:
+  - Internal project codenames or initiative names
+  - Product names not yet publicly announced
+  - Client or customer names embedded in project titles
+  - Acquisition targets or partnership names
+  - Internal system or platform names
+  - Budget codes or cost center identifiers
+
+SAFE ALTERNATIVES:
+  - "Project Alpha", "Project Beta", "Project Gamma"
+  - "Initiative 1", "Initiative 2", "Initiative 3"
+  - Generic descriptions: "CRM Migration", "Mobile App", "Market Expansion"
+  - Category labels: "Infrastructure Project", "Revenue Initiative"
+  - Alphanumeric codes: "P-01", "P-02", "P-03"
+
+
+CATEGORY B: FINANCIAL DATA
+---------------------------
+x POTENTIALLY SENSITIVE:
+  - Exact project budgets or cost estimates
+  - Revenue projections or targets
+  - ROI calculations with actual dollar amounts
+  - Headcount costs or salary-based calculations
+  - Vendor pricing or contract values
+  - Total portfolio budget allocations
+
+SAFE ALTERNATIVES:
+  - Relative values: "2x the cost of Project B"
+  - T-shirt sizes: "S ($), M ($$), L ($$$), XL ($$$$)"
+  - Ranges: "$50K-100K" instead of "$73,500"
+  - Indexed values: "Budget Index: 1.0, 1.5, 2.3, 3.0"
+  - Percentages: "15% of annual budget" instead of "$450K"
+  - Normalized scores: Convert dollars to a 1-10 scale
+
+
+CATEGORY C: STRATEGIC INFORMATION
+----------------------------------
+x POTENTIALLY SENSITIVE:
+  - Specific OKRs or KPIs with target values
+  - Market entry plans or geographic expansion targets
+  - Competitive positioning strategies
+  - M&A activity or due diligence projects
+  - Unreleased product features or roadmap details
+  - Regulatory compliance gaps or vulnerability details
+
+SAFE ALTERNATIVES:
+  - Generic goals: "Increase revenue" instead of "Increase ARR to $10M"
+  - Abstracted targets: "Expand to new markets" instead of "Enter Japan and Brazil"
+  - Category-level strategy: "Growth initiative" instead of specific product plans
+  - Compliance labels: "Regulatory project" instead of specific gap descriptions
+
+
+CATEGORY D: PERSONNEL AND ORGANIZATIONAL DETAILS
+--------------------------------------------------
+x POTENTIALLY SENSITIVE:
+  - Individual names in scoring, rationale, or sponsor fields
+  - Team structures or reporting relationships
+  - Individual performance assessments embedded in project evaluations
+  - Department-specific budget allocations
+  - Hiring plans or headcount targets
+  - Organizational restructuring projects
+
+SAFE ALTERNATIVES:
+  - Roles: "Engineering Lead", "Product Manager", "VP of Sales"
+  - Generic teams: "Team A", "Department B"
+  - Functional labels: "Development team (8 people)", "Marketing team (4 people)"
+  - Skill descriptions: "Requires senior backend engineer" (not "Requires John")
+
+
+CATEGORY E: SCORING AND EVALUATION DETAILS
+--------------------------------------------
+x POTENTIALLY SENSITIVE:
+  - Individual rater scores (if attribution could be harmful)
+  - Controversial rationale notes (internal politics, personality conflicts)
+  - Dissenting opinions that could embarrass individuals
+  - Scores that reveal internal disagreements or dysfunction
+  - Competitive intelligence used as scoring evidence
+
+SAFE ALTERNATIVES:
+  - Aggregated scores only (averages, not individual contributions)
+  - Sanitized rationale: "Technical feasibility concerns" not "CTO thinks it's impossible"
+  - Generic disagreement notes: "Scoring variance noted" not "Marketing and Engineering disagreed"
+  - Evidence without source: "Market research suggests..." not "Per our competitive intelligence..."
+
+
+CATEGORY F: METRICS AND PERFORMANCE DATA
+------------------------------------------
+x POTENTIALLY SENSITIVE:
+  - Actual customer counts or user metrics
+  - Conversion rates or funnel metrics
+  - Churn rates or retention figures
+  - Revenue per customer or ARPU
+  - System performance metrics that reveal architecture limits
+  - Historical project failure rates
+
+SAFE ALTERNATIVES:
+  - Ranges: "10K-50K users" instead of "37,423 users"
+  - Relative metrics: "2x industry average" instead of exact figure
+  - Directional: "Churn trending down" instead of "Churn at 7.3%"
+  - Benchmarks: "Above/below industry standard" instead of exact numbers
+  - Indexed: Normalize all metrics to a 0-100 scale
+
+
+=============================================================================
+SECTION 2: STEP-BY-STEP REDACTION PROCESS
+=============================================================================
+
+STEP 1: PRE-REDACTION SCAN
+---------------------------
+Before sharing any decision matrix documentation:
+
+[ ] Search for company name and all subsidiaries/brands
+[ ] Search for project codenames and internal initiative names
+[ ] Search for employee names (first, last, and usernames)
+[ ] Search for client or customer names
+[ ] Search for dollar amounts and specific figures ($, USD, K, M, B)
+[ ] Search for specific dates tied to strategic plans
+[ ] Search for competitor names (if context reveals strategy)
+[ ] Search for IP addresses, server names, or infrastructure details
+[ ] Search for contract or vendor references
+
+STEP 2: PROJECT NAME ANONYMIZATION
+------------------------------------
+Replace all project identifiers with neutral labels:
+
+BEFORE: "Acme Corp CRM Migration to Salesforce"
+AFTER:  "Project A: CRM Platform Migration"
+   OR:  "P-01: Enterprise CRM Migration"
+
+BEFORE: "Project Moonshot - AR Glasses Launch"
+AFTER:  "Project B: New Product Category Launch"
+   OR:  "P-02: Hardware Innovation Initiative"
+
+BEFORE: "ClientCo Integration - Phase 2"
+AFTER:  "Project C: Partner Integration (Phase 2)"
+   OR:  "P-03: Strategic Integration Project"
+
+Maintain a private mapping document (not shared) that links anonymized
+names back to real project names for your own reference.
+
+STEP 3: FINANCIAL DATA NORMALIZATION
+--------------------------------------
+Convert specific financial figures to relative or ranged values:
+
+Budget Figures:
+BEFORE: "Project A budget: $347,000; Project B budget: $1,200,000"
+AFTER:  "Project A budget: Low (1x); Project B budget: High (3.5x)"
+   OR:  "Project A: $300-400K range; Project B: $1-1.5M range"
+   OR:  "Project A: Budget Score 3/10; Project B: Budget Score 8/10"
+
+Revenue Projections:
+BEFORE: "Expected to generate $2.4M ARR by Q4 2026"
+AFTER:  "Expected to generate significant recurring revenue within 12 months"
+   OR:  "Revenue Impact Score: 8/10"
+
+ROI Calculations:
+BEFORE: "ROI: 340% over 18 months ($1.2M return on $350K investment)"
+AFTER:  "ROI: High (>300% projected over 18 months)"
+   OR:  "ROI Score: 9/10 (strong positive return expected)"
+
+STEP 4: SCORING RATIONALE SANITIZATION
+----------------------------------------
+Clean up rationale notes to remove sensitive context:
+
+BEFORE:
+"Impact Score 9: This project directly supports CEO's mandate to
+enter the Japanese market by Q3. Our Tokyo office hire (Tanaka-san)
+is already conducting due diligence with 3 potential local partners."
+
+AFTER:
+"Impact Score 9: This project directly supports the strategic mandate
+to enter a new international market within the next two quarters.
+On-the-ground resources are already conducting partner due diligence."
+
+BEFORE:
+"Risk Score 7 (high risk): The lead architect (Sarah) has expressed
+burnout concerns and may leave. Without her, the technical approach
+becomes uncertain. Also, the competing project at CompetitorX is
+reportedly 6 months ahead."
+
+AFTER:
+"Risk Score 7 (high risk): Key technical talent retention is a concern,
+and the technical approach depends on specific expertise. Competitive
+landscape indicates time pressure from market alternatives."
+
+STEP 5: MATRIX TABLE REDACTION
+-------------------------------
+When sharing the actual matrix table:
+
+BEFORE:
+| Project               | Impact (30%) | Effort (20%) | Alignment (20%) | Risk (15%) | Urgency (15%) | Total |
+|----------------------|-------------|-------------|----------------|-----------|--------------|-------|
+| Salesforce Migration  | 7           | 4           | 9              | 3         | 8            | 6.45  |
+| AR Glasses Launch     | 9           | 2           | 7              | 7         | 5            | 6.30  |
+| ClientCo Integration  | 5           | 8           | 6              | 2         | 9            | 5.85  |
+
+AFTER:
+| Project     | Impact (30%) | Effort (20%) | Alignment (20%) | Risk (15%) | Urgency (15%) | Total |
+|------------|-------------|-------------|----------------|-----------|--------------|-------|
+| Project A   | 7           | 4           | 9              | 3         | 8            | 6.45  |
+| Project B   | 9           | 2           | 7              | 7         | 5            | 6.30  |
+| Project C   | 5           | 8           | 6              | 2         | 9            | 5.85  |
+
+Note: Scores themselves are generally safe to share as long as project
+names are anonymized. Scores without context reveal methodology, not secrets.
+
+STEP 6: SENSITIVITY ANALYSIS REDACTION
+----------------------------------------
+When sharing sensitivity analysis results:
+
+BEFORE:
+"If we lose the Google Cloud contract ($500K), Project A's ROI drops
+from 340% to 180%, and Project C (the compliance project required by
+our FDA audit) becomes the top priority."
+
+AFTER:
+"If a major vendor relationship changes, Project A's ROI drops
+significantly, and Project C (a compliance-driven project) becomes
+the top priority."
+
+STEP 7: PRESENTATION AND SUMMARY REDACTION
+--------------------------------------------
+When sharing executive summaries or presentation materials:
+
+BEFORE:
+"Recommendation: Fund Salesforce Migration ($347K), AR Glasses
+prototype ($800K), and Data Warehouse ($250K). Defer ClientCo
+Integration and Tokyo Office buildout. Total: $1.397M of $1.5M budget."
+
+AFTER:
+"Recommendation: Fund the top 3 projects (CRM, Innovation, and
+Infrastructure categories). Defer 2 integration and expansion projects.
+Total allocation: ~93% of available budget."
+
+=============================================================================
+SECTION 3: SCENARIO-SPECIFIC REDACTION
+=============================================================================
+
+SCENARIO 1: SHARING MATRIX METHODOLOGY WITH ANOTHER TEAM
+---------------------------------------------------------
+Safe to include:
+  - Criteria names and definitions
+  - Weighting methodology and rationale
+  - Scoring scale and anchor definitions
+  - Process steps and facilitation approach
+  - Blank template structure
+
+Must redact:
+  - All project names and descriptions
+  - All actual scores
+  - Financial data and strategic context
+  - Personnel references
+  - Decision outcomes
+
+
+SCENARIO 2: PRESENTING RESULTS TO EXECUTIVE LEADERSHIP
+-------------------------------------------------------
+Safe to include:
+  - Real project names (internal audience)
+  - Actual scores and rankings
+  - Financial data at appropriate detail level
+  - Strategic rationale
+
+Must redact:
+  - Individual rater scores (show aggregates only)
+  - Controversial rationale notes
+  - Personnel-related concerns (address separately)
+  - Competitive intelligence sources
+
+
+SCENARIO 3: POST-MORTEM OR RETROSPECTIVE ANALYSIS
+--------------------------------------------------
+Safe to include:
+  - Anonymized project outcomes
+  - Methodology assessment (what worked, what didn't)
+  - Process improvements
+  - Generic lessons learned
+
+Must redact:
+  - Specific failure details that could embarrass individuals
+  - Financial losses (use ranges or percentages)
+  - Customer-specific impact data
+  - Blame-attributing language
+
+
+SCENARIO 4: SHARING WITH EXTERNAL CONSULTANTS OR ADVISORS
+----------------------------------------------------------
+Safe to include:
+  - Anonymized project list with descriptions
+  - Criteria and weights (methodology)
+  - Aggregated scores (not individual rater attribution)
+  - Process documentation
+
+Must redact:
+  - Real project names (unless under NDA)
+  - Financial specifics (unless under NDA)
+  - Strategic plans and competitive positioning
+  - Personnel details
+  - Customer/client information
+
+
+SCENARIO 5: PUBLISHING AS A CASE STUDY OR TEMPLATE
+----------------------------------------------------
+Safe to include:
+  - Generic methodology description
+  - Fictional project examples
+  - Blank templates
+  - Process diagrams
+  - General best practices
+
+Must redact:
+  - ALL real data (projects, scores, finances, people, strategy)
+  - Company-identifying details
+  - Industry-specific details that narrow identification
+  - Unique process elements that are proprietary
+
+
+=============================================================================
+SECTION 4: AUTOMATED REDACTION TOOLS
+=============================================================================
+
+COMMAND-LINE TOOLS
+------------------
+1. Regular Expression Replacement (sed):
+   # Replace dollar amounts
+   sed -E 's/\$[0-9,]+(\.[0-9]{2})?/[$AMOUNT]/g' matrix.txt
+
+   # Replace project codenames (assuming a known list)
+   sed 's/Project Moonshot/Project A/g; s/Salesforce Migration/Project B/g' matrix.txt
+
+   # Replace email addresses
+   sed -E 's/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}/[EMAIL]/g' matrix.txt
+
+   # Replace names (requires known name list)
+   sed 's/John Smith/[Team Lead]/g; s/Jane Doe/[Product Manager]/g' matrix.txt
+
+2. Spreadsheet Approach:
+   - Create a "Redacted" tab that mirrors the matrix
+   - Use SUBSTITUTE formulas to replace project names
+   - Use ROUND or CEILING functions to blur exact figures
+   - Apply data validation to prevent accidental exposure
+   - Lock the original tab and share only the redacted version
+
+3. Find-and-Replace Checklist:
+   [ ] Run find-and-replace for each project name
+   [ ] Run find-and-replace for each person name
+   [ ] Run find-and-replace for each client/customer name
+   [ ] Run find-and-replace for dollar amounts
+   [ ] Run find-and-replace for specific dates
+   [ ] Manual review of all rationale/notes fields
+
+
+=============================================================================
+SECTION 5: VERIFICATION CHECKLIST
+=============================================================================
+
+Before sharing any decision matrix documentation:
+
+[ ] All project names replaced with neutral identifiers
+[ ] All financial figures converted to ranges, relatives, or scores
+[ ] All personnel names replaced with role descriptions
+[ ] All client/customer names removed or anonymized
+[ ] Strategic details abstracted to category level
+[ ] Competitive intelligence references removed or generalized
+[ ] Individual rater scores aggregated (if sharing externally)
+[ ] Rationale notes sanitized of sensitive context
+[ ] Sensitivity analysis references to specific scenarios genericized
+[ ] File metadata scrubbed (author, company, last modified by)
+[ ] Track changes and comments cleared from documents
+[ ] Embedded data (pivot table sources, linked cells) do not reference real data
+[ ] Charts and visualizations do not expose redacted data in tooltips or labels
+[ ] Presentation speaker notes do not contain sensitive information
+
+PEER REVIEW:
+[ ] Second person reviewed document for missed redactions
+[ ] Reviewer is from outside the project team (fresh perspective)
+[ ] Reviewer confirmed no reverse-identification is possible from remaining data
+
+=============================================================================
+SECTION 6: SPECIAL CONSIDERATIONS
+=============================================================================
+
+DECISION MATRIX SPECIFIC RISKS
+-------------------------------
+Decision matrices carry unique redaction risks because they contain:
+1. Comparative judgments that imply relative value of projects/teams
+2. Strategic priorities that reveal organizational direction
+3. Resource allocation plans that reveal financial capacity
+4. Risk assessments that reveal known vulnerabilities
+
+Even anonymized matrices can be reverse-engineered if:
+- The number of projects matches a known portfolio
+- Criteria descriptions are too specific to one company
+- Score patterns match known internal dynamics
+- Timing correlates with known planning cycles
+
+MITIGATION: When sharing externally, alter non-essential details:
+- Add or remove a fictional project to change the count
+- Slightly adjust scores (within reasonable range) to prevent pattern matching
+- Generalize criteria beyond what your organization actually used
+- Remove date references or use relative time ("Quarter X")
+
+LEGAL HOLDS AND GOVERNANCE
+---------------------------
+If the prioritization decision is subject to legal review:
+- Preserve the original unredacted matrix securely
+- Create separate redacted versions for each audience
+- Maintain chain of custody for the original decision record
+- Consult legal counsel before sharing any decision documentation externally
+- Board-level prioritization decisions may have retention requirements
+
+=============================================================================
+SUPPORT & QUESTIONS
+=============================================================================
+
+When in doubt: ANONYMIZE IT.
+Over-redaction preserves trust; under-redaction erodes it.
+
+For sensitive sharing situations, consult:
+- Legal team before sharing decision records externally
+- Finance team before sharing budget or ROI data
+- Strategy team before sharing priority rankings publicly
+- HR team before sharing any personnel-related scoring context
+
+This guide is for educational purposes. Adapt to your organization's
+specific confidentiality policies, NDAs, and regulatory requirements.
+
+=============================================================================

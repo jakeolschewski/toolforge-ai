@@ -1,0 +1,572 @@
+REDACTION GUIDE - DATA REDACTION BASICS
+========================================
+
+PURPOSE
+-------
+This guide helps you safely handle, share, and publish documents, datasets, and
+AI-generated content without exposing personally identifiable information (PII),
+financial data, health records, or other sensitive information. Follow this guide
+whenever you create, review, or distribute any content that may contain sensitive data.
+
+=============================================================================
+SECTION 1: TYPES OF DATA TO REDACT
+=============================================================================
+
+CATEGORY A: PERSONALLY IDENTIFIABLE INFORMATION (PII)
+------------------------------------------------------
+NEVER INCLUDE:
+  - Full names (first, middle, last)
+  - Email addresses (personal or professional)
+  - Phone numbers (mobile, landline, fax)
+  - Physical addresses (street, city, state, ZIP, country)
+  - Dates of birth, ages, or birth years
+  - Social Security Numbers (SSN) or national ID numbers
+  - Driver's license or passport numbers
+  - Usernames, screen names, or login credentials
+  - Photographs of identifiable individuals
+  - Biometric identifiers (fingerprints, facial recognition data)
+
+SAFE ALTERNATIVES:
+  - Full names: [NAME], [NAME_1], [NAME_2] for multiple people
+  - Email: [EMAIL] or user@example.com
+  - Phone: [PHONE] or (555) 000-0000
+  - Address: [ADDRESS] or "123 Main Street, Anytown, ST 00000"
+  - DOB: [DOB] or "born in the 1990s" (decade range)
+  - SSN: [SSN] or "XXX-XX-XXXX"
+  - Usernames: [USERNAME] or "user_12345"
+
+
+CATEGORY B: FINANCIAL DATA
+--------------------------
+NEVER INCLUDE:
+  - Credit card numbers (full or partial beyond last 4 digits)
+  - Bank account and routing numbers
+  - Tax identification numbers (EIN, ITIN)
+  - Salary, compensation, or billing amounts tied to individuals
+  - Invoice numbers linked to identifiable parties
+  - Insurance policy numbers
+  - Loan account numbers
+  - Payment transaction IDs tied to individuals
+
+SAFE ALTERNATIVES:
+  - Credit card: [CC_NUMBER] or "ending in 1234"
+  - Bank account: [BANK_ACCOUNT]
+  - Tax ID: [TAX_ID]
+  - Salary: [SALARY] or "within the $X0,000-$X0,000 range"
+  - Invoice: [INVOICE_ID]
+  - Amounts: Use ranges ("$10K-$15K") instead of exact figures
+
+
+CATEGORY C: HEALTH AND PROTECTED DATA
+--------------------------------------
+NEVER INCLUDE:
+  - Medical record numbers (MRN)
+  - Diagnosis codes or treatment details tied to individuals
+  - Health insurance information
+  - Prescription information
+  - Mental health records
+  - Substance abuse treatment records
+  - Genetic information
+  - Disability status linked to identifiable individuals
+
+SAFE ALTERNATIVES:
+  - MRN: [MEDICAL_RECORD_ID]
+  - Diagnosis: [DIAGNOSIS] or "chronic condition"
+  - Insurance: [INSURANCE_ID]
+  - Treatment: "received treatment for [CONDITION]"
+  - Use HIPAA Safe Harbor de-identification where applicable
+
+
+CATEGORY D: ORGANIZATIONAL AND PROPRIETARY DATA
+-------------------------------------------------
+BE CAUTIOUS WITH:
+  - Internal project codenames
+  - Client or customer names (if confidential)
+  - Trade secrets and proprietary processes
+  - Non-public financial figures (revenue, costs, margins)
+  - Internal IP addresses, server names, API endpoints
+  - Unreleased product or service details
+  - Vendor contract terms
+  - Internal org charts or reporting structures
+
+SAFE ALTERNATIVES:
+  - Project codes: [PROJECT_ID] or "Project Alpha"
+  - Client names: [CLIENT] or "Client A (retail sector)"
+  - Financial figures: Use ranges or percentages
+  - IP addresses: [IP_ADDRESS] or "192.168.x.x"
+  - Server names: [SERVER] or "production server"
+  - Proprietary info: Describe function, not implementation
+
+
+CATEGORY E: DIGITAL IDENTIFIERS AND METADATA
+---------------------------------------------
+OFTEN OVERLOOKED:
+  - IP addresses and MAC addresses
+  - Device identifiers (IMEI, serial numbers)
+  - Cookie values and session tokens
+  - GPS coordinates and geolocation data
+  - File metadata (author name, organization, creation date)
+  - EXIF data in images (camera model, location, timestamp)
+  - Browser fingerprint data
+  - Document revision history with author names
+
+SAFE ALTERNATIVES:
+  - IP: [IP_ADDRESS]
+  - Device ID: [DEVICE_ID]
+  - GPS: [LOCATION] or "metropolitan area"
+  - Metadata: Strip before sharing (see Section 2)
+  - Revision history: Export clean copy without history
+
+=============================================================================
+SECTION 2: STEP-BY-STEP REDACTION PROCESS
+=============================================================================
+
+STEP 1: PRE-REDACTION SCAN
+---------------------------
+Before sharing any document, dataset, or AI-generated content:
+
+[ ] Search for name patterns (capitalized words in personal context)
+[ ] Search for "@" symbol (email addresses)
+[ ] Search for digit patterns: (XXX) XXX-XXXX, XXX-XX-XXXX, XXXX-XXXX-XXXX-XXXX
+[ ] Search for address keywords: street, avenue, blvd, suite, apt, ZIP codes
+[ ] Search for date patterns: MM/DD/YYYY, YYYY-MM-DD, month names with years
+[ ] Search for currency symbols: $, amounts with decimals
+[ ] Search for organizational identifiers: company names, project codes
+[ ] Search for domain names (other than example.com, example.org)
+[ ] Check file properties and metadata for author/organization fields
+[ ] Check for embedded images containing visible PII
+
+STEP 2: PII REPLACEMENT
+------------------------
+For each type of PII found, apply the appropriate redaction token:
+
+Names:
+  BEFORE: "Please contact Sarah Johnson regarding the project."
+  AFTER:  "Please contact [NAME] regarding the project."
+
+  Multiple names in same document:
+  BEFORE: "Sarah Johnson emailed David Chen about the deadline."
+  AFTER:  "[NAME_1] emailed [NAME_2] about the deadline."
+
+Email Addresses:
+  BEFORE: sarah.johnson@acmecorp.com
+  AFTER:  [EMAIL]
+    OR:   user@example.com
+
+Phone Numbers:
+  BEFORE: (415) 555-8923
+  AFTER:  [PHONE]
+    OR:   (555) 000-0000
+
+Physical Addresses:
+  BEFORE: 1247 Oak Street, Suite 300, San Francisco, CA 94102
+  AFTER:  [ADDRESS]
+    OR:   [STREET], [CITY], [STATE] [ZIP]
+
+Social Security Numbers:
+  BEFORE: 482-73-9156
+  AFTER:  [SSN]
+
+Dates of Birth:
+  BEFORE: Born March 15, 1987
+  AFTER:  Born [DOB]
+    OR:   Born in the late 1980s (if range is sufficient)
+
+STEP 3: FINANCIAL DATA REPLACEMENT
+-----------------------------------
+Replace financial identifiers and amounts:
+
+Credit Card Numbers:
+  BEFORE: 4532-8721-0094-3318
+  AFTER:  [CC_NUMBER]
+    OR:   ending in 3318 (last 4 only, per PCI DSS)
+
+Bank Accounts:
+  BEFORE: Account #: 7294018365, Routing: 021000089
+  AFTER:  Account #: [BANK_ACCOUNT], Routing: [ROUTING_NUMBER]
+
+Salary/Compensation:
+  BEFORE: "Annual salary: $127,500"
+  AFTER:  "Annual salary: [SALARY]"
+    OR:   "Annual salary in the $120K-$130K range"
+
+Invoice Amounts:
+  BEFORE: "Invoice #INV-2024-0847 for $12,450.00"
+  AFTER:  "Invoice [INVOICE_ID] for [AMOUNT]"
+
+STEP 4: DATASET AND SPREADSHEET REDACTION
+------------------------------------------
+When redacting tabular data:
+
+Full Row Example:
+  BEFORE:
+  | Name          | Email                  | Phone          | City          | Amount   |
+  | Sarah Johnson | sarah.j@acmecorp.com   | (415) 555-8923 | San Francisco | $12,450  |
+  | David Chen    | d.chen@techstart.io    | (212) 555-3047 | New York      | $8,720   |
+
+  AFTER:
+  | Name     | Email   | Phone   | City       | Amount   |
+  | [NAME_1] | [EMAIL] | [PHONE] | [CITY]     | [AMOUNT] |
+  | [NAME_2] | [EMAIL] | [PHONE] | [CITY]     | [AMOUNT] |
+
+Column-Level Decisions:
+  - Direct identifiers (Name, Email, SSN): Always redact or remove
+  - Quasi-identifiers (City, Age, Job Title): Generalize (city -> state/region)
+  - Sensitive attributes (Salary, Diagnosis): Redact or use ranges
+  - Non-sensitive (Product Category, Date Range): Usually safe to keep
+
+STEP 5: AI INPUT SANITIZATION
+------------------------------
+Before sending any content to an AI tool:
+
+  BEFORE (Risky):
+  "Summarize this email from Sarah Johnson (sarah.j@acmecorp.com) about
+  her complaint regarding order #ORD-847291 charged to her Visa ending
+  in 3318. She lives at 1247 Oak Street, San Francisco."
+
+  AFTER (Safe):
+  "Summarize this email from [CUSTOMER_NAME] ([EMAIL]) about their
+  complaint regarding order [ORDER_ID] charged to their credit card
+  ending in [LAST_4]. They live at [ADDRESS]."
+
+AI Input Rules:
+  NEVER send to AI: SSNs, passwords, full credit card numbers, medical records
+  REDACT before sending: Names, emails, phone numbers, addresses
+  SAFE to send: Generic questions, public information, fictional examples
+
+STEP 6: AI OUTPUT SCANNING
+----------------------------
+After receiving any AI-generated content:
+
+[ ] Search output for email patterns: [A-Za-z]+@[A-Za-z]+\.[a-z]{2,}
+[ ] Search output for phone patterns: sequences of 7-10+ digits
+[ ] Search output for name patterns: capitalized word pairs in personal context
+[ ] Search for address patterns: numbers followed by street names
+[ ] Check if AI echoed back any PII from your (even redacted) input
+[ ] Check for AI-hallucinated PII (realistic but fake data that looks real)
+[ ] Verify placeholder tokens are intact (not expanded by AI)
+
+If PII Found in Output:
+  1. Replace with appropriate redaction token
+  2. Log the finding in your redaction audit log
+  3. Note the pattern so you can watch for it in future outputs
+  4. If systematic, adjust your input redaction process
+
+STEP 7: METADATA AND FILE PROPERTY SCRUBBING
+---------------------------------------------
+Before sharing any file:
+
+Document Properties:
+  BEFORE: Author: "Sarah Johnson", Company: "Acme Corp", Last Modified By: "D. Chen"
+  AFTER:  Strip all properties (File > Properties > Remove Personal Information)
+
+  Microsoft Office: File > Info > Check for Issues > Inspect Document > Remove All
+  Google Docs: File > Download as (creates clean copy without revision history)
+  PDF: Use PDF editor to remove metadata, then flatten
+
+Image EXIF Data:
+  BEFORE: GPS: 37.7749, -122.4194 | Camera: iPhone 15 | Date: 2026-01-15
+  AFTER:  All EXIF data stripped
+
+  Tools: ExifTool (command line), EXIF Purge (GUI), or online EXIF removers
+  Command: exiftool -all= image.jpg (strips all metadata)
+
+Spreadsheet Hidden Data:
+  [ ] Check for hidden sheets, columns, and rows
+  [ ] Check for filtered data (PII may be hidden by active filters)
+  [ ] Check for comments and notes containing PII
+  [ ] Check for named ranges referencing PII cells
+  [ ] Check for pivot table source data
+
+STEP 8: PDF-SPECIFIC REDACTION
+-------------------------------
+PDF redaction requires special attention:
+
+  WARNING: Black highlighting or drawing boxes over text does NOT redact.
+  The underlying text remains selectable, searchable, and copy-able.
+
+Proper PDF Redaction:
+  1. Use a tool with true redaction capability (Adobe Acrobat Pro, PDF-XChange, etc.)
+  2. Mark areas for redaction
+  3. Apply redaction (this permanently removes the underlying text)
+  4. Flatten the PDF (removes all layers, annotations, form fields)
+  5. Verify by attempting to select/search for the redacted text
+
+Verification:
+  BEFORE: Select text tool can highlight "Sarah Johnson" behind black box
+  AFTER:  Select text tool shows nothing; search for "Sarah" returns 0 results
+
+  [ ] Open redacted PDF in a text editor and search for PII strings
+  [ ] Use PDF accessibility checker to verify no hidden text
+  [ ] Try copy-paste from redacted areas to confirm content is gone
+
+=============================================================================
+SECTION 3: SCENARIO-SPECIFIC REDACTION
+=============================================================================
+
+SCENARIO 1: SHARING CUSTOMER SUPPORT TRANSCRIPTS
+-------------------------------------------------
+Safe to include:
+  - General nature of inquiry (billing question, technical issue)
+  - Resolution steps taken (generic process)
+  - Satisfaction rating (aggregated)
+  - Response time metrics (ranges)
+
+Must redact:
+  - Customer name, email, phone, account number
+  - Agent name (use role: "Support Agent")
+  - Order/transaction IDs linked to real customers
+  - Payment details mentioned in conversation
+  - Address or location details
+
+
+SCENARIO 2: SHARING AI-GENERATED REPORTS WITH TEAM
+---------------------------------------------------
+Safe to include:
+  - Analysis conclusions and recommendations
+  - Aggregated statistics and trends
+  - Category breakdowns (by region, by product type)
+  - Process descriptions
+
+Must redact:
+  - Any PII echoed from input data
+  - AI-hallucinated names, emails, or phone numbers
+  - Specific financial figures (if confidential)
+  - References to identifiable individuals
+  - Internal system names or endpoints mentioned in prompts
+
+
+SCENARIO 3: CREATING TRAINING MATERIALS
+----------------------------------------
+Safe to include:
+  - Generic process steps
+  - Fictional before/after examples
+  - Tool instructions (using placeholder data)
+  - Best practices and common mistakes
+
+Must redact:
+  - Real data from past incidents (anonymize completely)
+  - Actual employee or customer names
+  - Real system URLs, IP addresses, or credentials
+  - Screenshots containing real PII (recreate with synthetic data)
+
+Always create fresh synthetic examples:
+  - Use clearly fictional names: "Jane Doe", "Alex Sample"
+  - Use safe email domains: example.com, example.org, test.com
+  - Use reserved phone numbers: (555) 0100 through (555) 0199
+  - Use fictional addresses: "123 Main Street, Anytown, ST 00000"
+
+
+SCENARIO 4: AUDIT DOCUMENTATION
+--------------------------------
+Safe to include:
+  - Compliance status percentages
+  - Number of documents processed
+  - Redaction method descriptions
+  - Process improvement recommendations
+  - Anonymized incident summaries
+
+Must redact:
+  - Names of individuals who made errors
+  - Specific documents that contained PII breaches
+  - Details that could identify affected data subjects
+  - Exact dates/times of incidents (use ranges)
+  - Specific system vulnerabilities (until remediated)
+
+
+SCENARIO 5: PUBLISHING CASE STUDIES OR BLOG POSTS
+--------------------------------------------------
+Safe to include:
+  - Industry vertical (healthcare, finance, retail)
+  - Team size ranges (5-10 people, small team)
+  - Process descriptions and workflow steps
+  - Aggregated outcome metrics (percentage improvements)
+  - Generic tool categories (not specific vendor names if confidential)
+
+Must redact:
+  - Company name (unless permission granted)
+  - Employee names and roles (unless public spokespeople)
+  - Specific financial results (revenue, cost savings)
+  - Proprietary processes or trade secrets
+  - Client or partner names
+
+=============================================================================
+SECTION 4: AUTOMATED REDACTION PATTERNS
+=============================================================================
+
+REGEX PATTERNS FOR COMMON PII
+------------------------------
+Use these patterns for automated search-and-replace:
+
+Email Addresses:
+  Pattern: [A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}
+  Replace: [EMAIL]
+
+Phone Numbers (US):
+  Pattern: \(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}
+  Replace: [PHONE]
+
+Social Security Numbers:
+  Pattern: \d{3}-\d{2}-\d{4}
+  Replace: [SSN]
+
+Credit Card Numbers:
+  Pattern: \b\d{4}[-\s]?\d{4}[-\s]?\d{4}[-\s]?\d{4}\b
+  Replace: [CC_NUMBER]
+
+IP Addresses:
+  Pattern: \b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b
+  Replace: [IP_ADDRESS]
+
+ZIP Codes (US):
+  Pattern: \b\d{5}(-\d{4})?\b
+  Replace: [ZIP]
+  Note: High false positive rate; use in context only
+
+Dates (various formats):
+  Pattern: \b\d{1,2}[/-]\d{1,2}[/-]\d{2,4}\b
+  Replace: [DATE]
+  Note: Verify context; not all dates are sensitive
+
+URLs with Parameters:
+  Pattern: https?://[^\s]+[?&](user|email|name|id|token)=[^\s&]+
+  Replace: [URL_WITH_PII]
+
+COMMAND-LINE EXAMPLES
+---------------------
+Batch redaction with sed:
+  # Redact email addresses
+  sed -E 's/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}/[EMAIL]/g' input.txt > output.txt
+
+  # Redact phone numbers
+  sed -E 's/\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}/[PHONE]/g' input.txt > output.txt
+
+  # Redact SSNs
+  sed -E 's/\d{3}-\d{2}-\d{4}/[SSN]/g' input.txt > output.txt
+
+  # Chain multiple redactions
+  sed -E \
+    -e 's/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}/[EMAIL]/g' \
+    -e 's/\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}/[PHONE]/g' \
+    -e 's/\d{3}-\d{2}-\d{4}/[SSN]/g' \
+    input.txt > output.txt
+
+Python Redaction Script (Template):
+  import re
+
+  def redact_text(text):
+      # Email
+      text = re.sub(r'[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}', '[EMAIL]', text)
+      # Phone
+      text = re.sub(r'\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}', '[PHONE]', text)
+      # SSN
+      text = re.sub(r'\d{3}-\d{2}-\d{4}', '[SSN]', text)
+      # Credit Card
+      text = re.sub(r'\b\d{4}[-\s]?\d{4}[-\s]?\d{4}[-\s]?\d{4}\b', '[CC_NUMBER]', text)
+      # IP Address
+      text = re.sub(r'\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b', '[IP_ADDRESS]', text)
+      return text
+
+NLP-BASED DETECTION (Microsoft Presidio):
+  from presidio_analyzer import AnalyzerEngine
+  from presidio_anonymizer import AnonymizerEngine
+
+  analyzer = AnalyzerEngine()
+  anonymizer = AnonymizerEngine()
+
+  text = "Contact Jane Doe at jane.doe@example.com or (555) 123-4567."
+  results = analyzer.analyze(text=text, language='en')
+  anonymized = anonymizer.anonymize(text=text, analyzer_results=results)
+  print(anonymized.text)
+  # Output: "Contact <PERSON> at <EMAIL_ADDRESS> or <PHONE_NUMBER>."
+
+=============================================================================
+SECTION 5: VERIFICATION CHECKLIST
+=============================================================================
+
+Before sharing any document, dataset, or AI output:
+
+[ ] All names replaced with [NAME] or [NAME_N] tokens
+[ ] All email addresses replaced with [EMAIL] tokens
+[ ] All phone numbers replaced with [PHONE] tokens
+[ ] All physical addresses replaced with [ADDRESS] tokens
+[ ] All SSNs, ID numbers replaced with appropriate tokens
+[ ] All financial data (credit cards, accounts, amounts) redacted
+[ ] All health data redacted (if applicable)
+[ ] File metadata stripped (author, organization, GPS, revision history)
+[ ] Image EXIF data removed
+[ ] PDF text layer verified (not just visual overlay)
+[ ] Spreadsheet hidden sheets/rows/columns checked
+[ ] Comments and tracked changes removed
+[ ] Indirect identifiers assessed (combinations that could re-identify)
+[ ] AI-generated content scanned for hallucinated PII
+[ ] Consistent token usage throughout document
+[ ] Document remains readable and coherent after redaction
+[ ] Post-redaction search for xxx@xxx.com patterns returns zero results
+
+PEER REVIEW:
+[ ] Second person reviewed document for missed redactions
+[ ] Reviewer attempted to re-identify individuals from remaining data
+[ ] Reviewer confirmed document is usable after redaction
+
+=============================================================================
+SECTION 6: SPECIAL CONSIDERATIONS
+=============================================================================
+
+REGULATORY COMPLIANCE
+---------------------
+GDPR: Redact all personal data; consider data minimization principle
+HIPAA: Follow Safe Harbor method (remove 18 identifier types) or Expert Determination
+PCI DSS: Mask all but last 4 digits of cardholder data; never store CVV/CVC
+CCPA/CPRA: Redact personal information as defined by California law
+FERPA: Redact student education records and directory information
+COPPA: Extra caution with data from children under 13
+
+CROSS-BORDER CONSIDERATIONS
+----------------------------
+- Different jurisdictions define PII differently
+- Some countries consider IP addresses as personal data (EU)
+- Name sensitivity varies by culture (some cultures use single names)
+- Address formats vary internationally (adjust regex accordingly)
+- Financial data formats vary (IBAN vs. routing numbers)
+
+AI-SPECIFIC CONSIDERATIONS
+---------------------------
+- AI tools may store or log your inputs (even "private" sessions)
+- AI may train on your inputs (check provider's data usage policy)
+- AI outputs may contain "hallucinated" PII that looks real but is fabricated
+- Redacting before AI input does not guarantee AI output is PII-free
+- Different AI providers have different data retention policies
+- Enterprise AI deployments may offer data isolation guarantees
+
+LEGAL HOLDS AND INVESTIGATIONS
+-------------------------------
+If under legal hold or investigation:
+- Preserve original unredacted documents securely
+- Create separate redacted versions for any sharing
+- Maintain chain of custody documentation
+- Consult legal counsel before sharing ANY documents
+- Document all redaction decisions and rationale
+
+=============================================================================
+SUPPORT & QUESTIONS
+=============================================================================
+
+When in doubt: REDACT IT.
+Over-redaction is always safer than under-redaction.
+You can always provide additional context later; you cannot un-share exposed PII.
+
+For sensitive situations, consult:
+- Privacy/compliance team before sharing any regulated data
+- Legal team before sharing incident reports or audit findings
+- Security team before sharing infrastructure or system details
+- Management before sharing financial or proprietary information
+
+REMEMBER: No redaction method is 100% foolproof. Redaction is one important
+layer in a comprehensive data protection strategy. Always combine redaction with
+access controls, encryption, training, and organizational policies.
+
+This guide is for educational purposes. Adapt to your organization's specific
+security policies, regulatory requirements, and risk tolerance.
+
+=============================================================================

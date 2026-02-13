@@ -1,0 +1,201 @@
+TOOL INTEGRATION QUICKSTART (NO-CODE) - PROMPT VARIATIONS
+=========================================================
+
+PROMPT 1 - NO-CODE INTEGRATION STARTER
+--------------------------------------
+Create a step-by-step guide to connect [TOOL_1] and [TOOL_2] without coding. Include:
+- Which automation platform to use (Zapier, Make, IFTTT)
+- Trigger event configuration
+- Action setup
+- Field mapping
+- Testing steps
+
+My technical skill level: [BEGINNER/INTERMEDIATE]
+My budget for automation tools: [AMOUNT/MONTH]
+
+
+PROMPT 2 - DATA FLOW MAPPER
+---------------------------
+Map the data flow between these tools: [LIST YOUR TOOLS]
+
+For each connection, show:
+- What data moves (fields, formats)
+- Direction (one-way or two-way)
+- Frequency (real-time, hourly, daily)
+- Any transformations needed
+
+Format as a simple diagram I can recreate.
+
+
+PROMPT 3 - ZAPIER RECIPE CREATOR
+--------------------------------
+Create a Zapier recipe (Zap) for this task:
+
+Task: [DESCRIBE THE REPETITIVE TASK]
+Source tool: [TOOL_NAME]
+Destination tool: [TOOL_NAME]
+Frequency: [HOW OFTEN THIS HAPPENS]
+
+Provide:
+1. Trigger configuration
+2. Any filter conditions
+3. Action steps
+4. Field mapping details
+5. Testing checklist
+
+
+PROMPT 4 - INTEGRATION TEST PLANNER
+-----------------------------------
+Design a testing plan for my [TOOL_1] to [TOOL_2] integration:
+
+What the integration does: [DESCRIBE]
+Critical data: [WHAT DATA MOVES]
+Risk if it fails: [IMPACT]
+
+Include:
+- Test scenarios (happy path + edge cases)
+- Sample test data
+- Expected results
+- Error conditions to test
+- Go-live checklist
+
+
+PROMPT 5 - ERROR HANDLING BUILDER
+---------------------------------
+Add error handling to my automation:
+
+Current setup: [DESCRIBE YOUR INTEGRATION]
+Common failures: [DESCRIBE ISSUES YOU'VE SEEN]
+
+Provide:
+1. Error detection steps
+2. Notification setup (email/Slack alerts)
+3. Retry logic recommendations
+4. Fallback procedures
+5. Error logging approach
+
+
+PROMPT 6 - INTEGRATION OPTIMIZER
+--------------------------------
+Optimize my current integration for speed and cost:
+
+Current setup: [DESCRIBE]
+Monthly task count: [NUMBER]
+Current cost: [AMOUNT]
+Performance issues: [DESCRIBE]
+
+Suggest:
+- Ways to reduce task count (batching, filtering)
+- Alternative approaches that cost less
+- Performance improvements
+- Monitoring setup
+
+
+PROMPT 7 - INTEGRATION TROUBLESHOOTER
+-------------------------------------
+Help me troubleshoot this integration issue:
+
+Setup: [TOOL_1] → [AUTOMATION_PLATFORM] → [TOOL_2]
+Expected behavior: [WHAT SHOULD HAPPEN]
+Actual behavior: [WHAT IS HAPPENING]
+Error message (if any): [ERROR TEXT]
+
+Walk me through debugging steps and common fixes.
+
+
+PROMPT 8 - TEAM INTEGRATION SCALER
+----------------------------------
+Scale my personal integration for team use:
+
+Current integration: [DESCRIBE]
+Team size: [NUMBER]
+Team technical level: [RANGE]
+
+Provide:
+- Multi-user configuration changes
+- Permission and access setup
+- Documentation template for team
+- Training outline
+- Monitoring for team usage
+
+
+PROMPT 9 - ALTERNATIVE PLATFORM FINDER
+--------------------------------------
+Suggest alternative no-code tools for my integration:
+
+Current platform: [ZAPIER/MAKE/OTHER]
+What it does: [DESCRIBE]
+Why I want alternatives: [COST/FEATURES/LIMITATIONS]
+
+Compare 3 alternatives with:
+- Feature comparison
+- Pricing
+- Ease of migration
+- Pros and cons
+
+
+PROMPT 10 - INTEGRATION DOCUMENTATION CREATOR
+---------------------------------------------
+Create documentation for my integration:
+
+Integration name: [NAME]
+Purpose: [WHAT IT DOES]
+Tools connected: [LIST]
+Trigger: [WHAT STARTS IT]
+Actions: [WHAT HAPPENS]
+
+Generate:
+1. Overview document
+2. Setup instructions for new team members
+3. Troubleshooting guide
+4. Maintenance checklist
+
+
+==============================================================================
+USAGE GUIDELINES
+==============================================================================
+
+PRIVACY PROTECTION:
+When using these prompts, NEVER include:
+- Actual confidential business information
+- Real names, email addresses, or contact details
+- Proprietary data, trade secrets, or internal metrics
+- Client or customer identifying information
+- Financial details (exact revenues, salaries, etc.)
+
+Use placeholders:
+- "[CLIENT_NAME]", "[COMPANY]" instead of real names
+- "[AMOUNT]", "[METRIC]" for sensitive numbers
+- Generic descriptions of situations rather than specifics
+
+AI TOOL COMPATIBILITY:
+These prompts work with all major AI assistants:
+- ChatGPT, Claude, Gemini, Perplexity
+- Use with privacy-respecting settings (opt-out of training)
+
+PROMPT CHAINING:
+For best results, use prompts in sequence:
+1. Start with Prompt 1 for initial setup
+2. Use Prompts 2-5 for core workflow steps
+3. Apply Prompts 6-8 for advanced applications
+4. Use Prompts 9-10 for optimization and scaling
+
+ITERATION:
+If outputs aren't specific enough:
+- "Make this specific to [your industry/context]"
+- "Provide actual examples for [specific scenario]"
+- "Add more detail to [specific section]"
+
+SAVING OUTPUTS:
+Keep all AI-generated outputs:
+- Store in organized folders by date and topic
+- Version control your working documents
+- Share with team via secure channels only
+
+VERIFICATION:
+Always independently verify:
+- Facts, figures, and claims in AI outputs
+- Recommendations against your specific context
+- Compliance with your organization's policies
+
+==============================================================================

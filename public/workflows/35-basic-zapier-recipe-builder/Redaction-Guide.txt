@@ -1,0 +1,106 @@
+REDACTION GUIDE - BASIC ZAPIER RECIPE BUILDER
+================================================
+
+PURPOSE
+-------
+This guide ensures that all sensitive information is properly redacted before sharing Zapier recipe configurations, automation documentation, or workflow blueprints with AI tools, team members, or external parties. Automation recipes often contain API credentials, account identifiers, and business-specific data that must be protected.
+
+SECTION 1: TYPES OF DATA TO REDACT
+===================================
+
+Category A - Authentication and Credentials
+--------------------------------------------
+- API keys and tokens for connected applications
+- OAuth tokens and refresh tokens
+- Webhook URLs (which often contain unique identifiers)
+- Account passwords and login credentials
+- Service account email addresses
+- Secret keys and signing keys
+- Database connection strings embedded in Zap steps
+
+Category B - Business and Operational Data
+-------------------------------------------
+- Customer names, email addresses, and contact information in test data
+- Internal pricing, revenue figures, or financial data in field mappings
+- Proprietary business process details and workflow logic
+- Client-specific configuration parameters
+- Internal team member names and email addresses
+- CRM record IDs that could identify specific customers
+- Spreadsheet URLs containing business data
+
+Category C - Technical Infrastructure
+--------------------------------------
+- Custom domain names and internal URLs
+- Server IP addresses referenced in Zap configurations
+- Database names and table structures
+- Internal application names and version numbers
+- Organization IDs and workspace identifiers
+- Billing account numbers and subscription IDs
+- Custom app integration endpoints
+
+SECTION 2: STEP-BY-STEP REDACTION PROCESS
+==========================================
+
+Step 1: Export or Copy the Automation Content
+---------------------------------------------
+Before redacting, create a copy of the Zap configuration, documentation, or blueprint you intend to share. Never redact your original working documents. Export Zap details from the Zapier dashboard or copy your automation library entries to a separate file for redaction.
+
+Step 2: Identify All Sensitive Fields
+--------------------------------------
+Review the copied content systematically for each category above. Pay special attention to: trigger configuration (which contains app credentials), action configuration (which contains destination credentials), field mapping values (which may contain sample data), filter conditions (which may reference specific customer data), and notes or descriptions (which may contain internal context).
+
+Step 3: Apply Redaction Replacements
+--------------------------------------
+Replace sensitive data with clearly labeled placeholders:
+- API keys: [API_KEY_REDACTED]
+- Email addresses: [EMAIL_REDACTED]
+- Webhook URLs: [WEBHOOK_URL_REDACTED]
+- Customer names: [CLIENT_NAME_REDACTED]
+- Account IDs: [ACCOUNT_ID_REDACTED]
+- Internal URLs: [INTERNAL_URL_REDACTED]
+- Financial figures: [AMOUNT_REDACTED]
+- Phone numbers: [PHONE_REDACTED]
+
+Step 4: Review Contextual Clues
+--------------------------------
+Check for indirect identification risks. A combination of non-sensitive fields (industry + location + company size) might identify a specific client. Review field names, folder names, and Zap names that might reveal client identity. Remove or generalize any metadata that could be used to reverse-engineer redacted information.
+
+Step 5: Final Verification Pass
+---------------------------------
+Read the entire redacted document from start to finish. Search for common patterns: @ symbols (email addresses), http/https (URLs), strings of random characters (API keys), phone number patterns, and dollar amounts. Have a second person review the redacted version if the content is highly sensitive.
+
+SECTION 3: SCENARIO-SPECIFIC REDACTION
+=======================================
+
+Scenario A: Sharing Zap Blueprints with AI Tools
+--------------------------------------------------
+When pasting Zap configurations into AI prompts for troubleshooting or optimization:
+1. Remove all authentication details and replace with [CREDENTIALS_REDACTED]
+2. Replace specific app account names with generic labels (e.g., "CRM App" instead of "Acme Corp Salesforce")
+3. Replace real customer data in test examples with fictional data
+4. Remove webhook URLs entirely and describe them generically
+5. Redact organization-specific field names if they reveal proprietary processes
+
+Scenario B: Sharing Automation Library with Team Members or Clients
+--------------------------------------------------------------------
+When sharing your automation documentation for training or proposals:
+1. Remove all API keys and authentication tokens
+2. Replace client-specific details with generic industry examples
+3. Keep Zap logic and structure intact for educational value
+4. Redact task counts and usage statistics that reveal business volume
+5. Remove any internal notes or comments that reference specific situations
+
+SECTION 4: VERIFICATION CHECKLIST
+===================================
+- [ ] All API keys and tokens replaced with [REDACTED] placeholders
+- [ ] All email addresses replaced or removed
+- [ ] All webhook URLs redacted
+- [ ] Customer and client names replaced with generic labels
+- [ ] Financial figures and pricing removed
+- [ ] Internal URLs and endpoints redacted
+- [ ] Organization IDs and account numbers removed
+- [ ] Test data replaced with fictional examples
+- [ ] No combination of remaining fields could identify a specific person or company
+- [ ] Document reviewed by a second party if highly sensitive
+- [ ] Original unredacted version stored securely
+- [ ] Redacted version clearly labeled as redacted

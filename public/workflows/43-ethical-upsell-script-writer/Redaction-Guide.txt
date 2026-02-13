@@ -1,0 +1,112 @@
+REDACTION GUIDE - ETHICAL UPSELL SCRIPT WRITER
+================================================
+
+PURPOSE
+=======
+This guide ensures that all sensitive information is properly redacted before sharing upsell scripts, performance data, or customer insights with AI tools, collaborators, or in public contexts. Protecting customer privacy and proprietary business data is essential to maintaining the trust that ethical upselling is built upon.
+
+SECTION 1: TYPES OF DATA TO REDACT
+====================================
+
+CATEGORY A - CUSTOMER PERSONAL DATA
+-------------------------------------
+- Customer names, email addresses, and phone numbers
+- Shipping or billing addresses
+- Payment information (credit card numbers, bank details)
+- Purchase history tied to identifiable individuals
+- Customer support transcripts with personal details
+- Social media handles or usernames linked to real identities
+- Survey responses that can identify specific respondents
+- Demographic data that could narrow identification (rare locations, unique job titles)
+
+CATEGORY B - PROPRIETARY BUSINESS DATA
+-----------------------------------------
+- Exact revenue figures, profit margins, and financial performance
+- Proprietary pricing algorithms or discount structures
+- Conversion rate data tied to specific campaigns or funnels
+- Internal cost structures and supplier pricing
+- Unreleased product roadmap details referenced in scripts
+- Competitive intelligence or competitor analysis data
+- Customer acquisition costs and lifetime value calculations
+- Internal performance benchmarks and targets
+
+CATEGORY C - STRATEGIC AND OPERATIONAL DATA
+----------------------------------------------
+- A/B test results that reveal proprietary optimization insights
+- Internal sales playbooks and objection-handling strategies
+- Partnership terms, affiliate commission structures, or deal terms
+- Vendor or platform-specific integration details
+- Customer segmentation models and targeting criteria
+- Proprietary frameworks or methodologies that are trade secrets
+- Internal communication excerpts (Slack, email, meeting notes)
+- Employee names, roles, and performance data
+
+SECTION 2: STEP-BY-STEP REDACTION PROCESS
+============================================
+
+STEP 1: IDENTIFY SENSITIVE CONTENT
+Before sharing any script, data, or document, read through the entire piece and highlight every instance of data that falls into Categories A, B, or C above.
+
+STEP 2: APPLY PLACEHOLDER REPLACEMENTS
+Replace identified sensitive data with generic placeholders:
+  - Customer names -> [CUSTOMER_NAME] or [CLIENT_A]
+  - Email addresses -> [EMAIL_ADDRESS]
+  - Revenue figures -> [REVENUE_AMOUNT] or relative terms (e.g., "increased by X%")
+  - Product names (if proprietary) -> [PRODUCT_NAME] or [PRODUCT_A]
+  - Pricing -> [PRICE_POINT] or generalized ranges
+  - Dates tied to launches -> [DATE] or [QUARTER_YEAR]
+  - Company names -> [COMPANY_NAME]
+
+STEP 3: GENERALIZE CONTEXT WITHOUT LOSING UTILITY
+Ensure redacted versions still provide enough context for useful AI responses:
+  - Replace "Our $497 coaching program" with "[PREMIUM_PRODUCT] at [PRICE_POINT]"
+  - Replace "We converted 4.2% of 12,000 visitors" with "We converted [CONVERSION_RATE] of [TRAFFIC_VOLUME] visitors"
+  - Replace specific customer quotes with paraphrased, anonymized versions
+
+STEP 4: VERIFY NO INDIRECT IDENTIFICATION
+Check that the combination of remaining details cannot identify:
+  - Specific customers (even without names, unique order details can be identifying)
+  - Specific internal employees or teams
+  - Proprietary processes that competitors could replicate
+  - Business relationships that are confidential
+
+STEP 5: DOCUMENT WHAT WAS REDACTED
+Keep an internal log of what was removed so you can:
+  - Restore original data when needed for internal analysis
+  - Maintain consistency across multiple redacted documents
+  - Train team members on what to redact in future documents
+
+SECTION 3: SCENARIO-SPECIFIC REDACTION
+=========================================
+
+SCENARIO A: SHARING SCRIPTS WITH AN AI TOOL FOR FEEDBACK
+When pasting upsell scripts into an AI assistant for review or improvement:
+- Remove all real customer names and replace with [CUSTOMER_NAME]
+- Replace exact prices with [PRICE] or relative descriptions
+- Remove any proprietary product names if they reveal competitive advantages
+- Anonymize social proof quotes (change names, companies, specific figures)
+- Remove tracking URLs, affiliate codes, or internal reference numbers
+- Strip any metadata, comments, or internal notes from the document
+
+SCENARIO B: SHARING PERFORMANCE DATA FOR ANALYSIS
+When submitting upsell metrics to AI tools for performance analysis:
+- Replace exact revenue with percentage changes or relative comparisons
+- Anonymize campaign names and funnel identifiers
+- Remove date ranges that could identify specific promotional periods
+- Generalize customer segment names (e.g., "Segment A" instead of "High-value repeat buyers in Texas")
+- Remove any data that could reveal total customer base size if sensitive
+- Strip internal dashboard URLs or analytics platform identifiers
+
+SECTION 4: VERIFICATION CHECKLIST
+====================================
+Before submitting any document externally, verify:
+[ ] All customer PII has been replaced with placeholders
+[ ] Exact financial figures are generalized or replaced
+[ ] Proprietary product names are anonymized if necessary
+[ ] Social proof quotes are anonymized
+[ ] No internal links, tracking codes, or system identifiers remain
+[ ] Combined remaining details cannot indirectly identify individuals
+[ ] Redacted version still provides sufficient context for its intended use
+[ ] Internal redaction log is updated with what was removed
+[ ] Document has been reviewed by a second person when possible
+[ ] No competitive intelligence or trade secrets are exposed

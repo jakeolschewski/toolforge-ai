@@ -1,0 +1,81 @@
+ETHICAL UPSELL SCRIPT WRITER - PROMPT LIBRARY
+===============================================
+
+A curated set of AI prompts for creating persuasive, honest upsell and cross-sell scripts that prioritize customer benefit and maintain trust.
+
+---
+
+PROMPT 1 - UPSELL OPPORTUNITY MAPPING
+---
+Analyze my product line and customer journey to identify the best upsell opportunities. My business is [DESCRIBE_YOUR_BUSINESS]. My products/tiers are: [LIST_PRODUCTS_AND_PRICE_POINTS]. My typical customer journey looks like: [DESCRIBE_JOURNEY_FROM_AWARENESS_TO_POST_PURCHASE]. Identify 5 natural upsell moments ranked by customer benefit alignment and revenue potential. For each opportunity, explain why the customer would genuinely benefit from the upgrade at that specific moment.
+
+---
+
+PROMPT 2 - ETHICAL GUARDRAIL FRAMEWORK
+---
+Help me build an ethical selling framework for my [BUSINESS_TYPE] business. My core values are: [LIST_3_TO_5_VALUES]. My industry has these compliance requirements: [LIST_ANY_REGULATIONS]. Create a comprehensive ethical guardrail document that includes: (1) a one-sentence ethical selling mission statement, (2) a list of 5 tactics I will never use, (3) a "customer benefit test" template I can apply to every script, (4) transparency standards for pricing and claims, and (5) a graceful decline protocol.
+
+---
+
+PROMPT 3 - CHECKOUT UPSELL SCRIPT
+---
+Write a checkout upsell script for my [PRODUCT_OR_SERVICE]. The customer is about to purchase [BASE_PRODUCT_AND_PRICE]. The upsell is [UPGRADE_PRODUCT_AND_PRICE]. The genuine benefit of upgrading is [SPECIFIC_BENEFIT_WITH_MEASURABLE_OUTCOME]. Write the script in under 150 words using the [PAS/AIDA/VALUE_STACK] framework. Include transparent pricing, a clear benefit statement, and a frictionless decline option. The tone should be [HELPFUL/FRIENDLY/PROFESSIONAL].
+
+---
+
+PROMPT 4 - POST-PURCHASE EMAIL UPSELL
+---
+Write a post-purchase upsell email for customers who just bought [PRODUCT_NAME]. The complementary product is [CROSS_SELL_PRODUCT] at [PRICE]. The customer purchased [TIME_FRAME] ago. The genuine benefit of adding this product is [SPECIFIC_BENEFIT]. Write the email in under 300 words with a subject line, opening that acknowledges their recent purchase, value-first pitch, transparent pricing, social proof from a real customer scenario, and a low-pressure CTA. Include a "no thanks" option that feels natural, not guilt-inducing.
+
+---
+
+PROMPT 5 - RENEWAL UPGRADE SCRIPT
+---
+Write a renewal-period upgrade script for my [SERVICE_TYPE] subscription customers. They are currently on the [CURRENT_TIER] plan at [CURRENT_PRICE]. The upgrade tier is [UPGRADE_TIER] at [UPGRADE_PRICE]. Key additional features in the upgrade: [LIST_3_TO_5_FEATURES]. The customer has been with us for [DURATION]. Write a script that acknowledges their loyalty, references their usage patterns (e.g., "you have used [FEATURE] X times this month"), and positions the upgrade as a natural evolution rather than a hard sell. Keep it under 200 words.
+
+---
+
+PROMPT 6 - SUPPORT INTERACTION UPSELL
+---
+Write a customer support upsell script for when a customer contacts us about [COMMON_SUPPORT_ISSUE]. This issue would be resolved or prevented by upgrading to [PRODUCT_OR_FEATURE] at [PRICE]. Write a script that (1) fully resolves their current issue first, (2) only introduces the upsell after the problem is solved, (3) frames the upgrade as a prevention tool rather than a sales pitch, and (4) includes a natural transition phrase. The tone must be empathetic and helpful. Include a version for live chat and a version for email follow-up.
+
+---
+
+PROMPT 7 - OBJECTION HANDLING RESPONSES
+---
+Generate ethical objection-handling responses for my [PRODUCT_OR_SERVICE] upsell. The upsell costs [PRICE] and provides [KEY_BENEFIT]. Common objections I hear are: [LIST_3_TO_5_OBJECTIONS]. For each objection, write a response that (1) validates the concern genuinely, (2) provides honest information without pressure, (3) offers an alternative if the upsell is not the right fit, and (4) makes it easy to say no without awkwardness. Never use manipulative rebuttal techniques.
+
+---
+
+PROMPT 8 - A/B TEST VARIANT GENERATOR
+---
+I have this existing upsell script: [PASTE_CURRENT_SCRIPT]. Generate 3 ethical A/B test variants that each test a different element: (1) a different opening hook, (2) a different value framing approach, (3) a different call-to-action style. Keep all variants within the same ethical guardrails: transparent pricing, genuine benefit claims, and easy decline paths. For each variant, explain the hypothesis being tested and what metric to track.
+
+---
+
+PROMPT 9 - UPSELL SCRIPT ETHICS AUDIT
+---
+Audit the following upsell script for ethical issues: [PASTE_SCRIPT_TO_AUDIT]. Evaluate it against these criteria: (1) Are all claims accurate and verifiable? (2) Is pricing transparent with no hidden conditions? (3) Is there false scarcity or fabricated urgency? (4) Can the customer easily decline? (5) Does it pass the "would I feel good receiving this?" test? (6) Are there any dark patterns or manipulative language? Provide a score from 1-10 for each criterion and specific rewrites for any problematic sections.
+
+---
+
+PROMPT 10 - UPSELL PERFORMANCE REVIEW
+---
+Help me analyze the performance of my upsell scripts. Here are my metrics from the past [TIME_PERIOD]: Conversion rate: [PERCENTAGE]. Refund rate on upsold items: [PERCENTAGE]. Customer satisfaction change: [SCORE_CHANGE]. Customer complaints related to upsells: [NUMBER]. Revenue impact: [DOLLAR_AMOUNT]. Based on these results, (1) identify which scripts are performing ethically and effectively, (2) flag any that may be causing trust erosion, (3) suggest specific improvements for underperformers, and (4) recommend which scripts to retire, keep, or iterate on.
+
+---
+
+USAGE GUIDELINES
+================
+
+**Privacy Protection:** Replace all [FILL_IN] placeholders with your actual data before submitting. Remove any customer PII from scripts before sharing with AI tools. Use anonymized examples when testing scripts.
+
+**AI Tool Compatibility:** These prompts work with ChatGPT, Claude, Gemini, and similar AI assistants. Adjust response length expectations based on the tool's capabilities.
+
+**Prompt Chaining:** Use prompts in sequence for best results: Start with Prompt 1 (mapping), then Prompt 2 (guardrails), then Prompts 3-6 (script creation), followed by Prompt 9 (audit), and finally Prompt 10 (review).
+
+**Iteration:** Run each prompt 2-3 times with slight variations to generate multiple options. Select the best elements from each generation and combine them.
+
+**Saving Outputs:** Save all generated scripts in a centralized document organized by touchpoint (checkout, email, support, renewal). Version each script for A/B testing reference.
+
+**Verification:** Always verify AI-generated claims against your actual product capabilities. Never deploy a script without human review against your ethical guardrails.

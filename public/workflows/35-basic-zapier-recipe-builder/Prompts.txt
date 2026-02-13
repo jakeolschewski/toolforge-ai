@@ -1,0 +1,57 @@
+Basic Zapier Recipe Builder - AI Prompts
+=========================================
+
+PROMPT 1 - AUTOMATION TASK IDENTIFIER
+---
+Analyze my weekly workflow and identify tasks suitable for Zapier automation. I work in [FILL_IN_YOUR_INDUSTRY] and my primary tools are [FILL_IN_TOOL_1], [FILL_IN_TOOL_2], and [FILL_IN_TOOL_3]. Each week I spend significant time on these repetitive tasks: [FILL_IN_TASK_LIST]. For each task, evaluate whether it is rule-based, involves data transfer between apps, and estimate the time saved if automated. Rank the tasks by automation ROI (time saved vs. setup effort) and provide a recommended automation priority list.
+
+PROMPT 2 - TRIGGER AND ACTION MAPPER
+---
+I want to automate the following process: [FILL_IN_PROCESS_DESCRIPTION]. The process starts when [FILL_IN_TRIGGER_EVENT] happens in [FILL_IN_TRIGGER_APP]. The desired outcome is [FILL_IN_DESIRED_OUTCOME] in [FILL_IN_ACTION_APP]. Map out the complete trigger-to-action flow, including: the specific trigger event name, all data fields available from the trigger, which fields need to map to the action, any data transformations required, and whether intermediate steps (filters, formatters, delays) are needed. Present this as a step-by-step Zap blueprint.
+
+PROMPT 3 - FIELD MAPPING ASSISTANT
+---
+I am building a Zap that connects [FILL_IN_TRIGGER_APP] to [FILL_IN_ACTION_APP]. The trigger provides these data fields: [FILL_IN_TRIGGER_FIELDS]. The action app requires these fields: [FILL_IN_ACTION_FIELDS]. Create a field mapping table showing which trigger field maps to which action field. Identify any fields that need formatting or transformation (e.g., date formats, name splitting, phone number formatting). Flag any required action fields that do not have a corresponding trigger field and suggest how to handle them.
+
+PROMPT 4 - MULTI-STEP ZAP DESIGNER
+---
+I need to build a multi-step Zap that accomplishes this workflow: [FILL_IN_COMPLETE_WORKFLOW]. The apps involved are [FILL_IN_APP_LIST]. Design a complete multi-step Zap including: the trigger event, each action step in order, any filter or path steps for conditional logic, formatter steps for data transformation, and delay steps if timing matters. For each step, specify the app, event type, and key configuration settings. Include error handling recommendations for each step.
+
+PROMPT 5 - ZAP TESTING CHECKLIST GENERATOR
+---
+I have built a Zap that [FILL_IN_ZAP_DESCRIPTION] connecting [FILL_IN_APP_1] to [FILL_IN_APP_2]. Generate a comprehensive testing checklist that covers: normal operation with standard data, edge cases (empty fields, special characters, maximum-length inputs), error scenarios (API timeouts, authentication failures), duplicate detection, data accuracy verification, and performance under expected volume. Include specific test inputs I should use and what to verify in each connected app after each test run.
+
+PROMPT 6 - ERROR HANDLING CONFIGURATOR
+---
+My Zap connects [FILL_IN_TRIGGER_APP] to [FILL_IN_ACTION_APP] and handles [FILL_IN_DATA_TYPE] data. Design an error handling strategy for this Zap including: common failure points and their causes, recommended retry settings, fallback actions when the primary action fails, notification setup for different error severity levels, and a troubleshooting decision tree for the most common errors. Also recommend how to set up a "dead letter" process for records that fail automation.
+
+PROMPT 7 - AUTOMATION LIBRARY DOCUMENTER
+---
+I have the following active Zaps: [FILL_IN_ZAP_LIST_WITH_DESCRIPTIONS]. Create a structured automation library document that includes for each Zap: a clear name and purpose statement, trigger app and event, action app(s) and event(s), key field mappings, any filters or conditional logic, owner/creator, date created, last reviewed date, dependencies on other Zaps or processes, and known limitations. Format this as a table or structured reference that the team can use for onboarding and troubleshooting.
+
+PROMPT 8 - ZAP OPTIMIZATION ADVISOR
+---
+Review my current Zap setup: [FILL_IN_ZAP_DETAILS_INCLUDING_STEPS_AND_TASK_COUNTS]. Analyze the Zap for optimization opportunities including: reducing the number of steps to lower task consumption, combining or consolidating related Zaps, replacing multi-step chains with more efficient approaches, identifying unnecessary steps that could be removed, and suggesting built-in Zapier features (like Paths, Filters, or Formatter) that could improve reliability. Estimate task savings from each recommendation.
+
+PROMPT 9 - APP INTEGRATION EVALUATOR
+---
+I want to connect [FILL_IN_NEW_APP] to my existing Zapier ecosystem. My current connected apps are [FILL_IN_CURRENT_APP_LIST]. Evaluate the integration potential including: available triggers and actions for the new app on Zapier, any limitations or known issues with the integration, recommended Zap recipes that would add the most value, data privacy considerations when connecting this app, and alternative integration methods if the native Zapier integration is limited. Provide 3-5 specific Zap recipes I should build first.
+
+PROMPT 10 - AUTOMATION AUDIT REPORTER
+---
+Conduct a comprehensive audit of my automation setup. I have [FILL_IN_NUMBER] active Zaps, using [FILL_IN_TASK_COUNT] tasks per month out of my [FILL_IN_PLAN_LIMIT] task limit. My most active Zaps are [FILL_IN_TOP_ZAPS]. Generate an audit report covering: task usage efficiency and trends, Zaps with the highest error rates, Zaps that have not triggered in 30+ days (candidates for removal), security review of connected accounts and permissions, recommendations for consolidation or optimization, and a projected task usage forecast for the next quarter.
+
+USAGE GUIDELINES
+================
+
+**Privacy Protection:** Before using any prompt, replace all [FILL_IN] placeholders with your actual information. Avoid including sensitive credentials, API keys, or personally identifiable information in prompt inputs. Use generic descriptions where possible.
+
+**AI Tool Compatibility:** These prompts are designed for use with ChatGPT, Claude, Gemini, and similar AI assistants. Adjust the level of detail in your fill-in responses based on the AI tool's context window and capabilities.
+
+**Prompt Chaining:** For best results, use these prompts in sequence. Start with Prompt 1 to identify tasks, then use Prompt 2 to map triggers and actions, Prompt 3 for field mapping, and Prompt 5 for testing. This creates a complete automation pipeline.
+
+**Iteration:** AI responses are starting points. Review and refine the output based on your specific app configurations, data structures, and business rules. Run each prompt 2-3 times with adjusted inputs for optimal results.
+
+**Saving Outputs:** Copy AI-generated Zap blueprints, field mappings, and checklists into your automation library document for future reference. These become reusable templates for similar automations.
+
+**Verification:** Always validate AI-generated Zap configurations against the actual Zapier interface. Field names, trigger events, and action options may differ between AI suggestions and current platform availability.

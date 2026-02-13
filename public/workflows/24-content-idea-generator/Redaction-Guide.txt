@@ -1,0 +1,155 @@
+REDACTION GUIDE - CONTENT IDEA GENERATOR
+==========================================
+
+PURPOSE
+-------
+This guide helps you remove sensitive, proprietary, or personally identifiable
+information (PII) when using AI tools for content ideation, sharing idea
+documents with collaborators, or storing ideation outputs externally.
+
+=============================================================================
+SECTION 1: TYPES OF DATA TO REDACT
+=============================================================================
+
+CATEGORY A: AUDIENCE AND ANALYTICS DATA
+-----------------------------------------
+x NEVER INCLUDE:
+  - Specific website traffic numbers or unique visitor counts
+  - Exact conversion rates or revenue-per-content figures
+  - Individual customer names, emails, or survey responses
+  - Proprietary audience segmentation models
+  - Internal dashboard screenshots or analytics exports
+
+SAFE ALTERNATIVES:
+  - Use ranges: "10K-50K monthly visitors" instead of exact numbers
+  - Use percentages: "Conversion improved 15%" without base figures
+  - Anonymize survey quotes: "A mid-career professional said..."
+  - Describe segments generically: "Tech-savvy professionals, 25-40"
+  - Reference trends: "Traffic increased quarter-over-quarter"
+
+
+CATEGORY B: COMPETITIVE AND STRATEGIC INFORMATION
+---------------------------------------------------
+x NEVER INCLUDE:
+  - Real competitor names in AI prompts
+  - Proprietary competitive analysis reports
+  - Internal strategic priorities or roadmaps
+  - Unreleased product or feature information
+  - Pricing strategies or margin data
+
+SAFE ALTERNATIVES:
+  - Use labels: "Competitor A (large SaaS)", "Competitor B (boutique agency)"
+  - Describe competitive landscape generically: "Market leaders focus on X"
+  - Reference publicly available information only
+  - Use hypothetical scenarios: "If a competitor launched..."
+  - Generalize strategy: "Growth-focused" instead of specific targets
+
+
+CATEGORY C: BRAND AND CLIENT DETAILS
+--------------------------------------
+x NEVER INCLUDE:
+  - Client brand names or project codenames
+  - Internal brand guidelines documents verbatim
+  - Unpublished campaign details or launch dates
+  - Client-specific performance benchmarks
+  - Agency-client contractual terms
+
+SAFE ALTERNATIVES:
+  - Use industry descriptors: "B2B healthcare client"
+  - Reference brand voice generically: "Professional, authoritative tone"
+  - Use approximate timelines: "Launching next quarter"
+  - Share anonymized case results: "Client saw 2x engagement increase"
+  - Describe scope broadly: "Content strategy engagement"
+
+
+=============================================================================
+SECTION 2: STEP-BY-STEP REDACTION PROCESS
+=============================================================================
+
+STEP 1: IDENTIFY SENSITIVE CONTENT
+  - Review all ideation inputs (audience data, research notes, briefs)
+  - Highlight any specific names, numbers, or proprietary details
+  - Flag any content that could identify a client or internal strategy
+  - Check for embedded metadata in documents or screenshots
+
+STEP 2: APPLY CATEGORY-SPECIFIC REPLACEMENTS
+  - Replace all Category A items with anonymized ranges or percentages
+  - Replace all Category B items with generic competitor labels
+  - Replace all Category C items with industry descriptors
+  - Ensure replacements maintain enough context for useful AI output
+
+STEP 3: VERIFY CONTEXT PRESERVATION
+  - Re-read the redacted version to confirm it still makes sense
+  - Ensure AI prompts will still generate relevant ideas with redacted inputs
+  - Check that the strategic intent is preserved without exposing details
+  - Test with a colleague: can they identify the real brand or client?
+
+STEP 4: DOCUMENT REDACTION MAPPING
+  - Create a private mapping file (kept locally, never shared with AI)
+  - Map each placeholder to its real value: "Competitor A = [Real Name]"
+  - Store mapping in a secure, access-controlled location
+  - Update mapping when new items are redacted
+
+STEP 5: FINAL REVIEW AND APPROVAL
+  - Conduct a final read-through of all redacted materials
+  - Confirm no PII, proprietary data, or strategic details remain
+  - Get a second pair of eyes if dealing with highly sensitive content
+  - Approve materials for AI submission or external sharing
+
+
+=============================================================================
+SECTION 3: SCENARIO-SPECIFIC REDACTION
+=============================================================================
+
+SCENARIO 1: BRAINSTORMING WITH AI TOOLS
+  Before submitting audience data to AI for idea generation:
+  - Remove all specific analytics numbers
+  - Replace brand names with generic descriptors
+  - Anonymize any customer quotes or feedback
+  - Use industry-level trends instead of proprietary insights
+
+  Example Before:
+    "Our Acme Corp blog gets 45,230 monthly visitors. Top post 'How Acme
+    Widgets Save Time' got 12,400 views. CEO Jane Smith wants more content
+    about enterprise widget deployment."
+
+  Example After:
+    "Our B2B technology blog gets 40K-50K monthly visitors. Top post about
+    product time-savings got 10K-15K views. Leadership wants more content
+    about enterprise deployment use cases."
+
+
+SCENARIO 2: SHARING IDEA LISTS WITH EXTERNAL COLLABORATORS
+  Before sharing ideation outputs with freelancers or partners:
+  - Remove internal scoring rationale that references strategy
+  - Strip any notes about competitive positioning
+  - Anonymize client-specific requirements
+  - Remove internal deadlines tied to unreleased products
+
+  Example Before:
+    "Idea #3: Write comparison post beating Competitor X's SEO guide.
+    Priority: High because Client Y's contract renewal depends on organic
+    traffic growth by March 15. Budget: $2,400."
+
+  Example After:
+    "Idea #3: Write comprehensive SEO comparison guide in our niche.
+    Priority: High based on audience demand for this topic. Budget:
+    Standard rate for long-form content."
+
+
+=============================================================================
+SECTION 4: VERIFICATION CHECKLIST
+=============================================================================
+
+Before submitting any content ideation materials externally:
+
+  [ ] All specific audience metrics replaced with ranges
+  [ ] No real competitor names appear in the document
+  [ ] No client names, project names, or codenames present
+  [ ] Internal strategic priorities are generalized
+  [ ] No PII (names, emails, phone numbers) from audience data
+  [ ] No proprietary frameworks or methodologies named
+  [ ] Embedded metadata stripped from any attached files
+  [ ] Redaction mapping stored securely and separately
+  [ ] Document reviewed by a second person (for sensitive materials)
+  [ ] Content still provides enough context for its intended purpose
