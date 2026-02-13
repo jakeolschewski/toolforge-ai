@@ -1,10 +1,10 @@
 // Workflow Vault API - Generate Secure Download Links
 
 import { NextRequest, NextResponse } from 'next/server';
+import { randomBytes } from 'crypto';
 import { supabaseAdmin } from '@/lib/supabase';
 import type { ApiResponse } from '@/types';
 
-export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
 
 export async function POST(request: NextRequest) {
@@ -235,10 +235,5 @@ export async function GET(request: NextRequest) {
 }
 
 function generateDownloadToken(): string {
-  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  let token = '';
-  for (let i = 0; i < 32; i++) {
-    token += chars.charAt(Math.floor(Math.random() * chars.length));
-  }
-  return token;
+  return randomBytes(32).toString('hex');
 }

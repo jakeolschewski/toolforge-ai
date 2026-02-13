@@ -124,7 +124,7 @@ export async function checkWorkflowAccess(
     hasAccess: true,
     accessTier: purchase.purchase_type as AccessTier,
     expiresAt: purchase.access_expires_at ? new Date(purchase.access_expires_at) : null,
-    canDownload,
+    canDownload: !!canDownload,
     downloadLimit: purchase.download_limit,
     downloadsRemaining,
     purchaseId: purchase.id,

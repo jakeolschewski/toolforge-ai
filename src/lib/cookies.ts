@@ -3,6 +3,24 @@
  * GDPR and CCPA compliant cookie consent handling
  */
 
+/**
+ * Get a cookie value by name
+ */
+export function getCookie(name: string): string | null {
+  if (typeof document === 'undefined') return null;
+  const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+  return match ? decodeURIComponent(match[2]) : null;
+}
+
+/**
+ * Set a cookie with a name, value, and optional expiry in days
+ */
+export function setCookie(name: string, value: string, days: number = 365): void {
+  if (typeof document === 'undefined') return;
+  const expires = new Date(Date.now() + days * 864e5).toUTCString();
+  document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/; SameSite=Lax`;
+}
+
 export type CookiePreferences = {
   essential: boolean;
   analytics: boolean;

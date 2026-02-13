@@ -1,10 +1,14 @@
 // Membership API - Get Membership Status
 
 import { NextRequest, NextResponse } from 'next/server';
+import Stripe from 'stripe';
 import { supabaseAdmin } from '@/lib/supabase';
 import type { ApiResponse, VaultMembership } from '@/types';
 
-export const runtime = 'edge';
+function getStripe() {
+  return new Stripe(process.env.STRIPE_SECRET_KEY!);
+}
+
 export const dynamic = 'force-dynamic';
 
 export async function GET(request: NextRequest) {
@@ -141,13 +145,12 @@ export async function DELETE(request: NextRequest) {
       );
     }
 
-    // In production, cancel Stripe subscription
+    // Cancel Stripe subscription at period end
     if (process.env.STRIPE_SECRET_KEY && membership.stripe_subscription_id) {
-      // TODO: Cancel Stripe subscription
-      // const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-      // await stripe.subscriptions.update(membership.stripe_subscription_id, {
-      //   cancel_at_period_end: true,
-      // });
+      const stripe = getStripe();
+      await stripe.subscriptions.update(membership.stripe_subscription_id, {
+        cancel_at_period_end: true,
+      });
     }
 
     // Update membership to cancel at period end

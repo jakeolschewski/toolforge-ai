@@ -4,7 +4,6 @@ import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabase';
 import type { ApiResponse, VaultFavorite } from '@/types';
 
-export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
 
 // Get user's favorite workflows

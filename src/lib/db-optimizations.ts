@@ -189,8 +189,8 @@ export async function incrementToolViews(toolId: string) {
   // Fire and forget - don't block the request
   supabaseAdmin
     .rpc('increment_tool_views', { tool_id: toolId })
-    .catch((error) => {
-      console.error('Failed to increment views:', error);
+    .then(({ error }: any) => {
+      if (error) console.error('Failed to increment views:', error);
     });
 }
 

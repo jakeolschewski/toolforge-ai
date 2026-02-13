@@ -151,10 +151,10 @@ export default async function SuccessPage({ searchParams }: PageProps) {
           </p>
           <div className="flex items-center justify-center gap-4">
             <Link
-              href="/docs/quick-start"
+              href="/vault/my-vault"
               className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-medium"
             >
-              View Quick Start Guide
+              Go to My Vault
               <ArrowRight className="w-4 h-4" />
             </Link>
             <span className="text-gray-400">•</span>

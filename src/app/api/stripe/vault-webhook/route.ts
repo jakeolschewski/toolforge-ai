@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { supabaseAdmin } from '@/lib/supabase';
-import { sendPurchaseConfirmationEmail, sendMembershipWelcomeEmail } from '@/lib/email';
+import { sendPurchaseConfirmationEmail, sendMembershipWelcomeEmail } from '@/lib/email/vault-emails';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2024-12-18.acacia',
-});
+function getStripe() {
+  return new Stripe(process.env.STRIPE_SECRET_KEY!);
+}
 
 export async function POST(request: NextRequest) {
   const body = await request.text();
@@ -21,7 +21,7 @@ export async function POST(request: NextRequest) {
   let event: Stripe.Event;
 
   try {
-    event = stripe.webhooks.constructEvent(
+    event = getStripe().webhooks.constructEvent(
       body,
       signature,
       process.env.STRIPE_VAULT_WEBHOOK_SECRET!
@@ -53,23 +53,17 @@ export async function POST(request: NextRequest) {
 
           // Create purchase record
           const { data: purchase, error: purchaseError } = await supabaseAdmin
-            .from('workflow_purchases')
+            .from('vault_purchases')
             .insert({
               user_id: userId,
               workflow_id: workflowId,
-              purchase_type: pricingTier,
-              price_paid: (session.amount_total || 0) / 100,
+              amount: (session.amount_total || 0) / 100,
               currency: session.currency?.toUpperCase() || 'USD',
               stripe_payment_intent_id: session.payment_intent as string,
               stripe_customer_id: session.customer as string,
               payment_status: 'completed',
               access_granted: true,
-              receives_updates: pricingTier === 'with_updates',
-              updates_until:
-                pricingTier === 'with_updates'
-                  ? new Date(Date.now() + 365 * 24 * 60 * 60 * 1000) // 1 year
-                  : null,
-              purchased_at: new Date(),
+              purchased_at: new Date().toISOString(),
             })
             .select()
             .single();
@@ -100,19 +94,15 @@ export async function POST(request: NextRequest) {
 
           // Create/update membership record
           const { error: membershipError } = await supabaseAdmin
-            .from('memberships')
+            .from('vault_memberships')
             .upsert({
               user_id: userId,
-              plan_type: planType,
+              plan: planType === 'annual' ? 'yearly' : 'monthly',
               status: 'active',
               stripe_subscription_id: session.subscription as string,
               stripe_customer_id: session.customer as string,
-              billing_cycle: planType === 'annual' ? 'annual' : 'monthly',
-              all_workflows_access: true,
-              priority_support: true,
-              early_access: true,
-              joined_at: new Date(),
-            });
+              created_at: new Date().toISOString(),
+            }, { onConflict: 'user_id' });
 
           if (membershipError) {
             console.error('Error creating membership:', membershipError);
@@ -131,11 +121,12 @@ export async function POST(request: NextRequest) {
         const subscription = event.data.object as Stripe.Subscription;
 
         await supabaseAdmin
-          .from('memberships')
+          .from('vault_memberships')
           .update({
             status: subscription.status === 'active' ? 'active' : 'inactive',
-            current_period_start: new Date(subscription.current_period_start * 1000),
-            current_period_end: new Date(subscription.current_period_end * 1000),
+            current_period_start: new Date(subscription.current_period_start * 1000).toISOString(),
+            current_period_end: new Date(subscription.current_period_end * 1000).toISOString(),
+            cancel_at_period_end: subscription.cancel_at_period_end,
           })
           .eq('stripe_subscription_id', subscription.id);
 
@@ -147,11 +138,10 @@ export async function POST(request: NextRequest) {
         const subscription = event.data.object as Stripe.Subscription;
 
         await supabaseAdmin
-          .from('memberships')
+          .from('vault_memberships')
           .update({
             status: 'cancelled',
-            cancelled_at: new Date(),
-            all_workflows_access: false,
+            cancelled_at: new Date().toISOString(),
           })
           .eq('stripe_subscription_id', subscription.id);
 
@@ -164,7 +154,7 @@ export async function POST(request: NextRequest) {
 
         // Update purchase status
         await supabaseAdmin
-          .from('workflow_purchases')
+          .from('vault_purchases')
           .update({
             payment_status: 'completed',
           })
@@ -178,7 +168,7 @@ export async function POST(request: NextRequest) {
         const paymentIntent = event.data.object as Stripe.PaymentIntent;
 
         await supabaseAdmin
-          .from('workflow_purchases')
+          .from('vault_purchases')
           .update({
             payment_status: 'failed',
           })
@@ -192,7 +182,7 @@ export async function POST(request: NextRequest) {
         const charge = event.data.object as Stripe.Charge;
 
         await supabaseAdmin
-          .from('workflow_purchases')
+          .from('vault_purchases')
           .update({
             payment_status: 'refunded',
             access_granted: false,

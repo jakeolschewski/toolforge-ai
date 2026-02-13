@@ -7,11 +7,12 @@ import type { Tool, BlogPost, Category } from '@/types';
  * Generate compelling meta description for tool pages
  */
 export function generateToolMetaDescription(tool: Tool): string {
+  const tagline = tool.tagline || tool.description.slice(0, 80);
   const templates = [
-    `Discover ${tool.name} - ${tool.tagline}. Read our comprehensive review, compare pricing, and explore key features of this ${tool.category} AI tool.`,
-    `${tool.name} review: ${tool.tagline}. Learn about pricing, features, pros & cons. ${tool.rating > 4 ? 'Highly rated' : 'Detailed analysis'} of this ${tool.category} tool.`,
-    `Looking for ${tool.category} solutions? Explore ${tool.name} - ${tool.tagline}. Compare features, pricing (${tool.pricing_model}), and user reviews.`,
-    `${tool.name} - The ${tool.category} tool that ${tool.tagline.toLowerCase()}. Get pricing info, feature breakdown, and expert review.`,
+    `Discover ${tool.name} - ${tagline}. Read our comprehensive review, compare pricing, and explore key features of this ${tool.category} AI tool.`,
+    `${tool.name} review: ${tagline}. Learn about pricing, features, pros & cons. ${tool.rating > 4 ? 'Highly rated' : 'Detailed analysis'} of this ${tool.category} tool.`,
+    `Looking for ${tool.category} solutions? Explore ${tool.name} - ${tagline}. Compare features, pricing (${tool.pricing_model}), and user reviews.`,
+    `${tool.name} - The ${tool.category} tool that ${tagline.toLowerCase()}. Get pricing info, feature breakdown, and expert review.`,
   ];
 
   // Select template based on available data

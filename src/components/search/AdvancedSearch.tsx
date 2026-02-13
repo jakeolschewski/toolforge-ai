@@ -61,7 +61,7 @@ export default function AdvancedSearch({ isOpen, onClose }: AdvancedSearchProps)
   const [showFilters, setShowFilters] = useState(false);
   const [resultCount, setResultCount] = useState(0);
   const searchInputRef = useRef<HTMLInputElement>(null);
-  const debounceTimer = useRef<NodeJS.Timeout>();
+  const debounceTimer = useRef<NodeJS.Timeout>(undefined);
 
   // Focus input when modal opens
   useEffect(() => {

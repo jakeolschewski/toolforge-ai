@@ -87,10 +87,10 @@ export default async function WelcomePage({ searchParams }: PageProps) {
                   Import the workflow into your AI tool and customize it to fit your specific needs.
                 </p>
                 <Link
-                  href="/docs/importing-workflows"
+                  href="/vault"
                   className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-medium"
                 >
-                  Read Import Guide
+                  Browse Workflows
                   <BookOpen className="w-4 h-4" />
                 </Link>
               </div>
@@ -106,10 +106,10 @@ export default async function WelcomePage({ searchParams }: PageProps) {
                   Connect with other members, share tips, and get help from our community.
                 </p>
                 <Link
-                  href="/community"
+                  href="/contact"
                   className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-medium"
                 >
-                  Join Community
+                  Get in Touch
                   <Users className="w-4 h-4" />
                 </Link>
               </div>
@@ -190,15 +190,15 @@ export default async function WelcomePage({ searchParams }: PageProps) {
         {/* Helpful Resources */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <Link
-            href="/docs/getting-started"
+            href="/vault?sortBy=newest"
             className="bg-white rounded-lg border border-gray-200 p-6 hover:border-primary-500 hover:shadow-md transition-all group"
           >
             <BookOpen className="w-8 h-8 text-primary-600 mb-3" />
             <h3 className="font-bold text-gray-900 mb-2 group-hover:text-primary-600">
-              Documentation
+              New Workflows
             </h3>
             <p className="text-sm text-gray-600">
-              Learn how to get the most out of your workflows
+              Check out our latest workflow releases
             </p>
           </Link>
 

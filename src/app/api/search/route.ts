@@ -22,7 +22,7 @@ export async function GET(request: NextRequest) {
 
   try {
     // Check cache for non-paginated searches
-    const cacheKey = createCacheKey({ query, category, pricing, sortBy });
+    const cacheKey = createCacheKey({ query, category: category || undefined, pricing: pricing || undefined, sortBy });
     let allTools: Tool[] | null = null;
 
     if (page === 1 && !suggestions) {

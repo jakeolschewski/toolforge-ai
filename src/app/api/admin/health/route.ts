@@ -1,31 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@supabase/supabase-js';
+import { supabaseAdmin } from '@/lib/supabase';
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
-
-// Verify admin token
-function verifyAdmin(request: NextRequest): boolean {
-  const authHeader = request.headers.get('authorization');
-  if (!authHeader?.startsWith('Bearer ')) {
-    return false;
-  }
-
-  const token = authHeader.substring(7);
-  return token === process.env.ADMIN_TOKEN;
-}
+// Middleware already handles admin auth for /api/admin/* routes
+const supabase = supabaseAdmin;
 
 export async function GET(request: NextRequest) {
   try {
-    // Verify admin
-    if (!verifyAdmin(request)) {
-      return NextResponse.json(
-        { success: false, error: 'Unauthorized' },
-        { status: 401 }
-      );
-    }
 
     const healthData = {
       database: await checkDatabase(),

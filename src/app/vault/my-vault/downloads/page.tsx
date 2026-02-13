@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
+import { redirect } from 'next/navigation';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { supabase } from '@/lib/supabase';
+import { auth } from '@/lib/auth';
 import { Download, Calendar, FileText, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 
@@ -9,9 +11,6 @@ export const metadata: Metadata = {
   title: 'Download History - My Vault',
   description: 'View your complete workflow download history.',
 };
-
-// In production, get this from auth session
-const MOCK_USER_ID = 'mock-user-id';
 
 interface DownloadHistoryItem {
   id: string;
@@ -52,7 +51,13 @@ async function getDownloadHistory(userId: string): Promise<DownloadHistoryItem[]
 }
 
 export default async function DownloadHistoryPage() {
-  const userId = MOCK_USER_ID; // Replace with actual auth
+  const session = await auth();
+
+  if (!session?.user?.id) {
+    redirect('/auth/signin?callbackUrl=/vault/my-vault/downloads');
+  }
+
+  const userId = session.user.id;
   const downloads = await getDownloadHistory(userId);
 
   // Group downloads by date

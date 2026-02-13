@@ -5,7 +5,24 @@
 
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+let _resend: Resend | null = null;
+function getResend(): Resend {
+  if (!_resend) {
+    if (!process.env.RESEND_API_KEY) {
+      // Return a mock that logs instead of sending
+      return {
+        emails: {
+          send: async (opts: any) => {
+            console.log('[DEV] Vault email would be sent:', opts.subject, 'to:', opts.to);
+            return { data: { id: 'dev-mock' }, error: null };
+          },
+        },
+      } as any;
+    }
+    _resend = new Resend(process.env.RESEND_API_KEY);
+  }
+  return _resend;
+}
 
 const FROM_EMAIL = process.env.WORKFLOW_NOTIFICATIONS_EMAIL || 'notifications@toolforge.ai';
 const SUPPORT_EMAIL = process.env.WORKFLOW_SUPPORT_EMAIL || 'support@toolforge.ai';
@@ -30,8 +47,8 @@ export async function sendPurchaseConfirmationEmail(
       .single();
 
     const { data: workflow } = await supabaseAdmin
-      .from('workflows')
-      .select('name, slug, description')
+      .from('vault_workflows')
+      .select('title, slug, description')
       .eq('id', workflowId)
       .single();
 
@@ -41,10 +58,10 @@ export async function sendPurchaseConfirmationEmail(
 
     const downloadUrl = `${APP_URL}/vault/my-vault?purchase=${purchaseId}`;
 
-    await resend.emails.send({
+    await getResend().emails.send({
       from: FROM_EMAIL,
       to: user.email,
-      subject: `Your ${workflow.name} Workflow is Ready! 🚀`,
+      subject: `Your ${workflow.title} Workflow is Ready! 🚀`,
       html: `
         <!DOCTYPE html>
         <html>
@@ -72,7 +89,7 @@ export async function sendPurchaseConfirmationEmail(
               <div class="content">
                 <p>Hi ${user.name || 'there'},</p>
 
-                <p>Thank you for purchasing <strong>${workflow.name}</strong>! Your workflow package is ready and waiting for you.</p>
+                <p>Thank you for purchasing <strong>${workflow.title}</strong>! Your workflow package is ready and waiting for you.</p>
 
                 <div class="highlight">
                   <h3 style="margin-top: 0;">📦 What's Included:</h3>
@@ -159,7 +176,7 @@ export async function sendMembershipWelcomeEmail(
 
     const vaultUrl = `${APP_URL}/vault`;
 
-    await resend.emails.send({
+    await getResend().emails.send({
       from: FROM_EMAIL,
       to: user.email,
       subject: `Welcome to Workflow Vault Membership! 🎉`,
@@ -271,7 +288,7 @@ export async function sendDownloadReadyEmail(
   workflowName: string,
   downloadUrl: string
 ): Promise<void> {
-  await resend.emails.send({
+  await getResend().emails.send({
     from: FROM_EMAIL,
     to: email,
     subject: `Your ${workflowName} download is ready`,

@@ -152,7 +152,7 @@ export default function WorkflowCard({
           )}
           <div className="flex items-center gap-1">
             <Download className="w-4 h-4" />
-            <span>{workflow.downloads.toLocaleString()}</span>
+            <span>{(workflow.downloads || 0).toLocaleString()}</span>
           </div>
           {workflow.estimated_time && (
             <div className="flex items-center gap-1">

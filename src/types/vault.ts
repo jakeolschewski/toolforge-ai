@@ -325,6 +325,47 @@ export interface Workflow {
   /** Custom metadata */
   metadata?: Record<string, any>;
 
+  // ------------------------------------------------------------------
+  // UI-facing fields (used by components but not in comprehensive type)
+  // These map to DB columns that may use different naming conventions.
+  // ------------------------------------------------------------------
+
+  /** Pricing type label used by UI components */
+  pricing_type?: 'free' | 'premium' | 'members_only';
+
+  /** Category foreign key */
+  category_id?: string;
+
+  /** Denormalized category name for display */
+  category_name?: string;
+
+  /** Author display name (alias for author_name) */
+  author?: string;
+
+  /** Direct file download URL */
+  file_url?: string;
+
+  /** File size in bytes */
+  file_size?: number;
+
+  /** File format/type string */
+  file_type?: string;
+
+  /** Use case descriptions */
+  use_cases?: string[];
+
+  /** Requirement descriptions */
+  requirements?: string[];
+
+  /** SEO/search keywords (alias for seo_keywords) */
+  keywords?: string[];
+
+  /** Download count (alias for download_count) */
+  downloads?: number;
+
+  /** Favorites count (alias for favorite_count) */
+  favorites?: number;
+
   /** Timestamps */
   created_at: string;
   updated_at: string;
@@ -450,6 +491,22 @@ export interface WorkflowPurchase {
   refunded_at?: string;
   refund_amount?: number;
 
+  // UI-facing fields used by admin PurchasesTable
+  /** Purchase date alias */
+  purchase_date?: string;
+
+  /** Denormalized workflow title */
+  workflow_title?: string;
+
+  /** Denormalized workflow slug */
+  workflow_slug?: string;
+
+  /** Payment status label */
+  payment_status?: string;
+
+  /** Whether access has been granted */
+  access_granted?: boolean;
+
   /** Timestamps */
   purchased_at: string;
   created_at: string;
@@ -545,6 +602,13 @@ export interface Membership {
   download_limit?: number;
   has_priority_support: boolean;
   has_early_access: boolean;
+
+  // UI-facing fields for admin members page
+  /** User email (denormalized for display) */
+  user_email?: string;
+
+  /** Plan label (monthly/yearly) */
+  plan?: string;
 
   /** Timestamps */
   created_at: string;

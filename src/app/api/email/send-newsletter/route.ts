@@ -22,7 +22,7 @@ async function getTopToolsOfWeek(limit: number = 5) {
 
   try {
     const { data: tools, error } = await supabaseAdmin
-      .from('Tool')
+      .from('tools')
       .select('id, name, slug, tagline, description, logoUrl, rating, category, pricingModel, affiliateLink, websiteUrl')
       .eq('status', 'published')
       .gte('createdAt', oneWeekAgo.toISOString())

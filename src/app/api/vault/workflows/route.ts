@@ -4,7 +4,6 @@ import { NextRequest, NextResponse } from 'next/server';
 import { supabase, supabaseAdmin } from '@/lib/supabase';
 import type { ApiResponse, PaginatedResponse, VaultWorkflow } from '@/types';
 
-export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
 
 export async function GET(request: NextRequest) {
@@ -56,7 +55,7 @@ export async function GET(request: NextRequest) {
         query = query.order('downloads', { ascending: false });
         break;
       case 'rating':
-        query = query.order('rating', { ascending: false, nullsLast: true });
+        query = query.order('rating', { ascending: false, nullsFirst: false });
         break;
       case 'favorites':
         query = query.order('favorites', { ascending: false });
@@ -65,14 +64,14 @@ export async function GET(request: NextRequest) {
         query = query.order('title', { ascending: true });
         break;
       case 'price-low':
-        query = query.order('price', { ascending: true, nullsLast: true });
+        query = query.order('price', { ascending: true, nullsFirst: false });
         break;
       case 'price-high':
-        query = query.order('price', { ascending: false, nullsLast: true });
+        query = query.order('price', { ascending: false, nullsFirst: false });
         break;
       case 'newest':
       default:
-        query = query.order('published_at', { ascending: false, nullsLast: true });
+        query = query.order('published_at', { ascending: false, nullsFirst: false });
     }
 
     // Pagination

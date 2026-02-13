@@ -203,7 +203,7 @@ export default function VaultWorkflowsPage() {
         <div className="bg-white rounded-lg shadow p-6">
           <div className="text-sm text-gray-600 mb-1">Total Downloads</div>
           <div className="text-3xl font-bold text-blue-600">
-            {workflows.reduce((sum, w) => sum + w.downloads, 0)}
+            {workflows.reduce((sum, w) => sum + (w.downloads || 0), 0)}
           </div>
         </div>
       </div>

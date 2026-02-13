@@ -32,7 +32,7 @@ async function getWorkflows(searchParams: any): Promise<{ workflows: VaultWorkfl
   }
 
   if (searchParams.pricing) {
-    query = query.eq('pricing_type', searchParams.pricing);
+    query = query.eq('pricing_tier', searchParams.pricing);
   }
 
   if (searchParams.difficulty) {
@@ -46,13 +46,13 @@ async function getWorkflows(searchParams: any): Promise<{ workflows: VaultWorkfl
   const sortBy = searchParams.sortBy || 'newest';
   switch (sortBy) {
     case 'rating':
-      query = query.order('rating', { ascending: false, nullsLast: true });
+      query = query.order('rating', { ascending: false });
       break;
     case 'popular':
-      query = query.order('favorites', { ascending: false });
+      query = query.order('favorite_count', { ascending: false });
       break;
     case 'downloads':
-      query = query.order('downloads', { ascending: false });
+      query = query.order('download_count', { ascending: false });
       break;
     case 'name':
       query = query.order('title', { ascending: true });

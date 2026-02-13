@@ -6,7 +6,6 @@ import { supabase, supabaseAdmin } from '@/lib/supabase';
 import { affiliateManager, type AffiliateProgram } from '@/lib/affiliate-manager';
 import type { ApiResponse } from '@/types';
 
-export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
 
 interface TrackClickRequest {

@@ -72,6 +72,7 @@ class RedisCache {
 
   private async initRedis() {
     try {
+      // @ts-ignore - redis is an optional dependency
       const { createClient } = await import('redis');
       this.client = createClient({
         url: process.env.REDIS_URL,

@@ -32,7 +32,7 @@ export async function uploadWorkflowFile(
   const pathname = `workflows/${workflowId}/${fileType}/${filename}`;
 
   const blob = await put(pathname, file, {
-    access: 'private', // Require signed URLs
+    access: 'public', // TODO: use signed URLs for private access
     addRandomSuffix: false,
   });
 
@@ -48,7 +48,7 @@ export async function uploadWorkflowFile(
   return {
     url: blob.url,
     pathname: blob.pathname,
-    size: blob.size,
+    size: (blob as any).size || 0,
     uploadedAt: new Date(),
   };
 }

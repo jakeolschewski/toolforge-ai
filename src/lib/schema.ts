@@ -150,7 +150,7 @@ export function generateCollectionSchema(collection: Collection, tools: Tool[]) 
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: collection.title,
+    name: collection.name,
     description: collection.description,
     url: `${SITE_URL}/collections/${collection.slug}`,
     numberOfItems: tools.length,

@@ -47,7 +47,7 @@ export default function VaultPurchasesPage() {
   const exportToCSV = () => {
     const headers = ['Date', 'Customer Email', 'Workflow', 'Amount', 'Status', 'Payment ID'];
     const rows = filteredPurchases.map((p) => [
-      formatDate(p.purchase_date),
+      formatDate(p.purchase_date || p.purchased_at),
       p.user_email,
       p.workflow_title || 'Unknown',
       `$${p.amount.toFixed(2)}`,
@@ -74,7 +74,7 @@ export default function VaultPurchasesPage() {
 
     let matchesDate = true;
     if (dateFilter !== 'all') {
-      const purchaseDate = new Date(purchase.purchase_date);
+      const purchaseDate = new Date(purchase.purchase_date || purchase.purchased_at);
       const now = new Date();
       const daysAgo = Math.floor((now.getTime() - purchaseDate.getTime()) / (1000 * 60 * 60 * 24));
 

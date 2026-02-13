@@ -205,7 +205,7 @@ export default function SocialShareButtons({
   return (
     <div className={`flex flex-wrap items-center gap-2 ${className}`}>
       {/* Native share on mobile */}
-      {typeof navigator !== 'undefined' && navigator.share && (
+      {typeof navigator !== 'undefined' && typeof navigator.share === 'function' && (
         <button
           onClick={handleNativeShare}
           className="flex items-center gap-2 px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors md:hidden"

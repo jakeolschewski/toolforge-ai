@@ -65,7 +65,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: workflow.seo_title || `${workflow.title} - Workflow Vault`,
     description: workflow.seo_description || workflow.description,
-    keywords: workflow.keywords,
+    keywords: workflow.keywords || workflow.seo_keywords || [],
     openGraph: {
       title: workflow.title,
       description: workflow.description,
@@ -86,8 +86,9 @@ export default async function WorkflowDetailPage({ params }: PageProps) {
   const relatedWorkflows = await getRelatedWorkflows(workflow);
 
   // Mock user access - in production, check actual user authentication and purchases
-  const hasAccess = workflow.pricing_type === 'free';
-  const isPremium = workflow.pricing_type === 'members_only';
+  const pricingType = workflow.pricing_type || (workflow.is_free ? 'free' : 'premium');
+  const hasAccess = pricingType === 'free';
+  const isPremium = pricingType === 'members_only';
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -112,7 +113,7 @@ export default async function WorkflowDetailPage({ params }: PageProps) {
 
               {/* Badges */}
               <div className="flex items-center gap-3 flex-wrap mb-6">
-                <PricingTypeBadge type={workflow.pricing_type} price={workflow.price} />
+                <PricingTypeBadge type={pricingType as any} price={workflow.price} />
                 {workflow.difficulty_level && (
                   <Badge variant={
                     workflow.difficulty_level === 'beginner' ? 'success' :
@@ -135,7 +136,7 @@ export default async function WorkflowDetailPage({ params }: PageProps) {
                   <Download className="w-5 h-5" />
                   <div>
                     <div className="text-sm text-gray-500">Downloads</div>
-                    <div className="font-semibold text-gray-900">{workflow.downloads.toLocaleString()}</div>
+                    <div className="font-semibold text-gray-900">{(workflow.downloads || 0).toLocaleString()}</div>
                   </div>
                 </div>
                 {workflow.rating && workflow.rating > 0 && (
@@ -153,7 +154,7 @@ export default async function WorkflowDetailPage({ params }: PageProps) {
                   <Heart className="w-5 h-5" />
                   <div>
                     <div className="text-sm text-gray-500">Favorites</div>
-                    <div className="font-semibold text-gray-900">{workflow.favorites.toLocaleString()}</div>
+                    <div className="font-semibold text-gray-900">{(workflow.favorites || 0).toLocaleString()}</div>
                   </div>
                 </div>
                 {workflow.estimated_time && (
@@ -252,12 +253,12 @@ export default async function WorkflowDetailPage({ params }: PageProps) {
               {/* Download Card */}
               <div className="bg-white rounded-lg border border-gray-200 p-6">
                 <div className="text-center mb-6">
-                  {workflow.pricing_type === 'free' ? (
+                  {pricingType === 'free' ? (
                     <div>
                       <div className="text-4xl font-bold text-green-600 mb-2">Free</div>
                       <p className="text-gray-600">No payment required</p>
                     </div>
-                  ) : workflow.pricing_type === 'members_only' ? (
+                  ) : pricingType === 'members_only' ? (
                     <div>
                       <div className="text-2xl font-bold text-gray-900 mb-2">Members Only</div>
                       <p className="text-gray-600">Requires active membership</p>

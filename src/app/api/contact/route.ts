@@ -3,6 +3,15 @@ import { z } from 'zod';
 import { sendEmail } from '@/lib/email';
 import { supabaseAdmin } from '@/lib/supabase';
 
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
 // Validation schema
 const contactSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -36,13 +45,13 @@ export async function POST(request: NextRequest) {
       subject: `[${validatedData.category}] ${validatedData.subject}`,
       html: `
         <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${validatedData.name}</p>
-        <p><strong>Email:</strong> ${validatedData.email}</p>
-        <p><strong>Category:</strong> ${validatedData.category}</p>
-        <p><strong>Subject:</strong> ${validatedData.subject}</p>
+        <p><strong>Name:</strong> ${escapeHtml(validatedData.name)}</p>
+        <p><strong>Email:</strong> ${escapeHtml(validatedData.email)}</p>
+        <p><strong>Category:</strong> ${escapeHtml(validatedData.category)}</p>
+        <p><strong>Subject:</strong> ${escapeHtml(validatedData.subject)}</p>
         <hr>
         <p><strong>Message:</strong></p>
-        <p>${validatedData.message.replace(/\n/g, '<br>')}</p>
+        <p>${escapeHtml(validatedData.message).replace(/\n/g, '<br>')}</p>
       `,
       text: `New Contact Form Submission\n\nName: ${validatedData.name}\nEmail: ${validatedData.email}\nCategory: ${validatedData.category}\nSubject: ${validatedData.subject}\n\nMessage:\n${validatedData.message}`,
     });

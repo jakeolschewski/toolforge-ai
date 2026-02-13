@@ -18,7 +18,7 @@ const nextConfig: NextConfig = {
   compress: true,
 
   // Output optimization
-  output: process.env.NEXT_OUTPUT || undefined,
+  output: (process.env.NEXT_OUTPUT as 'standalone' | 'export') || undefined,
 
   // Image optimization
   images: {

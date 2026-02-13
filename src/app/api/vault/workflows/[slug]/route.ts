@@ -4,7 +4,6 @@ import { NextRequest, NextResponse } from 'next/server';
 import { supabase, supabaseAdmin } from '@/lib/supabase';
 import type { ApiResponse, VaultWorkflow } from '@/types';
 
-export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
 
 export async function GET(
@@ -36,12 +35,19 @@ export async function GET(
       vault_categories: undefined,
     } as VaultWorkflow;
 
-    // Increment download count (fire and forget)
-    supabaseAdmin
-      .from('vault_workflows')
-      .update({ downloads: (workflow.downloads || 0) + 1 })
-      .eq('id', workflow.id)
-      .then(() => {}, console.error);
+    // Increment view count (fire and forget)
+    supabaseAdmin.rpc('increment_counter', {
+      row_id: workflow.id,
+      table_name: 'vault_workflows',
+      column_name: 'view_count',
+    }).then(() => {}, () => {
+      // Fallback: direct update if RPC doesn't exist
+      supabaseAdmin
+        .from('vault_workflows')
+        .update({ view_count: (workflow.view_count || 0) + 1 })
+        .eq('id', workflow.id)
+        .then(() => {}, console.error);
+    });
 
     return NextResponse.json<ApiResponse>(
       {

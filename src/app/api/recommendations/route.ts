@@ -144,8 +144,8 @@ export async function POST(request: NextRequest) {
     console.error('Recommendation tracking error:', error);
 
     return NextResponse.json<ApiResponse>({
-      success: true, // Don't fail the request
-      message: 'Processed'
+      success: false,
+      message: 'Tracking failed'
     });
   }
 }

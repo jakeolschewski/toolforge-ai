@@ -47,14 +47,14 @@ export const authConfig: NextAuthConfig = {
     async session({ session, user }) {
       if (session.user) {
         session.user.id = user.id;
-        session.user.role = user.role || 'user';
+        (session.user as any).role = (user as any).role || 'user';
       }
       return session;
     },
-    async jwt({ token, user, account }) {
+    async jwt({ token, user }) {
       if (user) {
         token.id = user.id;
-        token.role = user.role || 'user';
+        (token as any).role = (user as any).role || 'user';
       }
       return token;
     },

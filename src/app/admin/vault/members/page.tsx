@@ -45,7 +45,7 @@ export default function VaultMembersPage() {
 
   const filteredMemberships = memberships.filter((membership) => {
     const matchesSearch =
-      membership.user_email.toLowerCase().includes(searchQuery.toLowerCase());
+      (membership.user_email || '').toLowerCase().includes(searchQuery.toLowerCase());
 
     const matchesStatus =
       statusFilter === 'all' || membership.status === statusFilter;
@@ -57,7 +57,7 @@ export default function VaultMembersPage() {
   });
 
   const activeCount = memberships.filter((m) => m.status === 'active').length;
-  const canceledCount = memberships.filter((m) => m.status === 'canceled').length;
+  const canceledCount = memberships.filter((m) => m.status === 'cancelled').length;
   const monthlyCount = memberships.filter((m) => m.plan === 'monthly' && m.status === 'active').length;
   const yearlyCount = memberships.filter((m) => m.plan === 'yearly' && m.status === 'active').length;
 
@@ -239,7 +239,7 @@ export default function VaultMembersPage() {
                           className={`px-2 py-1 text-xs font-medium rounded ${
                             membership.status === 'active'
                               ? 'bg-green-100 text-green-700'
-                              : membership.status === 'canceled'
+                              : membership.status === 'cancelled'
                               ? 'bg-red-100 text-red-700'
                               : membership.status === 'past_due'
                               ? 'bg-yellow-100 text-yellow-700'

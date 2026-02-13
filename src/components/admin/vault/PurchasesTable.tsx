@@ -91,7 +91,7 @@ export default function PurchasesTable({ purchases, onRefresh }: PurchasesTableP
               {purchases.map((purchase) => (
                 <tr key={purchase.id} className="hover:bg-gray-50">
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                    {formatDate(purchase.purchase_date)}
+                    {formatDate(purchase.purchase_date || purchase.purchased_at)}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="text-sm font-medium text-gray-900">

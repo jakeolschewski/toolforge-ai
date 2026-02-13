@@ -70,7 +70,7 @@ Not legal, financial, medical, or professional advice. Consult licensed professi
 ${workflow.workflow.objective}
 
 **Target Audience**: ${workflow.workflow.targetAudience}
-**Estimated Time**: ${workflow.workflow.time}
+**Estimated Time**: ${workflow.workflow.estimatedTime}
 **Difficulty**: ${workflow.workflow.difficulty}
 
 ## SUCCESS EVIDENCE (E)
