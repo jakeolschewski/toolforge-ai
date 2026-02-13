@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { Download, Loader2, Lock } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import toast from 'react-hot-toast';
@@ -12,6 +13,7 @@ export interface DownloadButtonProps {
   hasAccess: boolean;
   isPremium: boolean;
   fileUrl?: string;
+  price?: number;
   requiresAuth?: boolean;
   className?: string;
 }
@@ -23,10 +25,14 @@ export default function DownloadButton({
   hasAccess,
   isPremium,
   fileUrl,
+  price,
   requiresAuth = false,
   className = ''
 }: DownloadButtonProps) {
   const [isDownloading, setIsDownloading] = useState(false);
+  const [termsAccepted, setTermsAccepted] = useState(false);
+
+  const isPaidWorkflow = !hasAccess && !isPremium && price && price > 0;
 
   const handleDownload = async () => {
     if (!hasAccess) {
@@ -90,15 +96,42 @@ export default function DownloadButton({
 
   if (!hasAccess) {
     return (
-      <Button
-        variant="outline"
-        size="lg"
-        className={className}
-        onClick={handleDownload}
-      >
-        <Lock className="w-4 h-4 mr-2" />
-        {isPremium ? 'Membership Required' : 'Purchase to Download'}
-      </Button>
+      <div className={className}>
+        {isPaidWorkflow && (
+          <label className="flex items-start gap-2 mb-3 cursor-pointer text-sm text-gray-600">
+            <input
+              type="checkbox"
+              checked={termsAccepted}
+              onChange={(e) => setTermsAccepted(e.target.checked)}
+              className="mt-0.5 rounded border-gray-300 text-primary-600 focus:ring-primary-500"
+            />
+            <span>
+              I agree to the{' '}
+              <Link href="/terms" className="text-primary-600 hover:text-primary-700 underline" target="_blank">
+                Terms of Service
+              </Link>
+              ,{' '}
+              <Link href="/refund-policy" className="text-primary-600 hover:text-primary-700 underline" target="_blank">
+                Refund Policy
+              </Link>
+              , and{' '}
+              <Link href="/privacy" className="text-primary-600 hover:text-primary-700 underline" target="_blank">
+                Privacy Policy
+              </Link>
+            </span>
+          </label>
+        )}
+        <Button
+          variant="outline"
+          size="lg"
+          className="w-full"
+          onClick={handleDownload}
+          disabled={isPaidWorkflow ? !termsAccepted : false}
+        >
+          <Lock className="w-4 h-4 mr-2" />
+          {isPremium ? 'Membership Required' : 'Purchase to Download'}
+        </Button>
+      </div>
     );
   }
 

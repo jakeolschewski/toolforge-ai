@@ -32,11 +32,18 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json();
-    const { workflow_id } = body;
+    const { workflow_id, terms_accepted } = body;
 
     if (!workflow_id) {
       return NextResponse.json<ApiResponse>(
         { success: false, error: 'Missing workflow_id' },
+        { status: 400 }
+      );
+    }
+
+    if (terms_accepted !== true) {
+      return NextResponse.json<ApiResponse>(
+        { success: false, error: 'You must accept the Terms of Service, Refund Policy, and Privacy Policy to proceed' },
         { status: 400 }
       );
     }
@@ -104,7 +111,7 @@ export async function POST(request: NextRequest) {
               name: workflow.title,
               description: workflow.description?.substring(0, 500),
             },
-            unit_amount: Math.round(workflow.price * 100),
+            unit_amount: workflow.price, // price is already stored in cents
           },
           quantity: 1,
         },

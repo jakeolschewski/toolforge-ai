@@ -1,5 +1,6 @@
 import { Check, Lock, Crown, Sparkles } from 'lucide-react';
 import Badge from '@/components/ui/Badge';
+import { formatPrice } from '@/lib/vault/constants';
 
 export interface AccessBadgeProps {
   hasAccess: boolean;
@@ -115,7 +116,7 @@ export function PricingTypeBadge({
   }
 
   if (price) {
-    return <Badge variant="primary" size="sm">${price}</Badge>;
+    return <Badge variant="primary" size="sm">{formatPrice(price)}</Badge>;
   }
 
   return <Badge variant="primary" size="sm">Premium</Badge>;

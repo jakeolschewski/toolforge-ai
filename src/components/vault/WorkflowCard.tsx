@@ -4,6 +4,7 @@ import type { VaultWorkflow } from '@/types';
 import { Card, CardContent, CardFooter } from '@/components/ui/Card';
 import Badge from '@/components/ui/Badge';
 import { truncate } from '@/utils/helpers';
+import { formatPrice } from '@/lib/vault/constants';
 
 export interface WorkflowCardProps {
   workflow: VaultWorkflow;
@@ -41,7 +42,7 @@ export default function WorkflowCard({
     } else if (workflow.pricing_type === 'members_only') {
       return <Badge variant="secondary" size="sm">Members Only</Badge>;
     } else if (workflow.price) {
-      return <Badge variant="primary" size="sm">${workflow.price}</Badge>;
+      return <Badge variant="primary" size="sm">{formatPrice(workflow.price)}</Badge>;
     }
     return null;
   };

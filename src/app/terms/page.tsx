@@ -16,7 +16,7 @@ export default function TermsPage() {
     <LegalLayout
       title="Terms of Service"
       description="Please read these Terms of Service carefully before using ToolForge AI. By accessing or using our service, you agree to be bound by these terms."
-      lastUpdated="February 11, 2026"
+      lastUpdated="February 13, 2026"
     >
       {/* Table of Contents */}
       <div className="not-prose bg-gray-50 rounded-lg p-6 mb-8 border border-gray-200">
@@ -44,7 +44,7 @@ export default function TermsPage() {
             7. Prohibited Conduct
           </a>
           <a href="#payments" className="block text-primary-600 hover:text-primary-700">
-            8. Payments and Subscriptions
+            8. Payments, Subscriptions &amp; Digital Products
           </a>
           <a href="#affiliate" className="block text-primary-600 hover:text-primary-700">
             9. Affiliate Links
@@ -311,12 +311,13 @@ export default function TermsPage() {
 
       {/* 8. Payments */}
       <section id="payments" className="mb-8">
-        <h2>8. Payments and Subscriptions</h2>
+        <h2>8. Payments, Subscriptions &amp; Digital Products</h2>
 
         <h3>8.1 Pricing</h3>
         <p>
-          Pricing for premium features and subscriptions is displayed on our website. All prices are
-          in US Dollars unless otherwise specified and are subject to change with notice.
+          Pricing for premium features, subscriptions, and digital products is displayed on our
+          website. All prices are in US Dollars unless otherwise specified and are subject to change
+          with notice.
         </p>
 
         <h3>8.2 Payment Processing</h3>
@@ -338,12 +339,72 @@ export default function TermsPage() {
 
         <h3>8.4 Refund Policy</h3>
         <p>
-          We offer refunds within 14 days of purchase for annual subscriptions if you are not
-          satisfied with the Service. Monthly subscriptions are non-refundable. To request a refund,
-          contact <a href="mailto:support@toolforge.ai">support@toolforge.ai</a>.
+          We offer refunds under the following conditions. For full details, see our{' '}
+          <Link href="/refund-policy">Refund Policy</Link>.
+        </p>
+        <ul>
+          <li>
+            <strong>Annual Subscriptions:</strong> 14-day refund window from date of purchase
+          </li>
+          <li>
+            <strong>Monthly Subscriptions:</strong> Non-refundable
+          </li>
+          <li>
+            <strong>Workflow Purchases:</strong> 14-day refund window from date of purchase.
+            Contact <a href="mailto:support@toolforge.ai">support@toolforge.ai</a> with your order
+            details within 14 days
+          </li>
+          <li>
+            <strong>Free Workflows:</strong> No purchase to refund
+          </li>
+        </ul>
+        <p>
+          No refunds will be issued after the 14-day window has expired. All refund requests are
+          subject to review.
         </p>
 
-        <h3>8.5 Taxes</h3>
+        <h3>8.5 Workflow Vault &amp; Digital Products</h3>
+        <p>
+          The Workflow Vault provides downloadable AI workflow templates and digital products
+          ("Workflows"). By purchasing or downloading Workflows, you agree to the following:
+        </p>
+
+        <h4>8.5.1 Nature of Workflows</h4>
+        <ul>
+          <li>All Workflows are educational materials and templates provided "as-is"</li>
+          <li>
+            Workflows do not constitute professional, financial, legal, medical, or security advice
+          </li>
+          <li>
+            No guaranteed results — outcomes depend entirely on your effort, implementation, and
+            specific circumstances
+          </li>
+          <li>
+            We make no warranties regarding the accuracy, completeness, or fitness for any
+            particular purpose of any Workflow
+          </li>
+        </ul>
+
+        <h4>8.5.2 License Terms</h4>
+        <p>When you purchase or download a Workflow, you receive:</p>
+        <ul>
+          <li>A personal, non-exclusive, non-transferable, non-redistributable license to use the Workflow</li>
+          <li>One purchase equals one user license</li>
+          <li>You may not resell, redistribute, share, or sublicense purchased Workflows</li>
+          <li>You may not claim authorship of or remove attribution from Workflows</li>
+          <li>
+            We reserve the right to revoke access for violations of these license terms
+          </li>
+        </ul>
+
+        <h4>8.5.3 Disclaimer</h4>
+        <p className="uppercase font-semibold">
+          WORKFLOWS ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND. TOOLFORGE AI DISCLAIMS ALL
+          WARRANTIES, EXPRESS OR IMPLIED, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+          PARTICULAR PURPOSE, AND NON-INFRINGEMENT. YOU USE WORKFLOWS AT YOUR OWN RISK.
+        </p>
+
+        <h3>8.6 Taxes</h3>
         <p>
           You are responsible for any applicable taxes. If we are required to collect taxes, they
           will be added to your invoice.
@@ -606,13 +667,20 @@ export default function TermsPage() {
       {/* Related Links */}
       <div className="not-prose mt-12 pt-8 border-t border-gray-200">
         <h3 className="text-lg font-semibold text-gray-900 mb-4">Related Legal Documents</h3>
-        <div className="grid sm:grid-cols-3 gap-4">
+        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
           <Link
             href="/privacy"
             className="block p-4 bg-gray-50 hover:bg-gray-100 rounded-lg border border-gray-200 transition-colors"
           >
             <div className="font-semibold text-gray-900 mb-1">Privacy Policy</div>
             <div className="text-sm text-gray-600">How we handle your data</div>
+          </Link>
+          <Link
+            href="/refund-policy"
+            className="block p-4 bg-gray-50 hover:bg-gray-100 rounded-lg border border-gray-200 transition-colors"
+          >
+            <div className="font-semibold text-gray-900 mb-1">Refund Policy</div>
+            <div className="text-sm text-gray-600">Returns and refunds</div>
           </Link>
           <Link
             href="/cookies"

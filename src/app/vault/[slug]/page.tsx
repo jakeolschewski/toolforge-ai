@@ -8,6 +8,7 @@ import WorkflowCard from '@/components/vault/WorkflowCard';
 import Badge from '@/components/ui/Badge';
 import Button from '@/components/ui/Button';
 import { supabase } from '@/lib/supabase';
+import { formatPrice } from '@/lib/vault/constants';
 import type { VaultWorkflow } from '@/types';
 import {
   Star,
@@ -266,7 +267,7 @@ export default async function WorkflowDetailPage({ params }: PageProps) {
                   ) : workflow.price ? (
                     <div>
                       <div className="text-4xl font-bold text-gray-900 mb-2">
-                        ${workflow.price}
+                        {formatPrice(workflow.price)}
                       </div>
                       <p className="text-gray-600">One-time purchase</p>
                     </div>
@@ -280,6 +281,7 @@ export default async function WorkflowDetailPage({ params }: PageProps) {
                   hasAccess={hasAccess}
                   isPremium={isPremium}
                   fileUrl={workflow.file_url}
+                  price={workflow.price}
                   className="w-full mb-4"
                 />
 

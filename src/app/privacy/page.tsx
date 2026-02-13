@@ -16,7 +16,7 @@ export default function PrivacyPage() {
     <LegalLayout
       title="Privacy Policy"
       description="Your privacy is important to us. This Privacy Policy explains how we collect, use, disclose, and safeguard your information."
-      lastUpdated="February 11, 2026"
+      lastUpdated="February 13, 2026"
     >
       {/* Table of Contents */}
       <div className="not-prose bg-gray-50 rounded-lg p-6 mb-8 border border-gray-200">
@@ -123,7 +123,27 @@ export default function PrivacyPage() {
           </li>
         </ul>
 
-        <h3>1.3 Information from Third Parties</h3>
+        <h3>1.3 Vault Purchase Data</h3>
+        <p>
+          When you purchase or download workflows from the Workflow Vault, we collect and store the
+          following information:
+        </p>
+        <ul>
+          <li>
+            <strong>Purchase History:</strong> Records of workflows you have purchased, including
+            transaction dates, amounts, and payment confirmation details
+          </li>
+          <li>
+            <strong>Download Logs:</strong> Records of when workflows are downloaded, for security
+            and license enforcement purposes
+          </li>
+          <li>
+            <strong>Workflow Access Records:</strong> Information about which workflows you have
+            access to, including free downloads and purchased items
+          </li>
+        </ul>
+
+        <h3>1.4 Information from Third Parties</h3>
         <p>We may receive information about you from third parties:</p>
         <ul>
           <li>
@@ -299,6 +319,25 @@ export default function PrivacyPage() {
           <li>Correct inaccurate or incomplete personal information</li>
           <li>Request deletion of your personal data (right to be forgotten)</li>
           <li>Delete your account and associated data</li>
+        </ul>
+
+        <h3>6.2.1 Vault Data Deletion</h3>
+        <p>
+          To request deletion of your Workflow Vault data (purchase history, download logs, and
+          workflow access records):
+        </p>
+        <ul>
+          <li>
+            Email <a href="mailto:privacy@toolforge.ai">privacy@toolforge.ai</a> with the subject
+            "Vault Data Deletion Request"
+          </li>
+          <li>Include your account email address for identity verification</li>
+          <li>We will process your request within 30 days</li>
+          <li>You will receive a confirmation email once the deletion is complete</li>
+          <li>
+            Note: Deletion of purchase records may affect your access to previously purchased
+            workflows
+          </li>
         </ul>
 
         <h3>6.3 Restriction and Objection</h3>

@@ -7,7 +7,7 @@ import WorkflowFilters from '@/components/vault/WorkflowFilters';
 import Pagination from '@/components/shared/Pagination';
 import { supabase } from '@/lib/supabase';
 import type { VaultWorkflow, VaultCategory } from '@/types';
-import { Sparkles, Zap, Shield } from 'lucide-react';
+import { Sparkles, Layers, Shield } from 'lucide-react';
 
 export const revalidate = 1800; // Revalidate every 30 minutes
 
@@ -124,14 +124,14 @@ export default async function VaultPage({ searchParams }: PageProps) {
                 <div className="text-primary-100">Premium Workflows</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-                <Zap className="w-8 h-8 mx-auto mb-3" />
-                <div className="text-3xl font-bold mb-1">10K+</div>
-                <div className="text-primary-100">Downloads</div>
+                <Layers className="w-8 h-8 mx-auto mb-3" />
+                <div className="text-3xl font-bold mb-1">9</div>
+                <div className="text-primary-100">System Categories</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
                 <Shield className="w-8 h-8 mx-auto mb-3" />
-                <div className="text-3xl font-bold mb-1">100%</div>
-                <div className="text-primary-100">Quality Guaranteed</div>
+                <div className="text-3xl font-bold mb-1">Privacy-First</div>
+                <div className="text-primary-100">W.E.D.G.E. Framework</div>
               </div>
             </div>
           </div>

@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { Card, CardContent } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import type { VaultWorkflow } from '@/types';
+import { formatPrice } from '@/lib/vault/constants';
 
 export default function VaultWorkflowsPage() {
   const [workflows, setWorkflows] = useState<VaultWorkflow[]>([]);
@@ -281,7 +282,7 @@ export default function VaultWorkflowsPage() {
                         <span>Favorites: {workflow.favorites}</span>
                         {workflow.price && (
                           <span className="font-semibold text-green-600">
-                            ${workflow.price}
+                            {formatPrice(workflow.price)}
                           </span>
                         )}
                         {workflow.rating && (
