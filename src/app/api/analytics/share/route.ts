@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@/lib/supabase-server';
+import { supabaseAdmin } from '@/lib/supabase';
 
 export async function POST(request: NextRequest) {
   try {
@@ -12,7 +12,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const supabase = createClient();
+    const supabase = supabaseAdmin;
 
     // Log share event
     const { error } = await supabase.from('share_events').insert([
@@ -45,7 +45,7 @@ export async function GET(request: NextRequest) {
     const toolId = searchParams.get('toolId');
     const period = searchParams.get('period') || '30'; // days
 
-    const supabase = createClient();
+    const supabase = supabaseAdmin;
 
     let query = supabase
       .from('share_events')
