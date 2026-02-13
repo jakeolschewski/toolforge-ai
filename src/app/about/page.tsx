@@ -4,6 +4,7 @@ import { Target, Users, Shield, Zap, Heart, TrendingUp } from 'lucide-react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import Button from '@/components/ui/Button';
+import { supabase } from '@/lib/supabase';
 
 export const metadata: Metadata = {
   title: 'About Us - ToolForge AI',
@@ -11,7 +12,34 @@ export const metadata: Metadata = {
   keywords: ['about toolforge', 'ai tools directory', 'our mission', 'ai tool reviews'],
 };
 
-export default function AboutPage() {
+export const revalidate = 3600;
+
+async function getAboutStats() {
+  const [toolsResult, postsResult, toolsForCategories] = await Promise.all([
+    supabase
+      .from('tools')
+      .select('id', { count: 'exact', head: true })
+      .eq('status', 'published'),
+    supabase
+      .from('blog_posts')
+      .select('id', { count: 'exact', head: true })
+      .eq('status', 'published'),
+    supabase
+      .from('tools')
+      .select('category')
+      .eq('status', 'published'),
+  ]);
+
+  const toolCount = toolsResult.count || 0;
+  const postCount = postsResult.count || 0;
+  const categories = new Set((toolsForCategories.data || []).map(t => t.category));
+  const categoryCount = categories.size;
+
+  return { toolCount, categoryCount, postCount };
+}
+
+export default async function AboutPage() {
+  const stats = await getAboutStats();
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
@@ -132,7 +160,7 @@ export default function AboutPage() {
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
           <div className="text-center">
-            <div className="text-4xl font-bold text-primary-600 mb-2">500+</div>
+            <div className="text-4xl font-bold text-primary-600 mb-2">{stats.toolCount}+</div>
             <div className="text-gray-600">AI Tools Reviewed</div>
           </div>
           <div className="text-center">
@@ -140,7 +168,7 @@ export default function AboutPage() {
             <div className="text-gray-600">Monthly Visitors</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl font-bold text-primary-600 mb-2">20+</div>
+            <div className="text-4xl font-bold text-primary-600 mb-2">{stats.categoryCount}+</div>
             <div className="text-gray-600">Categories Covered</div>
           </div>
           <div className="text-center">

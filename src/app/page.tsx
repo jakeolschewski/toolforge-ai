@@ -33,10 +33,20 @@ async function getLatestTools(): Promise<Tool[]> {
   return (data || []) as Tool[];
 }
 
+async function getSiteStats(): Promise<{ toolCount: number }> {
+  const { count } = await supabase
+    .from('tools')
+    .select('id', { count: 'exact', head: true })
+    .eq('status', 'published');
+
+  return { toolCount: count || 0 };
+}
+
 export default async function HomePage() {
-  const [featuredTools, latestTools] = await Promise.all([
+  const [featuredTools, latestTools, siteStats] = await Promise.all([
     getFeaturedTools(),
     getLatestTools(),
+    getSiteStats(),
   ]);
 
   // Generate Organization schema
@@ -83,7 +93,7 @@ export default async function HomePage() {
             <div className="inline-flex items-center justify-center w-12 h-12 bg-primary-100 text-primary-600 rounded-lg mb-4">
               <Sparkles className="w-6 h-6" />
             </div>
-            <div className="text-3xl font-bold text-gray-900 mb-2">500+</div>
+            <div className="text-3xl font-bold text-gray-900 mb-2">{siteStats.toolCount}+</div>
             <div className="text-gray-600">AI Tools Reviewed</div>
           </div>
           <div className="text-center">

@@ -2,9 +2,8 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabase';
-import { slugify } from '@/utils/helpers';
-import { generateTemplateReview } from '@/utils/generators/content';
-import type { ApiResponse, Tool } from '@/types';
+import { approveScrapedSource } from '@/lib/auto-approve';
+import type { ApiResponse, ScrapedSource } from '@/types';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -87,95 +86,25 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Create tool
-    const slug = slugify(source.tool_name);
+    // Use shared approval function
+    const result = await approveScrapedSource(source as ScrapedSource, {
+      autoGenerate,
+      status: autoGenerate ? 'published' : 'draft',
+    });
 
-    // Check for duplicate slug
-    const { data: existingTool } = await supabaseAdmin
-      .from('tools')
-      .select('id')
-      .eq('slug', slug)
-      .maybeSingle();
-
-    if (existingTool) {
-      // Tool already exists, mark source as processed
-      await supabaseAdmin
-        .from('scraped_sources')
-        .update({
-          status: 'processed',
-          processed_at: new Date().toISOString(),
-        })
-        .eq('id', sourceId);
-
+    if (result.alreadyExists) {
       return NextResponse.json<ApiResponse>({
         success: false,
         error: 'Tool already exists',
-        data: { existingTool },
+        data: { existingTool: result.tool },
       });
     }
-
-    const toolData: Partial<Tool> = {
-      slug,
-      name: source.tool_name,
-      description: source.description || `${source.tool_name} - AI-powered tool`,
-      category: source.category || 'productivity',
-      website_url: source.tool_url || '',
-      affiliate_link: source.tool_url,
-      features: [],
-      tags: [source.category || 'ai-tool'],
-      status: autoGenerate ? 'published' : 'draft',
-      pricing_model: 'freemium',
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
-      published_at: autoGenerate ? new Date().toISOString() : undefined,
-    };
-
-    // Insert tool
-    const { data: newTool, error: toolError } = await supabaseAdmin
-      .from('tools')
-      .insert(toolData)
-      .select()
-      .single();
-
-    if (toolError) throw toolError;
-
-    // Auto-generate review if requested
-    let reviewData = null;
-    if (autoGenerate && newTool) {
-      const generatedReview = generateTemplateReview(newTool as Tool);
-
-      const { data: newReview, error: reviewError } = await supabaseAdmin
-        .from('reviews')
-        .insert({
-          ...generatedReview,
-          tool_id: newTool.id,
-          status: 'published',
-          created_at: new Date().toISOString(),
-          updated_at: new Date().toISOString(),
-          published_at: new Date().toISOString(),
-        })
-        .select()
-        .single();
-
-      if (!reviewError) {
-        reviewData = newReview;
-      }
-    }
-
-    // Mark source as processed
-    await supabaseAdmin
-      .from('scraped_sources')
-      .update({
-        status: 'processed',
-        processed_at: new Date().toISOString(),
-      })
-      .eq('id', sourceId);
 
     return NextResponse.json<ApiResponse>({
       success: true,
       data: {
-        tool: newTool,
-        review: reviewData,
+        tool: result.tool,
+        review: result.review,
       },
       message: 'Tool approved and published successfully',
     });

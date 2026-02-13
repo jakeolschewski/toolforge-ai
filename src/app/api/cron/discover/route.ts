@@ -8,7 +8,9 @@ import { verifyCronSecret } from '@/utils/helpers';
 import { sendDiscoveryDigest, sendErrorNotification } from '@/lib/email';
 import { validateScraperResults } from '@/utils/validation';
 import { categorizeTools } from '@/utils/ai-categorizer';
-import type { ApiResponse } from '@/types';
+import { scoreScrapedSource, isSpam, AUTO_APPROVE_THRESHOLD } from '@/lib/quality-scorer';
+import { approveScrapedSource } from '@/lib/auto-approve';
+import type { ApiResponse, ScrapedSource } from '@/types';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -31,6 +33,8 @@ export async function GET(request: NextRequest) {
     duplicates: 0,
     errors: 0,
     invalidResults: 0,
+    autoApproved: 0,
+    autoIgnored: 0,
   };
 
   let scraperSummary: any[] = [];
@@ -122,6 +126,45 @@ export async function GET(request: NextRequest) {
         results.errors++;
       }
     }
+
+    // --- Auto-approve / auto-ignore pending sources ---
+    console.log('🤖 Running auto-approval on pending sources...');
+
+    const { data: pendingSources } = await supabaseAdmin
+      .from('scraped_sources')
+      .select('*')
+      .eq('status', 'pending');
+
+    if (pendingSources && pendingSources.length > 0) {
+      for (const source of pendingSources as ScrapedSource[]) {
+        try {
+          const spam = isSpam(source);
+          const score = scoreScrapedSource(source);
+
+          if (spam || score <= 30) {
+            // Auto-ignore spam and very low quality
+            await supabaseAdmin
+              .from('scraped_sources')
+              .update({ status: 'ignored' })
+              .eq('id', source.id);
+            results.autoIgnored++;
+            console.log(`🚫 Auto-ignored: ${source.tool_name} (score: ${score}, spam: ${spam})`);
+          } else if (score >= AUTO_APPROVE_THRESHOLD) {
+            // Auto-approve high quality
+            const result = await approveScrapedSource(source, { status: 'published' });
+            if (!result.alreadyExists) {
+              results.autoApproved++;
+              console.log(`✅ Auto-approved: ${source.tool_name} (score: ${score})`);
+            }
+          }
+          // Everything else stays pending for manual review
+        } catch (err) {
+          console.error(`Error auto-processing ${source.tool_name}:`, err);
+        }
+      }
+    }
+
+    console.log(`🤖 Auto-approval: ${results.autoApproved} approved, ${results.autoIgnored} ignored`);
 
     const duration = Date.now() - startTime;
 
