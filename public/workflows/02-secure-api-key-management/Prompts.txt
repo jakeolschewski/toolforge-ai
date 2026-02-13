@@ -1,0 +1,302 @@
+SECURE API KEY MANAGEMENT - PROMPT VARIATIONS
+===============================================
+
+PROMPT 1 - API KEY INVENTORY GENERATOR
+---------------------------------------
+Help me create a comprehensive inventory of my API keys and credentials. For each service I list, generate an inventory template with these fields:
+
+- Service name
+- Key identifier (last 4 chars only)
+- Purpose/use case
+- Current storage location
+- Permissions/scope
+- Creation date
+- Last rotation date
+- Risk level (high/medium/low)
+- Recommended actions
+
+Services I currently use:
+[LIST YOUR SERVICES - e.g., OpenAI, Anthropic, Google Cloud, etc.]
+
+Format as a table that I can copy to a spreadsheet.
+
+
+PROMPT 2 - SECURITY RISK ASSESSMENT
+------------------------------------
+I need to assess the security risk of my current API key management practices. Analyze this information and provide a risk score (1-10) with specific recommendations:
+
+Current practices:
+- Where I store keys: [DESCRIBE - e.g., .env files, password manager, etc.]
+- Who has access: [Individual, team of X people, etc.]
+- How often I rotate: [Never, quarterly, when remember, etc.]
+- Monitoring setup: [Yes/No, if yes describe]
+- Last security incident: [Never, describe if any]
+
+Provide:
+1. Overall risk score (1-10, where 10 is highest risk)
+2. Top 3 vulnerabilities in my current approach
+3. Prioritized action plan to reduce risk
+4. Quick wins (can implement in < 30 minutes)
+5. Long-term improvements (require more setup)
+
+
+PROMPT 3 - SECRETS MANAGEMENT TOOL SELECTOR
+--------------------------------------------
+Help me choose the right secrets management solution for my needs:
+
+My situation:
+- Team size: [Solo, 2-5, 5-20, 20+]
+- Use case: [Personal projects, startup, enterprise, compliance-required]
+- Technical comfort: [Beginner, intermediate, advanced]
+- Budget: [$0 (free only), $10-50/month, $50-200/month, enterprise]
+- Compliance requirements: [None, GDPR, HIPAA, SOC 2, etc.]
+- Primary environment: [Local development, cloud-hosted, hybrid]
+
+Compare 3-5 solutions appropriate for my needs:
+- Tool name
+- Best suited for (use case)
+- Pricing
+- Ease of setup (1-10)
+- Security features
+- Pros and cons
+- Integration capabilities
+- Recommendation strength for my situation
+
+Conclude with your top recommendation and why.
+
+
+PROMPT 4 - KEY ROTATION PROCEDURE GENERATOR
+--------------------------------------------
+Create a step-by-step key rotation procedure for this service:
+
+Service: [e.g., OpenAI API, Stripe, AWS, etc.]
+Current setup: [How you currently use the key]
+Environment: [Development, staging, production, or all]
+Deployment method: [Manual, CI/CD, container orchestration, etc.]
+
+Generate a rotation checklist including:
+1. Pre-rotation preparation steps
+2. Key generation steps (service-specific)
+3. Testing procedures (staging first)
+4. Production deployment steps
+5. Verification steps
+6. Rollback plan if issues occur
+7. Old key revocation steps
+8. Documentation/logging requirements
+
+Make it copy-paste ready as a checklist I can follow.
+
+
+PROMPT 5 - INCIDENT RESPONSE PLAYBOOK
+--------------------------------------
+I need an incident response plan for a potential API key compromise. Create a playbook for this scenario:
+
+Scenario: [Suspected compromise, confirmed exposure in GitHub, unusual usage, etc.]
+Service affected: [Service name]
+Key permissions: [What the key can access]
+Data sensitivity: [Public data, customer data, PII, financial, etc.]
+Team size: [Who needs to be involved]
+
+Create a time-sequenced response plan:
+
+IMMEDIATE (0-15 minutes):
+- [ ] Critical actions to contain damage
+
+SHORT-TERM (15-60 minutes):
+- [ ] Investigation and assessment steps
+
+MEDIUM-TERM (1-24 hours):
+- [ ] Communication and remediation steps
+
+LONG-TERM (1-7 days):
+- [ ] Post-incident review and prevention
+
+Include:
+- Specific commands/actions for each step
+- Who should do what (if team)
+- Decision points and escalation triggers
+- Communication templates
+- Post-incident checklist
+
+
+PROMPT 6 - ENVIRONMENT VARIABLE SETUP GUIDE
+--------------------------------------------
+Generate a complete setup guide for managing API keys via environment variables in my stack:
+
+My tech stack:
+- Language/framework: [e.g., Python/Flask, Node.js/Express, etc.]
+- Deployment platform: [Local, Heroku, AWS, Vercel, Docker, etc.]
+- CI/CD: [GitHub Actions, GitLab CI, CircleCI, none, etc.]
+- Team collaboration: [Solo, small team sharing, etc.]
+
+Provide:
+1. .env file template for my services
+2. .gitignore configuration
+3. Code snippets for loading environment variables
+4. Platform-specific deployment instructions
+5. Local development setup
+6. Team collaboration workflow (how to share safely)
+7. Troubleshooting common issues
+8. Security best practices specific to my stack
+
+
+PROMPT 7 - ACCESS CONTROL POLICY GENERATOR
+-------------------------------------------
+Help me create an access control policy for API credentials in my organization:
+
+Organization details:
+- Team structure: [Describe roles: developers, contractors, admins, etc.]
+- Environments: [Development, staging, production]
+- Compliance requirements: [Any regulatory requirements]
+- Risk tolerance: [Conservative, moderate, aggressive]
+
+Generate policy covering:
+1. Access tiers (who can access what)
+2. Request and approval workflow
+3. Onboarding procedure for new team members
+4. Offboarding procedure for departing team members
+5. Emergency access procedures
+6. Audit requirements
+7. Violation consequences
+8. Exception process (when policy can't be followed)
+
+Format as a formal policy document that can be added to team handbook.
+
+
+PROMPT 8 - MONITORING AND ALERTING SETUP
+-----------------------------------------
+Design a monitoring and alerting strategy for my API key usage:
+
+Services to monitor:
+[LIST YOUR SERVICES with typical usage patterns]
+
+For each service, help me:
+1. Identify key metrics to track (usage, errors, costs, geographic locations)
+2. Set appropriate alert thresholds (what's normal vs. anomalous)
+3. Choose alert channels (email, Slack, PagerDuty, etc.)
+4. Define severity levels (critical, warning, info)
+5. Create alert message templates
+6. Set up escalation rules (when to page, when to auto-rotate key)
+
+Provide specific configuration examples for common monitoring tools:
+- Service-native dashboards (OpenAI, AWS, etc.)
+- Third-party monitoring (Datadog, New Relic, etc.)
+- Open-source options (Grafana, Prometheus, etc.)
+
+
+PROMPT 9 - COMPLIANCE CHECKLIST GENERATOR
+------------------------------------------
+Create a compliance checklist for API key management aligned with security frameworks:
+
+Frameworks I need to comply with:
+[Check applicable: SOC 2, ISO 27001, GDPR, HIPAA, PCI DSS, NIST, CIS Controls]
+
+Generate a checklist organized by framework control requirements:
+- Control ID and description
+- How it applies to API key management
+- Implementation checklist items
+- Evidence/documentation needed
+- Responsible party
+- Review frequency
+- Status tracking column
+
+For each framework, highlight:
+- Critical controls (must-have)
+- Recommended controls (should-have)
+- Optional controls (nice-to-have)
+
+Provide this in a format suitable for audit preparation.
+
+
+PROMPT 10 - QUARTERLY AUDIT PROCEDURE
+--------------------------------------
+Create a comprehensive quarterly audit procedure for my API key management program:
+
+Current inventory size: [Number of keys/services]
+Team size: [Number of people with access]
+Environments: [Number of environments: dev, staging, prod]
+Time available for audit: [1 hour, half day, full day]
+
+Generate audit procedure including:
+
+PRE-AUDIT PREPARATION:
+- [ ] Data to gather beforehand
+- [ ] Tools needed
+- [ ] Stakeholders to notify
+
+AUDIT EXECUTION:
+- [ ] Inventory verification (are all keys accounted for?)
+- [ ] Storage location check (all in approved locations?)
+- [ ] Rotation compliance (all keys rotated per schedule?)
+- [ ] Access control review (permissions still appropriate?)
+- [ ] Monitoring effectiveness (are alerts working?)
+- [ ] Policy compliance (team following procedures?)
+- [ ] Incident review (any security events since last audit?)
+
+ANALYSIS AND REPORTING:
+- [ ] Metrics to calculate (% compliance, risk score, etc.)
+- [ ] Report template
+- [ ] Finding categorization (critical, high, medium, low)
+- [ ] Remediation planning
+
+POST-AUDIT ACTIONS:
+- [ ] Remediation assignments
+- [ ] Follow-up scheduling
+- [ ] Documentation updates
+- [ ] Team communication
+
+Format as an audit runbook with checklists and templates.
+
+
+==============================================================================
+USAGE GUIDELINES
+==============================================================================
+
+PRIVACY PROTECTION:
+When using these prompts, NEVER include:
+- Actual API keys (even partial keys beyond last 4 characters)
+- Full URLs with embedded credentials
+- Access tokens or passwords
+- Specific IP addresses or server names
+- Customer or client data
+- Proprietary architecture details
+
+Use placeholders:
+- "Service A", "Service B" instead of real service names if sensitive
+- "Key ending in ...1234" instead of actual keys
+- Generic descriptions of usage patterns
+
+AI TOOL COMPATIBILITY:
+These prompts work with all major AI assistants:
+- ChatGPT, Claude, Gemini, Perplexity
+- Use with privacy-respecting settings (opt-out of training)
+
+PROMPT CHAINING:
+Recommended sequence for complete setup:
+1. Start with Prompt 1 (Inventory)
+2. Then Prompt 2 (Risk Assessment)
+3. Follow with Prompt 3 (Tool Selection)
+4. Use Prompt 6 (Environment Setup) or Prompt 7 (Access Control) based on needs
+5. Implement Prompt 8 (Monitoring)
+6. Prepare with Prompt 5 (Incident Response)
+7. Maintain with Prompt 10 (Quarterly Audit)
+
+ITERATION:
+If outputs aren't specific enough:
+- "Make this specific to [your platform/language]"
+- "Provide actual command examples for [specific tool]"
+- "Add more detail to steps 3-5"
+
+SAVING OUTPUTS:
+Keep all AI-generated procedures:
+- Store in password-protected documentation
+- Version control your policies (but not the keys!)
+- Share with team via secure channels
+
+VERIFICATION:
+Always independently verify:
+- Service-specific procedures (check official docs)
+- Compliance requirements (consult legal/security team)
+- Tool capabilities (test before relying on)
+
+==============================================================================

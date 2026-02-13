@@ -1,0 +1,438 @@
+REDACTION GUIDE - SECURE API KEY MANAGEMENT
+============================================
+
+PURPOSE
+-------
+This guide helps you safely share API key management documentation, audit reports,
+and procedures without exposing actual credentials or sensitive infrastructure details.
+
+=============================================================================
+SECTION 1: TYPES OF DATA TO REDACT
+=============================================================================
+
+CATEGORY A: CREDENTIALS (NEVER SHARE)
+--------------------------------------
+✗ ABSOLUTELY NEVER INCLUDE:
+  - Full API keys or tokens
+  - Access keys or secret keys
+  - Passwords or passphrases
+  - OAuth client secrets
+  - SSH private keys
+  - Database connection strings with passwords
+  - Webhook URLs with embedded tokens
+  - Session tokens or cookies
+
+✓ SAFE ALTERNATIVES:
+  - Last 4 characters only: "Key ending in ...abc123"
+  - Masked format: "sk-proj-••••••••••••••••abc123"
+  - Generic labels: "[OPENAI_API_KEY]", "[API_KEY_REDACTED]"
+  - Format examples: "sk-proj-[48 characters]" (shows structure, not value)
+
+
+CATEGORY B: INFRASTRUCTURE DETAILS
+-----------------------------------
+✗ POTENTIALLY SENSITIVE:
+  - Specific IP addresses or server names
+  - Internal domain names
+  - Database hostnames or endpoints
+  - AWS account IDs, project IDs
+  - Service URLs with organization identifiers
+  - Specific port numbers for non-standard services
+  - VPN configuration details
+
+✓ SAFE ALTERNATIVES:
+  - Generic: "Production database endpoint"
+  - IP ranges: "192.168.x.x" instead of full IP
+  - Region only: "us-east-1" okay, "vpc-12345.us-east-1" not okay
+  - "Cloud-hosted secrets manager" vs. specific instance URL
+
+
+CATEGORY C: SECURITY CONFIGURATIONS
+------------------------------------
+✗ BE CAUTIOUS WITH:
+  - Exact firewall rules or security group configurations
+  - Authentication flow diagrams with real endpoints
+  - Encryption key identifiers (if unique)
+  - Specific MFA seed values
+  - Exact IAM policy JSON (if contains account identifiers)
+  - Vulnerability details before patching
+
+✓ SAFE ALTERNATIVES:
+  - Policy intent: "Read-only access to production secrets"
+  - Generic flow: "User authenticates → MFA → Access granted"
+  - Redacted policy: Replace account IDs with "[ACCOUNT_ID]"
+  - "IP whitelist configured" vs. listing specific IPs
+
+
+CATEGORY D: USAGE PATTERNS & METRICS
+-------------------------------------
+✗ POTENTIALLY REVEALING:
+  - Exact API call counts (may reveal business metrics)
+  - Specific cost figures (competitive intelligence)
+  - Precise timing of operations (may reveal vulnerabilities)
+  - Error messages with stack traces (may reveal code paths)
+
+✓ SAFE ALTERNATIVES:
+  - Ranges: "10K-50K API calls/day" instead of 37,423
+  - Percentages: "Usage increased 40%" vs. "from 1000 to 1400 calls"
+  - Relative timing: "Peak hours: 9am-5pm EST" vs. exact timestamps
+  - Generic errors: "Authentication failed" vs. full stack trace
+
+
+CATEGORY E: ORGANIZATIONAL INFORMATION
+---------------------------------------
+✗ POTENTIALLY SENSITIVE:
+  - Employee names (unless public role)
+  - Internal team structures
+  - Specific project codenames
+  - Customer or client names
+  - Partnership details
+  - Unreleased product information
+
+✓ SAFE ALTERNATIVES:
+  - Roles: "DevOps Engineer", "Security Lead"
+  - Generic structure: "3-person security team"
+  - "Project X", "Client A (healthcare vertical)"
+  - "Enterprise customer", "Partner organization"
+
+=============================================================================
+SECTION 2: STEP-BY-STEP REDACTION PROCESS
+=============================================================================
+
+STEP 1: PRE-REDACTION SCAN
+---------------------------
+Before sharing any API key management documentation:
+
+[ ] Search for "sk-", "api_key", "secret", "token", "password"
+[ ] Search for your organization name
+[ ] Search for employee names
+[ ] Search for domain names (example.com, internal.company.com)
+[ ] Search for IP addresses (regex: \b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b)
+[ ] Search for AWS account IDs, project IDs
+[ ] Search for specific dollar amounts or call counts
+
+STEP 2: CREDENTIAL MASKING
+---------------------------
+For each credential type, apply appropriate masking:
+
+API Keys (OpenAI format: sk-proj-xxxxxxxxxxxxxxxxxxxx):
+❌ BEFORE: sk-proj-Ab3dEf9hIj2kLmN4oPqRsT5uVwXyZ1234567890
+✅ AFTER:  sk-proj-••••••••••••••••••••••••••••••••••1234567890
+     OR:  sk-proj-[48-character key ending in ...7890]
+     OR:  [OPENAI_API_KEY_REDACTED]
+
+AWS Access Keys (format: AKIA + 16 characters):
+❌ BEFORE: AKIAIOSFODNN7EXAMPLE
+✅ AFTER:  AKIA••••••••••••MPLE
+     OR:  [AWS_ACCESS_KEY_ID]
+
+JWT Tokens:
+❌ BEFORE: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWI...
+✅ AFTER:  [JWT_TOKEN_REDACTED]
+     OR:  eyJ... [truncated 256 characters] ...xyz
+
+Environment Variables:
+❌ BEFORE: export OPENAI_API_KEY="sk-proj-real-key-here"
+✅ AFTER:  export OPENAI_API_KEY="[YOUR_KEY_HERE]"
+     OR:  export OPENAI_API_KEY="sk-proj-••••••••••••"
+
+STEP 3: INFRASTRUCTURE ANONYMIZATION
+-------------------------------------
+Replace specific infrastructure with generic descriptions:
+
+Database Connections:
+❌ BEFORE: postgres://user:pass123@prod-db-1.abc123.us-east-1.rds.amazonaws.com:5432/appdb
+✅ AFTER:  postgres://[USER]:[PASSWORD]@[RDS_ENDPOINT]:5432/[DATABASE]
+     OR:  PostgreSQL database hosted in AWS RDS (us-east-1 region)
+
+API Endpoints:
+❌ BEFORE: https://api.acme-corp-prod.com/v1/secrets/abc123xyz
+✅ AFTER:  https://api.[ORGANIZATION].com/v1/secrets/[SECRET_ID]
+     OR:  Organization API endpoint for secrets retrieval
+
+IP Addresses:
+❌ BEFORE: Whitelist: 203.0.113.42, 198.51.100.7, 192.0.2.33
+✅ AFTER:  Whitelist: [OFFICE_IP_1], [OFFICE_IP_2], [OFFICE_IP_3]
+     OR:  IP whitelist configured with 3 office locations
+
+AWS/Cloud IDs:
+❌ BEFORE: arn:aws:secretsmanager:us-east-1:123456789012:secret:prod-api-keys-Abc123
+✅ AFTER:  arn:aws:secretsmanager:[REGION]:[ACCOUNT_ID]:secret:[SECRET_NAME]
+     OR:  AWS Secrets Manager ARN for production API keys
+
+STEP 4: CODE SNIPPET SANITIZATION
+----------------------------------
+When sharing code examples, sanitize thoroughly:
+
+Python Example:
+❌ BEFORE:
+```python
+import openai
+openai.api_key = "sk-proj-Ab3dEf9hIj2kLmN4oPqRsT5uVwXyZ1234567890"
+client = openai.OpenAI(organization="org-AcmeCorpProdXYZ")
+```
+
+✅ AFTER:
+```python
+import openai
+import os
+
+# Load from environment variable (never hardcode)
+openai.api_key = os.environ.get('OPENAI_API_KEY')
+if not openai.api_key:
+    raise ValueError("OPENAI_API_KEY environment variable not set")
+
+client = openai.OpenAI(organization=os.environ.get('OPENAI_ORG_ID'))
+```
+
+Configuration Files:
+❌ BEFORE (.env file):
+OPENAI_API_KEY=sk-proj-realkey123
+DATABASE_URL=postgres://admin:secret@prod-db.example.com/app
+STRIPE_SECRET=sk_live_realstripekey456
+
+✅ AFTER (.env.example file):
+OPENAI_API_KEY=your_openai_api_key_here
+DATABASE_URL=postgres://username:password@hostname:5432/database
+STRIPE_SECRET=your_stripe_secret_key_here
+
+STEP 5: AUDIT LOG REDACTION
+----------------------------
+When sharing audit logs or incident reports:
+
+❌ BEFORE:
+2026-02-12 14:32:17 | user: alice@acme-corp.com | action: SECRET_ACCESSED | secret: openai-prod-key | ip: 203.0.113.42 | key_value: sk-proj-Ab3dEf...
+
+✅ AFTER:
+2026-02-12 14:32:17 | user: [USER_EMAIL] | action: SECRET_ACCESSED | secret: [SERVICE]-[ENV]-key | ip: [USER_IP] | key_value: [REDACTED]
+
+OR (if showing pattern):
+2026-02-12 14:32:17 | user: user@example.com | action: SECRET_ACCESSED | secret: openai-production-key | ip: 203.0.113.x
+
+STEP 6: METRIC ANONYMIZATION
+-----------------------------
+Sharing usage metrics or cost analysis:
+
+API Usage:
+❌ BEFORE: "OpenAI API: 37,423 calls on 2026-02-11, cost $427.32"
+✅ AFTER:  "OpenAI API: ~35-40K calls per day, cost ~$400-450/day"
+     OR:  "OpenAI API: High usage day, within expected range"
+
+Cost Breakdown:
+❌ BEFORE:
+Service         | Daily Cost | Monthly Est
+OpenAI API      | $427.32    | $12,819.60
+Anthropic Claude| $186.45    | $5,593.50
+Google Cloud    | $92.18     | $2,765.40
+
+✅ AFTER:
+Service         | Daily Cost | Monthly Est
+LLM Service A   | $400-450   | $12K-14K
+LLM Service B   | $175-200   | $5K-6K
+Cloud Provider  | $75-100    | $2K-3K
+
+STEP 7: INCIDENT REPORT SANITIZATION
+-------------------------------------
+When documenting security incidents:
+
+❌ BEFORE:
+"On 2026-01-15 at 03:42 UTC, engineer Bob Smith accidentally committed OpenAI API key
+sk-proj-Ab3dEf9hIj2kLmN4oPqRsT5uVwXyZ1234567890 to public GitHub repo acme-corp/customer-portal.
+Key had full organization access including production customer data. Detected 6 hours later
+by automated scanner. Key was used 47 times by unknown actor from IP 198.51.100.33 (Russia).
+Estimated data exposure: 1,247 customer records. Total cost of unauthorized usage: $8,432.17."
+
+✅ AFTER:
+"On 2026-01-15, an engineer accidentally committed a production API key to a public repository.
+The key had broad permissions including access to customer data. The exposure was detected
+[TIME_PERIOD] later by automated scanning. The key was used [NUMBER] times by an unauthorized
+party from [GEOGRAPHIC_REGION]. Data exposure was contained to [APPROXIMATE_SCOPE]. Unauthorized
+usage costs were in the [RANGE]. Key was immediately rotated and affected systems secured."
+
+=============================================================================
+SECTION 3: SCENARIO-SPECIFIC REDACTION
+=============================================================================
+
+SCENARIO 1: SHARING ROTATION PROCEDURE WITH TEAM
+-------------------------------------------------
+Safe to include:
+✓ Step-by-step process
+✓ Service name (OpenAI, AWS, etc.)
+✓ General permissions (read-only, full access)
+✓ Generic key format (sk-proj-[48 chars])
+
+Must redact:
+✗ Actual keys (even old/revoked ones)
+✗ Specific account identifiers
+✗ Internal system URLs
+✗ Exact rotation dates (use relative: "every 90 days")
+
+
+SCENARIO 2: INCIDENT RESPONSE DOCUMENTATION
+--------------------------------------------
+Safe to include:
+✓ Timeline (dates/times okay if not revealing vulnerability window)
+✓ General actions taken
+✓ Lessons learned
+✓ Procedural improvements
+
+Must redact:
+✗ Compromised key values (even if rotated)
+✗ Specific user names (use roles instead)
+✗ Exact data volumes (use ranges)
+✗ Specific vulnerabilities until patched
+✗ Customer-identifying information
+
+
+SCENARIO 3: AUDIT REPORT FOR STAKEHOLDERS
+------------------------------------------
+Safe to include:
+✓ Compliance status (e.g., "90% rotation compliance")
+✓ Number of keys managed
+✓ General risk scores
+✓ Summary of findings
+
+Must redact:
+✗ Specific key identifiers
+✗ Detailed vulnerability descriptions
+✗ Unpatched security issues
+✗ Employee names in violation reports
+✗ Specific technical implementation details
+
+
+SCENARIO 4: TRAINING MATERIALS FOR TEAM
+----------------------------------------
+Safe to include:
+✓ Generic examples with fake keys
+✓ Policy and procedure documentation
+✓ Best practices
+✓ Common mistakes to avoid
+
+Must redact:
+✗ Real keys (even if for demo purposes)
+✗ Actual infrastructure details
+✗ Specific previous incidents (unless anonymized)
+
+Always use synthetic examples:
+✓ "sk-proj-1234567890abcdefghijklmnopqrstuvwxyz1234567890" (clearly fake)
+✓ "export API_KEY='your_key_here'"
+✓ example.com domains, not real domains
+
+=============================================================================
+SECTION 4: AUTOMATED REDACTION TOOLS
+=============================================================================
+
+COMMAND-LINE TOOLS
+------------------
+1. Regular Expression Replacement (sed):
+   # Mask API keys (sk-proj-* format)
+   sed -E 's/sk-proj-[A-Za-z0-9]{48}/sk-proj-[REDACTED]/g' file.txt
+
+   # Mask email addresses
+   sed -E 's/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}/[EMAIL_REDACTED]/g' file.txt
+
+   # Mask IP addresses
+   sed -E 's/\b([0-9]{1,3}\.){3}[0-9]{1,3}\b/[IP_REDACTED]/g' file.txt
+
+2. Credential Scanner (gitleaks):
+   # Scan file for credentials
+   gitleaks detect --source /path/to/file --verbose
+
+   # Scan git repository history
+   gitleaks detect --source /path/to/repo --log-level debug
+
+3. Microsoft Presidio (PII Detection):
+   # Python example
+   from presidio_analyzer import AnalyzerEngine
+   from presidio_anonymizer import AnonymizerEngine
+
+   analyzer = AnalyzerEngine()
+   anonymizer = AnonymizerEngine()
+
+   text = "My API key is sk-proj-abc123..."
+   results = analyzer.analyze(text=text, language='en')
+   anonymized = anonymizer.anonymize(text=text, analyzer_results=results)
+
+
+MANUAL VERIFICATION
+-------------------
+Automated tools miss context-specific sensitivity:
+- Trade secret processes
+- Business logic revealing information
+- Combinations of generic info that become identifying
+- Domain-specific sensitive terms
+
+Always manually review after automated redaction.
+
+=============================================================================
+SECTION 5: VERIFICATION CHECKLIST
+=============================================================================
+
+Before sharing any API key management documentation:
+
+[ ] All API keys fully redacted (no partial keys beyond last 4 chars)
+[ ] All passwords, tokens, secrets removed
+[ ] Infrastructure details anonymized or removed
+[ ] IP addresses masked or removed
+[ ] Employee names replaced with roles (unless public roles)
+[ ] Organization-specific identifiers genericized
+[ ] Customer/client information removed
+[ ] Specific metrics converted to ranges
+[ ] Code snippets use placeholder values only
+[ ] File metadata scrubbed (author, company, etc.)
+[ ] Screenshots blur/redact any visible credentials
+[ ] URLs with embedded tokens or IDs genericized
+[ ] Audit logs anonymized (users, IPs, key values)
+[ ] Incident reports don't reveal unpatched vulnerabilities
+[ ] Compliance documentation doesn't expose specific controls (if confidential)
+
+PEER REVIEW:
+[ ] Second person reviewed document for missed redactions
+[ ] Reviewer unfamiliar with systems (fresh eyes catch more)
+
+=============================================================================
+SECTION 6: SPECIAL CONSIDERATIONS
+=============================================================================
+
+REGULATORY COMPLIANCE
+---------------------
+GDPR: Redact all personal data (names, emails, IPs if identifying)
+HIPAA: Never include any PHI, even in examples
+PCI DSS: Never include cardholder data, even test data
+SOX: Financial data should be aggregated/anonymized
+SEC: No material non-public information if publicly traded
+
+LEGAL HOLDS
+-----------
+If under legal hold or investigation:
+- Preserve original documents (unredacted) securely
+- Create separate redacted versions for sharing
+- Maintain chain of custody for evidence
+- Consult legal counsel before sharing ANY documents
+
+OPEN SOURCE / PUBLIC REPOSITORIES
+----------------------------------
+Assume public repositories will be:
+- Indexed by search engines
+- Scraped by bots
+- Archived indefinitely
+- Downloaded and re-shared
+
+Extra caution: Redact more aggressively than for internal sharing.
+
+=============================================================================
+SUPPORT & QUESTIONS
+=============================================================================
+
+When in doubt: REDACT IT.
+Over-redaction is safer than under-redaction.
+
+For sensitive situations, consult:
+- Security team before sharing infrastructure details
+- Legal team before sharing incident reports
+- Compliance team before sharing audit documentation
+
+This guide is for educational purposes. Adapt to your organization's
+specific security policies and regulatory requirements.
+
+=============================================================================
