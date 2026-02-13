@@ -16,7 +16,10 @@ import {
   Wand2,
   BookOpen,
   GitCompare,
-  FolderOpen
+  FolderOpen,
+  Workflow,
+  Users,
+  ShoppingCart
 } from 'lucide-react';
 import { cn } from '@/utils/helpers';
 
@@ -66,6 +69,26 @@ const navItems: NavItem[] = [
     title: 'Batch Generate',
     href: '/admin/batch-generate',
     icon: Wand2,
+  },
+  {
+    title: 'Vault Dashboard',
+    href: '/admin/vault',
+    icon: Workflow,
+  },
+  {
+    title: 'Vault Workflows',
+    href: '/admin/vault/workflows',
+    icon: FolderOpen,
+  },
+  {
+    title: 'Vault Purchases',
+    href: '/admin/vault/purchases',
+    icon: ShoppingCart,
+  },
+  {
+    title: 'Vault Members',
+    href: '/admin/vault/members',
+    icon: Users,
   },
   {
     title: 'Analytics',

@@ -416,3 +416,26 @@ export interface Notification {
   is_read: boolean;
   created_at: string;
 }
+
+// Workflow Vault Types - Simple aliases for compatibility with existing DB schema
+// Re-export comprehensive types from vault.ts
+export * from './vault';
+
+// Legacy compatibility types (map to vault.ts types)
+export type VaultWorkflow = import('./vault').Workflow;
+export type VaultCategory = import('./vault').WorkflowCategory;
+export type VaultPurchase = import('./vault').WorkflowPurchase;
+export type VaultMembership = import('./vault').Membership;
+export type VaultFavorite = {
+  id: string;
+  user_id: string;
+  workflow_id: string;
+  created_at: string;
+};
+export type VaultDownloadToken = {
+  token: string;
+  workflow_id: string;
+  user_id: string;
+  expires_at: string;
+  downloads_remaining: number;
+};

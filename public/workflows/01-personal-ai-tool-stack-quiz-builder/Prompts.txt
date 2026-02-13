@@ -1,0 +1,263 @@
+PERSONAL AI TOOL STACK QUIZ & BUILDER - PROMPT VARIATIONS
+=========================================================
+
+PROMPT 1 - BASIC QUIZ GENERATION
+---------------------------------
+I need help identifying the right AI tools for my work. Please create a 15-question quiz to assess my needs. Focus on:
+- My primary work activities
+- Privacy and security requirements
+- Budget constraints
+- Technical comfort level
+- Collaboration needs
+
+Make the questions specific and actionable. Format as numbered questions with space for detailed answers.
+
+
+PROMPT 2 - ADVANCED REQUIREMENTS MAPPING
+-----------------------------------------
+Act as an AI tool consultant. I'm building my personal AI tool stack. Based on the following information, generate a comprehensive assessment quiz:
+
+My primary workflows: [INSERT YOUR WORKFLOWS]
+Privacy sensitivity: [Low/Medium/High]
+Budget range: [INSERT RANGE]
+Current tools in use: [LIST TOOLS]
+
+Create 20 targeted questions that will help identify:
+1. Gaps in my current setup
+2. Privacy-appropriate tool recommendations
+3. Integration opportunities
+4. Quick-win optimizations
+5. Long-term strategic additions
+
+Include rating scales (1-10) where appropriate.
+
+
+PROMPT 3 - TOOL RECOMMENDATION ENGINE
+--------------------------------------
+I completed an AI tool needs assessment. Based on my responses below, recommend 15-20 AI tools organized by:
+- Essential (must-have for my workflows)
+- High-value (significant productivity impact)
+- Nice-to-have (optimization opportunities)
+- Experimental (emerging capabilities to watch)
+
+For each recommendation, provide:
+- Tool name and category
+- Primary use case for my needs
+- Privacy rating (1-10)
+- Approximate cost
+- 2-3 alternatives
+
+My assessment responses:
+[PASTE YOUR QUIZ ANSWERS]
+
+
+PROMPT 4 - PRIVACY-FIRST EVALUATION
+------------------------------------
+I'm evaluating AI tools with strong privacy requirements. For each tool I list, analyze:
+
+1. Data residency (where data is processed/stored)
+2. Third-party data sharing practices
+3. Data retention policies
+4. User data deletion capabilities
+5. Compliance certifications (GDPR, SOC 2, HIPAA, etc.)
+6. Privacy policy red flags
+7. Overall privacy score (1-10)
+
+Tools to evaluate:
+[LIST TOOLS]
+
+Provide findings in a comparison table format. Flag any tools that should be avoided for privacy-sensitive work.
+
+
+PROMPT 5 - IMPLEMENTATION ROADMAP BUILDER
+------------------------------------------
+I've selected the following AI tools for my stack:
+[LIST YOUR SELECTED TOOLS]
+
+Create a 6-month phased implementation roadmap:
+
+Phase 1 (Month 1): Quick wins and essential tools
+Phase 2 (Months 2-3): Integration and workflow optimization
+Phase 3 (Months 4-6): Advanced capabilities and experimentation
+
+For each phase, include:
+- Specific tools to implement (in order)
+- Estimated setup time per tool
+- Integration dependencies
+- Success metrics
+- Potential blockers to watch for
+
+Format as a Gantt-style timeline with clear milestones.
+
+
+PROMPT 6 - COST-BENEFIT ANALYZER
+---------------------------------
+Analyze the total cost of ownership for my proposed AI tool stack:
+
+Tools and pricing:
+[LIST TOOLS WITH MONTHLY/ANNUAL COSTS]
+
+Calculate:
+1. Monthly recurring costs (base + projected usage)
+2. Annual costs with volume discounts
+3. One-time setup/migration costs
+4. Training time costs (estimate my hourly rate at $[X])
+5. Integration/API costs
+
+Then estimate ROI based on:
+- Time savings per tool (hours/week)
+- Quality improvements
+- Error reduction
+- Automation opportunities
+
+Provide 1-year and 3-year ROI projections. Highlight which tools offer fastest payback.
+
+
+PROMPT 7 - INTEGRATION STRATEGY PLANNER
+----------------------------------------
+I'm building an AI tool stack with these tools:
+[LIST YOUR TOOLS]
+
+Design an integration strategy covering:
+
+1. Data flow mapping: What data moves between which tools?
+2. Integration methods: Native integrations, automation platforms (Zapier/Make), API connections, or manual processes?
+3. Authentication strategy: SSO, individual logins, API keys?
+4. Data synchronization: Real-time vs. scheduled vs. manual?
+5. Backup strategy: Where is data duplicated for safety?
+6. Export/migration plan: How do I get data out if I switch tools?
+
+Create a visual data flow diagram (text-based) and integration checklist.
+
+
+PROMPT 8 - WORKFLOW-SPECIFIC RECOMMENDER
+-----------------------------------------
+I need AI tool recommendations specifically for this workflow:
+
+Workflow description: [DESCRIBE YOUR SPECIFIC WORKFLOW]
+Current process: [CURRENT STEPS]
+Pain points: [SPECIFIC PROBLEMS]
+Volume: [HOW OFTEN/HOW MUCH]
+Stakeholders: [WHO'S INVOLVED]
+
+Recommend 5-8 AI tools that could optimize this workflow. For each:
+- How it addresses specific pain points
+- Where it fits in the workflow (which steps)
+- Integration requirements with existing tools
+- Learning curve estimate
+- Expected time savings
+- Privacy considerations for this use case
+
+Prioritize tools that work well together as a complementary set.
+
+
+PROMPT 9 - COMPARATIVE ANALYSIS GENERATOR
+------------------------------------------
+I'm deciding between multiple AI tools in the same category. Create a detailed comparison:
+
+Category: [e.g., AI writing assistants, code completion, image generation]
+Tools to compare: [LIST 3-5 TOOLS]
+
+Compare across:
+1. Core capabilities and limitations
+2. Pricing tiers and value proposition
+3. Privacy and data handling
+4. Integration ecosystem
+5. Output quality (based on public benchmarks)
+6. User experience and learning curve
+7. API access and automation potential
+8. Community and support quality
+9. Long-term viability (company stability)
+10. Lock-in risk and export capabilities
+
+Conclude with a recommendation matrix: "Choose Tool A if [conditions], Tool B if [conditions]"
+
+
+PROMPT 10 - QUARTERLY STACK REVIEW
+-----------------------------------
+I implemented an AI tool stack 3 months ago. Help me conduct a quarterly review:
+
+Current stack:
+[LIST TOOLS WITH USAGE FREQUENCY]
+
+Review framework:
+1. Utilization analysis: Which tools am I actually using vs. paying for?
+2. Value assessment: Which tools deliver measurable value?
+3. Redundancy check: Any overlapping capabilities?
+4. Gap identification: New needs that emerged?
+5. Privacy incidents: Any concerns or policy changes?
+6. Cost optimization: Any pricing changes or better alternatives?
+7. Integration health: What's working/broken?
+8. Emerging alternatives: New tools worth evaluating?
+
+Provide actionable recommendations:
+- Tools to eliminate (underutilized or redundant)
+- Tools to upgrade/downgrade
+- New tools to trial
+- Integration improvements
+- Cost savings opportunities
+
+Generate a refined tool stack for the next quarter.
+
+
+==============================================================================
+USAGE GUIDELINES
+==============================================================================
+
+1. CUSTOMIZATION: Replace bracketed placeholders [LIKE THIS] with your specific information before using prompts.
+
+2. PROMPT CHAINING: For best results, use prompts in sequence:
+   - Start with Prompt 1 or 2 (quiz generation)
+   - Move to Prompt 3 (recommendations)
+   - Then Prompt 4 (privacy check)
+   - Follow with Prompt 5-7 (implementation planning)
+   - Use Prompt 10 quarterly for ongoing optimization
+
+3. PRIVACY PROTECTION: Never include:
+   - Proprietary business information
+   - Client/customer names or details
+   - Specific financial data (use ranges)
+   - Internal project codenames
+   - Confidential workflow details
+   Use generic descriptions and anonymized examples.
+
+4. AI TOOL COMPATIBILITY: These prompts work with:
+   - ChatGPT (GPT-4 or higher recommended)
+   - Claude (Sonnet or Opus)
+   - Gemini Advanced
+   - Perplexity Pro
+   - Any LLM with sufficient context window (8k+ tokens)
+
+5. ITERATION: If results aren't specific enough, follow up with:
+   "Can you make this more specific to [your domain]?"
+   "Provide 3 concrete examples for each recommendation"
+   "Focus specifically on [aspect] in more detail"
+
+6. OUTPUT FORMATTING: Request specific formats:
+   "Provide this as a markdown table"
+   "Format as a checklist I can copy to my task manager"
+   "Create a CSV-compatible output"
+
+7. VERIFICATION: Always independently verify:
+   - Tool pricing (check official websites)
+   - Privacy claims (read actual privacy policies)
+   - Integration capabilities (check documentation)
+   - Compliance certifications (verify on vendor sites)
+
+8. TEMPORAL AWARENESS: AI training data has cutoff dates. For latest tools:
+   "Are there any tools released after [AI's knowledge cutoff] I should consider?"
+   Then manually research recommendations.
+
+9. BIAS AWARENESS: AI may favor:
+   - Well-known tools over niche alternatives
+   - Tools with extensive online discussion
+   - Recently hyped solutions
+   Balance AI recommendations with independent research and user reviews.
+
+10. SAVE YOUR OUTPUTS: Keep all AI-generated assessments for:
+    - Future quarterly reviews
+    - Comparison when needs change
+    - Documentation of decision rationale
+    - Onboarding new team members
+
+==============================================================================
