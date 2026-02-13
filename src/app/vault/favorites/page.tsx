@@ -1,9 +1,11 @@
 import { Suspense } from 'react';
 import type { Metadata } from 'next';
+import { redirect } from 'next/navigation';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import WorkflowCard from '@/components/vault/WorkflowCard';
 import { supabase } from '@/lib/supabase';
+import { auth } from '@/lib/auth';
 import type { VaultWorkflow } from '@/types';
 import { Heart } from 'lucide-react';
 import Link from 'next/link';
@@ -12,9 +14,6 @@ export const metadata: Metadata = {
   title: 'Favorites - Workflow Vault',
   description: 'Your favorited workflows for quick access.',
 };
-
-// In production, get this from auth session
-const MOCK_USER_ID = 'mock-user-id';
 
 async function getFavoriteWorkflows(userId: string): Promise<VaultWorkflow[]> {
   // Get user's favorites
@@ -41,7 +40,13 @@ async function getFavoriteWorkflows(userId: string): Promise<VaultWorkflow[]> {
 }
 
 export default async function FavoritesPage() {
-  const userId = MOCK_USER_ID; // Replace with actual auth
+  const session = await auth();
+
+  if (!session?.user?.id) {
+    redirect('/auth/signin?callbackUrl=/vault/favorites');
+  }
+
+  const userId = session.user.id;
   const favoriteWorkflows = await getFavoriteWorkflows(userId);
 
   return (

@@ -1,11 +1,15 @@
 // Workflow Vault API - Create Stripe Checkout Session
 
 import { NextRequest, NextResponse } from 'next/server';
+import Stripe from 'stripe';
 import { supabaseAdmin } from '@/lib/supabase';
 import type { ApiResponse } from '@/types';
 
-export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
+
+function getStripe() {
+  return new Stripe(process.env.STRIPE_SECRET_KEY!);
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -76,27 +80,49 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // In production, integrate with Stripe
-    // For now, return mock checkout session URL
-    const stripeCheckoutUrl = process.env.STRIPE_SECRET_KEY
-      ? await createStripeCheckoutSession(user, workflow)
-      : null;
-
-    if (stripeCheckoutUrl) {
+    if (!process.env.STRIPE_SECRET_KEY) {
+      // Mock response for development
       return NextResponse.json<ApiResponse>({
         success: true,
         data: {
-          checkout_url: stripeCheckoutUrl,
+          checkout_url: `https://checkout.stripe.com/mock/${workflow_id}`,
+          message: 'Stripe integration pending - mock checkout URL returned',
         },
       });
     }
 
-    // Mock response for development
+    const stripe = getStripe();
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+
+    const session = await stripe.checkout.sessions.create({
+      customer_email: user.email!,
+      line_items: [
+        {
+          price_data: {
+            currency: 'usd',
+            product_data: {
+              name: workflow.title,
+              description: workflow.description?.substring(0, 500),
+            },
+            unit_amount: Math.round(workflow.price * 100),
+          },
+          quantity: 1,
+        },
+      ],
+      mode: 'payment',
+      success_url: `${siteUrl}/vault/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${siteUrl}/vault/${workflow.slug}`,
+      metadata: {
+        user_id: user.id,
+        workflow_id: workflow.id,
+        pricing_tier: 'premium',
+      },
+    });
+
     return NextResponse.json<ApiResponse>({
       success: true,
       data: {
-        checkout_url: `https://checkout.stripe.com/mock/${workflow_id}`,
-        message: 'Stripe integration pending - mock checkout URL returned',
+        checkout_url: session.url,
       },
     });
   } catch (error) {
@@ -108,30 +134,4 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     );
   }
-}
-
-async function createStripeCheckoutSession(user: any, workflow: any): Promise<string | null> {
-  // TODO: Implement Stripe checkout session creation
-  // This is a placeholder for actual Stripe integration
-
-  // Example implementation:
-  // const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
-  // const session = await stripe.checkout.sessions.create({
-  //   customer_email: user.email,
-  //   payment_method_types: ['card'],
-  //   line_items: [{
-  //     price: workflow.stripe_price_id,
-  //     quantity: 1,
-  //   }],
-  //   mode: 'payment',
-  //   success_url: `${process.env.NEXT_PUBLIC_SITE_URL}/vault/success?session_id={CHECKOUT_SESSION_ID}`,
-  //   cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL}/vault/workflows/${workflow.slug}`,
-  //   metadata: {
-  //     user_id: user.id,
-  //     workflow_id: workflow.id,
-  //   },
-  // });
-  // return session.url;
-
-  return null;
 }

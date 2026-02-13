@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
+import { sendEmail } from '@/lib/email';
+import { supabaseAdmin } from '@/lib/supabase';
 
 // Validation schema
 const contactSchema = z.object({
@@ -26,44 +28,12 @@ export async function POST(request: NextRequest) {
     // Validate input
     const validatedData = contactSchema.parse(body);
 
-    // In production, you would send an email here using a service like:
-    // - Nodemailer
-    // - SendGrid
-    // - AWS SES
-    // - Resend
-    // For now, we'll just log it and return success
+    // Send email notification
+    const adminEmail = process.env.ADMIN_EMAIL || 'hello@toolforge.ai';
 
-    console.log('Contact form submission:', {
-      ...validatedData,
-      timestamp: new Date().toISOString(),
-      ip: request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip'),
-    });
-
-    // TODO: Send email notification
-    // Example with nodemailer (if configured):
-    /*
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: parseInt(process.env.SMTP_PORT || '587'),
-      secure: false,
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    });
-
-    await transporter.sendMail({
-      from: process.env.SMTP_FROM,
-      to: 'hello@toolforge.ai',
+    await sendEmail({
+      to: adminEmail,
       subject: `[${validatedData.category}] ${validatedData.subject}`,
-      text: `
-        Name: ${validatedData.name}
-        Email: ${validatedData.email}
-        Category: ${validatedData.category}
-
-        Message:
-        ${validatedData.message}
-      `,
       html: `
         <h2>New Contact Form Submission</h2>
         <p><strong>Name:</strong> ${validatedData.name}</p>
@@ -74,14 +44,26 @@ export async function POST(request: NextRequest) {
         <p><strong>Message:</strong></p>
         <p>${validatedData.message.replace(/\n/g, '<br>')}</p>
       `,
-      replyTo: validatedData.email,
+      text: `New Contact Form Submission\n\nName: ${validatedData.name}\nEmail: ${validatedData.email}\nCategory: ${validatedData.category}\nSubject: ${validatedData.subject}\n\nMessage:\n${validatedData.message}`,
     });
-    */
 
-    // TODO: Store in database for tracking
-    // await prisma.contactSubmission.create({
-    //   data: validatedData,
-    // });
+    // Store in database for tracking
+    await supabaseAdmin
+      .from('contact_submissions')
+      .insert({
+        name: validatedData.name,
+        email: validatedData.email,
+        subject: validatedData.subject,
+        category: validatedData.category,
+        message: validatedData.message,
+        ip_address: request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip'),
+      })
+      .then(({ error }) => {
+        // Log but don't fail the request if DB insert fails (table may not exist yet)
+        if (error) {
+          console.warn('Could not store contact submission in DB:', error.message);
+        }
+      });
 
     return NextResponse.json(
       {

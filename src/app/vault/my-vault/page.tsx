@@ -1,9 +1,11 @@
 import { Suspense } from 'react';
 import type { Metadata } from 'next';
+import { redirect } from 'next/navigation';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import WorkflowCard from '@/components/vault/WorkflowCard';
 import { supabase } from '@/lib/supabase';
+import { auth } from '@/lib/auth';
 import type { VaultWorkflow, VaultPurchase } from '@/types';
 import { Package, Download, Heart, Sparkles, Lock } from 'lucide-react';
 import Link from 'next/link';
@@ -12,9 +14,6 @@ export const metadata: Metadata = {
   title: 'My Vault - Purchased Workflows',
   description: 'Access all your purchased workflows and downloads.',
 };
-
-// In production, get this from auth session
-const MOCK_USER_ID = 'mock-user-id';
 
 async function getUserWorkflows(userId: string): Promise<VaultWorkflow[]> {
   // Get user's purchases
@@ -66,7 +65,13 @@ async function getMembershipWorkflows(userId: string): Promise<VaultWorkflow[]> 
 }
 
 export default async function MyVaultPage() {
-  const userId = MOCK_USER_ID; // Replace with actual auth
+  const session = await auth();
+
+  if (!session?.user?.id) {
+    redirect('/auth/signin?callbackUrl=/vault/my-vault');
+  }
+
+  const userId = session.user.id;
 
   const [purchasedWorkflows, membershipWorkflows] = await Promise.all([
     getUserWorkflows(userId),

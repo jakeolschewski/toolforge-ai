@@ -1,11 +1,15 @@
 // Membership API - Create Subscription
 
 import { NextRequest, NextResponse } from 'next/server';
+import Stripe from 'stripe';
 import { supabaseAdmin } from '@/lib/supabase';
 import type { ApiResponse } from '@/types';
 
-export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
+
+function getStripe() {
+  return new Stripe(process.env.STRIPE_SECRET_KEY!);
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -55,26 +59,80 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // In production, integrate with Stripe Subscriptions
-    const stripeCheckoutUrl = process.env.STRIPE_SECRET_KEY
-      ? await createStripeSubscription(user, plan)
-      : null;
-
-    if (stripeCheckoutUrl) {
+    if (!process.env.STRIPE_SECRET_KEY) {
+      // Mock response for development
       return NextResponse.json<ApiResponse>({
         success: true,
         data: {
-          checkout_url: stripeCheckoutUrl,
+          checkout_url: `https://checkout.stripe.com/mock/subscription/${plan}`,
+          message: 'Stripe integration pending - mock checkout URL returned',
         },
       });
     }
 
-    // Mock response for development
+    const stripe = getStripe();
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+
+    // Get or create Stripe customer
+    let customerId: string | undefined;
+
+    // Check if user already has a stripe_customer_id stored
+    const { data: userData } = await supabaseAdmin
+      .from('users')
+      .select('stripe_customer_id')
+      .eq('id', user.id)
+      .single();
+
+    if (userData?.stripe_customer_id) {
+      customerId = userData.stripe_customer_id;
+    } else {
+      // Create a new Stripe customer
+      const customer = await stripe.customers.create({
+        email: user.email!,
+        metadata: { user_id: user.id },
+      });
+      customerId = customer.id;
+
+      // Store the customer ID on the user record
+      await supabaseAdmin
+        .from('users')
+        .update({ stripe_customer_id: customerId })
+        .eq('id', user.id);
+    }
+
+    // Get price ID based on plan
+    const priceId = plan === 'monthly'
+      ? process.env.STRIPE_MONTHLY_PRICE_ID
+      : process.env.STRIPE_YEARLY_PRICE_ID;
+
+    if (!priceId) {
+      return NextResponse.json<ApiResponse>(
+        { success: false, error: `Stripe price ID not configured for ${plan} plan` },
+        { status: 500 }
+      );
+    }
+
+    const session = await stripe.checkout.sessions.create({
+      customer: customerId,
+      line_items: [
+        {
+          price: priceId,
+          quantity: 1,
+        },
+      ],
+      mode: 'subscription',
+      success_url: `${siteUrl}/membership/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${siteUrl}/membership`,
+      metadata: {
+        user_id: user.id,
+        plan_type: plan,
+      },
+    });
+
     return NextResponse.json<ApiResponse>({
       success: true,
       data: {
-        checkout_url: `https://checkout.stripe.com/mock/subscription/${plan}`,
-        message: 'Stripe integration pending - mock checkout URL returned',
+        checkout_url: session.url,
       },
     });
   } catch (error) {
@@ -86,53 +144,4 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     );
   }
-}
-
-async function createStripeSubscription(user: any, plan: string): Promise<string | null> {
-  // TODO: Implement Stripe subscription creation
-  // This is a placeholder for actual Stripe integration
-
-  // Example implementation:
-  // const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
-  //
-  // // Get or create Stripe customer
-  // let customerId = user.stripe_customer_id;
-  // if (!customerId) {
-  //   const customer = await stripe.customers.create({
-  //     email: user.email,
-  //     metadata: { user_id: user.id },
-  //   });
-  //   customerId = customer.id;
-  //
-  //   // Update user with customer ID
-  //   await supabaseAdmin
-  //     .from('users')
-  //     .update({ stripe_customer_id: customerId })
-  //     .eq('id', user.id);
-  // }
-  //
-  // // Get price ID based on plan
-  // const priceId = plan === 'monthly'
-  //   ? process.env.STRIPE_MONTHLY_PRICE_ID
-  //   : process.env.STRIPE_YEARLY_PRICE_ID;
-  //
-  // const session = await stripe.checkout.sessions.create({
-  //   customer: customerId,
-  //   payment_method_types: ['card'],
-  //   line_items: [{
-  //     price: priceId,
-  //     quantity: 1,
-  //   }],
-  //   mode: 'subscription',
-  //   success_url: `${process.env.NEXT_PUBLIC_SITE_URL}/membership/success?session_id={CHECKOUT_SESSION_ID}`,
-  //   cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL}/membership`,
-  //   metadata: {
-  //     user_id: user.id,
-  //     plan,
-  //   },
-  // });
-  //
-  // return session.url;
-
-  return null;
 }
