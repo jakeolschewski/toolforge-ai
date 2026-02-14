@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: ComparisonPageProps): Promise
   return {
     title: comparison.seo_title || `${comparison.title} | ToolForge AI`,
     description: comparison.seo_description || comparison.description,
-    keywords: comparison.keywords.join(', '),
+    keywords: (comparison.keywords || []).join(', '),
     openGraph: {
       title: comparison.title,
       description: comparison.description || comparison.seo_description,
@@ -61,7 +61,7 @@ export default async function ComparisonPage({ params }: ComparisonPageProps) {
   const { data: tools } = await supabase
     .from('tools')
     .select('*')
-    .in('id', comparison.tool_ids);
+    .in('id', comparison.tool_ids || []);
 
   if (!tools || tools.length === 0) {
     notFound();

@@ -80,7 +80,7 @@ export default async function CollectionsPage() {
                   {/* Tool Count */}
                   <div className="flex items-center justify-between">
                     <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                      {collection.tool_ids.length} tools
+                      {(collection.tool_ids || []).length} tools
                     </span>
                     <ArrowRight className="w-5 h-5 text-indigo-600 dark:text-indigo-400 group-hover:translate-x-1 transition-transform" />
                   </div>

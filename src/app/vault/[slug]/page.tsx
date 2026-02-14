@@ -325,11 +325,11 @@ export default async function WorkflowDetailPage({ params }: PageProps) {
               </div>
 
               {/* Tags */}
-              {workflow.tags.length > 0 && (
+              {(workflow.tags || []).length > 0 && (
                 <div className="bg-white rounded-lg border border-gray-200 p-6">
                   <h3 className="font-bold text-gray-900 mb-4">Tags</h3>
                   <div className="flex flex-wrap gap-2">
-                    {workflow.tags.map((tag, idx) => (
+                    {(workflow.tags || []).map((tag, idx) => (
                       <Badge key={idx} variant="outline" size="sm">
                         {tag}
                       </Badge>

@@ -72,7 +72,7 @@ export default async function CompareHubPage() {
                 )}
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-gray-500 dark:text-gray-400">
-                    {comparison.views.toLocaleString()} views
+                    {(comparison.views ?? 0).toLocaleString()} views
                   </span>
                   <ArrowRight className="w-5 h-5 text-indigo-600 dark:text-indigo-400 group-hover:translate-x-1 transition-transform" />
                 </div>

@@ -317,7 +317,7 @@ export function generateToolMetadata(tool: Tool, review?: Review) {
   const keywords = [
     tool.name.toLowerCase(),
     tool.category,
-    ...tool.tags,
+    ...(tool.tags || []),
     'ai tool',
     'review',
     'pricing',

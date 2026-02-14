@@ -68,14 +68,14 @@ export default function ToolCard({ tool, featured = false, showFullDescription =
         </p>
 
         {/* Features */}
-        {tool.features.length > 0 && (
+        {(tool.features || []).length > 0 && (
           <div className="flex flex-wrap gap-1 mb-4">
-            {tool.features.slice(0, 3).map((feature, idx) => (
+            {(tool.features || []).slice(0, 3).map((feature, idx) => (
               <FeatureBadge key={idx} feature={feature} />
             ))}
-            {tool.features.length > 3 && (
+            {(tool.features || []).length > 3 && (
               <Badge variant="outline" size="sm">
-                +{tool.features.length - 3} more
+                +{(tool.features || []).length - 3} more
               </Badge>
             )}
           </div>

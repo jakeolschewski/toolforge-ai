@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: CollectionPageProps): Promise
   return {
     title: collection.seo_title || `${collection.name} - AI Tools | ToolForge AI`,
     description: collection.seo_description || collection.description,
-    keywords: collection.keywords.join(', '),
+    keywords: (collection.keywords || []).join(', '),
     openGraph: {
       title: collection.name,
       description: collection.description || collection.seo_description,
@@ -61,7 +61,7 @@ export default async function CollectionPage({ params }: CollectionPageProps) {
   const { data: tools } = await supabase
     .from('tools')
     .select('*')
-    .in('id', collection.tool_ids)
+    .in('id', collection.tool_ids || [])
     .eq('status', 'published');
 
   if (!tools || tools.length === 0) {

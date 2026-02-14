@@ -70,13 +70,15 @@ export default async function ToolDetailPage({ params }: PageProps) {
 
   const { tool, reviews } = data;
   const mainReview = reviews[0];
+  const toolFeatures = tool.features || [];
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://toolforge.ai';
 
   // Generate structured data
   const productSchema = generateProductSchema(tool);
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Home', url: process.env.NEXT_PUBLIC_SITE_URL || 'https://toolforge.ai' },
-    { name: 'Tools', url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://toolforge.ai'}/tools` },
-    { name: tool.category, url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://toolforge.ai'}/category/${tool.category.toLowerCase()}` },
+    { name: 'Home', url: siteUrl },
+    { name: 'Tools', url: `${siteUrl}/tools` },
+    { name: tool.category || 'Tools', url: `${siteUrl}/category/${(tool.category || 'tools').toLowerCase()}` },
     { name: tool.name, url: generateCanonicalUrl(`/tools/${tool.slug}`) },
   ]);
 
@@ -186,11 +188,11 @@ export default async function ToolDetailPage({ params }: PageProps) {
           </div>
 
           {/* Features */}
-          {tool.features.length > 0 && (
+          {toolFeatures.length > 0 && (
             <div className="mt-6">
               <h3 className="font-semibold text-lg mb-3">Key Features</h3>
               <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                {tool.features.map((feature, idx) => (
+                {toolFeatures.map((feature, idx) => (
                   <li key={idx} className="flex items-start">
                     <span className="text-primary-600 mr-2">✓</span>
                     <span className="text-gray-700">{feature}</span>
@@ -212,7 +214,7 @@ export default async function ToolDetailPage({ params }: PageProps) {
 
             <div className="prose prose-slate max-w-none mb-8">
               {/* Content */}
-              <div dangerouslySetInnerHTML={{ __html: mainReview.content.replace(/\n/g, '<br/>') }} />
+              <div dangerouslySetInnerHTML={{ __html: (mainReview.content || '').replace(/\n/g, '<br/>') }} />
             </div>
 
             {/* Pros & Cons */}

@@ -128,9 +128,9 @@ export default function WorkflowCard({
         </p>
 
         {/* Tags */}
-        {workflow.tags.length > 0 && (
+        {(workflow.tags || []).length > 0 && (
           <div className="flex flex-wrap gap-1 mb-4">
-            {workflow.tags.slice(0, 3).map((tag, idx) => (
+            {(workflow.tags || []).slice(0, 3).map((tag, idx) => (
               <span
                 key={idx}
                 className="text-xs px-2 py-1 bg-gray-100 text-gray-700 rounded"
@@ -138,9 +138,9 @@ export default function WorkflowCard({
                 {tag}
               </span>
             ))}
-            {workflow.tags.length > 3 && (
+            {(workflow.tags || []).length > 3 && (
               <span className="text-xs px-2 py-1 text-gray-500">
-                +{workflow.tags.length - 3} more
+                +{(workflow.tags || []).length - 3} more
               </span>
             )}
           </div>

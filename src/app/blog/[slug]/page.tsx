@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   return {
     title: blogPost.seo_title || `${blogPost.title} | ToolForge AI Blog`,
     description: blogPost.seo_description || blogPost.excerpt,
-    keywords: blogPost.keywords.join(', '),
+    keywords: (blogPost.keywords || []).join(', '),
     openGraph: {
       title: blogPost.title,
       description: blogPost.excerpt || blogPost.seo_description,
