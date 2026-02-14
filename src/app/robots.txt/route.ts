@@ -2,9 +2,9 @@
 
 import { NextResponse } from 'next/server';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://toolforge.ai';
-
 export async function GET() {
+  // Resolve at request time, not module-load time
+  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://toolforge.ai';
   const robotsTxt = `# Allow all crawlers
 User-agent: *
 Allow: /

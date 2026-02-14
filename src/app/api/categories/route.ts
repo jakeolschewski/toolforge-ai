@@ -4,7 +4,6 @@ import { NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
 import type { ApiResponse, Category } from '@/types';
 
-export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
 
 export async function GET() {
@@ -14,7 +13,20 @@ export async function GET() {
       .select('*')
       .order('order', { ascending: true });
 
-    if (error) throw error;
+    if (error) {
+      // If table doesn't exist, return empty array instead of 500
+      if (error.code === '42P01' || error.message?.includes('does not exist')) {
+        return NextResponse.json<ApiResponse>(
+          { success: true, data: [] },
+          {
+            headers: {
+              'Cache-Control': 'public, s-maxage=86400, stale-while-revalidate=604800',
+            },
+          }
+        );
+      }
+      throw error;
+    }
 
     return NextResponse.json<ApiResponse>(
       {
@@ -28,6 +40,7 @@ export async function GET() {
       }
     );
   } catch (error) {
+    console.error('Categories API error:', error);
     return NextResponse.json<ApiResponse>(
       {
         success: false,

@@ -29,10 +29,10 @@ let transporter: Transporter | null = null;
 function getTransporter(): Transporter {
   if (transporter) return transporter;
 
-  const emailUser = process.env.EMAIL_USER;
-  const emailPass = process.env.EMAIL_PASS;
-  const emailHost = process.env.EMAIL_HOST || 'smtp.gmail.com';
-  const emailPort = parseInt(process.env.EMAIL_PORT || '587', 10);
+  const emailUser = process.env.EMAIL_USER || process.env.SMTP_USER;
+  const emailPass = process.env.EMAIL_PASS || process.env.SMTP_PASS;
+  const emailHost = process.env.EMAIL_HOST || process.env.SMTP_HOST || 'smtp.gmail.com';
+  const emailPort = parseInt(process.env.EMAIL_PORT || process.env.SMTP_PORT || '587', 10);
 
   if (!emailUser || !emailPass) {
     console.warn('Email credentials not configured. Emails will not be sent.');
@@ -67,7 +67,7 @@ function getTransporter(): Transporter {
 export async function sendEmail(options: EmailOptions): Promise<boolean> {
   try {
     const transport = getTransporter();
-    const from = process.env.EMAIL_FROM || process.env.EMAIL_USER || 'noreply@toolforge.ai';
+    const from = process.env.EMAIL_FROM || process.env.SMTP_FROM || process.env.EMAIL_USER || 'noreply@toolforge.ai';
 
     await transport.sendMail({
       from,

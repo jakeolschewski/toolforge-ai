@@ -3,9 +3,9 @@
 import { MetadataRoute } from 'next';
 import { supabase } from '@/lib/supabase';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://toolforge.ai';
-
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  // Resolve at request time, not module-load time
+  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://toolforge.ai';
   // Fetch all published tools
   const { data: tools } = await supabase
     .from('tools')
