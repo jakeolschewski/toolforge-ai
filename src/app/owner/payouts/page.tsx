@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Plus, Filter, Search, RefreshCw } from 'lucide-react';
+import { Plus, Search, RefreshCw } from 'lucide-react';
 import PayoutsList from '@/components/owner/PayoutsList';
 import type { Payout } from '@/types';
 
@@ -46,6 +46,7 @@ export default function PayoutsPage() {
 
   useEffect(() => {
     fetchPayouts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {

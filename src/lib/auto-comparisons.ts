@@ -4,7 +4,6 @@
 import { supabaseAdmin } from '@/lib/supabase';
 import { generateToolComparison } from '@/lib/ai-content-generator';
 import { slugify } from '@/utils/helpers';
-import type { Tool } from '@/types';
 
 const MAX_COMPARISONS_PER_RUN = 1;
 
@@ -40,6 +39,7 @@ export async function generateAutoComparisons(): Promise<{ created: number; skip
   }
 
   // Find pairs to compare (same category, both popular)
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   for (const [category, categoryTools] of categoryMap) {
     if (created >= MAX_COMPARISONS_PER_RUN) break;
     if (categoryTools.length < 2) continue;

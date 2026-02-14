@@ -4,7 +4,7 @@
 import axios from 'axios';
 import * as cheerio from 'cheerio';
 import type { ScraperResult } from '@/types';
-import { delay, extractDomain, sanitizeText, isValidUrl } from '@/utils/helpers';
+import { delay, sanitizeText, isValidUrl } from '@/utils/helpers';
 import { checkRobotsTxt } from '@/utils/robots';
 
 const PRODUCT_HUNT_BASE = 'https://www.producthunt.com';
@@ -136,7 +136,7 @@ async function scrapeProductHuntSection(section: string): Promise<ScraperResult[
 /**
  * Extract product name from element
  */
-function extractProductName($el: cheerio.Cheerio<any>, $: cheerio.CheerioAPI): string {
+function extractProductName($el: cheerio.Cheerio<import('domhandler').AnyNode>, _$: cheerio.CheerioAPI): string {
   // Try multiple selectors for product name
   const nameSelectors = [
     '[data-test="post-name"]',
@@ -159,7 +159,7 @@ function extractProductName($el: cheerio.Cheerio<any>, $: cheerio.CheerioAPI): s
 /**
  * Extract product description
  */
-function extractProductDescription($el: cheerio.Cheerio<any>, $: cheerio.CheerioAPI): string {
+function extractProductDescription($el: cheerio.Cheerio<import('domhandler').AnyNode>, _$: cheerio.CheerioAPI): string {
   const descSelectors = [
     '[data-test="post-description"]',
     'p',
@@ -180,7 +180,7 @@ function extractProductDescription($el: cheerio.Cheerio<any>, $: cheerio.Cheerio
 /**
  * Extract product tagline
  */
-function extractProductTagline($el: cheerio.Cheerio<any>, $: cheerio.CheerioAPI): string {
+function extractProductTagline($el: cheerio.Cheerio<import('domhandler').AnyNode>, _$: cheerio.CheerioAPI): string {
   const taglineSelectors = [
     '[data-test="post-tagline"]',
     '[class*="tagline"]',
@@ -200,7 +200,7 @@ function extractProductTagline($el: cheerio.Cheerio<any>, $: cheerio.CheerioAPI)
 /**
  * Extract product link
  */
-function extractProductLink($el: cheerio.Cheerio<any>, $: cheerio.CheerioAPI): string {
+function extractProductLink($el: cheerio.Cheerio<import('domhandler').AnyNode>, _$: cheerio.CheerioAPI): string {
   // Try to find the main link
   const linkSelectors = ['a[href*="/posts/"]', 'a'];
 

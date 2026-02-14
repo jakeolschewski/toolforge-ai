@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import { Upload, Loader2, X, Check, File } from 'lucide-react';
+import { Upload, Loader2, X, File } from 'lucide-react';
 import toast from 'react-hot-toast';
 import Button from '@/components/ui/Button';
 
@@ -113,6 +113,7 @@ export default function FileUploader({
         <div className="flex items-center gap-3 p-4 bg-gray-50 border border-gray-200 rounded-lg">
           <div className="flex-shrink-0">
             {accept.includes('image') ? (
+              /* eslint-disable-next-line @next/next/no-img-element */
               <img
                 src={currentUrl}
                 alt="Uploaded file"

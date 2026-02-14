@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Download, RefreshCw, TrendingUp, DollarSign, Users, MousePointerClick } from 'lucide-react';
+import { Download, RefreshCw, TrendingUp, DollarSign } from 'lucide-react';
 import FinancialSummary from '@/components/owner/FinancialSummary';
 import RevenueChart from '@/components/owner/RevenueChart';
 import type { FinancialSummary as FinancialSummaryType, MonthlyRevenueTrend, RevenueByTool, Payout } from '@/types';
@@ -56,6 +56,7 @@ export default function OwnerDashboard() {
 
   useEffect(() => {
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleRefresh = () => {

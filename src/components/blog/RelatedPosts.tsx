@@ -25,6 +25,7 @@ export default function RelatedPosts({ posts }: RelatedPostsProps) {
           >
             {post.featured_image && (
               <div className="relative h-32 mb-4 overflow-hidden rounded-lg">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={post.featured_image}
                   alt={post.title}

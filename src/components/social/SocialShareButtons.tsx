@@ -39,7 +39,9 @@ export default function SocialShareButtons({
 
   const handleShare = (platform: keyof typeof shareLinks) => {
     // Track share event
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     if (typeof window !== 'undefined' && (window as any).gtag) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (window as any).gtag('event', 'share', {
         method: platform,
         content_type: 'tool',
@@ -70,7 +72,9 @@ export default function SocialShareButtons({
       setTimeout(() => setCopied(false), 2000);
 
       // Track copy event
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       if (typeof window !== 'undefined' && (window as any).gtag) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         (window as any).gtag('event', 'share', {
           method: 'copy_link',
           content_type: 'tool',
@@ -92,7 +96,9 @@ export default function SocialShareButtons({
         });
 
         // Track native share
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         if (typeof window !== 'undefined' && (window as any).gtag) {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           (window as any).gtag('event', 'share', {
             method: 'native',
             content_type: 'tool',

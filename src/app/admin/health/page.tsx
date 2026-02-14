@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { CheckCircle, XCircle, AlertTriangle, Loader2, RefreshCw, Database, Globe, Mail, Zap } from 'lucide-react';
+import { CheckCircle, XCircle, AlertTriangle, Loader2, RefreshCw, Database, Globe, Zap } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import { Card, CardContent } from '@/components/ui/Card';
 import toast from 'react-hot-toast';

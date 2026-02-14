@@ -38,6 +38,7 @@ function getTransporter(): Transporter {
     console.warn('Email credentials not configured. Emails will not be sent.');
     // Return a dummy transporter for development
     return {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       sendMail: async (options: any) => {
         console.log('📧 [DEV MODE] Email would be sent:', {
           to: options.to,
@@ -45,6 +46,7 @@ function getTransporter(): Transporter {
         });
         return { messageId: 'dev-mode-' + Date.now() };
       },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } as any;
   }
 
@@ -262,6 +264,7 @@ View pending tools: ${process.env.NEXT_PUBLIC_APP_URL || 'https://toolforge.ai'}
 }
 
 // Error notification email
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function sendErrorNotification(errorMessage: string, context?: any): Promise<boolean> {
   const adminEmail = process.env.ADMIN_EMAIL;
   if (!adminEmail) return false;

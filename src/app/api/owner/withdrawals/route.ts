@@ -41,10 +41,14 @@ export async function GET(request: NextRequest) {
     // Calculate totals
     const withdrawals = data || [];
     const totalWithdrawn = withdrawals
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       .filter((w: any) => w.status === 'completed')
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       .reduce((sum: number, w: any) => sum + (parseFloat(w.amount) || 0), 0);
     const totalPending = withdrawals
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       .filter((w: any) => w.status === 'pending')
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       .reduce((sum: number, w: any) => sum + (parseFloat(w.amount) || 0), 0);
 
     return NextResponse.json<ApiResponse>({

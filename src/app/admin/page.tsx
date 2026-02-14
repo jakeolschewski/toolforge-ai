@@ -1,5 +1,5 @@
 import { supabaseAdmin } from '@/lib/supabase';
-import { Package, FileText, Eye, MousePointerClick, DollarSign, TrendingUp } from 'lucide-react';
+import { Package, FileText, Eye, MousePointerClick, TrendingUp } from 'lucide-react';
 import StatsCard from '@/components/admin/StatsCard';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 

@@ -3,7 +3,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
-import type { Collection, Tool } from '@/types';
+import type { Tool } from '@/types';
 import Link from 'next/link';
 import ToolCard from '@/components/tools/ToolCard';
 import { Sparkles, ArrowLeft } from 'lucide-react';

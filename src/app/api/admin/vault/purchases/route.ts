@@ -7,7 +7,7 @@ import type { ApiResponse } from '@/types';
 export const dynamic = 'force-dynamic';
 
 // GET - List all purchases with user email and workflow title
-export async function GET(request: NextRequest) {
+export async function GET(_request: NextRequest) {
   try {
     // Fetch purchases with related data
     const { data: purchases, error } = await supabaseAdmin
@@ -27,6 +27,7 @@ export async function GET(request: NextRequest) {
     }
 
     // Flatten the joined data for the frontend
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const flattenedPurchases = (purchases || []).map((p: any) => ({
       ...p,
       workflow_title: p.vault_workflows?.title || 'Unknown',

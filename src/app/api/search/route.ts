@@ -154,7 +154,8 @@ export async function POST(request: NextRequest) {
 
     // Track search analytics in database
     // You can create a search_analytics table for this
-    const analyticsData = {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const _analyticsData = {
       query: query || '',
       results_count: results_count || 0,
       clicked_tool_id: clicked_tool_id || null,

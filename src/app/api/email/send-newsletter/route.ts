@@ -65,6 +65,7 @@ async function getLatestBlogPosts(limit: number = 3) {
 }
 
 // Generate newsletter HTML
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function generateNewsletterHTML(tools: any[], posts: any[]) {
   const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://toolforge.ai';
   const currentDate = new Date().toLocaleDateString('en-US', {
@@ -208,6 +209,7 @@ function generateNewsletterHTML(tools: any[], posts: any[]) {
 }
 
 // Generate plain text version
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function generateNewsletterText(tools: any[], posts: any[]) {
   const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://toolforge.ai';
   const currentDate = new Date().toLocaleDateString('en-US', {

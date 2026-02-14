@@ -17,6 +17,7 @@ export const metadata: Metadata = {
   keywords: ['ai workflows', 'claude workflows', 'chatgpt workflows', 'automation', 'ai templates'],
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function getWorkflows(searchParams: any): Promise<{ workflows: VaultWorkflow[]; total: number }> {
   const page = parseInt(searchParams.page || '1');
   const limit = 24;

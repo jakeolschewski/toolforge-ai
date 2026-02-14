@@ -36,7 +36,7 @@ export default function AuthModal({ isOpen, onClose, defaultTab = 'signin' }: Au
         toast.success('Check your email for the magic link!');
         onClose();
       }
-    } catch (error) {
+    } catch {
       toast.error('Something went wrong');
     } finally {
       setIsLoading(false);
@@ -49,7 +49,7 @@ export default function AuthModal({ isOpen, onClose, defaultTab = 'signin' }: Au
       await signIn(provider, {
         callbackUrl: '/',
       });
-    } catch (error) {
+    } catch {
       toast.error('Failed to sign in');
       setIsLoading(false);
     }

@@ -22,6 +22,8 @@ export const DynamicRevenueChart = dynamic(
 );
 
 // You can add more chart components here as needed
-export default {
+const DynamicCharts = {
   RevenueChart: DynamicRevenueChart,
 };
+
+export default DynamicCharts;

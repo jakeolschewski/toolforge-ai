@@ -6,7 +6,7 @@ export interface CSVColumn {
   key: string;
   label: string;
   required?: boolean;
-  transform?: (value: string) => any;
+  transform?: (value: string) => unknown;
 }
 
 export interface CSVValidationError {
@@ -74,6 +74,7 @@ export function parseCSV(csvText: string): string[][] {
 /**
  * Convert array of objects to CSV string
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function toCSV<T extends Record<string, any>>(
   data: T[],
   columns?: CSVColumn[]
@@ -113,7 +114,7 @@ function escapeCSVValue(value: string): string {
 /**
  * Format value for CSV output
  */
-function formatCSVValue(value: any): string {
+function formatCSVValue(value: unknown): string {
   if (value === null || value === undefined) {
     return '';
   }
@@ -173,7 +174,7 @@ export function parseCSVWithSchema<T>(
   // Parse data rows
   for (let i = 1; i < lines.length; i++) {
     const row = lines[i];
-    const item: any = {};
+    const item: Record<string, unknown> = {};
 
     columnMap.forEach((column, index) => {
       const value = row[index] || '';

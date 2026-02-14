@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Edit, Trash2, Eye, Search, Plus, Loader2 } from 'lucide-react';
+import { Edit, Trash2, Eye, Search, Loader2 } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { Card, CardContent } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';

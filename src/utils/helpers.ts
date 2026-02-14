@@ -222,7 +222,7 @@ export function extractTextFromHtml(html: string, maxLength?: number): string {
  * Download image to local storage (returns URL)
  * For production, this would upload to cloud storage (S3, Cloudinary, etc.)
  */
-export async function downloadImage(url: string, fileName?: string): Promise<string> {
+export async function downloadImage(url: string, _fileName?: string): Promise<string> {
   try {
     // In production, implement actual image downloading/uploading
     // For now, return the original URL
@@ -366,7 +366,7 @@ export async function retryWithBackoff<T>(
   maxRetries: number = 3,
   initialDelay: number = 1000
 ): Promise<T> {
-  let lastError: any;
+  let lastError: unknown;
 
   for (let i = 0; i < maxRetries; i++) {
     try {

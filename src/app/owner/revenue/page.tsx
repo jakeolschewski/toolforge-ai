@@ -1,13 +1,14 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { TrendingUp, DollarSign, MousePointerClick, RefreshCw, Download } from 'lucide-react';
+import { TrendingUp, DollarSign, MousePointerClick, RefreshCw } from 'lucide-react';
 import RevenueChart from '@/components/owner/RevenueChart';
 import type { MonthlyRevenueTrend, RevenueByTool } from '@/types';
 
 export default function RevenuePage() {
   const [trends, setTrends] = useState<MonthlyRevenueTrend[]>([]);
   const [topTools, setTopTools] = useState<RevenueByTool[]>([]);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [revenueBySource, setRevenueBySource] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -46,6 +47,7 @@ export default function RevenuePage() {
 
   useEffect(() => {
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const totalRevenue = revenueBySource.reduce((sum, s) => sum + s.total_revenue, 0);

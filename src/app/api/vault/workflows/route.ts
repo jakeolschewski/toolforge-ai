@@ -82,6 +82,7 @@ export async function GET(request: NextRequest) {
     if (error) throw error;
 
     // Transform data to include category_name
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const workflows = (data || []).map((workflow: any) => ({
       ...workflow,
       category_name: workflow.vault_categories?.name,

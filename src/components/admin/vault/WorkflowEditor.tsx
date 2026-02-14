@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Loader2, Upload, X, Plus } from 'lucide-react';
+import { Loader2 } from 'lucide-react';
 import { slugify } from '@/utils/helpers';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
@@ -22,11 +22,13 @@ export default function WorkflowEditor({
   saving = false,
 }: WorkflowEditorProps) {
   const [workflow, setWorkflow] = useState<Partial<VaultWorkflow>>(initialWorkflow);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [categories, setCategories] = useState<any[]>([]);
   const [loadingCategories, setLoadingCategories] = useState(false);
 
   useEffect(() => {
     loadCategories();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const loadCategories = async () => {
@@ -52,6 +54,7 @@ export default function WorkflowEditor({
     }
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleChange = (field: keyof VaultWorkflow, value: any) => {
     setWorkflow((prev) => ({ ...prev, [field]: value }));
 

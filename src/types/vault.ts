@@ -323,7 +323,7 @@ export interface Workflow {
   affiliate_commission?: number;
 
   /** Custom metadata */
-  metadata?: Record<string, any>;
+  metadata?: Record<string, unknown>;
 
   // ------------------------------------------------------------------
   // UI-facing fields (used by components but not in comprehensive type)
@@ -933,6 +933,7 @@ export interface RevenueAnalytics {
 /**
  * Standard API response wrapper
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export interface VaultApiResponse<T = any> {
   success: boolean;
   data?: T;
@@ -941,6 +942,7 @@ export interface VaultApiResponse<T = any> {
   meta?: {
     timestamp: string;
     request_id?: string;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     [key: string]: any;
   };
 }
@@ -962,6 +964,7 @@ export interface PaginatedVaultResponse<T> {
   meta?: {
     timestamp: string;
     request_id?: string;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     [key: string]: any;
   };
 }
@@ -1044,7 +1047,7 @@ export interface WorkflowInput {
   seo_description?: string;
   seo_keywords?: string[];
   update_frequency?: UpdateFrequency;
-  metadata?: Record<string, any>;
+  metadata?: Record<string, unknown>;
 }
 
 // ============================================================================

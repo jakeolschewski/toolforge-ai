@@ -96,6 +96,7 @@ async function getRevenueBySource() {
   if (error) throw error;
 
   // Aggregate by source
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const aggregated = data.reduce((acc: any, item: any) => {
     if (!acc[item.source]) {
       acc[item.source] = {

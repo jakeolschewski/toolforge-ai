@@ -162,6 +162,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         {blogPost.featured_image && (
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8">
             <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={blogPost.featured_image}
                 alt={blogPost.title}

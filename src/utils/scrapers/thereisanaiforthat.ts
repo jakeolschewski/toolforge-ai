@@ -4,7 +4,7 @@
 import axios from 'axios';
 import * as cheerio from 'cheerio';
 import type { ScraperResult } from '@/types';
-import { delay, retryWithBackoff, sanitizeText, RateLimiter } from '@/utils/helpers';
+import { retryWithBackoff, sanitizeText, RateLimiter } from '@/utils/helpers';
 import { checkRobotsTxt, getCrawlDelay } from '@/utils/robots';
 
 const rateLimiter = new RateLimiter(30); // 30 calls per minute

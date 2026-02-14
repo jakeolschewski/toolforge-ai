@@ -2,8 +2,6 @@
 // Automatically creates curated collections from tool categories
 
 import { supabaseAdmin } from '@/lib/supabase';
-import { slugify } from '@/utils/helpers';
-import type { Tool } from '@/types';
 
 const MAX_COLLECTIONS_PER_RUN = 3;
 const MIN_TOOLS_FOR_COLLECTION = 5;

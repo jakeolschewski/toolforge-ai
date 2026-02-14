@@ -1,5 +1,5 @@
 import { supabaseAdmin } from '@/lib/supabase';
-import { TrendingUp, Eye, MousePointerClick, Package, Calendar } from 'lucide-react';
+import { TrendingUp, Eye, MousePointerClick } from 'lucide-react';
 import StatsCard from '@/components/admin/StatsCard';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 
@@ -27,7 +27,7 @@ async function getAnalyticsData() {
       .select('category')
       .eq('status', 'published');
 
-    const categoryStats = toolsByCategory?.reduce((acc: any, tool) => {
+    const categoryStats = toolsByCategory?.reduce((acc: Record<string, number>, tool) => {
       const category = tool.category || 'uncategorized';
       acc[category] = (acc[category] || 0) + 1;
       return acc;

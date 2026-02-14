@@ -8,6 +8,7 @@ interface CacheEntry<T> {
 
 // In-memory cache fallback
 class MemoryCache {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private cache: Map<string, CacheEntry<any>> = new Map();
   private cleanupInterval: NodeJS.Timeout;
 
@@ -60,6 +61,7 @@ class MemoryCache {
 
 // Redis client wrapper
 class RedisCache {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private client: any;
   private connected: boolean = false;
 
@@ -72,7 +74,7 @@ class RedisCache {
 
   private async initRedis() {
     try {
-      // @ts-ignore - redis is an optional dependency
+      // @ts-expect-error - redis is an optional dependency
       const { createClient } = await import('redis');
       this.client = createClient({
         url: process.env.REDIS_URL,

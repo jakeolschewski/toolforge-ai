@@ -7,7 +7,6 @@
  */
 
 import {
-  Workflow,
   WorkflowInput,
   WorkflowPurchase,
   Membership,

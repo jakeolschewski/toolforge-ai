@@ -3,7 +3,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabase';
-import { sanitizeText, isValidUrl, isValidEmail } from '@/utils/helpers';
+import { sanitizeText } from '@/utils/helpers';
 import { categorizeTool } from '@/utils/ai-categorizer';
 import { sendEmail } from '@/lib/email';
 import type { ApiResponse } from '@/types';
@@ -197,7 +197,7 @@ export async function POST(request: NextRequest) {
 /**
  * GET - Get submission statistics (optional, for transparency)
  */
-export async function GET(request: NextRequest) {
+export async function GET(_request: NextRequest) {
   try {
     const { count: pendingCount } = await supabaseAdmin
       .from('scraped_sources')
@@ -219,7 +219,7 @@ export async function GET(request: NextRequest) {
         message: 'User submissions are reviewed within 24-48 hours',
       },
     });
-  } catch (error) {
+  } catch {
     return NextResponse.json<ApiResponse>(
       {
         success: false,

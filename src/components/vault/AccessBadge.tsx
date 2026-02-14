@@ -15,6 +15,7 @@ export default function AccessBadge({
   hasAccess,
   isPremium,
   isFree,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   userTier = 'free',
   size = 'md',
   showIcon = true

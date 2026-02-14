@@ -20,6 +20,7 @@ export default function EditWorkflowPage() {
     if (workflowId) {
       loadWorkflow();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [workflowId]);
 
   const loadWorkflow = async () => {

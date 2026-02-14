@@ -7,7 +7,7 @@ import type { ApiResponse } from '@/types';
 export const dynamic = 'force-dynamic';
 
 // GET - List all memberships with user email
-export async function GET(request: NextRequest) {
+export async function GET(_request: NextRequest) {
   try {
     const { data: memberships, error } = await supabaseAdmin
       .from('vault_memberships')
@@ -25,6 +25,7 @@ export async function GET(request: NextRequest) {
     }
 
     // Flatten the joined data for the frontend
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const flattenedMemberships = (memberships || []).map((m: any) => ({
       ...m,
       user_email: m.users?.email || 'Unknown',

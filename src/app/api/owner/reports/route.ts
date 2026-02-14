@@ -88,11 +88,13 @@ async function generateReportData(type: string, startDate: string, endDate: stri
     months[key] = { revenue: 0, expenses: 0, profit: 0 };
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   revenue.forEach((r: any) => {
     const month = r.conversion_date?.substring(0, 7);
     if (month && months[month]) months[month].revenue += parseFloat(r.amount) || 0;
   });
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   expenses.forEach((e: any) => {
     const month = e.expense_date?.substring(0, 7);
     if (month && months[month]) months[month].expenses += parseFloat(e.amount) || 0;
@@ -106,6 +108,7 @@ async function generateReportData(type: string, startDate: string, endDate: stri
 
   // Revenue by source
   const revenueBySource: Record<string, number> = {};
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   revenue.forEach((r: any) => {
     const src = r.source || 'other';
     revenueBySource[src] = (revenueBySource[src] || 0) + (parseFloat(r.amount) || 0);
@@ -113,6 +116,7 @@ async function generateReportData(type: string, startDate: string, endDate: stri
 
   // Expense by category
   const expenseByCategory: Record<string, number> = {};
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   expenses.forEach((e: any) => {
     const cat = e.category || 'other';
     expenseByCategory[cat] = (expenseByCategory[cat] || 0) + (parseFloat(e.amount) || 0);
@@ -120,11 +124,15 @@ async function generateReportData(type: string, startDate: string, endDate: stri
 
   // Tax deductible expenses
   const taxDeductible = expenses
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     .filter((e: any) => e.is_tax_deductible)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     .reduce((s: number, e: any) => s + (parseFloat(e.amount) || 0), 0);
 
   const totalWithdrawals = withdrawals
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     .filter((w: any) => w.status === 'completed')
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     .reduce((s: number, w: any) => s + (parseFloat(w.amount) || 0), 0);
 
   return {

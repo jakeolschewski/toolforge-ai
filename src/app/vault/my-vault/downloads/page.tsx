@@ -40,6 +40,7 @@ async function getDownloadHistory(userId: string): Promise<DownloadHistoryItem[]
 
   if (!data) return [];
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return data.map((item: any) => ({
     id: item.id,
     workflow_id: item.workflow_id,

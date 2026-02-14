@@ -2,7 +2,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabase';
-import type { ApiResponse, VaultFavorite } from '@/types';
+import type { ApiResponse } from '@/types';
 
 export const dynamic = 'force-dynamic';
 
@@ -63,6 +63,7 @@ export async function GET(request: NextRequest) {
     if (error) throw error;
 
     // Transform data
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const favorites = (data || []).map((fav: any) => ({
       id: fav.id,
       user_id: fav.user_id,

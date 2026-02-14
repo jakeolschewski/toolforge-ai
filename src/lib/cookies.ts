@@ -135,6 +135,7 @@ function enableAnalytics(): void {
   // Vercel Analytics is enabled by default in layout.tsx
   // Add other analytics initialization here if needed
   if (typeof window !== 'undefined') {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (window as any).__ANALYTICS_ENABLED__ = true;
   }
 }
@@ -144,10 +145,12 @@ function enableAnalytics(): void {
  */
 function disableAnalytics(): void {
   if (typeof window !== 'undefined') {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (window as any).__ANALYTICS_ENABLED__ = false;
 
-    // Disable Google Analytics if present
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     if ((window as any).gtag) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (window as any).gtag('consent', 'update', {
         analytics_storage: 'denied',
       });
@@ -160,10 +163,12 @@ function disableAnalytics(): void {
  */
 function enableMarketing(): void {
   if (typeof window !== 'undefined') {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (window as any).__MARKETING_ENABLED__ = true;
 
-    // Enable Google Ads consent if present
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     if ((window as any).gtag) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (window as any).gtag('consent', 'update', {
         ad_storage: 'granted',
         ad_user_data: 'granted',
@@ -178,10 +183,12 @@ function enableMarketing(): void {
  */
 function disableMarketing(): void {
   if (typeof window !== 'undefined') {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (window as any).__MARKETING_ENABLED__ = false;
 
-    // Disable Google Ads consent if present
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     if ((window as any).gtag) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (window as any).gtag('consent', 'update', {
         ad_storage: 'denied',
         ad_user_data: 'denied',

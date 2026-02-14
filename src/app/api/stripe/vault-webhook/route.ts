@@ -26,8 +26,8 @@ export async function POST(request: NextRequest) {
       signature,
       process.env.STRIPE_VAULT_WEBHOOK_SECRET!
     );
-  } catch (err: any) {
-    console.error('Webhook signature verification failed:', err.message);
+  } catch (err) {
+    console.error('Webhook signature verification failed:', err instanceof Error ? err.message : err);
     return NextResponse.json(
       { error: 'Invalid signature' },
       { status: 400 }
@@ -44,7 +44,8 @@ export async function POST(request: NextRequest) {
           // Workflow Purchase
           const workflowId = session.metadata?.workflow_id;
           const userId = session.metadata?.user_id;
-          const pricingTier = session.metadata?.pricing_tier;
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          const _pricingTier = session.metadata?.pricing_tier;
 
           if (!workflowId || !userId) {
             console.error('Missing metadata in checkout session');
@@ -198,10 +199,10 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json({ received: true });
-  } catch (error: any) {
+  } catch (error) {
     console.error('Error processing webhook:', error);
     return NextResponse.json(
-      { error: 'Webhook processing failed', message: error.message },
+      { error: 'Webhook processing failed', message: error instanceof Error ? error.message : 'Unknown error' },
       { status: 500 }
     );
   }

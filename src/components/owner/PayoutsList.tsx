@@ -12,6 +12,7 @@ interface PayoutsListProps {
 }
 
 export default function PayoutsList({ payouts, onUpdate, onDelete }: PayoutsListProps) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editForm, setEditForm] = useState<Partial<Payout>>({});
 
@@ -20,6 +21,7 @@ export default function PayoutsList({ payouts, onUpdate, onDelete }: PayoutsList
     setEditForm(payout);
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleSave = async (id: string) => {
     await onUpdate(id, editForm);
     setEditingId(null);

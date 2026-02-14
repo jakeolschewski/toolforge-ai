@@ -76,7 +76,7 @@ export default function OptimizedImage({
   };
 
   if (fill) {
-    return <Image {...imageProps} fill />;
+    return <Image {...imageProps} fill alt={alt} />;
   }
 
   if (!width || !height) {
@@ -84,7 +84,7 @@ export default function OptimizedImage({
     return null;
   }
 
-  return <Image {...imageProps} width={width} height={height} />;
+  return <Image {...imageProps} width={width} height={height} alt={alt} />;
 }
 
 // Predefined sizes for common use cases

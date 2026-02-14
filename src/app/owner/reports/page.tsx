@@ -10,6 +10,7 @@ export default function ReportsPage() {
   const [endDate, setEndDate] = useState(`${new Date().getFullYear()}-12-31`);
   const [customRange, setCustomRange] = useState(false);
   const [loading, setLoading] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [reportData, setReportData] = useState<any>(null);
 
   const getToken = () => sessionStorage.getItem('owner_token') || '';
@@ -194,6 +195,7 @@ export default function ReportsPage() {
                   </tr>
                 </thead>
                 <tbody>
+                  {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
                   {Object.entries(reportData.monthly).map(([month, vals]: [string, any]) => (
                     <tr key={month} className="border-b border-gray-100 hover:bg-gray-50">
                       <td className="py-3 px-4 text-sm text-gray-900">{new Date(month + '-01').toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</td>
@@ -219,6 +221,7 @@ export default function ReportsPage() {
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Revenue by Source</h3>
               {Object.keys(reportData.revenueBySource).length > 0 ? (
                 <div className="space-y-3">
+                  {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
                   {Object.entries(reportData.revenueBySource).sort((a: any, b: any) => b[1] - a[1]).map(([src, amt]: [string, any]) => (
                     <div key={src} className="flex justify-between items-center">
                       <span className="text-sm text-gray-700 capitalize">{src}</span>
@@ -234,6 +237,7 @@ export default function ReportsPage() {
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Expenses by Category</h3>
               {Object.keys(reportData.expenseByCategory).length > 0 ? (
                 <div className="space-y-3">
+                  {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
                   {Object.entries(reportData.expenseByCategory).sort((a: any, b: any) => b[1] - a[1]).map(([cat, amt]: [string, any]) => (
                     <div key={cat} className="flex justify-between items-center">
                       <span className="text-sm text-gray-700 capitalize">{cat}</span>

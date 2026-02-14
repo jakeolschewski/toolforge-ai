@@ -48,6 +48,7 @@ export default function ToolEditor({ tool, onSave, onCancel }: ToolEditorProps) 
     }
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleChange = (field: keyof Tool, value: any) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };

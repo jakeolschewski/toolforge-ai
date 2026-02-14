@@ -4,7 +4,7 @@
 import Anthropic from '@anthropic-ai/sdk';
 import { supabaseAdmin } from './supabase';
 import { slugify, calculateReadTime, stripHtml } from '@/utils/helpers';
-import type { Tool, BlogPost } from '@/types';
+import type { Tool } from '@/types';
 
 // Initialize Anthropic client
 const anthropic = new Anthropic({
@@ -30,6 +30,7 @@ export interface GeneratedContent {
   category: string;
   tags: string[];
   featuredImage?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   schemaMarkup: Record<string, any>;
 }
 
@@ -39,6 +40,7 @@ export interface GeneratedContent {
 export async function generateBlogPost(
   options: ContentGenerationOptions
 ): Promise<GeneratedContent> {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { tools, topic, keywords = [], category = 'AI Tools', maxLength = 2000 } = options;
 
   // Fetch related tools if not provided
@@ -385,6 +387,7 @@ function addInternalLinks(content: string, tools: Tool[]): string {
 function generateSchemaMarkup(
   content: Omit<GeneratedContent, 'schemaMarkup'>,
   tools: Tool[]
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 ): Record<string, any> {
   return {
     '@context': 'https://schema.org',
@@ -426,6 +429,7 @@ function generateSchemaMarkup(
 function generateComparisonSchema(
   content: Omit<GeneratedContent, 'schemaMarkup'>,
   tools: Tool[]
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 ): Record<string, any> {
   return {
     '@context': 'https://schema.org',
@@ -457,6 +461,7 @@ function generateComparisonSchema(
 function generateReviewSchema(
   content: Omit<GeneratedContent, 'schemaMarkup'>,
   tool: Tool
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 ): Record<string, any> {
   return {
     '@context': 'https://schema.org',

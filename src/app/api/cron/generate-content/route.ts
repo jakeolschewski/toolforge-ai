@@ -331,10 +331,6 @@ function addAffiliateLinks(content: string, tools: Tool[]): string {
     updatedContent = updatedContent.replace(websitePattern, affiliateMarkdown);
 
     // Also replace plain mentions of tool slug links
-    const slugPattern = new RegExp(
-      `\\[([^\\]]+)\\]\\(/tools/${tool.slug}\\)`,
-      'gi'
-    );
     // Keep internal links but add affiliate CTA nearby
     // Don't replace internal links with affiliate links
   }

@@ -165,6 +165,7 @@ export class AffiliateManager {
         return null;
       }
 
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       let selectedLink: any;
 
       switch (strategy) {
@@ -216,6 +217,7 @@ export class AffiliateManager {
   /**
    * Select link with highest commission rate
    */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private selectByHighestCommission(links: any[]): any {
     return links.reduce((best, current) => {
       const currentRate = current.commission_rate ||
@@ -229,6 +231,7 @@ export class AffiliateManager {
   /**
    * Select link based on geo-targeting
    */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private selectByGeo(links: any[], userGeo?: GeoLocation): any {
     if (!userGeo) {
       return links[0];
@@ -253,6 +256,7 @@ export class AffiliateManager {
   /**
    * Select link based on historical performance (EPC)
    */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private async selectByPerformance(toolId: string, links: any[]): Promise<any> {
     const performance = await this.getPerformanceMetrics(toolId);
 
@@ -276,6 +280,7 @@ export class AffiliateManager {
   /**
    * Round-robin link selection
    */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private selectRoundRobin(toolId: string, links: any[]): any {
     const sessionKey = `rr_${toolId}`;
     const currentIndex = parseInt(
@@ -378,6 +383,7 @@ export class AffiliateManager {
     toolId: string,
     program: AffiliateProgram,
     trackingId: string,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     metadata?: Record<string, any>
   ): Promise<void> {
     try {
@@ -460,7 +466,8 @@ export class AffiliateManager {
         return { healthy: 0, broken: 0, expired: 0 };
       }
 
-      let healthy = 0, broken = 0, expired = 0;
+      let healthy = 0, broken = 0;
+      const expired = 0;
 
       for (const link of links) {
         try {
@@ -485,7 +492,7 @@ export class AffiliateManager {
               })
               .eq('id', link.id);
           }
-        } catch (error) {
+        } catch {
           broken++;
         }
       }

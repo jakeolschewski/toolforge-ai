@@ -45,6 +45,7 @@ export default function VaultAnalyticsPage() {
 
   useEffect(() => {
     loadAnalytics();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [timeRange]);
 
   const loadAnalytics = async () => {
@@ -97,7 +98,7 @@ export default function VaultAnalyticsPage() {
         </div>
         <select
           value={timeRange}
-          onChange={(e) => setTimeRange(e.target.value as any)}
+          onChange={(e) => setTimeRange(e.target.value as typeof timeRange)}
           className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
         >
           <option value="7days">Last 7 Days</option>

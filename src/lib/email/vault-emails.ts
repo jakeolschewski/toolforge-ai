@@ -12,12 +12,14 @@ function getResend(): Resend {
       // Return a mock that logs instead of sending
       return {
         emails: {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           send: async (opts: any) => {
             console.log('[DEV] Vault email would be sent:', opts.subject, 'to:', opts.to);
             return { data: { id: 'dev-mock' }, error: null };
           },
         },
-      } as any;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } as any;
     }
     _resend = new Resend(process.env.RESEND_API_KEY);
   }
@@ -149,6 +151,7 @@ export async function sendPurchaseConfirmationEmail(
     });
 
     return { success: true };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     console.error('Error sending purchase confirmation:', error);
     return { success: false, error: error.message };
@@ -274,6 +277,7 @@ export async function sendMembershipWelcomeEmail(
     });
 
     return { success: true };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     console.error('Error sending membership welcome:', error);
     return { success: false, error: error.message };

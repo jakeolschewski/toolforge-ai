@@ -9,6 +9,7 @@ export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
 // Audit log function
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function logAudit(action: string, recordId: string, oldData: any, newData: any, request: NextRequest) {
   await supabaseAdmin.from('owner_audit_logs').insert({
     action,

@@ -3,18 +3,8 @@ import Google from 'next-auth/providers/google';
 import GitHub from 'next-auth/providers/github';
 import Resend from 'next-auth/providers/resend';
 import { SupabaseAdapter } from '@auth/supabase-adapter';
-import { createClient } from '@supabase/supabase-js';
 
-// Create Supabase client for auth adapter
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!,
-  {
-    auth: {
-      persistSession: false,
-    },
-  }
-);
+// Supabase client created via SupabaseAdapter below
 
 export const authConfig: NextAuthConfig = {
   adapter: SupabaseAdapter({
@@ -47,6 +37,7 @@ export const authConfig: NextAuthConfig = {
     async session({ session, user }) {
       if (session.user) {
         session.user.id = user.id;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         (session.user as any).role = (user as any).role || 'user';
       }
       return session;
@@ -54,13 +45,14 @@ export const authConfig: NextAuthConfig = {
     async jwt({ token, user }) {
       if (user) {
         token.id = user.id;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         (token as any).role = (user as any).role || 'user';
       }
       return token;
     },
   },
   events: {
-    async signIn({ user, account, profile, isNewUser }) {
+    async signIn({ user, account: _account, profile: _profile, isNewUser }) {
       // Track sign-in analytics
       if (isNewUser) {
         console.log(`New user registered: ${user.email}`);

@@ -269,6 +269,7 @@ export async function grantTemporaryAccess(
     }
 
     return { success: true, purchaseId: purchase.id };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     return { success: false, error: error.message };
   }
@@ -296,6 +297,7 @@ export async function revokeAccess(
     }
 
     return { success: true };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     return { success: false, error: error.message };
   }
@@ -308,7 +310,9 @@ export async function getUserVaultInventory(userId: string): Promise<{
   totalWorkflows: number;
   workflowsByTier: Record<string, number>;
   totalSpent: number;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   membership: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   recentPurchases: any[];
 }> {
   // Get all purchases

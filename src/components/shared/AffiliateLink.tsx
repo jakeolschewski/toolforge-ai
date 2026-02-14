@@ -18,6 +18,7 @@ interface AffiliateLinkProps {
   onClick?: () => void;
   variant?: 'button' | 'link' | 'card';
   size?: 'sm' | 'md' | 'lg';
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   trackingMetadata?: Record<string, any>;
 }
 
@@ -103,7 +104,7 @@ export default function AffiliateLink({
     fetchAffiliateLink();
   }, [toolId, strategy, userGeo, fallbackUrl]);
 
-  const handleClick = async (e: React.MouseEvent) => {
+  const handleClick = async (_e: React.MouseEvent) => {
     // Track the click
     if (program && trackingId) {
       try {

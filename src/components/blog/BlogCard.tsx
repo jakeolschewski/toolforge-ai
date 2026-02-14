@@ -24,6 +24,7 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
         <div className="relative h-full bg-white dark:bg-gray-900 rounded-xl overflow-hidden">
           {post.featured_image && (
             <div className="relative h-64 overflow-hidden">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={post.featured_image}
                 alt={post.title}
@@ -85,6 +86,7 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
     >
       {post.featured_image && (
         <div className="relative h-48 overflow-hidden">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={post.featured_image}
             alt={post.title}

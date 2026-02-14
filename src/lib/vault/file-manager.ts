@@ -6,7 +6,7 @@
 import { put, del, list } from '@vercel/blob';
 import { supabaseAdmin } from '@/lib/supabase';
 import archiver from 'archiver';
-import { Readable } from 'stream';
+
 
 export interface SecureDownloadOptions {
   expiresIn?: number; // seconds, default 3600 (1 hour)
@@ -48,6 +48,7 @@ export async function uploadWorkflowFile(
   return {
     url: blob.url,
     pathname: blob.pathname,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     size: (blob as any).size || 0,
     uploadedAt: new Date(),
   };
@@ -62,6 +63,7 @@ export async function generateSecureDownloadUrl(
   userId: string,
   options: SecureDownloadOptions = {}
 ): Promise<string> {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { expiresIn = 3600 } = options;
 
   // 1. Verify purchase and access rights
@@ -129,7 +131,7 @@ export async function generateSecureDownloadUrl(
  */
 export async function generateWorkflowZip(
   workflowId: string,
-  userId: string
+  _userId: string
 ): Promise<Buffer> {
   // Get workflow details
   const { data: workflow, error } = await supabaseAdmin
@@ -300,6 +302,7 @@ export async function checkWorkflowAccess(
 
   return {
     hasAccess: true,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     accessType: purchase.purchase_type as any,
     expiresAt: purchase.access_expires_at ? new Date(purchase.access_expires_at) : null,
     canDownload: !purchase.download_limit || downloadsRemaining! > 0,
@@ -314,8 +317,8 @@ export async function checkWorkflowAccess(
  */
 export async function trackDownload(
   workflowId: string,
-  userId: string | null,
-  fileType: string
+  _userId: string | null,
+  _fileType: string
 ): Promise<void> {
   // Increment workflow download count
   await supabaseAdmin.rpc('increment_workflow_downloads', {

@@ -24,6 +24,7 @@ export default function UserMenu({ user }: UserMenuProps) {
         className="flex items-center gap-2 p-2 rounded-lg hover:bg-gray-100 transition-colors"
       >
         {user.image ? (
+          /* eslint-disable-next-line @next/next/no-img-element */
           <img
             src={user.image}
             alt={user.name || 'User'}

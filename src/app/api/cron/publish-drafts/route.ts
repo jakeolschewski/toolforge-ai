@@ -289,7 +289,7 @@ async function getOldestPendingDate(): Promise<string | undefined> {
       .single();
 
     return data?.created_at;
-  } catch (error) {
+  } catch {
     return undefined;
   }
 }

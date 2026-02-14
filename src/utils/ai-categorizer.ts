@@ -108,15 +108,12 @@ const CATEGORY_DEFINITIONS: CategoryKeywords[] = [
 function calculateCategoryScore(text: string, categoryDef: CategoryKeywords): number {
   const lowerText = text.toLowerCase();
   let score = 0;
-  let matchCount = 0;
-
   for (const keyword of categoryDef.keywords) {
     // Check for exact word match (not substring)
     const regex = new RegExp(`\\b${keyword}\\b`, 'gi');
     const matches = lowerText.match(regex);
 
     if (matches) {
-      matchCount += matches.length;
       // Higher weight for exact matches in tool name vs description
       if (lowerText.includes(keyword)) {
         score += categoryDef.weight * matches.length;

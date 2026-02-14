@@ -2,7 +2,6 @@
 // Improves initial page load by code-splitting this component
 
 import dynamic from 'next/dynamic';
-import type { Tool } from '@/types';
 
 // Loading placeholder
 function ToolGridSkeleton() {

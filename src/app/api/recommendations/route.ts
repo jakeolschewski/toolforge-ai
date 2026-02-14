@@ -20,7 +20,8 @@ export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
     const toolId = searchParams.get('toolId');
-    const userId = searchParams.get('userId'); // Optional for logged-in users
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const _userId = searchParams.get('userId'); // Optional for logged-in users
     const limit = parseInt(searchParams.get('limit') || '6');
     const type = searchParams.get('type') || 'hybrid'; // hybrid, similar, personalized
 

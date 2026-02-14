@@ -130,7 +130,7 @@ export async function POST(request: NextRequest) {
     // Log the download
     await supabaseAdmin.from('vault_download_logs').insert({
       workflow_id,
-      user_id: user.id,
+      user_id: userId,
       download_token: downloadToken,
     });
 

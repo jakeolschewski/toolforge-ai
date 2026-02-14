@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useRouter, usePathname } from 'next/navigation';
 import Sidebar from '@/components/admin/Sidebar';
 import { Loader2 } from 'lucide-react';
 
@@ -10,8 +9,6 @@ export default function AdminLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const router = useRouter();
-  const pathname = usePathname();
   const [authenticated, setAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
   const [password, setPassword] = useState('');
@@ -49,7 +46,7 @@ export default function AdminLayout({
       } else {
         alert('Invalid password');
       }
-    } catch (error) {
+    } catch {
       alert('Authentication failed');
     }
   };

@@ -64,7 +64,8 @@ export async function GET(request: NextRequest) {
     if (error) throw error;
 
     // Aggregate by platform
-    const aggregated = data?.reduce((acc: any, row: any) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const aggregated = data?.reduce((acc: Record<string, number>, row: any) => {
       acc[row.platform] = (acc[row.platform] || 0) + 1;
       return acc;
     }, {});

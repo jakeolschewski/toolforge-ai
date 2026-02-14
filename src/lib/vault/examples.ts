@@ -142,6 +142,7 @@ export function exampleCreateWorkflow(): WorkflowInput {
     seo_description: 'Automate your sales pipeline with this comprehensive workflow. Includes CRM setup, email automation, and lead scoring.',
     seo_keywords: ['sales automation', 'crm workflow', 'pipeline automation', 'sales process'],
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     update_frequency: 'monthly' as any,
   };
 

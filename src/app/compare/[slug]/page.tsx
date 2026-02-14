@@ -3,7 +3,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
-import type { Comparison, Tool } from '@/types';
+import type { Tool } from '@/types';
 import ComparisonTable from '@/components/compare/ComparisonTable';
 import PricingComparison from '@/components/compare/PricingComparison';
 import Link from 'next/link';
@@ -67,6 +67,7 @@ export default async function ComparisonPage({ params }: ComparisonPageProps) {
     notFound();
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const comparisonData = comparison.comparison_data as any;
   const winner = tools.find((t) => t.id === comparison.winner_tool_id);
 
@@ -114,6 +115,7 @@ export default async function ComparisonPage({ params }: ComparisonPageProps) {
                   </div>
                 )}
                 {tool.logo_url && (
+                  /* eslint-disable-next-line @next/next/no-img-element */
                   <img
                     src={tool.logo_url}
                     alt={tool.name}
@@ -185,6 +187,7 @@ export default async function ComparisonPage({ params }: ComparisonPageProps) {
               Pros & Cons
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
               {Object.entries(comparisonData.pros_cons).map(([toolId, data]: [string, any]) => {
                 const tool = tools.find((t) => t.id === toolId);
                 if (!tool) return null;

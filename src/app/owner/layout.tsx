@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useRouter, usePathname } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { Loader2, DollarSign, TrendingUp, Receipt, BarChart3, LogOut, ArrowDownToLine, FileText, Settings, ExternalLink } from 'lucide-react';
 import { cn } from '@/utils/helpers';
@@ -55,7 +55,6 @@ export default function OwnerLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const router = useRouter();
   const pathname = usePathname();
   const [authenticated, setAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -96,7 +95,7 @@ export default function OwnerLayout({
       } else {
         setError(data.error || 'Invalid password');
       }
-    } catch (error) {
+    } catch {
       setError('Authentication failed. Please try again.');
     }
   };

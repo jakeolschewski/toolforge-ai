@@ -52,9 +52,11 @@ export const DynamicComparisonTable = dynamic(
   }
 );
 
-export default {
+const DynamicAdminComponents = {
   ToolEditor: DynamicToolEditor,
   ReviewEditor: DynamicReviewEditor,
   CSVImporter: DynamicCSVImporter,
   ComparisonTable: DynamicComparisonTable,
 };
+
+export default DynamicAdminComponents;

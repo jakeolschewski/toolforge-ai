@@ -2,7 +2,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabase';
-import type { ApiResponse, Review } from '@/types';
+import type { ApiResponse } from '@/types';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';

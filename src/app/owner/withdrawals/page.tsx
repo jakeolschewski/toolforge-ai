@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Plus, Building2, ArrowDownToLine, RefreshCw, CheckCircle, Clock, XCircle, Trash2 } from 'lucide-react';
+import { Building2, ArrowDownToLine, RefreshCw, CheckCircle, Clock, XCircle, Trash2 } from 'lucide-react';
 
 interface BankAccount {
   id: string;
@@ -81,6 +81,7 @@ export default function WithdrawalsPage() {
     }
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => { fetchData(); }, []);
 
   const handleAddBank = async (e: React.FormEvent) => {

@@ -68,17 +68,19 @@ export default function ShareButtons({
           rel="noopener noreferrer"
           className={`p-2 rounded-lg border border-gray-300 text-gray-600 transition-colors ${button.color}`}
           aria-label={`Share on ${button.name}`}
-          onClick={(e) => {
+          onClick={(_e) => {
             // Track share event
             try {
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
               if (typeof window !== 'undefined' && (window as any).gtag) {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 (window as any).gtag('event', 'share', {
                   method: button.name,
                   content_type: 'tool',
                   item_id: url,
                 });
               }
-            } catch (error) {
+            } catch {
               // Ignore analytics errors
             }
           }}

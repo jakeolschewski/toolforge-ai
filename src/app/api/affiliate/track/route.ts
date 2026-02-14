@@ -2,7 +2,7 @@
 // Tracks clicks, conversions, and calculates performance metrics
 
 import { NextRequest, NextResponse } from 'next/server';
-import { supabase, supabaseAdmin } from '@/lib/supabase';
+import { supabaseAdmin } from '@/lib/supabase';
 import { affiliateManager, type AffiliateProgram } from '@/lib/affiliate-manager';
 import type { ApiResponse } from '@/types';
 
@@ -12,7 +12,7 @@ interface TrackClickRequest {
   toolId: string;
   program: AffiliateProgram;
   trackingId: string;
-  metadata?: Record<string, any>;
+  metadata?: Record<string, unknown>;
 }
 
 interface TrackConversionRequest {
@@ -21,7 +21,7 @@ interface TrackConversionRequest {
   commissionRate?: number;
   orderId?: string;
   productId?: string;
-  metadata?: Record<string, any>;
+  metadata?: Record<string, unknown>;
 }
 
 // Track affiliate click

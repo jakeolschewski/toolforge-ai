@@ -1,7 +1,7 @@
 // Intelligent Internal Linking System
 // Auto-suggests related tools and creates contextual links for SEO
 
-import type { Tool, BlogPost, Category } from '@/types';
+import type { Tool } from '@/types';
 import { supabase } from './supabase';
 
 /**
@@ -95,7 +95,6 @@ export function autoLinkToolMentions(
 
       // Check if already inside a link tag
       const beforeMatch = content.substring(0, position);
-      const afterMatch = content.substring(position);
       const insideLink = (beforeMatch.match(/<a[^>]*>/g) || []).length >
                         (beforeMatch.match(/<\/a>/g) || []).length;
 
@@ -257,6 +256,7 @@ export async function findSimilarContent(params: {
   category?: string;
   excludeId?: string;
   limit?: number;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 }): Promise<any[]> {
   const limit = params.limit || 6;
 
@@ -304,6 +304,7 @@ export async function buildLinkNetwork(category: string): Promise<{
   supportingContent: Array<{ title: string; url: string }>;
 }> {
   // Get category page as pillar
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { data: categoryData } = await supabase
     .from('categories')
     .select('*')

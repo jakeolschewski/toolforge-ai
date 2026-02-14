@@ -114,6 +114,7 @@ export function generateTitleVariations(baseName: string, type: 'tool' | 'catego
  * Adds power words and calls to action
  */
 export function optimizeMetaDescription(description: string): string {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const powerWords = ['discover', 'explore', 'learn', 'compare', 'find', 'get'];
   const ctas = ['Read our review', 'Compare now', 'Explore features', 'Learn more', 'Get started'];
 

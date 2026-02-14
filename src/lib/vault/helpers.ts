@@ -20,7 +20,6 @@ import {
 import {
   WEDGE_CATEGORY_MAP,
   BUSINESS_SYSTEM_MAP,
-  PRICING_TIER_MAP,
   MEMBERSHIP_TIER_MAP,
   formatPrice,
   calculateDiscountPercentage,

@@ -1,6 +1,6 @@
 'use client';
 
-import { DollarSign, TrendingUp, TrendingDown, Clock, CheckCircle } from 'lucide-react';
+import { DollarSign, TrendingUp, TrendingDown, Clock } from 'lucide-react';
 import type { FinancialSummary } from '@/types';
 
 interface FinancialSummaryProps {

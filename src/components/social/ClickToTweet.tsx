@@ -26,7 +26,9 @@ export default function ClickToTweet({
     if (hashtags.length > 0) tweetUrl.searchParams.set('hashtags', hashtags.join(','));
 
     // Track click-to-tweet
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     if (typeof window !== 'undefined' && (window as any).gtag) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (window as any).gtag('event', 'click_to_tweet', {
         tweet_text: text,
       });

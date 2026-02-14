@@ -7,7 +7,7 @@ import type { ApiResponse } from '@/types';
 export const dynamic = 'force-dynamic';
 
 // GET - List all workflows (admin sees all statuses)
-export async function GET(request: NextRequest) {
+export async function GET(_request: NextRequest) {
   try {
     const { data: workflows, error } = await supabaseAdmin
       .from('vault_workflows')
@@ -42,7 +42,8 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
 
     // Remove fields that shouldn't be set on create
-    const { id, created_at, updated_at, ...workflowData } = body;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { id: _id, created_at: _created_at, updated_at: _updated_at, ...workflowData } = body;
 
     // Generate slug if not provided
     if (!workflowData.slug && workflowData.title) {

@@ -1,6 +1,6 @@
 'use client';
 
-import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts';
+import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
 import { DollarSign } from 'lucide-react';
 import type { RevenueByProgram } from '@/types';
 
@@ -13,6 +13,7 @@ const COLORS = ['#3b82f6', '#10b981', '#f59e0b', '#8b5cf6', '#ec4899', '#06b6d4'
 export default function RevenuePieChart({ data }: RevenuePieChartProps) {
   const totalRevenue = data.reduce((sum, item) => sum + item.revenue, 0);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const CustomTooltip = ({ active, payload }: any) => {
     if (active && payload && payload.length) {
       const item = payload[0].payload;
@@ -43,6 +44,7 @@ export default function RevenuePieChart({ data }: RevenuePieChartProps) {
     return null;
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const renderLabel = (entry: any) => {
     return `${entry.percentage.toFixed(0)}%`;
   };

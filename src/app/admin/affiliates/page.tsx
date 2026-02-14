@@ -58,6 +58,7 @@ export default function AffiliateManagementPage() {
       loadAffiliateLinks();
       loadPerformance();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedTool]);
 
   const loadTools = async () => {
@@ -132,7 +133,7 @@ export default function AffiliateManagementPage() {
       } else {
         setMessage({ type: 'error', text: data.error || 'Failed to add link' });
       }
-    } catch (error) {
+    } catch {
       setMessage({ type: 'error', text: 'Failed to add link' });
     }
   };
@@ -150,7 +151,7 @@ export default function AffiliateManagementPage() {
         setMessage({ type: 'success', text: 'Link deleted' });
         loadAffiliateLinks();
       }
-    } catch (error) {
+    } catch {
       setMessage({ type: 'error', text: 'Failed to delete link' });
     }
   };
@@ -167,7 +168,7 @@ export default function AffiliateManagementPage() {
       if (data.success) {
         loadAffiliateLinks();
       }
-    } catch (error) {
+    } catch {
       setMessage({ type: 'error', text: 'Failed to toggle status' });
     }
   };
@@ -202,7 +203,7 @@ export default function AffiliateManagementPage() {
         setBulkImportData('');
         loadAffiliateLinks();
       }
-    } catch (error) {
+    } catch {
       setMessage({ type: 'error', text: 'Failed to import links' });
     }
   };
@@ -233,7 +234,7 @@ export default function AffiliateManagementPage() {
         text: `Health check complete: ${health.healthy} healthy, ${health.broken} broken, ${health.expired} expired`,
       });
       loadAffiliateLinks();
-    } catch (error) {
+    } catch {
       setMessage({ type: 'error', text: 'Health check failed' });
     } finally {
       setLoading(false);
@@ -294,7 +295,7 @@ export default function AffiliateManagementPage() {
                   ].map(tab => (
                     <button
                       key={tab.id}
-                      onClick={() => setActiveTab(tab.id as any)}
+                      onClick={() => setActiveTab(tab.id as typeof activeTab)}
                       className={`py-4 px-2 border-b-2 font-medium text-sm ${
                         activeTab === tab.id
                           ? 'border-blue-600 text-blue-600'

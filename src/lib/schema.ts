@@ -1,7 +1,7 @@
 // Advanced Schema.org Generators for SEO
 // Comprehensive structured data for enhanced search visibility
 
-import type { Tool, Review, BlogPost, Comparison, Collection } from '@/types';
+import type { Tool, BlogPost, Comparison, Collection } from '@/types';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://toolforge.ai';
 const SITE_NAME = 'ToolForge AI';
@@ -11,6 +11,7 @@ const SITE_NAME = 'ToolForge AI';
  * More specific than Product schema for software
  */
 export function generateSoftwareApplicationSchema(tool: Tool) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const schema: any = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
@@ -305,6 +306,7 @@ export function generateRatingSchema(rating: number, reviewCount: number) {
 /**
  * Combine multiple schemas into a graph
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function generateSchemaGraph(schemas: any[]) {
   return {
     '@context': 'https://schema.org',

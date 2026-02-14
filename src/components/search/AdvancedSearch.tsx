@@ -6,8 +6,6 @@ import {
   Search,
   X,
   Filter,
-  TrendingUp,
-  Clock,
   Sparkles,
   ChevronRight,
   Loader2,
@@ -161,7 +159,7 @@ export default function AdvancedSearch({ isOpen, onClose }: AdvancedSearchProps)
           results_count: resultsCount,
         }),
       });
-    } catch (error) {
+    } catch {
       // Silent fail for analytics
     }
   };
@@ -178,7 +176,7 @@ export default function AdvancedSearch({ isOpen, onClose }: AdvancedSearchProps)
           clicked_tool_id: tool.id,
         }),
       });
-    } catch (error) {
+    } catch {
       // Silent fail
     }
 
@@ -454,6 +452,7 @@ export default function AdvancedSearch({ isOpen, onClose }: AdvancedSearchProps)
                   className="w-full flex items-start gap-4 p-4 hover:bg-gray-50 rounded-xl transition-colors text-left group"
                 >
                   {tool.logo_url ? (
+                    /* eslint-disable-next-line @next/next/no-img-element */
                     <img
                       src={tool.logo_url}
                       alt={tool.name}

@@ -9,6 +9,7 @@ interface TrafficSourcesProps {
 }
 
 export default function TrafficSources({ data }: TrafficSourcesProps) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const CustomTooltip = ({ active, payload }: any) => {
     if (active && payload && payload.length) {
       const item = payload[0].payload;

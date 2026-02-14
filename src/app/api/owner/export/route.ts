@@ -9,6 +9,7 @@ export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
 // Convert array of objects to CSV
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function convertToCSV(data: any[], headers: string[]): string {
   if (!data || data.length === 0) return '';
 
@@ -51,6 +52,7 @@ export async function GET(request: NextRequest) {
     const year = searchParams.get('year');
     const format = searchParams.get('format') || 'csv';
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let data: any[] = [];
     let headers: string[] = [];
     let filename = '';
@@ -251,6 +253,7 @@ async function exportProfitLoss(year?: string | null) {
   }
 
   // Sum revenue
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (revenueData || []).forEach((item: any) => {
     const month = item.conversion_date?.substring(5, 7);
     if (month && monthlyData[month]) {
@@ -259,6 +262,7 @@ async function exportProfitLoss(year?: string | null) {
   });
 
   // Sum expenses
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (expenseData || []).forEach((item: any) => {
     const month = item.expense_date?.substring(5, 7);
     if (month && monthlyData[month]) {

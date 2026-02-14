@@ -37,6 +37,7 @@ export default function PricingComparison({ tools, pricingData }: PricingCompari
             {/* Tool Logo & Name */}
             <div className="flex items-center gap-3 mb-4">
               {tool.logo_url && (
+                /* eslint-disable-next-line @next/next/no-img-element */
                 <img
                   src={tool.logo_url}
                   alt={tool.name}

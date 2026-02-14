@@ -43,6 +43,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let data: any;
     let filename: string;
 
@@ -98,6 +99,7 @@ export async function POST(request: NextRequest) {
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function exportTools(filters: any, fields: string[]): Promise<string> {
   let query = supabase.from('tools').select('*');
 
@@ -144,8 +146,9 @@ async function exportTools(filters: any, fields: string[]): Promise<string> {
   // Filter fields if specified
   let exportData = data || [];
   if (fields.length > 0) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     exportData = exportData.map((tool) => {
-      const filtered: any = {};
+      const filtered: Record<string, unknown> = {};
       fields.forEach((field) => {
         if (field in tool) {
           filtered[field] = tool[field as keyof Tool];
@@ -158,6 +161,7 @@ async function exportTools(filters: any, fields: string[]): Promise<string> {
   return exportToolsToCSV(exportData as Tool[]);
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function exportReviews(filters: any, fields: string[]): Promise<string> {
   let query = supabase
     .from('reviews')
@@ -194,6 +198,7 @@ async function exportReviews(filters: any, fields: string[]): Promise<string> {
   }
 
   // Add tool name to reviews
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const reviewsWithToolName = (data || []).map((review: any) => ({
     ...review,
     tool_name: review.tools?.name || 'Unknown',
@@ -202,8 +207,9 @@ async function exportReviews(filters: any, fields: string[]): Promise<string> {
   // Filter fields if specified
   let exportData = reviewsWithToolName;
   if (fields.length > 0) {
-    exportData = exportData.map((review) => {
-      const filtered: any = {};
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    exportData = exportData.map((review: any) => {
+      const filtered: Record<string, unknown> = {};
       fields.forEach((field) => {
         if (field in review) {
           filtered[field] = review[field];
@@ -216,6 +222,7 @@ async function exportReviews(filters: any, fields: string[]): Promise<string> {
   return exportReviewsToCSV(exportData as Review[]);
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function exportAnalytics(filters: any): Promise<string> {
   let query = supabase
     .from('tools')
@@ -256,6 +263,7 @@ async function exportAnalytics(filters: any): Promise<string> {
   return toCSV(analyticsData);
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function exportClicks(filters: any): Promise<string> {
   let query = supabase
     .from('click_logs')
@@ -287,6 +295,7 @@ async function exportClicks(filters: any): Promise<string> {
   }
 
   // Format data
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const clicksData = (data || []).map((click: any) => ({
     id: click.id,
     tool_name: click.tools?.name || 'Unknown',

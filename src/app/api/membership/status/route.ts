@@ -3,7 +3,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { supabaseAdmin } from '@/lib/supabase';
-import type { ApiResponse, VaultMembership } from '@/types';
+import type { ApiResponse } from '@/types';
 
 function getStripe() {
   return new Stripe(process.env.STRIPE_SECRET_KEY!);

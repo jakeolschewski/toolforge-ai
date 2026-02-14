@@ -2,7 +2,6 @@
 
 import { MetadataRoute } from 'next';
 import { supabase } from '@/lib/supabase';
-import type { Tool, Category } from '@/types';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://toolforge.ai';
 

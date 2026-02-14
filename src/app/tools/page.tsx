@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   keywords: ['ai tools directory', 'ai software', 'artificial intelligence tools', 'ai tool comparison'],
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function getAllTools(searchParams: any): Promise<{ tools: Tool[]; total: number }> {
   const page = parseInt(searchParams.page || '1');
   const limit = 24;

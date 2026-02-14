@@ -11,6 +11,7 @@ interface CronResult {
 
 export default function SiteControlsPage() {
   const [cronResults, setCronResults] = useState<Record<string, CronResult>>({});
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [siteStats, setSiteStats] = useState<any>(null);
   const [loadingStats, setLoadingStats] = useState(false);
 
@@ -45,7 +46,7 @@ export default function SiteControlsPage() {
           message: data.message || data.data?.message || data.error || 'Completed',
         },
       }));
-    } catch (err) {
+    } catch {
       setCronResults(prev => ({
         ...prev,
         [id]: { name: id, status: 'error', message: 'Request failed' },

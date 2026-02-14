@@ -1,7 +1,7 @@
 // Content Generator - Template-based with optional AI enhancement
 
 import type { Tool, Review } from '@/types';
-import { calculateReadTime, slugify } from '@/utils/helpers';
+import { calculateReadTime } from '@/utils/helpers';
 
 /**
  * Generate review content using templates

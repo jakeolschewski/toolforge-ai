@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /**
  * Test file to verify all vault imports work correctly
  * This file should compile without errors in a Next.js environment

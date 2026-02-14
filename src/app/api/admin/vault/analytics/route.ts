@@ -74,6 +74,7 @@ export async function GET(request: NextRequest) {
     const revenueMap = new Map<string, { workflow_id: string; workflow_title: string; revenue: number; purchases: number; downloads: number }>();
     for (const p of purchases) {
       const wfId = p.workflow_id;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const wfTitle = (p as any).vault_workflows?.title || 'Unknown';
       const existing = revenueMap.get(wfId) || { workflow_id: wfId, workflow_title: wfTitle, revenue: 0, purchases: 0, downloads: 0 };
       existing.revenue += p.amount || 0;
@@ -125,10 +126,12 @@ export async function GET(request: NextRequest) {
     const avgCustomerLTV = totalCustomers > 0 ? totalRevenue / totalCustomers : 0;
 
     // Conversion metrics (simplified)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const totalWorkflowViews = workflows.reduce((sum, w) => sum + ((w as any).view_count || 0), 0);
     const totalWorkflowDownloads = workflows.reduce((sum, w) => sum + (w.downloads || 0), 0);
     const viewsToDownloads = totalWorkflowViews > 0 ? totalWorkflowDownloads / totalWorkflowViews : 0;
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const freeWorkflowCount = workflows.filter((w: any) => w.pricing_type === 'free').length;
     const premiumPurchaserCount = totalCustomers;
     const freeToPremium = freeWorkflowCount > 0 && totalCustomers > 0

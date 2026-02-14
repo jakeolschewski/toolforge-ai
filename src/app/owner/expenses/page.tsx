@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Plus, Search, RefreshCw, Download, Trash2, Edit2 } from 'lucide-react';
+import { Plus, Search, RefreshCw, Trash2, Edit2 } from 'lucide-react';
 import ExpenseForm from '@/components/owner/ExpenseForm';
 import type { Expense, ExpenseCategory } from '@/types';
 
@@ -52,6 +52,7 @@ export default function ExpensesPage() {
 
   useEffect(() => {
     fetchExpenses();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [yearFilter]);
 
   useEffect(() => {

@@ -8,7 +8,6 @@ import {
   FileText,
   Star,
   BarChart3,
-  Settings,
   LogOut,
   Upload,
   Download,

@@ -55,7 +55,7 @@ export interface WEDGEWorkflow {
  */
 export function generateWEDGEPrompt(
   workflow: WEDGEWorkflow,
-  promptVariant: number = 1
+  _promptVariant: number = 1
 ): string {
   const disclaimer = `
 ⚠️ EDUCATIONAL USE ONLY - NOT PROFESSIONAL ADVICE
@@ -113,6 +113,7 @@ ${disclaimer}
 /**
  * Validate a workflow against W.E.D.G.E framework
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function validateWEDGECompliance(workflow: any): {
   isCompliant: boolean;
   issues: string[];

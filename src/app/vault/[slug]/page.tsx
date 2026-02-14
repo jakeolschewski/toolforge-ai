@@ -3,10 +3,9 @@ import type { Metadata } from 'next';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import DownloadButton from '@/components/vault/DownloadButton';
-import AccessBadge, { PricingTypeBadge } from '@/components/vault/AccessBadge';
+import { PricingTypeBadge } from '@/components/vault/AccessBadge';
 import WorkflowCard from '@/components/vault/WorkflowCard';
 import Badge from '@/components/ui/Badge';
-import Button from '@/components/ui/Button';
 import { supabase } from '@/lib/supabase';
 import { formatPrice } from '@/lib/vault/constants';
 import type { VaultWorkflow } from '@/types';
@@ -114,6 +113,7 @@ export default async function WorkflowDetailPage({ params }: PageProps) {
 
               {/* Badges */}
               <div className="flex items-center gap-3 flex-wrap mb-6">
+                {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
                 <PricingTypeBadge type={pricingType as any} price={workflow.price} />
                 {workflow.difficulty_level && (
                   <Badge variant={
@@ -243,6 +243,7 @@ export default async function WorkflowDetailPage({ params }: PageProps) {
               {/* Preview Image */}
               {workflow.thumbnail_url && (
                 <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={workflow.thumbnail_url}
                     alt={workflow.title}

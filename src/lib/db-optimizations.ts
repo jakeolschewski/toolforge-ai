@@ -3,7 +3,7 @@
 
 import { supabase, supabaseAdmin } from './supabase';
 import { cachedQuery, CacheKeys, CacheTTL } from './cache';
-import type { Tool, Review, Category } from '@/types';
+import type { Tool, Review } from '@/types';
 
 // Optimized queries with caching and pagination
 
@@ -189,6 +189,7 @@ export async function incrementToolViews(toolId: string) {
   // Fire and forget - don't block the request
   supabaseAdmin
     .rpc('increment_tool_views', { tool_id: toolId })
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     .then(({ error }: any) => {
       if (error) console.error('Failed to increment views:', error);
     });

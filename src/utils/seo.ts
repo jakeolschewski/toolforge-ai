@@ -127,7 +127,7 @@ export function generateOrganizationSchema() {
  * Generate Schema.org structured data for Product (AI Tool)
  */
 export function generateProductSchema(tool: Tool) {
-  const schema: any = {
+  const schema: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: tool.name,
@@ -413,10 +413,6 @@ export function generateShareUrl(platform: 'twitter' | 'linkedin' | 'facebook', 
 }): string {
   const encodedUrl = encodeURIComponent(params.url);
   const encodedTitle = encodeURIComponent(params.title);
-  const encodedDescription = params.description
-    ? encodeURIComponent(params.description)
-    : '';
-
   switch (platform) {
     case 'twitter':
       return `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}&via=toolforgeai`;

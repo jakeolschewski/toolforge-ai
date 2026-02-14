@@ -232,6 +232,7 @@ export default function VaultWorkflowsPage() {
                 <div className="flex items-start justify-between">
                   <div className="flex items-start gap-4 flex-1">
                     {workflow.thumbnail_url && (
+                      /* eslint-disable-next-line @next/next/no-img-element */
                       <img
                         src={workflow.thumbnail_url}
                         alt={workflow.title}

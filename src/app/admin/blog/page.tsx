@@ -17,6 +17,7 @@ export default function AdminBlogPage() {
 
   useEffect(() => {
     fetchPosts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [statusFilter]);
 
   const fetchPosts = async () => {

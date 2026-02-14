@@ -5,7 +5,8 @@ import { supabase } from '@/lib/supabase';
 import type { BlogPost, BlogCategory } from '@/types';
 import BlogGrid from '@/components/blog/BlogGrid';
 import Link from 'next/link';
-import { Search } from 'lucide-react';
+
+
 
 export const metadata: Metadata = {
   title: 'AI Blog - Latest News, Guides & Tutorials | ToolForge AI',

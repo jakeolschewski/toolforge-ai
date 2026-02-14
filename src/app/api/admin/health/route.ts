@@ -4,7 +4,7 @@ import { supabaseAdmin } from '@/lib/supabase';
 // Middleware already handles admin auth for /api/admin/* routes
 const supabase = supabaseAdmin;
 
-export async function GET(request: NextRequest) {
+export async function GET(_request: NextRequest) {
   try {
 
     const healthData = {
@@ -33,7 +33,7 @@ async function checkDatabase() {
     const startTime = Date.now();
 
     // Test database connection with a simple query
-    const { data, error } = await supabase
+    const { error } = await supabase
       .from('tools')
       .select('id')
       .limit(1);
@@ -80,7 +80,7 @@ async function checkAPI() {
     const startTime = Date.now();
 
     // Test API by fetching a single tool
-    const { data, error } = await supabase
+    const { error } = await supabase
       .from('tools')
       .select('id, name')
       .eq('status', 'published')

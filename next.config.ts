@@ -3,16 +3,6 @@ import type { NextConfig } from 'next';
 const nextConfig: NextConfig = {
   reactStrictMode: true,
 
-  // Disable ESLint during builds (warnings don't block deployment)
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-
-  // Disable TypeScript errors during builds
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-
   // Performance optimizations
   poweredByHeader: false,
   compress: true,

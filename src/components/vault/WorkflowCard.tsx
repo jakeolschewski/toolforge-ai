@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Download, Heart, Star, Clock, TrendingUp, Lock } from 'lucide-react';
+import { Download, Heart, Star, Clock, TrendingUp } from 'lucide-react';
 import type { VaultWorkflow } from '@/types';
 import { Card, CardContent, CardFooter } from '@/components/ui/Card';
 import Badge from '@/components/ui/Badge';
@@ -18,6 +18,7 @@ export interface WorkflowCardProps {
 export default function WorkflowCard({
   workflow,
   featured = false,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   showPurchaseButton = false,
   isPurchased = false,
   isFavorited = false,
@@ -52,6 +53,7 @@ export default function WorkflowCard({
       {/* Thumbnail */}
       {workflow.thumbnail_url && (
         <div className="relative w-full h-48 overflow-hidden rounded-t-lg">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={workflow.thumbnail_url}
             alt={workflow.title}
@@ -106,6 +108,7 @@ export default function WorkflowCard({
           {getPricingBadge()}
           {workflow.difficulty_level && (
             <Badge
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
               variant={getDifficultyColor(workflow.difficulty_level) as any}
               size="sm"
             >
@@ -170,6 +173,7 @@ export default function WorkflowCard({
           {/* Author */}
           <div className="flex items-center gap-2">
             {workflow.author_avatar && (
+              /* eslint-disable-next-line @next/next/no-img-element */
               <img
                 src={workflow.author_avatar}
                 alt={workflow.author}

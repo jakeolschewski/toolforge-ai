@@ -319,7 +319,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Create new subscriber
-    const { data: subscriber, error: insertError } = await supabaseAdmin
+    const { error: insertError } = await supabaseAdmin
       .from('email_subscribers')
       .insert({
         email: normalizedEmail,

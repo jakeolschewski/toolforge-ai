@@ -51,7 +51,9 @@ export function generateTwitterTags(data: ShareData) {
 export function trackShare(platform: string, url: string) {
   if (typeof window !== 'undefined') {
     // Google Analytics
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     if ((window as any).gtag) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (window as any).gtag('event', 'share', {
         method: platform,
         content_type: 'tool',

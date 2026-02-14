@@ -48,6 +48,7 @@ export default function ReviewEditor({ review, onSave, onCancel }: ReviewEditorP
     }
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleChange = (field: keyof Review, value: any) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };

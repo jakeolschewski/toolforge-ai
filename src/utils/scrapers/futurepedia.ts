@@ -5,7 +5,7 @@ import axios from 'axios';
 import * as cheerio from 'cheerio';
 import Parser from 'rss-parser';
 import type { ScraperResult } from '@/types';
-import { delay, extractDomain, retryWithBackoff, sanitizeText } from '@/utils/helpers';
+import { delay, retryWithBackoff, sanitizeText } from '@/utils/helpers';
 import { checkRobotsTxt, getCrawlDelay } from '@/utils/robots';
 
 const rssParser = new Parser({
@@ -198,7 +198,7 @@ function extractMetadataFromContent(content: string): {
   pricing?: 'free' | 'freemium' | 'paid' | 'subscription';
   tags?: string[];
 } {
-  const result: { pricing?: any; tags?: string[] } = {};
+  const result: { pricing?: 'free' | 'freemium' | 'paid' | 'subscription'; tags?: string[] } = {};
 
   const lower = content.toLowerCase();
 

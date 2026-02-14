@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { CheckCircle, XCircle, Eye, Loader2, ExternalLink } from 'lucide-react';
+import { CheckCircle, XCircle, Loader2, ExternalLink } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { Card, CardContent } from '@/components/ui/Card';
 import Button from '@/components/ui/Button';

@@ -6,7 +6,7 @@ import Footer from '@/components/layout/Footer';
 import WorkflowCard from '@/components/vault/WorkflowCard';
 import { supabase } from '@/lib/supabase';
 import { auth } from '@/lib/auth';
-import type { VaultWorkflow, VaultPurchase } from '@/types';
+import type { VaultWorkflow } from '@/types';
 import { Package, Download, Heart, Sparkles, Lock } from 'lucide-react';
 import Link from 'next/link';
 

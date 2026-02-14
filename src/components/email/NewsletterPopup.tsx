@@ -87,7 +87,9 @@ export default function NewsletterPopup({
         setCookie('newsletter_subscribed', 'true', 365); // 1 year
 
         // Track conversion
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         if (typeof window !== 'undefined' && (window as any).gtag) {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           (window as any).gtag('event', 'newsletter_subscribe', {
             method: 'popup',
             variant,

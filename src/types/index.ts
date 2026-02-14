@@ -97,6 +97,7 @@ export interface User {
 }
 
 // API Response Types
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export interface ApiResponse<T = any> {
   success: boolean;
   data?: T;
@@ -192,7 +193,7 @@ export interface RevenueLog {
   conversions: number;
   conversion_date?: string;
   payout_id?: string;
-  metadata?: Record<string, any>;
+  metadata?: Record<string, unknown>;
   notes?: string;
   created_at: string;
   updated_at: string;
@@ -294,6 +295,7 @@ export interface ComparisonData {
   pricing?: ComparisonPricing[];
   pros_cons?: Record<string, { pros: string[]; cons: string[] }>;
   verdict?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;
 }
 
@@ -412,7 +414,7 @@ export interface Notification {
   title: string;
   message: string;
   severity: 'info' | 'success' | 'warning' | 'error';
-  data?: any;
+  data?: Record<string, unknown>;
   is_read: boolean;
   created_at: string;
 }
