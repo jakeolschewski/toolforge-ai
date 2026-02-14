@@ -156,14 +156,6 @@ export default async function ToolDetailPage({ params }: PageProps) {
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 className="inline-flex items-center px-8 py-4 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors font-semibold text-lg"
-                onClick={() => {
-                  // Track click
-                  fetch('/api/track/click', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ toolId: tool.id }),
-                  });
-                }}
               >
                 Visit {tool.name}
                 <ExternalLink className="ml-2 w-5 h-5" />
